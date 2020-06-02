@@ -31,6 +31,6 @@ jobs:
     - name: deploy generated pages
       uses: benmatselby/hugo-deploy-gh-pages@master
       with:
-        TOKEN: ${{ secrets.HUGO_DEPLOY_TOKENN }}
-        TARGET_REPRO: smart-swimmingpool/smart-swimmingpool.github.io
+        github_token: ${{ secrets.HUGO_DEPLOY_TOKENN }}
+        target_repo: smart-swimmingpool/smart-swimmingpool.github.io
      
