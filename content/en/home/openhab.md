@@ -21,4 +21,4 @@ subtitle = "Smooth Integration at openHAB"
 
 
 
-[OpenHAB Configuration](/docs/openhab-config/) to add the Controller to your openHAB smart home environment
+[OpenHAB Configuration](./docs/openhab-config/) to add the Controller to your openHAB smart home environment

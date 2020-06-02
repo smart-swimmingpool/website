@@ -15,7 +15,7 @@ subtitle = "The smart brain"
   columns = "2"
 +++
 
-[Pool Controller](/docs/pool-controller/) containing central logic to control your swimming pool.
+[Pool Controller](./docs/pool-controller/) containing central logic to control your swimming pool.
 
 Control your swimming pool with self-built IoT modules. The cost of the required electronic components are less than 100 Euros.
 
