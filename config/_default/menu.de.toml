@@ -5,15 +5,9 @@
 
 
 [[main]]
-  name = "Docs"
+  name = "Dokumentation"
   url = "/docs"
   weight = 20
-
-
-[[main]]
-  name = "Publications"
-  url = "#featured"
-  weight = 40
 
 [[main]]
   name = "Verhaltenskodex"

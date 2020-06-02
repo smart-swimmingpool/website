@@ -1,11 +1,10 @@
 ---
 title: Dokumente
-
-# View.
-#   1 = List
-#   2 = Compact
-#   3 = Card
-view: 2
+layout: docs
+subtitle: Liste von Dokumenten für den Smart Swimming Pool
+share: false
+commentable: false
+editable: false
 
 # Optional header image (relative to `static/img/` folder).
 header:
@@ -17,6 +16,8 @@ header:
 # - weight: Position of link in menu.
 menu:
   docs:
-    name: Documentation
+    name: Dokumente
     weight: 1
+
 ---
+
