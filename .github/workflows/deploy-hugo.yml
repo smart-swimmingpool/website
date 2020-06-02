@@ -32,8 +32,8 @@ jobs:
       run: |
         # Get last commit message
         readonly local last_commit_log=$(git log -1 --pretty=format:"%s")
-        echo "last commit log: $last_commit_log"
         cd public
+        git rm --cached . -f 
         git add .
         git commit -m "$last_commit_log"
         git push origin master
