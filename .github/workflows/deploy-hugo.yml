@@ -27,17 +27,10 @@ jobs:
    #     done
    #     git submodule sync
    #     git submodule update --init --recursive 
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: 'latest'
-        extended: true 
-    - name: build Hugo pages
-      run: hugo --minify      
+   
     - name: deploy generated pages
-      uses: ad-m/github-push-action@master
+      uses: benmatselby/hugo-deploy-gh-pages@master
       with:
-        github_token: ${{ secrets.HUGO_DEPLOY_TOKENN }}
-        # repository: smart-swimmingpool/smart-swimmingpool.github.io
-        directory: public
+        TOKEN: ${{ secrets.HUGO_DEPLOY_TOKENN }}
+        TARGET_REPRO: smart-swimmingpool/smart-swimmingpool.github.io
      
