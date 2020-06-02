@@ -28,3 +28,13 @@ jobs:
     - name: build Hugo pages
       run: |
         hugo
+    - name: deploy generated pages
+      run: |
+        # Get last commit message
+        readonly local last_commit_log=$(git log -1 --pretty=format:"%s")
+        echo "last commit log: $last_commit_log"
+        cd public
+        git add .
+        git commit -m "$last_commit_log"
+        git push origin master
+        cd ..
