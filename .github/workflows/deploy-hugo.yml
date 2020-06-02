@@ -15,10 +15,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@va
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
         python-version: 3.8
     - name: Install dependencies
       run: |
@@ -30,12 +32,15 @@ jobs:
       run: |
         hugo
     - name: deploy generated pages
-      run: |
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+      # run: |
         # Get last commit message
-        readonly local last_commit_log=$(git log -1 --pretty=format:"%s")
-        cd public
+        # readonly local last_commit_log=$(git log -1 --pretty=format:"%s")
+        # cd public
         # git pull
         # git rm --cached . -f 
-        git add .
-        git commit -m "$last_commit_log"
-        git push origin master
+        # git add .
+        # git commit -m "$last_commit_log"
+        # git push origin master
