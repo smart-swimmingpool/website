@@ -16,3 +16,5 @@ subtitle = "Monitor the Temperature"
 +++
 
 [Pool Monitor](/docs/pool-monitor) to show current temperature of the swimming pool.
+
+{{< figure library="true" src="pool-monitor-prototype.jpg" title="Prototype of Pool Monitor" lightbox="true" >}}
