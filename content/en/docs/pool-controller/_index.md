@@ -61,7 +61,6 @@ Manage your swmming pool on the smart way to enjoy it in confortable and cheap (
 - [Hardware Guide](https://smart-swimmingpool.github.io/pool-controller/hardware-guide.html)
 - [Users Guide](https://smart-swimmingpool.github.io/pool-controller/users-guide.html)
 
-
 [![works with MQTT Homie](https://homieiot.github.io/img/works-with-homie.svg "works with MQTT Homie")](https://homieiot.github.io/)
 
 {{< figure library="true" src="pool-controller_breadboard.png" title="Breadboard Circuid of Pool Controller" lightbox="true" >}}
