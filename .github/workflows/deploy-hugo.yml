@@ -1,34 +1,33 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
-
-name: Hugo - Deploy Organisation Pages
-
-on:
-  push:
-    branches: [ master ]
-
+name: CI
+on: push
 jobs:
-  build:
-    name: Deploy
-    runs-on: ubuntu-latest
-
+  deploy:
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v2
-      with:
-        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-        submodules: true  # Fetch Hugo themes (true OR recursive)
-        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-   # - name: Checkout submodules using a PAT
-   #   run: |
-   #     git config --file .gitmodules --get-regexp url | while read url; do
-   #       git config --file=.gitmodules $(echo "$url" | sed -E "s/git@github.com:|https:\/\/github.com\//https:\/\/${{ secrets.CI_PAT }}:${{ secrets.CI_PAT }}@github.com\//")
-   #     done
-   #     git submodule sync
-   #     git submodule update --init --recursive 
-   
-    - name: deploy generated pages
-      uses: benmatselby/hugo-deploy-gh-pages@master
-      env:
-        TOKEN:  ${{ secrets.HUGO_DEPLOY_TOKENN }}
-        TARGET_REPO: smart-swimmingpool/smart-swimmingpool.github.io
-        CNAME: smart-swimmingpool.github.io    
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: Update theme
+        # (Optional)If you have the theme added as submodule, you can pull it and use the most updated version
+        run: git submodule update --init --recursive
+
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.64.0"
+
+      - name: Build
+        # remove --minify tag if you do not need it
+        # docs: https://gohugo.io/hugo-pipes/minification/
+        run: hugo --minify
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.HUGO_DEPLOY_TOKEN }}
+          external_repository: smart-swimmingpool.github.io
+          publish_dir: ./public
+          #   keep_files: true
+          user_name: stritti
+          user_email: stritti@users.noreply.github.com
+          publish_branch: master
+        #   cname: example.com
