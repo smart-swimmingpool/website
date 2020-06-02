@@ -31,17 +31,10 @@ jobs:
         git submodule update --init --recursive
     - name: build Hugo pages
       run: |
-        hugo
-        # Get last commit message
-        readonly local last_commit_log=$(git log -1 --pretty=format:"%s")
-        cd public
-        # git pull
-        # git rm --cached . -f 
-        git add .
-        git commit -m "$last_commit_log"
-        # git push origin master       
+        hugo      
     - name: deploy generated pages
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        repository: https://github.com/smart-swimmingpool/smart-swimmingpool.github.io.git
      
