@@ -23,7 +23,9 @@ menu:
 
 **🏊 Smart Swimming Pool: Pool automation for Smarter Control of your Swimming Pool**
 
-This project is splitted in several modular modules on:
+## Overview
+
+This project is splitted in several modules:
 
 - [Pool Controller](../pool-controller/)
 - [OpenHab Configuration](../openhab-config)

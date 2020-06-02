@@ -20,6 +20,14 @@ menu:
     name: OpenHAB Config
     weight: 20
 ---
+
+<span style="text-shadow: none;">
+<a class="github-button" href="https://github.com/smart-swimmingpool/openhab-config/subscription" data-size="large" data-show-count="true" aria-label="Watch smart-swimmingpool/openhab-config on GitHub">Watch</a>
+<a class="github-button" href="https://github.com/smart-swimmingpool/openhab-config" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script>
+
+[GitHub Project](https://smart-swimmingpool.github.io/openhab-config/)
+</span>
+
 Configuration example to use the Smart Swimming Pool system on openHAB.
 
 ## Precondition

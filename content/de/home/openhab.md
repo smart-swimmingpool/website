@@ -19,10 +19,4 @@ title = "openHAB Configuration"
   columns = "2"
 +++
 
-
-<span style="text-shadow: none;">
-<a class="github-button" href="https://github.com/smart-swimmingpool/openhab-config/subscription" data-size="large" data-show-count="true" aria-label="Watch smart-swimmingpool/openhab-config on GitHub">Watch</a>
-<a class="github-button" href="https://github.com/smart-swimmingpool/openhab-config" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script>
-</span>
-
-[OpenHAB Configuration](https://smart-swimmingpool.github.io/openhab-config/) to add the Controller to your openHAB smart home environment
+[OpenHAB Configuration](/docs/openhab-config/) to add the Controller to your openHAB smart home environment
