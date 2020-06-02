@@ -25,7 +25,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.HUGO_DEPLOY_TOKEN }}
-          external_repository: smart-swimmingpool.github.io
+          external_repository: smart-swimmingpool/smart-swimmingpool.github.io
           publish_dir: ./public
           #   keep_files: true
           user_name: stritti
