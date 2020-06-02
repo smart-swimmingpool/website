@@ -37,7 +37,7 @@ jobs:
     - name: deploy generated pages
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.HUGO_DEPLOY_TOKENN }}
         # repository: smart-swimmingpool/smart-swimmingpool.github.io
         directory: public
      
