@@ -8,9 +8,13 @@ specifications:
    - name: Pool Controller
      repo: https://github.com/smart-swimmingpool/pool-controller.git
      filepattern: '*.md'
-     keepsections: ['Topology','Convention','Arrays','Broadcast Channel']
+     keepsections: ['Main Features','Planned Features','Guides','Users Guide', 'Hardware Guide', 'Software Guilde']
    - name: openHAB Configuration
      repo: https://github.com/smart-swimmingpool/openhab-config.git
+     filepattern: '*.md'
+     keepsections: ['Features','OpenHAB BasicUI Sitemap','Mobile App (openHAB iOS)']
+     disabled: false
+   - name: Pool Monitor
+     repo: https://github.com/smart-swimmingpool/monitor.git
      filepattern: 'README.md'
      disabled: true
-

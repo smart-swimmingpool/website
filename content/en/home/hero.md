@@ -51,8 +51,6 @@ title = "🏊 Smart Swimming Pool"
 #  label = '<a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>'
 +++
 
-**Automate your Swimming Pool in Smart Way.**
+## Automate your Swimming Pool in smart Way
 
 An Open Source Project to manage your Swimming Pool using Home Automation.
-
-<span style="text-shadow: none;"><a class="github-button" href="https://github.com/smart-swimmingpool/pool-controller" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script></span>

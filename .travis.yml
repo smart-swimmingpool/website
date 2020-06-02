@@ -16,7 +16,7 @@ branches:
     - master
 deploy:
   provider: pages
-  repo: homieiot/homieiot.github.io
+  repo: smart-swimmingpool/smart-swimmingpool.github.io
   target-branch: master
   skip-cleanup: true
   github-token: $GITHUB_TOKEN

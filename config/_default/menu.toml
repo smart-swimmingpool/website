@@ -5,25 +5,14 @@
 
 
 [[main]]
-  name = "Docs"
+  name = "Documents"
   url = "/docs"
   weight = 20
 
 [[main]]
-  name = "Posts"
-  url = "#posts"
-  weight = 20
-
-
-[[main]]
-  name = "Publications"
-  url = "#featured"
-  weight = 40
-
-[[main]]
   name = "Code of Conduct"
   url = "code-of-conduct/"
-  weight = 60
+  weight = 40
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
