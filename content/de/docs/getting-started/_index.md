@@ -25,9 +25,14 @@ menu:
 
 Dieses Projekt ist in verschiedene Module aufgeteilt:
 
-- [Pool Controller](../pool-controller/)
-- [OpenHab Konfiguration](../openhab-config)
-- [Pool Monitor](../pool-monitor)
+- [Pool Controller]({{< ref "../pool-controller/_index.md" >}})
+- [OpenHab Configuration]({{< ref "../openhab-config/_index.md" >}})
+- [Pool Monitor]({{< ref "../pool-monitor/_index.md" >}})
 
 Zudem gibt es ein [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki).
 
+## Publikationen
+
+- [AZ Delivery: Projekt Smart Swimmingpool](https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung), _Oktober 2018_
+
+  Vierteilige Blog-Reihe zur Version 1 des Smart Pool Controllers.
