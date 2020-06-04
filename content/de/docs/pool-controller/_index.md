@@ -22,6 +22,14 @@ menu:
 ---
 **🏊 The Homie 3.0 compatible Smart Swimmingpool Controller 🎛️**
 
+
+<span style="text-shadow: none;">
+<a class="github-button" href="https://github.com/smart-swimmingpool/pool-controller/subscription" data-size="large" data-show-count="true" aria-label="Watch smart-swimmingpool/pool-controller on GitHub">Watch</a>
+<a class="github-button" href="https://github.com/smart-swimmingpool/pool-controller" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script>
+
+[GitHub Sources](https://github.com/smart-swimmingpool/pool-controller)
+</span>
+
 Manage your swmming pool on the smart way to enjoy it in confortable and cheap (less than 100€) way.
 
 ## Main Features
@@ -38,7 +46,8 @@ Manage your swmming pool on the smart way to enjoy it in confortable and cheap (
 ## Planned Features
 
 - [ ] Configurable NTP Server (currently hardcoded: europe.pool.ntp.org)
-- [ ] be more smart: self learning for improved pool pump timed circulation for cleaning and heating
+- [ ] be more smart: self learning for improved pump timed circulation
+      for cleaning and heating
 - [ ] two separate circulation cycles
 - [ ] store configuration changes persistent on conroller
 - [ ] temperature based cleaning circulation time (colder == shorter, hotter == longer)

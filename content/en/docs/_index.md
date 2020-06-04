@@ -1,10 +1,14 @@
 ---
 title: Documents
-layout: docs
+# layout: docs
 subtitle: List of documents for Smart Swimming Pool
+layout: docs  # Do not modify.
+authors: [stritti]
 share: false
 commentable: false
 editable: false
+categories: [docs]
+toc: true
 
 # Optional header image (relative to `static/img/` folder).
 header:
@@ -19,4 +23,9 @@ menu:
     name: Documents
     weight: 1
 
+# View.
+#   1 = List
+#   2 = Compact
+#   3 = Card
+view: 2
 ---

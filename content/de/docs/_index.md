@@ -20,4 +20,4 @@ menu:
     weight: 1
 
 ---
-
+https://github.com/smart-swimmingpool/monitor

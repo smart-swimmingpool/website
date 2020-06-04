@@ -27,7 +27,7 @@ menu:
 <a class="github-button" href="https://github.com/smart-swimmingpool/pool-controller/subscription" data-size="large" data-show-count="true" aria-label="Watch smart-swimmingpool/pool-controller on GitHub">Watch</a>
 <a class="github-button" href="https://github.com/smart-swimmingpool/pool-controller" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script>
 
-[GitHub Sources](https://smart-swimmingpool.github.io/pool-controller/)
+[GitHub Sources](https://github.com/smart-swimmingpool/pool-controller)
 </span>
 
 Manage your swmming pool on the smart way to enjoy it in confortable and cheap (less than 100€) way.

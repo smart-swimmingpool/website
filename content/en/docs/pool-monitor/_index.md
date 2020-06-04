@@ -26,7 +26,7 @@ menu:
 <a class="github-button" href="https://github.com/smart-swimmingpool/monitor" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script>
 </span>
 
-[Monitoring Gadget](https://smart-swimmingpool.github.io/) to show current temperature of the swimming pool.
+[Monitoring Gadget](https://github.com/smart-swimmingpool/monitor) to show current temperature of the swimming pool.
 
 {{< figure library="true" src="pool-monitor-prototype.jpg" title="Prototype of Pool Monitor" lightbox="true" >}}
 
