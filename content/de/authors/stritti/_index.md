@@ -4,7 +4,7 @@ title: Stephan Strittmatter
 
 # Username (this should match the folder name)
 authors:
-- admin
+- stritti
 
 # Is this the primary user of the site?
 superuser: true
@@ -26,9 +26,9 @@ bio:
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
 
-- icon: envelope
-  icon_pack: fas
-  link: '#contact'  # For a direct email link, use "mailto:test@example.org".
+#- icon: envelope
+#  icon_pack: fas
+#  link: '#contact'  # For a direct email link, use "mailto:test@example.org".
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/_stritti_
