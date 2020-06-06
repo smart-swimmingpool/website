@@ -16,7 +16,7 @@ tags: ["docs", "esp8266", "tutorial"]
 
 menu:
   docs:
-    parent: Documents
+    parent: Pool Monitor
     name: Monitor
     weight: 30
 ---

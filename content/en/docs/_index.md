@@ -29,3 +29,5 @@ menu:
 #   3 = Card
 view: 2
 ---
+
+Documentation of Smart Swimming Pool.
