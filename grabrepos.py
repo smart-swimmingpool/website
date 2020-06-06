@@ -18,6 +18,8 @@ import re
 import fnmatch
 import shutil
 import difflib
+import coloredlogs, logging
+from pathlib import Path
 from git import Repo,Git
 
 def readyaml():
@@ -45,108 +47,49 @@ def split_by_headings(data):
             sections.append(data[index:nextindex])
         index = nextindex
     return sections
-        
-# Filter the given array with markdown 2nd level headings.
-# Keep everything that is mentioned in "keepsections".
-def filter_by_headings(sections, keepsections):
-    newsections = []
-    if len(keepsections)==0: return newsections
-    for section in sections:
-        for keep in keepsections:
-            if section.startswith("\n## "+keep):
-                newsections.append(section.strip())
-    return newsections
-
-def remaining_headings(sections, removesections):
-    newsections = []
-    if len(removesections)==0: return newsections
-    for section in sections:
-        found = False
-        for keep in removesections:
-            if section.startswith("\n## "+keep):
-                found = True
-        if not found:
-            newsections.append(section.strip())
-                
-    return newsections
 
 # Create a destination filename, given the repo name ("core","ota" etc),
 # and the tag name ("master","v2.0").
 def dest_filepath(reponame, refname):
     reponame = reponame.replace(" ","-").lower()
-    return "spec-"+reponame+"-"+refname.replace(".","_")
+    return os.path.join(reponame, refname)
 
 # Copy files to "docs/". Filter sections of file first. Add generated header to file.
-def write_file(reponame, targetdir, srcdir, keepsections, filename, data, tagname, date, absurl):
-    sections = split_by_headings(data)
-    sections = filter_by_headings(sections, keepsections)
+def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absurl):
+    logging.info("--> write_file (")
+    logging.info("  reponame: "+reponame)
+    logging.info("  targetdir: "+targetdir)
+    logging.info("  srcdir: "+srcdir)
+    logging.info("  filename: "+filename.name)
+    logging.info(")")
 
+    sections = split_by_headings(data)
     if len(sections)<=0:
+        logging.info("No sections to keep in "+filename.name)
+        logging.info("<-- write_file")
         return
 
-    # Generate version select box html code
-    # Hide page in the left nav panel if not the latest
     header = "---\n"
-    header += "path: "+absurl+"\n"
-    header += "source: "+filename+"\n"
-    header += "version: "+tagname+"\n"
-    header += "releasedate: "+date.strftime("%d. %B %Y")+"\n"
-    header += "convention: "+reponame+"\n"
-    header += "layout: specification\n"
+    header += "source: "+absurl+"\n"
+    header += "file: "+filename.name+"\n"
+    header += "lastmod: "+date.strftime("%d. %B %Y")+"\n"
     header += "---\n"
 
     # New file content and filename
-    filecontent = header + "\n".join(sections)
-    filepath = os.path.join(targetdir,dest_filepath(reponame, tagname)+".md")
-    
-    with open(filepath, "w") as text_file:
+    filecontent = data #header + "\n".join(sections)
+    #filepath = os.path.join(targetdir,dest_filepath(reponame, tagname)+".md")
+    filepath = os.path.join(targetdir,dest_filepath(reponame, filename.name))
+    filename = Path(filepath)
+    filename.parent.mkdir(parents=True, exist_ok=True)
+    logging.info("write filename: "+filename.name)
+    with open(filename, "w+", encoding="utf8") as text_file:
         text_file.write(filecontent)
-    print("Wrote file: "+filepath)
-
-def write_preface(tagname,reponame,repourl,localpath,keepsections):
-    filepath = os.path.join(localpath,"convention.md")
-    with open(filepath, 'r') as myfile:
-        localdata = myfile.read() + "\n"
-        sections = split_by_headings(localdata)
-        sections = remaining_headings(sections, keepsections)
-        absurl = repourl.replace(".git","")+"/tree/" + tagname
-        header = "---\n"
-        header += "path: "+absurl+"\n"
-        header += "source: convention.md\n"
-        header += "convention: "+reponame+"\n"
-        header += "preface: true\n"
-        header += "---\n"
-        filecontent = header + "\n".join(sections)
-        filepath = os.path.join(targetdir,"preface",dest_filepath(reponame, tagname)+".md")
-        prefacedir = os.path.join(targetdir,"preface")
-        if not os.path.exists(prefacedir):
-            os.makedirs(prefacedir)
-        with open(filepath, "w") as text_file:
-            text_file.write(filecontent)
-            print("Wrote file: "+filepath)
-
-def write_diff_file(targetdir,reponame,ref,nextref):
-    outputfilename = dest_filepath(reponame, nextref.name)+"-diff.html"
-    header = "---\n"
-    header += "convention: "+reponame+"\n"
-    header += "oldfile: "+dest_filepath(reponame, ref.name)+".md\n"
-    header += "newfile: "+dest_filepath(reponame, nextref.name)+".md\n"
-    header += "oldversion: "+ref.name+"\n"
-    header += "newversion: "+nextref.name+"\n"
-    header += "diff: true\n"
-    header += "type: page\n"
-    header += "layout: diff\n"
-    header += "---\n"
-    with open(os.path.join(targetdir,dest_filepath(reponame, ref.name)+".md"), 'r') as firstfile:
-        with open(os.path.join(targetdir,dest_filepath(reponame, nextref.name)+".md"), 'r') as secondfile:
-            diff = difflib.HtmlDiff().make_table(firstfile.read().split("\n"),secondfile.read().split("\n"),ref.name,nextref.name,True,0)
-            with open(os.path.join(targetdir,outputfilename), "w") as outputfile:
-                outputfile.write(header+diff.replace("nowrap=\"nowrap\"","").replace("&nbsp;"," "))
-                print("Wrote file: "+os.path.join(targetdir,outputfilename))
+    logging.info("<-- write_file")
 
 # Clone a repository url (or update repo), checkout all tags.
 # Call copy_files for each checked out working directory
-def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, keepsections, update_repos):
+def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, update_repos):
+    logging.info("--> checkout_repo repourl="+repourl)
     localpath = os.path.join(checkoutdir,reponame)
     if os.path.exists(localpath):
         repo = Repo(localpath)
@@ -157,76 +100,60 @@ def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, keepse
         print("Clone "+reponame+" to "+localpath)
         repo = Repo.clone_from(repourl, localpath)
 
-    # Add "develop" and all tags
+    # Add "master"
     refs = []
-    refs.append(repo.heads.develop)
-    refs.extend(repo.tags)
+    refs.append(repo.heads.master)
 
-    # Get all preface sections from the latest develop version
-    repo.head.reference = repo.heads.develop
+    # Get all preface sections from the latest master version
+    repo.head.reference = repo.heads.master
     repo.head.reset(index=True, working_tree=True)
-    write_preface(repo.head.reference.name,reponame,repourl,localpath,keepsections)
 
     g = Git(localpath)
-    # Combine all files of a repo and create one specificaton file out of it
+    # read all files of a repo and create target files out of them
     for ref in refs:
         repo.head.reference = ref
         repo.head.reset(index=True, working_tree=True)
-        data = ""
-        mainfile = ""
-        for filename in fnmatch.filter(os.listdir(localpath), filepattern):
-            filepath = os.path.join(localpath,filename)
-            with open(filepath, 'r') as myfile:
-                localdata = myfile.read() + "\n"
+        logging.info("localpath="+localpath+", filepattern="+filepattern)
+        #for filename in fnmatch.filter(os.listdir(localpath), filepattern):
+        for filepath in Path(localpath).rglob(filepattern):
+            #filepath = os.path.join(localpath,filename)
+            logging.info("  filepath.name: " + filepath.name)
+            with open(filepath, 'r', encoding="utf8") as myfile:
+                logging.info("  myfile: " + myfile.name)
+                localdata = myfile.read()
                 # Check if the file has relevant sections
                 sections = split_by_headings(localdata)
-                sections = filter_by_headings(sections, keepsections)
                 if len(sections)<=0:
                     continue
-                data += localdata
-                mainfile = filename
-        tagname = ref.name
-        date = ref.commit.committed_datetime
-        absurl = repourl.replace(".git","")+"/tree/"+ref.name
-        write_file(reponame, targetdir, localpath, keepsections, mainfile, data, tagname, date, absurl)
-
-    refs = []
-    refs.extend(repo.tags)
-    refs.append(repo.heads.develop)
-
-    for ref, nextref in zip(refs[:-1], refs[1:]):
-        write_diff_file(targetdir,reponame,ref, nextref)
-        hexshas = g.log("--pretty=format:|%s|%ai|%h|", ref.name+".."+nextref.name).split('\n')
-        changefilename = dest_filepath(reponame, nextref.name)+"-changes.md"
-        with open(os.path.join(targetdir,changefilename), "w") as outputfile:
-            header = "---\n"
-            header += "convention: "+reponame+"\n"
-            header += "oldfile: "+dest_filepath(reponame, ref.name)+".md\n"
-            header += "newfile: "+dest_filepath(reponame, nextref.name)+".md\n"
-            header += "oldversion: "+ref.name+"\n"
-            header += "newversion: "+nextref.name+"\n"
-            header += "changes: true\n"
-            header += "---\n| Commit title | Date | Hash |\n|---|---|---|\n"
-            outputfile.write(header+"\n".join(hexshas))
-            print("Wrote file: "+os.path.join(targetdir,changefilename))
+                tagname = ref.name
+                date = ref.commit.committed_datetime
+                absurl = repourl.replace(".git","")+"/tree/"+ref.name
+                write_file(reponame, targetdir, localpath, filepath, localdata, tagname, date, absurl)
+    logging.info("<-- checkout_repo")
 
 
 def recreate_dir(file_path, clean):
+    logging.info("--> recreate_dir")
     directory = os.path.abspath(file_path)
     if clean and os.path.exists(directory):
         shutil.rmtree(directory)
     if not os.path.exists(directory):
         os.makedirs(directory)
+    logging.info("<-- recreate_dir directory="+directory)
     return directory
 
 # Main program
+coloredlogs.install()
+logging.basicConfig(level=logging.INFO)
+logging.info("Starting grabrepos ...")
 controlfile = readyaml()
 checkoutdir = recreate_dir("temp", "clean" in controlfile and controlfile["clean"])
-targetdir = os.path.abspath("content/specification")
+targetdir = os.path.abspath("content/en/docs")
 update_repos = "updaterepos" in controlfile and controlfile["updaterepos"]
-if os.path.exists(targetdir):
-    shutil.rmtree(targetdir)
-    os.makedirs(targetdir)
+#if os.path.exists(targetdir):
+#    shutil.rmtree(targetdir)
+#    os.makedirs(targetdir)
 for entry in controlfile['specifications']:
     if not 'disabled' in entry or not entry['disabled']:
-        checkout_repo(targetdir, entry['name'], entry['repo'], entry['filepattern'],checkoutdir, entry['keepsections'], update_repos)
+        checkout_repo(targetdir, entry['name'], entry['repo'], entry['filepattern'],checkoutdir, update_repos)
+logging.info("Finshed.")
