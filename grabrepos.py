@@ -148,7 +148,7 @@ logging.basicConfig(level=logging.INFO)
 logging.info("Starting grabrepos ...")
 controlfile = readyaml()
 checkoutdir = recreate_dir("temp", "clean" in controlfile and controlfile["clean"])
-targetdir = os.path.abspath("content/en/docs")
+targetdir = os.path.abspath("content/docs")
 update_repos = "updaterepos" in controlfile and controlfile["updaterepos"]
 #if os.path.exists(targetdir):
 #    shutil.rmtree(targetdir)
