@@ -15,5 +15,5 @@ specifications:
      disabled: false
    - name: Pool Monitor
      repo: https://github.com/smart-swimmingpool/monitor.git
-     filepattern: 'README.md'
+     filepattern: 'docs/**/*.md'
      disabled: false

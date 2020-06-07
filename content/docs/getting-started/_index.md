@@ -24,6 +24,5 @@ This project is splitted in several modules:
 
 - [Pool Controller]({{< ref "../pool-controller/_index.md" >}})
 - [OpenHab Configuration]({{< ref "../openhab-configuration/_index.md" >}})
-- [Pool Monitor]({{< ref "../pool-monitor/_index.md" >}})
 
 Additional content could be found incommuity driven [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki).
