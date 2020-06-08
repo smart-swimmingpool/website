@@ -19,7 +19,6 @@ menu:
     weight: 100
 ---
 
-- [Project Smart Swimming Pool](https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741f6)
-, _December, 2018_
+- [AZ Delivery: Projekt Smart Swimmingpool](https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung), _Oktober 2018_
 
-  Englischer Blogpost der ersten Version des Smart Swimming Pools
+  Vierteilige Blog-Reihe zur Version 1 des Smart Pool Controllers.
