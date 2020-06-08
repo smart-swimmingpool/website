@@ -26,3 +26,10 @@ This project is splitted in several modules:
 - [OpenHab Configuration]({{< ref "../openhab-configuration/_index.md" >}})
 
 Additional content could be found incommuity driven [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki).
+
+## Example Environment
+
+In my setting I have a thermal solar system for heating water and for support of heating environment within the house. the heated water is collected within a buffer which has a third circulation for my pool.
+Attached to this third circulation a pump is attached to heat via heat exchanger the water of the pool:
+
+{{< figure library="true" src="schema-environment-smart-pool.png" title="Example Environment" lightbox="true" >}}

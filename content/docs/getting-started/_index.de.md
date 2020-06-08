@@ -30,6 +30,13 @@ Dieses Projekt ist in verschiedene Module aufgeteilt:
 
 Zudem gibt es ein [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki).
 
+## Example Environment
+
+In meiner Anlage habe ich ein thermisches Solarsystem zur Warmwasserbereitung und zur Unterstützung der Raumheizung im Haus. Das erwärmte Wasser wird in einem Puffer gesammelt, der eine dritte Zirkulation für meinen Pool hat.
+An diese dritte Zirkulation ist eine Pumpe angeschlossen, die über einen Wärmetauscher das Wasser des Pools erwärmt:
+
+{{< figure library="true" src="schema-environment-smart-pool.png" title="Example Environment" lightbox="true" >}}
+
 ## Publikationen
 
 - [AZ Delivery: Projekt Smart Swimmingpool](https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung), _Oktober 2018_
