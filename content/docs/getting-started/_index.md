@@ -22,8 +22,8 @@ toc: true
 
 This project is splitted in several modules:
 
-- [Pool Controller]({{< ref "../pool-controller/_index.md" >}})
-- [OpenHab Configuration]({{< ref "../openhab-configuration/_index.md" >}})
+- [Pool Controller]({{< ref "../pool-controller/_index.md" >}}): the heart of the 🏊 Smart Swimming Pool
+- [OpenHab Configuration]({{< ref "../openhab-configuration/_index.md" >}}): example of a sitemap to control 🏊 Smart Swimming Pool via App.
 
 Additional content could be found incommuity driven [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki).
 
