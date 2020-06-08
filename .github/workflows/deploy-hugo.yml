@@ -1,5 +1,10 @@
 name: CI
-on: push
+on:
+  push:
+    branches:
+      - master
+  repository_dispatch:
+    types: [doc_update]
 jobs:
   deploy:
     runs-on: ubuntu-18.04
