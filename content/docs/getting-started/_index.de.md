@@ -25,14 +25,38 @@ menu:
 
 Dieses Projekt ist in verschiedene Module aufgeteilt:
 
-- [Pool Controller]({{< ref "../pool-controller/_index.de.md" >}})
-- [OpenHab Konfiguration]({{< ref "../openhab-configuration/_index.de.md" >}})
+- [Pool Controller]({{< ref "../pool-controller/_index.de.md" >}}):
+  Das Herz der Steuerung.
+- [OpenHab Konfiguration]({{< ref "../openhab-configuration/_index.de.md" >}}):
+  Beispiel-Sitemap die zur Steuerung des Pools via openHAB Smartphone-App dient.
 
 Zudem gibt es ein [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki).
 
 ## Beispiel einer Anlage
 
-In meiner Anlage habe ich ein thermisches Solarsystem zur Warmwasserbereitung und zur Unterstützung der Raumheizung im Haus. Das erwärmte Wasser wird in einem Puffer gesammelt, der eine dritte Zirkulation für meinen Pool hat.
-An diese dritte Zirkulation ist eine Pumpe angeschlossen, die über einen Wärmetauscher das Wasser des Pools erwärmt:
+In meiner Anlage habe ich ein thermisches Solarsystem zur Warmwasserbereitung
+und zur Unterstützung der Raumheizung im Haus. Das erwärmte Wasser wird in
+einem Puffer gesammelt, der eine dritte Zirkulation für meinen Pool hat.
+
+An diese dritte Zirkulation ist eine Pumpe angeschlossen, die über einen
+Wärmetauscher das Wasser des Pools erwärmt:
 
 {{< figure library="true" src="schema-environment-smart-pool.png" title="Beispielaufbau" lightbox="true" >}}
+
+## Historie
+
+Die Version 2 des 🏊 Smart Swimming Pools basiert auf dem
+[ersten Projekt](https://github.com/stritti/smart-swimming-pool) das noch
+nicht modular aufgebaut war und die Steuerlogik innerhalb von openHAB-Regeln
+implementiert hatte.
+
+Diese Version war im __Sommer 2018__ im Einsatz und zeigte ein paar Schwächen:
+
+- Die Steuerung der Pumpen über 433MHz-Steckdosenschalter war nicht zuverlässig, da es keine
+  Schaltbestätigung gab und der Status so unbekannt war.
+- Die Schaltlogik war als Regeln auf dem openHAB-Server implementiert. Das führte zu Problemen,
+  wenn das WLAN nicht zuverlässig funktioniert.
+- Die MQTT-Nachrichten hatten ein proprietäres Nachrichtenformat.
+
+Aus der Erfahrung des Sommers 2018 entstand dann diese zweite Version
+des 🏊 Smart Swimming Pools.

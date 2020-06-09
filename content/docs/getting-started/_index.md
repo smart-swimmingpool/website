@@ -22,14 +22,38 @@ toc: true
 
 This project is splitted in several modules:
 
-- [Pool Controller]({{< ref "../pool-controller/_index.md" >}}): the heart of the 🏊 Smart Swimming Pool
-- [OpenHab Configuration]({{< ref "../openhab-configuration/_index.md" >}}): example of a sitemap to control 🏊 Smart Swimming Pool via App.
+- [Pool Controller]({{< ref "../pool-controller/_index.md" >}}):
+  the heart of the 🏊 Smart Swimming Pool
+- [OpenHab Configuration]({{< ref "../openhab-configuration/_index.md" >}}):
+  example of a sitemap to control 🏊 Smart Swimming Pool via App.
 
 Additional content could be found incommuity driven [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki).
 
 ## Example Environment
 
-In my setting I have a thermal solar system for heating water and for support of heating environment within the house. the heated water is collected within a buffer which has a third circulation for my pool.
-Attached to this third circulation a pump is attached to heat via heat exchanger the water of the pool:
+In my setting I have a thermal solar system for heating water and for
+support of heating environment within the house. the heated water is
+collected within a buffer which has a third circulation for my pool.
+Attached to this third circulation a pump is attached to heat via heat
+exchanger the water of the pool:
 
-{{< figure library="true" src="schema-environment-smart-pool.png" title="Example Environment" lightbox="true" >}}
+{{< figure library="true" src="schema-environment-smart-pool.png"
+    title="Example Environment" lightbox="true" >}}
+
+## History
+
+Version 2 of the 🏊 Smart Swimming Pool is based on the
+[first project](https://github.com/stritti/smart-swimming-pool)
+which is not yet modular and had implemented the control logic
+within openHAB rules.
+
+This version was in use in __Summer 2018__ and showed some weaknesses:
+
+- Controlling the pumps via 433MHz socket switches was not reliable,
+  because there were no confirmation and the status was so unknown.
+- The switching logic was implemented as rules on the openHAB server.
+  This led to problems, if the WLAN does not work reliably.
+- The MQTT messages had a proprietary message format.
+
+From the experience of the summer of 2018 resulted this second
+version of the 🏊 Smart Swimming Pool.
