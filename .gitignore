@@ -4,3 +4,7 @@
 # Hugo
 resources/
 public/
+
+# imported modules
+content/docs/openhab-configuration/
+content/docs/pool-controller/
