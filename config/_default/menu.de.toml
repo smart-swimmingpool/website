@@ -20,3 +20,9 @@
 #    name = "CV"
 #    url = "files/cv.pdf"
 #    weight = 70
+
+[[main_right]]
+  name = "<i class=\"fab fa-github-alt\" style=\"font-size: 18px; line-height: 18px\"></i>"
+  post = ""
+  url = "https://github.com/smart-swimmingpool"
+  weight = 10
