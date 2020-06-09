@@ -17,4 +17,4 @@ subtitle = "Den Swimming Pool mit dem Pool Controller automatisieren"
 
 Steuer deinen Swimmingpool mit selbstgebauten IoT-Modulen. Die Kosten für die benötigten elektronischen Komponenten liegen unter 100 Euro.
 
-{{< figure library="true" src="pool-controller_breadboard.png" title="Breadboard Circuid of Pool Controller" lightbox="true" >}}
+{{< figure src="docs/pool-controller/pool-controller_breadboard.png" title="Breadboard Circuid of Pool Controller" lightbox="true" >}}
