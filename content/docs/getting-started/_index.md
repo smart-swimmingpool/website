@@ -18,17 +18,6 @@ toc: true
 
 **🏊 Smart Swimming Pool: Pool automation for Smarter Control of your Swimming Pool**
 
-## Overview
-
-This project is splitted in several modules:
-
-- [Pool Controller]({{< ref "../pool-controller/_index.md" >}}):
-  the heart of the 🏊 Smart Swimming Pool
-- [OpenHab Configuration]({{< ref "../openhab-configuration/_index.md" >}}):
-  example of a sitemap to control 🏊 Smart Swimming Pool via App.
-
-Additional content could be found incommuity driven [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki).
-
 ## Example Environment
 
 In my setting I have a thermal solar system for heating water and for

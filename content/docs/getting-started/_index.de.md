@@ -21,17 +21,6 @@ menu:
     weight: 10
 ---
 
-**🏊 Smart Swimming Pool: Pool Automatisierung zur smarten Steuerung des Swimmingpools**
-
-Dieses Projekt ist in verschiedene Module aufgeteilt:
-
-- [Pool Controller]({{< ref "../pool-controller/_index.de.md" >}}):
-  Das Herz der Steuerung.
-- [OpenHab Konfiguration]({{< ref "../openhab-configuration/_index.de.md" >}}):
-  Beispiel-Sitemap die zur Steuerung des Pools via openHAB Smartphone-App dient.
-
-Zudem gibt es ein [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki).
-
 ## Beispiel einer Anlage
 
 In meiner Anlage habe ich ein thermisches Solarsystem zur Warmwasserbereitung
