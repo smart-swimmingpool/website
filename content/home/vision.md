@@ -23,10 +23,12 @@ The modules of this project should support you to transform your swimming pool i
 - [x] Open Source (MIT License)
 - [x] Open for suggestions and improvements
 - [x] Supporting standards
-- [ ] Working without WiFi connection
+- [x] Works without permanent WiFi connection
 - [x] Can be operated via smartphone
+- [x] Modular to extend
 - [ ] Can be operated via hardware
+- [ ] well documented
 - [ ] Easy to setup
-- [ ] Modular to extend
+
 
 [![works with MQTT Homie](https://homieiot.github.io/img/works-with-homie.svg "works with MQTT Homie")](https://homieiot.github.io/)

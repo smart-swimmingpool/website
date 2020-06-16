@@ -16,15 +16,17 @@ subtitle = "Ziel des Projektes Smart Swimming Pool"
 Die Module dieses Projekts sollen Sie dabei unterstützen, Ihr Swimmingpool in ein Smart Swimmingpool zu verwandeln:
 
 - [x] Automatisierung der Zirkulationszeit des Wassers zur Reinigung
-- [x] Steuerung der Wassererwärmung durch zusätzliche Pumpe für den Heizungs-(Solar-)Kreislauf
+- [x] Steuerung der Wassererwärmung durch zusätzliche Pumpe für den Heizungs- bzw. Solar-Kreislauf
 - [x] Unabhängigkeit von einzelnen Smarthome-Servern
 - [x] Open Source (MIT-Lizenz)
 - [x] Offen für Vorschläge und Verbesserungen
 - [x] Unterstützung von Standards
-- [ ] Arbeiten ohne WiFi-Verbindung
+- [x] funktiooniert ohne ständige WLAN-Verbindung
 - [x] Kann über Smartphone bedient werden
+- [x] Modulare Erweiterbarkeit
 - [ ] Kann über Hardware bedient werden
+- [ ] Gut dokumentiert
 - [ ] Einfach einzurichten
-- [ ] Modular zu erweitern
+
 
 [![works with MQTT Homie](https://homieiot.github.io/img/works-with-homie.svg "works with MQTT Homie")](https://homieiot.github.io/)
