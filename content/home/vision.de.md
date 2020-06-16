@@ -16,6 +16,7 @@ subtitle = "Ziel des Projektes Smart Swimming Pool"
 Die Module dieses Projekts sollen Sie dabei unterstützen, Ihr Swimmingpool in ein Smart Swimmingpool zu verwandeln:
 
 - [x] Automatisierung der Zirkulationszeit des Wassers zur Reinigung
+- [x] Einfache und ökologische Termeratursteuerung mit Sonnenenergie
 - [x] Steuerung der Wassererwärmung durch zusätzliche Pumpe für den Heizungs- bzw. Solar-Kreislauf
 - [x] Unabhängigkeit von einzelnen Smarthome-Servern
 - [x] Open Source (MIT-Lizenz)

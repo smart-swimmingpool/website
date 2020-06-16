@@ -18,6 +18,7 @@ title = "Vision"
 The modules of this project should support you to transform your swimming pool into a smart swimming pool:
 
 - [x] Automation of the ciculation time for cleaning water
+- [x] Simple and ecological temperature control with solar energy
 - [x] Manage water heating by additional pump for heating (solar) circuit
 - [x] Independentancy of specific smarthome servers
 - [x] Open Source (MIT License)
