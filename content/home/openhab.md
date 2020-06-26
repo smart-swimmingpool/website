@@ -24,3 +24,5 @@ subtitle = "Smooth Integration at openHAB"
 [OpenHAB Configuration](./docs/openhab-config/) to add the Controller to your openHAB smart home environment.
 
 Enables control of the 🏊 Smart Swimming Pool via mobile app (Android and iOS)
+
+{{< figure library="true" src="openhab-sitemap-pool-automation.jpg" title="openHAB-Sitemap of Smart Swimming Pool (German labels)" lightbox="true" >}}

@@ -20,3 +20,5 @@ subtitle = "Reibungslose Integration des Pool-Controllers in openHAB"
 [OpenHAB Konfiguration](./docs/openhab-config/) zum Hinzufügen des Controllers zu Ihrer openHAB-Smarthome-Umgebung.
 
 Ermöglicht die Steuerung des 🏊 Smart Swimming Pools mittels App (Android und iOS)
+
+{{< figure library="true" src="openhab-sitemap-pool-automation.jpg" title="openHAB-Sitemap für den Smart Swimming Pool" lightbox="true" >}}
