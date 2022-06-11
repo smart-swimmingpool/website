@@ -25,7 +25,7 @@ from git import Repo,Git
 def readyaml():
     with open("multiversion.yml", 'r') as stream:
         try:
-            content = yaml.load(stream)
+            content = yaml.safe_load(stream)
             return content
         except yaml.YAMLError as exc:
             print(exc)
