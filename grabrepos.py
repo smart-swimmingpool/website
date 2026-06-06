@@ -91,11 +91,16 @@ def split_by_headings(data):
     return sections
 
 
-# Create a destination filename, given the repo name ("core","ota" etc),
-# and the tag name ("master","v2.0").
-def dest_filepath(reponame, refname):
-    reponame = reponame.replace(" ","-").lower()
-    return os.path.join(reponame, refname)
+# Compute the relative destination path for a source file.
+# Preserves subdirectory structure (e.g. docs/home-assistant/_index.md → pool-controller/home-assistant/_index.md)
+def dest_filepath(reponame, srcdir, srcfile):
+    reponame = reponame.replace(" ", "-").lower()
+    # Compute relative path from repo root to source file
+    relpath = os.path.relpath(srcfile, srcdir)
+    # Strip leading 'docs/' prefix since files go into content/docs/
+    if relpath.startswith("docs/"):
+        relpath = relpath[5:]
+    return os.path.join(reponame, relpath)
 
 
 # Copy files to "docs/". Filter sections of file first. Add generated header to file.
@@ -123,14 +128,13 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     section_name = reponame.replace(" ", "-").lower()
     data = transform_menu_section(data, section_name)
 
-    # New file content and filename
-    filecontent = data  # header + "\n".join(sections)
-    # filepath = os.path.join(targetdir,dest_filepath(reponame, tagname)+".md")
-    filepath = os.path.join(targetdir, dest_filepath(reponame, filename.name))
-    filename = Path(filepath)
-    filename.parent.mkdir(parents=True, exist_ok=True)
-    logging.info("write filename: "+filename.name)
-    with open(filename, "w+", encoding="utf8") as text_file:
+    # New file content and destination path (preserves subdirectory structure)
+    filecontent = data
+    filepath = os.path.join(targetdir, dest_filepath(reponame, srcdir, str(filename)))
+    dest = Path(filepath)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    logging.info("write filename: " + str(dest))
+    with open(dest, "w+", encoding="utf8") as text_file:
         text_file.write(filecontent)
     logging.info("<-- write_file")
 
