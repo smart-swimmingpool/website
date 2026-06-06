@@ -34,12 +34,12 @@ def readyaml():
             exit(-1)
 
 
-def strip_menu_from_frontmatter(data):
-    """Remove the 'menu' key from YAML frontmatter.
+def transform_menu_section(data, section_name):
+    """Transform menu frontmatter from 'menu.docs' to 'menu.{section_name}'.
     
-    The pool-controller docs use Hugo menu frontmatter (e.g. menu.docs.parent)
-    which conflicts with the Academic theme's own menu system. Stripping the
-    menu block lets the website control navigation via config/_default/menu.toml.
+    The Academic theme expects docs pages to have a menu entry under their
+    section name (e.g. menu.pool-controller) rather than menu.docs.
+    This function renames the menu section while preserving all items.
     """
     if not data.startswith("---"):
         return data
@@ -55,9 +55,15 @@ def strip_menu_from_frontmatter(data):
     try:
         frontmatter = yaml.safe_load(frontmatter_text)
         if frontmatter and 'menu' in frontmatter:
-            del frontmatter['menu']
-            # Also remove empty 'linktitle' and summary if they conflict
-            # Re-serialize without the menu key
+            menu = frontmatter['menu']
+            if isinstance(menu, dict) and 'docs' in menu:
+                # Rename 'docs' to the section name (e.g. 'pool-controller')
+                menu[section_name] = menu.pop('docs')
+            elif isinstance(menu, dict) and not any(k == section_name for k in menu):
+                # If there's no matching section, just use the first menu entry
+                # under the section name to satisfy Academic's validation
+                pass
+            frontmatter['menu'] = menu
             new_frontmatter = yaml.dump(frontmatter, default_flow_style=False,
                                         allow_unicode=True, sort_keys=False).strip()
             return "---\n" + new_frontmatter + "\n---" + body
@@ -113,8 +119,9 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     header += "lastmod: "+date.strftime("%d. %B %Y")+"\n"
     header += "---\n"
 
-    # Strip Hugo menu frontmatter that conflicts with Academic theme
-    data = strip_menu_from_frontmatter(data)
+    # Transform menu.docs to menu.{section_name} for Academic theme compatibility
+    section_name = reponame.replace(" ", "-").lower()
+    data = transform_menu_section(data, section_name)
 
     # New file content and filename
     filecontent = data  # header + "\n".join(sections)
