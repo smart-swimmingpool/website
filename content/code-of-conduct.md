@@ -1,7 +1,7 @@
 ---
 title: Contributor Covenant Code of Conduct
 sumary: Contributor Covenant Code of Conduct of Smart Swimming Pool
-date: "2020-005-29T00:00:00+01:00"
+date: "2020-05-29T00:00:00+01:00"
 draft: false
 share: false
 profile: false

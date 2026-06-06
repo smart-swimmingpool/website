@@ -1,6 +1,6 @@
 ---
 title: Vereinbarung über Verhaltenskodex für Mitwirkende
-date: "2020-005-29T00:00:00+01:00"
+date: "2020-05-29T00:00:00+01:00"
 draft: false
 share: false
 commentable: false
