@@ -34,6 +34,39 @@ def readyaml():
             exit(-1)
 
 
+def strip_menu_from_frontmatter(data):
+    """Remove the 'menu' key from YAML frontmatter.
+    
+    The pool-controller docs use Hugo menu frontmatter (e.g. menu.docs.parent)
+    which conflicts with the Academic theme's own menu system. Stripping the
+    menu block lets the website control navigation via config/_default/menu.toml.
+    """
+    if not data.startswith("---"):
+        return data
+
+    # Find the closing --- of the frontmatter
+    end_idx = data.find("\n---", 3)
+    if end_idx == -1:
+        return data
+
+    frontmatter_text = data[3:end_idx]
+    body = data[end_idx + 4:]
+
+    try:
+        frontmatter = yaml.safe_load(frontmatter_text)
+        if frontmatter and 'menu' in frontmatter:
+            del frontmatter['menu']
+            # Also remove empty 'linktitle' and summary if they conflict
+            # Re-serialize without the menu key
+            new_frontmatter = yaml.dump(frontmatter, default_flow_style=False,
+                                        allow_unicode=True, sort_keys=False).strip()
+            return "---\n" + new_frontmatter + "\n---" + body
+    except yaml.YAMLError:
+        pass
+
+    return data
+
+
 # Split a markdown content by its 2nd level headings and return the array
 def split_by_headings(data):
     sections = []
@@ -79,6 +112,9 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     header += "file: "+filename.name+"\n"
     header += "lastmod: "+date.strftime("%d. %B %Y")+"\n"
     header += "---\n"
+
+    # Strip Hugo menu frontmatter that conflicts with Academic theme
+    data = strip_menu_from_frontmatter(data)
 
     # New file content and filename
     filecontent = data  # header + "\n".join(sections)
@@ -138,7 +174,6 @@ def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, update
         repo.head.reset(index=True, working_tree=True)
         logging.info(f"localpath={localpath}, filepattern={filepattern}")
         # Use rglob with a clean pattern (remove leading **/ if present)
-        # filepattern from multiversion.yml is like "docs/**/*.md"
         clean_pattern = filepattern
         if clean_pattern.startswith("**/"):
             clean_pattern = clean_pattern[3:]
