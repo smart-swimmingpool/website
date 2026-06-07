@@ -30,48 +30,36 @@ def readyaml():
             exit(-1)
 
 
-def strip_academic_frontmatter(data):
-    """Remove Academic-theme-specific frontmatter fields from imported docs.
+def extract_frontmatter(data):
+    """Extract useful frontmatter fields from imported docs and return (metadata, body).
     
-    Hextra doesn't use menu frontmatter, Academic-specific layout types,
-    or fields like featured, share, commentable, profile, editable, header.
+    Returns (dict, str) where dict has preserved fields (title, description, weight, tags)
+    and str is the remaining body content without frontmatter.
     """
     if not data.startswith("---"):
-        return data
+        return {}, data.strip()
 
     end_idx = data.find("\n---", 3)
     if end_idx == -1:
-        return data
+        return {}, data.strip()
 
     frontmatter_text = data[3:end_idx]
-    body = data[end_idx + 4:]
+    body = data[end_idx + 4:].strip()
 
     try:
         frontmatter = yaml.safe_load(frontmatter_text)
         if not frontmatter:
-            return data
+            return {}, body
 
-        # Remove Academic-specific fields
-        for key in list(frontmatter.keys()):
-            if key in ('menu', 'type', 'featured', 'share', 'profile',
-                       'commentable', 'editable', 'header', 'view',
-                       'publishdate', 'lastmod', 'toc', 'linktitle',
-                       'summary', 'reading_time', 'abstract', 'authors'):
-                del frontmatter[key]
+        # Keep only fields useful for Hextra
+        kept = {}
+        for key in ('title', 'description', 'date', 'draft', 'weight', 'tags', 'categories'):
+            if key in frontmatter:
+                kept[key] = frontmatter[key]
 
-        # Keep standard Hugo frontmatter
-        kept = {k: v for k, v in frontmatter.items()
-                if k in ('title', 'description', 'date', 'draft',
-                         'weight', 'tags', 'categories') or
-                not k.startswith('_')}
-
-        new_frontmatter = yaml.dump(kept, default_flow_style=False,
-                                    allow_unicode=True, sort_keys=False).strip()
-        return "---\n" + new_frontmatter + "\n---" + body
+        return kept, body
     except yaml.YAMLError:
-        pass
-
-    return data
+        return {}, data.strip()
 
 
 # Split a markdown content by its 2nd level headings and return the array
@@ -113,18 +101,22 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     logging.info("  filename: "+filename.name)
     logging.info(")")
 
-    # Strip Academic-specific frontmatter for Hextra compatibility
-    data = strip_academic_frontmatter(data)
+    # Extract useful frontmatter (title, description, etc.) from the original doc
+    metadata, body = extract_frontmatter(data)
 
-    # Add source metadata header with ISO date format for Hextra compatibility
-    header = "---\n"
-    header += "source: "+absurl+"\n"
-    header += "file: "+filename.name+"\n"
-    header += "lastmod: "+date.strftime("%Y-%m-%d")+"\n"
-    header += "---\n"
+    # Build combined frontmatter with source info + preserved metadata
+    combined = {}
+    combined["source"] = absurl
+    combined["file"] = filename.name
+    combined["lastmod"] = date.strftime("%Y-%m-%d")
+    # Preserve original title/description if they exist
+    for key in ("title", "description", "date", "draft", "weight", "tags", "categories"):
+        if key in metadata:
+            combined[key] = metadata[key]
 
-    # New file content with source header and destination path (preserves subdirectory structure)
-    filecontent = header + data
+    frontmatter_yaml = yaml.dump(combined, default_flow_style=False,
+                                 allow_unicode=True, sort_keys=False).strip()
+    filecontent = "---\n" + frontmatter_yaml + "\n---\n" + body
     filepath = os.path.join(targetdir, dest_filepath(reponame, srcdir, str(filename)))
     dest = Path(filepath)
     dest.parent.mkdir(parents=True, exist_ok=True)
