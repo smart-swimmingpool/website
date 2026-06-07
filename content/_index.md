@@ -44,7 +44,7 @@ The modules of this project support you to transform your swimming pool into a s
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card
     title="Pool Controller"
-    subtitle="The smart brain of your pool. Central control logic running on ESP8266 with MQTT Homie protocol. Cost of components less than 100€."
+    subtitle="The smart brain of your pool. Central control logic running on ESP8266 with Home Assistant MQTT discovery. Cost of components less than 100€."
     link="/docs/pool-controller/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     image="/img/pool-controller_breadboard.png"
@@ -75,8 +75,8 @@ The modules of this project support you to transform your swimming pool into a s
     icon="sparkles"
   >}}
   {{< hextra/feature-card
-    title="Standards Compliant"
-    subtitle="Uses MQTT Homie convention for IoT communication. Easy integration with any smart home system."
+    title="Works with Home Assistant"
+    subtitle="Uses Home Assistant MQTT discovery for seamless smart home integration."
     icon="globe-alt"
   >}}
   {{< hextra/feature-card

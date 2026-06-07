@@ -28,7 +28,7 @@ Herz des Systems ist der [Pool Controller](https://github.com/smart-swimmingpool
 - Zuschalten des Heizkreislaufs zur Erwärmung des Poolwassers
 - Melden von Status und Temperaturen für die Integration in Smart-Home-Server
 
-Der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) nutzt das MQTT-basierte [Homie](https://homieiot.github.io/)-Protokoll zur Kommunikation mit anderen Smart-Home-Systemen und bietet so eine einfache Integration in [openHAB](https://github.com/smart-swimmingpool/openhab-config). Mit der hier vorgestellten Konfiguration kann der Pool-Controller schnell eingerichtet und von jeder openHAB-kompatiblen App gesteuert werden.
+Der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) nutzt [Home Assistant MQTT Discovery](https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery) für nahtlose Smarthome-Integration. Mit der hier vorgestellten Konfiguration kann der Pool-Controller schnell eingerichtet und von jeder Home Assistant-kompatiblen App gesteuert werden.
 
 ## Historie
 
