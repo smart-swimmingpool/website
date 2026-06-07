@@ -1,0 +1,17 @@
+/* Smart Swimming Pool - Custom Theme
+ * Pool blue color scheme overrides for Hextra
+ */
+
+/* Primary color: Deep pool blue */
+:root {
+  --primary-h: 200;
+  --primary-s: 75%;
+  --primary-l: 40%;
+}
+
+/* Dark mode adjustments */
+.dark {
+  --primary-h: 200;
+  --primary-s: 65%;
+  --primary-l: 55%;
+}

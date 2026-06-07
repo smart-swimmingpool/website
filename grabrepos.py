@@ -30,17 +30,15 @@ def readyaml():
             exit(-1)
 
 
-def transform_menu_section(data, section_name):
-    """Transform menu frontmatter from 'menu.docs' to 'menu.{section_name}'.
+def strip_academic_frontmatter(data):
+    """Remove Academic-theme-specific frontmatter fields from imported docs.
     
-    The Academic theme expects docs pages to have a menu entry under their
-    section name (e.g. menu.pool-controller) rather than menu.docs.
-    This function renames the menu section while preserving all items.
+    Hextra doesn't use menu frontmatter, Academic-specific layout types,
+    or fields like featured, share, commentable, profile, editable, header.
     """
     if not data.startswith("---"):
         return data
 
-    # Find the closing --- of the frontmatter
     end_idx = data.find("\n---", 3)
     if end_idx == -1:
         return data
@@ -50,19 +48,26 @@ def transform_menu_section(data, section_name):
 
     try:
         frontmatter = yaml.safe_load(frontmatter_text)
-        if frontmatter and 'menu' in frontmatter:
-            menu = frontmatter['menu']
-            if isinstance(menu, dict) and 'docs' in menu:
-                # Rename 'docs' to the section name (e.g. 'pool-controller')
-                menu[section_name] = menu.pop('docs')
-            elif isinstance(menu, dict) and not any(k == section_name for k in menu):
-                # If there's no matching section, just use the first menu entry
-                # under the section name to satisfy Academic's validation
-                pass
-            frontmatter['menu'] = menu
-            new_frontmatter = yaml.dump(frontmatter, default_flow_style=False,
-                                        allow_unicode=True, sort_keys=False).strip()
-            return "---\n" + new_frontmatter + "\n---" + body
+        if not frontmatter:
+            return data
+
+        # Remove Academic-specific fields
+        for key in list(frontmatter.keys()):
+            if key in ('menu', 'type', 'featured', 'share', 'profile',
+                       'commentable', 'editable', 'header', 'view',
+                       'publishdate', 'lastmod', 'toc', 'linktitle',
+                       'summary', 'reading_time', 'abstract', 'authors'):
+                del frontmatter[key]
+
+        # Keep standard Hugo frontmatter
+        kept = {k: v for k, v in frontmatter.items()
+                if k in ('title', 'description', 'date', 'draft',
+                         'weight', 'tags', 'categories') or
+                not k.startswith('_')}
+
+        new_frontmatter = yaml.dump(kept, default_flow_style=False,
+                                    allow_unicode=True, sort_keys=False).strip()
+        return "---\n" + new_frontmatter + "\n---" + body
     except yaml.YAMLError:
         pass
 
@@ -114,9 +119,8 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     header += "lastmod: "+date.strftime("%d. %B %Y")+"\n"
     header += "---\n"
 
-    # Transform menu.docs to menu.{section_name} for Academic theme compatibility
-    section_name = reponame.replace(" ", "-").lower()
-    data = transform_menu_section(data, section_name)
+    # Strip Academic-specific frontmatter for Hextra compatibility
+    data = strip_academic_frontmatter(data)
 
     # New file content with source header and destination path (preserves subdirectory structure)
     filecontent = header + data

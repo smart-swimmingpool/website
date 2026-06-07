@@ -1,8 +1,6 @@
 ---
 title: MIT Lizenz
-date: "2018-08-19T00:00:00+01:00"
-commentable: false
-editable: false
+weight: 20
 ---
 
 Copyright (c) 2018-2026 Smart Swimming Pool, Stephan Strittmatter

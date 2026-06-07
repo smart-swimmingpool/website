@@ -1,19 +1,6 @@
 ---
 title: Getting Started
-linktitle: Getting Started
-description: Getting Stated für den Smart Swimming Pool - Heimautomation für eine intelligentere Steuerung Ihres Swimmingpools
-summary: Getting Stated für den Smart Swimming Pool - Heimautomation für eine intelligentere Steuerung Ihres Swimmingpools
-type: docs
-date: "2020-05-28"
-publishdate: "2020-05-28"
-lastmod: "2020-06-02"
-featured: true
-menu:
-  docs:
-    parent: Dokumente
-    name: Getting Started
-    weight: 10
-toc: true
+weight: 10
 tags: ["docs", "getting-started", "tutorial"]
 ---
 
@@ -28,7 +15,7 @@ einem Puffer gesammelt, der eine dritte Zirkulation für meinen Pool hat.
 An diese dritte Zirkulation ist eine Pumpe angeschlossen, die über einen
 Wärmetauscher das Wasser des Pools erwärmt:
 
-{{< figure library="true" src="schema-environment-smart-pool.png" title="Beispielaufbau" lightbox="true" >}}
+![Beispielaufbau](schema-environment-smart-pool.png)
 
 ## Grundvoraussetzungen
 

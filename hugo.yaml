@@ -1,0 +1,126 @@
+# Configuration for Smart Swimming Pool with Hextra Theme
+baseURL: "https://smart-swimmingpool.github.io/"
+title: "Smart Swimming Pool"
+
+# Theme
+theme: hextra
+
+# Language settings
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+enableRobotsTXT: true
+enableGitInfo: true
+enableEmoji: true
+hasCJKLanguage: false
+
+removePathAccents: true
+summaryLength: 30
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+
+outputs:
+  home: [html]
+  page: [html]
+  section: [html, rss]
+
+languages:
+  en:
+    label: English
+    locale: en-US
+    weight: 1
+    title: "Smart Swimming Pool"
+    params:
+      description: "Open Source Pool Automation - Smart control your swimming pool with home automation"
+  de:
+    label: Deutsch
+    locale: de-DE
+    weight: 2
+    title: "Smart Swimming Pool"
+    params:
+      description: "Open Source Pool Automatisierung - Steuere deinen Swimming Pool smart mit Heimautomatisierung"
+
+menu:
+  main:
+    - identifier: docs
+      name: Documents
+      pageRef: /docs
+      weight: 1
+    - identifier: code-of-conduct
+      name: Code of Conduct
+      pageRef: /code-of-conduct
+      weight: 3
+    - name: Search
+      weight: 4
+      params:
+        type: search
+    - name: GitHub
+      weight: 5
+      url: "https://github.com/smart-swimmingpool"
+      params:
+        icon: github
+
+params:
+  description: "🏊 Smart Swimming Pool - Open Source Project to manage your Swimming Pool using Home Automation"
+
+  navbar:
+    displayTitle: true
+    displayLogo: false
+    width: wide
+
+  theme:
+    default: system
+    displayToggle: true
+
+  footer:
+    enable: true
+    displayCopyright: true
+    displayPoweredBy: false
+    width: normal
+
+  # Display last modification date
+  displayUpdatedDate: true
+  dateFormat: "January 2, 2006"
+
+  displayUpdatedAuthor: false
+
+  # Search
+  search:
+    enable: true
+    type: flexsearch
+    flexsearch:
+      index: content
+      tokenize: forward
+
+  editURL:
+    enable: false
+
+  blog:
+    list:
+      displayTags: false
+      sortBy: date
+      sortOrder: desc
+      pagerSize: 20
+    article:
+      displayPagination: false
+
+  toc:
+    displayTags: false
+
+  highlight:
+    copy:
+      enable: true
+      display: hover
+
+  page:
+    width: wide
+
+  imageZoom:
+    enable: true
+
+  comments:
+    enable: false

@@ -1,17 +1,6 @@
 ---
-title: Contributor Covenant Code of Conduct
-summary: Contributor Covenant Code of Conduct of Smart Swimming Pool
-date: "2020-05-29T00:00:00+01:00"
-draft: false
-share: false
-profile: false
-commentable: false
-editable: false
-
-# Optional header image (relative to `static/img/` folder).
-header:
-  caption: ""
-  image: ""
+title: Code of Conduct
+weight: 10
 ---
 
 ## Our Pledge
