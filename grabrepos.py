@@ -16,6 +16,7 @@ import os
 import shutil
 import coloredlogs
 import logging
+from datetime import timezone
 from pathlib import Path
 from git import Repo
 
@@ -116,7 +117,7 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     header = "---\n"
     header += "source: "+absurl+"\n"
     header += "file: "+filename.name+"\n"
-    header += "lastmod: "+date.strftime("%d. %B %Y")+"\n"
+    header += "lastmod: "+date.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")+"\n"
     header += "---\n"
 
     # Strip Academic-specific frontmatter for Hextra compatibility
