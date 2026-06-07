@@ -39,7 +39,7 @@ Die Module dieses Projekts unterstützen Sie dabei, Ihren Swimmingpool in ein Sm
 - ⬜ Gut dokumentiert
 - ⬜ Einfach einzurichten
 
-[![works with MQTT Homie](https://homieiot.github.io/img/works-with-homie.svg "works with MQTT Homie")](https://homieiot.github.io/)
+[![Works with Home Assistant](https://img.shields.io/badge/Works%20with-Home%20Assistant-41BDF5?logo=homeassistant&logoColor=white&style=for-the-badge "Works with Home Assistant")](https://www.home-assistant.io/)
 
 ---
 
