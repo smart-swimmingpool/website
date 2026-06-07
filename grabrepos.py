@@ -113,14 +113,15 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     logging.info("  filename: "+filename.name)
     logging.info(")")
 
+    # Strip Academic-specific frontmatter for Hextra compatibility
+    data = strip_academic_frontmatter(data)
+
+    # Add source metadata header with ISO date format for Hextra compatibility
     header = "---\n"
     header += "source: "+absurl+"\n"
     header += "file: "+filename.name+"\n"
-    header += "lastmod: "+date.strftime("%d. %B %Y")+"\n"
+    header += "lastmod: "+date.strftime("%Y-%m-%d")+"\n"
     header += "---\n"
-
-    # Strip Academic-specific frontmatter for Hextra compatibility
-    data = strip_academic_frontmatter(data)
 
     # New file content with source header and destination path (preserves subdirectory structure)
     filecontent = header + data
