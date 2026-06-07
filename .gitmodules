@@ -1,7 +1,3 @@
-[submodule "public"]
-	path = public
-	url = https://github.com/smart-swimmingpool/smart-swimmingpool.github.io.git
-	branch = master
 [submodule "themes/hextra"]
 	path = themes/hextra
 	url = https://github.com/imfing/hextra.git
