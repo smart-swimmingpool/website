@@ -45,7 +45,7 @@ Die Module dieses Projekts unterstützen Sie dabei, Ihren Swimmingpool in ein Sm
   {{< hextra/feature-card
     title="Pool Controller"
     subtitle="Das smarte Gehirn Ihres Pools. Zentrale Steuerlogik auf ESP8266 mit MQTT Homie Protokoll. Kosten unter 100€."
-    link="https://github.com/smart-swimmingpool/pool-controller"
+    link="/docs/pool-controller/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     image="/img/pool-controller_breadboard.png"
     imageClass="top-[40%] left-[24px] w-[180%] sm:w-[110%] dark:opacity-80"
@@ -54,7 +54,7 @@ Die Module dieses Projekts unterstützen Sie dabei, Ihren Swimmingpool in ein Sm
   {{< hextra/feature-card
     title="openHAB Integration"
     subtitle="Reibungslose Integration mit dem openHAB-Smarthome-Server. Steuerung des Pools per App auf Android und iOS."
-    link="https://github.com/smart-swimmingpool/openhab-config"
+    link="/docs/openhab-config/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     image="/img/openhab-sitemap-pool-automation.jpg"
     imageClass="top-[40%] left-[36px] w-[180%] sm:w-[110%] dark:opacity-80"
@@ -63,7 +63,7 @@ Die Module dieses Projekts unterstützen Sie dabei, Ihren Swimmingpool in ein Sm
   {{< hextra/feature-card
     title="Pool Monitor"
     subtitle="Überwachen Sie Ihre Pooltemperatur mit einem solarbetriebenen Display. Kabellos und energieeffizient."
-    link="https://github.com/smart-swimmingpool/monitor"
+    link="/docs/pool-monitor/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     image="/img/pool-monitor-prototype.jpg"
     imageClass="top-[40%] left-[36px] w-[110%] sm:w-[110%] dark:opacity-80"
@@ -82,7 +82,7 @@ Die Module dieses Projekts unterstützen Sie dabei, Ihren Swimmingpool in ein Sm
   {{< hextra/feature-card
     title="Grafana Dashboard"
     subtitle="Visualisieren Sie Ihre Pool-Daten mit einem schönen Grafana-Dashboard. Verfolgen Sie Temperaturtrends und Systemstatus."
-    link="https://github.com/smart-swimmingpool/grafana-dashboard"
+    link="/docs/grafana-dashboard/"
     icon="chart-bar"
   >}}
 {{< /hextra/feature-grid >}}

@@ -1,17 +1,80 @@
 /* Smart Swimming Pool - Custom Theme
- * Pool blue color scheme overrides for Hextra
+ * Pool water blue color scheme for Hextra
  */
 
-/* Primary color: Deep pool blue */
+/* ===== Pool Color Scheme ===== */
+/* Hextra uses CSS custom properties for primary color.
+   These must use the exact variable names from the theme. */
+
 :root {
-  --primary-h: 200;
-  --primary-s: 75%;
-  --primary-l: 40%;
+  --primary-hue: 195deg;
+  --primary-saturation: 75%;
+  --primary-lightness: 45%;
 }
 
-/* Dark mode adjustments */
 .dark {
-  --primary-h: 200;
-  --primary-s: 65%;
-  --primary-l: 55%;
+  --primary-hue: 195deg;
+  --primary-saturation: 70%;
+  --primary-lightness: 55%;
+}
+
+/* ===== Subtle water background gradient ===== */
+
+body {
+  background: linear-gradient(
+    180deg,
+    hsl(195, 70%, 97%) 0%,
+    hsl(195, 40%, 92%) 30%,
+    hsl(195, 25%, 95%) 60%,
+    white 100%
+  );
+  background-attachment: fixed;
+}
+
+.dark body {
+  background: linear-gradient(
+    180deg,
+    hsl(195, 30%, 10%) 0%,
+    hsl(195, 25%, 14%) 30%,
+    hsl(195, 20%, 12%) 60%,
+    #111 100%
+  );
+  background-attachment: fixed;
+}
+
+/* ===== Feature Cards: Pool-inspired accent glow ===== */
+
+.hextra-feature-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hextra-feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px hsl(195, 60%, 70%, 0.25);
+}
+
+.dark .hextra-feature-card:hover {
+  box-shadow: 0 12px 28px hsl(195, 60%, 30%, 0.3);
+}
+
+/* ===== Navbar subtle water accent ===== */
+
+nav {
+  border-bottom-color: hsl(195, 50%, 80%) !important;
+}
+
+.dark nav {
+  border-bottom-color: hsl(195, 30%, 25%) !important;
+}
+
+/* ===== Hero headline uses pool gradient ===== */
+
+h1.not-prose {
+  --tw-gradient-from: hsl(195, 75%, 25%) !important;
+  --tw-gradient-to: hsl(195, 60%, 45%) !important;
+}
+
+.dark h1.not-prose {
+  --tw-gradient-from: hsl(195, 70%, 70%) !important;
+  --tw-gradient-to: hsl(195, 50%, 50%) !important;
 }
