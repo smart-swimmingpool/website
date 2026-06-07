@@ -4,50 +4,40 @@ weight: 10
 tags: ["docs", "getting-started", "tutorial"]
 ---
 
-**🏊 Smart Swimming Pool: Home automation for smarter Control of your Swimming Pool**
+**🏊 Smart Swimming Pool: Home automation for smarter control of your swimming pool**
 
 ## Example Environment
 
-In my setting I have a thermal solar system for heating water and for
-support of heating environment within the house. the heated water is
-collected within a buffer which has a third circulation for my pool.
-Attached to this third circulation a pump is attached to heat via heat
-exchanger the water of the pool:
+In a typical setup, a thermal solar system heats water and supports the home heating system. The heated water is stored in a buffer tank, which has a third circulation loop for the pool. A pump attached to this loop circulates pool water through a heat exchanger:
 
 ![Example Environment](schema-environment-smart-pool.png)
 
 ## Basic Requirements
 
 - Swimming pool with sand filter system
-- Heating circuit with heat exchanger that can be switched on via a pump
-- Solar heat storage tank with additional heating circuit for the pool
+- Heating circuit with a pump-switchable heat exchanger
+- Solar heat storage tank with an additional heating circuit for the pool
 
 ## Preparations
 
-If a heating circuit is prepared via a heat exchanger, the implementation of the smart control of the pool can be started.
+If a heating circuit with a heat exchanger is in place, you can start implementing the smart pool control.
 
-The heart of the system is the [Pool Controller](https://github.com/smart-swimmingpool/pool-controller). This is responsible for the central control of:
+The heart of the system is the [Pool Controller](https://github.com/smart-swimmingpool/pool-controller). It handles:
 
-- Circulation period for cleaning by means of a sand filter system
-- Switching on the heating circuit for warming up the pool water
-- Reporting of statuses and current temperatures for integration into Smart Home Server solutions
+- Circulation scheduling for sand filter cleaning
+- Switching on the heating circuit to warm the pool water
+- Reporting status and temperature data for integration with Smart Home servers
 
-The [pool controller](https://github.com/smart-swimmingpool/pool-controller) supports the MQTT based protocol [Homie](https://homieiot.github.io/) for communication with other smart home systems and thus offers easy integration into [openHAB](https://github.com/smart-swimmingpool/openhab-config). Using the configuration for the openHAB-Server presented here, the pool controller can be quickly and easily controlled and configured.
+The [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) uses the MQTT-based [Homie](https://homieiot.github.io/) protocol for communication with other smart home systems, offering easy integration with [openHAB](https://github.com/smart-swimmingpool/openhab-config). With the configuration presented here, the pool controller can be quickly set up and controlled from any openHAB-compatible app.
 
 ## History
 
-🏊 Smart Swimming Pool is based on the
-[first project](https://github.com/stritti/smart-swimming-pool)
-which was not yet modular and had implemented the control logic
-within openHAB rules.
+🏊 Smart Swimming Pool originated from an [earlier project](https://github.com/stritti/smart-swimming-pool) that was not yet modular and had all control logic implemented as openHAB rules.
 
-The first version was in use in __Summer 2018__ and showed some weaknesses:
+The first version ran in **Summer 2018** and revealed several weaknesses:
 
-- Controlling the pumps via 433 MHz socket switches was not reliable,
-  because there were no confirmation and the status was unknown.
-- The switching logic was implemented in rules on the openHAB server.
-  This led to problems, if the WiFi does not work reliably.
-- The MQTT messages had a proprietary message format.
+- Controlling pumps via 433 MHz socket switches was unreliable — no feedback meant the actual state was unknown
+- Switching logic lived in openHAB rules, causing problems when WiFi was unreliable
+- MQTT messages used a proprietary format
 
-From the experience of the summer of 2018 resulted this revised
-version of the 🏊 Smart Swimming Pool: modular, resiliant using standards.
+Based on these lessons, the revised 🏊 Smart Swimming Pool was built: modular, resilient, and standards-based.

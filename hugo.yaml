@@ -53,6 +53,10 @@ menu:
     - identifier: code-of-conduct
       name: Code of Conduct
       pageRef: /code-of-conduct
+      weight: 2
+    - identifier: publications
+      name: Publications
+      pageRef: /docs/publications
       weight: 3
     - name: Search
       weight: 4

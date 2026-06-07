@@ -7,16 +7,17 @@ weight: 1
 
 Dieses Projekt ist in verschiedene Module aufgeteilt:
 
-- [Pool Controller](https://github.com/smart-swimmingpool/pool-controller):
-  Das Herz der Steuerung.
-- [openHAB Konfiguration](https://github.com/smart-swimmingpool/openhab-config):
-  Beispiel-Sitemap zur Steuerung des Pools via openHAB Smartphone-App.
-- [Grafana Dashboard](https://github.com/smart-swimmingpool/grafana-dashboard):
+- **[Pool Controller](/docs/pool-controller/)**:
+  Das Herz der Steuerung — zentrale Steuerlogik auf ESP8266-Basis.
+- **[openHAB Konfiguration](/docs/openhab-configuration/)**:
+  Sitemap und Regeln zur Steuerung des Pools via openHAB Smartphone-App.
+- **[Grafana Dashboard](/docs/grafana-dashboard/)**:
   Visualisieren Sie Ihre Pool-Daten mit einem ansprechenden Dashboard.
+- **[Pool Monitor](/docs/pool-monitor/)**:
+  Zeigt die aktuelle Pool-Temperatur auf einem solarbetriebenen, kabellosen Display an.
 
-Noch nicht dokumentierte bzw. geplante Module:
+Geplante Module:
 
-- **Pool Monitor**: Zeigt die aktuelle Pool-Temperatur auf einem solarbetriebenen Display an.
 - **Smart Analyzer**: Analysiert die Wasserqualität.
 
 Zudem gibt es ein [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki).

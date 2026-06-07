@@ -8,12 +8,7 @@ tags: ["docs", "getting-started", "tutorial"]
 
 ## Beispiel einer Anlage
 
-In meiner Anlage habe ich ein thermisches Solarsystem zur Warmwasserbereitung
-und zur Unterstützung der Raumheizung im Haus. Das erwärmte Wasser wird in
-einem Puffer gesammelt, der eine dritte Zirkulation für meinen Pool hat.
-
-An diese dritte Zirkulation ist eine Pumpe angeschlossen, die über einen
-Wärmetauscher das Wasser des Pools erwärmt:
+In einer typischen Anlage erwärmt ein thermisches Solarsystem das Wasser und unterstützt die Raumheizung im Haus. Das erwärmte Wasser wird in einem Pufferspeicher gesammelt, der eine dritte Zirkulation für den Pool bereitstellt. Eine Pumpe an diesem Kreislauf leitet das Poolwasser durch einen Wärmetauscher:
 
 ![Beispielaufbau](schema-environment-smart-pool.png)
 
@@ -25,30 +20,24 @@ Wärmetauscher das Wasser des Pools erwärmt:
 
 ## Vorbereitungen
 
-Sofern ein Heizkreislauf über einen Wärmetauscher vorbereitet ist, kann mit der Umsetzung der smarten Steuerung des Pools begonnen werden.
+Sofern ein Heizkreislauf mit Wärmetauscher vorbereitet ist, kann mit der Umsetzung der smarten Steuerung des Pools begonnen werden.
 
-Herz des Systems ist der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller). Dieser übernimmt die zentrale Steuerung von:
+Herz des Systems ist der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller). Dieser übernimmt:
 
-- Zirkulationszeitraum für die Reinigung mittels Sandfilteranlage
-- Zuschalten des Heizkreislaufs für Erwärmung des Poolwassers
-- Melden der Zustände und aktuellen Temperaturen für die Integration in Smart Home Server Lösungen
+- Steuerung der Zirkulationszeit für die Sandfilterreinigung
+- Zuschalten des Heizkreislaufs zur Erwärmung des Poolwassers
+- Melden von Status und Temperaturen für die Integration in Smart-Home-Server
 
-Der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) unterstützt zur Kommunikation mit anderen Smart Home Systemen das auf MQTT basierende Protokoll [Homie](https://homieiot.github.io/) und bietet somit eine einfache Integration beispielsweise in [openHAB](https://github.com/smart-swimmingpool/openhab-config). Mittels der vorgestellten Konfiguration für den openHAB-Server kann so schnell und einfach die Steuerung und Konfiguration des Pool Controllers vorgenommen werden.
+Der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) nutzt das MQTT-basierte [Homie](https://homieiot.github.io/)-Protokoll zur Kommunikation mit anderen Smart-Home-Systemen und bietet so eine einfache Integration in [openHAB](https://github.com/smart-swimmingpool/openhab-config). Mit der hier vorgestellten Konfiguration kann der Pool-Controller schnell eingerichtet und von jeder openHAB-kompatiblen App gesteuert werden.
 
 ## Historie
 
-🏊 Smart Swimming Pools basiert auf dem
-[ersten Projekt](https://github.com/stritti/smart-swimming-pool) das noch
-nicht modular aufgebaut war und die Steuerlogik innerhalb von openHAB-Regeln
-implementiert hatte.
+🏊 Smart Swimming Pool basiert auf einem [früheren Projekt](https://github.com/stritti/smart-swimming-pool), das noch nicht modular aufgebaut war und die gesamte Steuerlogik als openHAB-Regeln implementierte.
 
-Diese Version war im __Sommer 2018__ im Einsatz und zeigte ein paar Schwächen:
+Die erste Version war im **Sommer 2018** im Einsatz und zeigte einige Schwächen:
 
-- Die Steuerung der Pumpen über 433MHz-Steckdosenschalter war nicht zuverlässig, da es keine
-  Schaltbestätigung gab und der Status so unbekannt war.
-- Die Schaltlogik war als Regeln auf dem openHAB-Server implementiert. Das führte zu Problemen,
-  wenn das WLAN nicht zuverlässig funktioniert.
-- Die MQTT-Nachrichten hatten ein proprietäres Nachrichtenformat.
+- Die Steuerung der Pumpen über 433-MHz-Steckdosenschalter war unzuverlässig — ohne Rückmeldung war der tatsächliche Status unbekannt
+- Die Schaltlogik lebte in openHAB-Regeln, was bei unzuverlässigem WLAN zu Problemen führte
+- MQTT-Nachrichten verwendeten ein proprietäres Format
 
-Aus der Erfahrung des Sommers 2018 entstand dann diese überarbeitete Version
-des 🏊 Smart Swimming Pools: modular, widerstandsfähig, auf Standards setzend.
+Aus diesen Erfahrungen entstand die überarbeitete Version des 🏊 Smart Swimming Pools: modular, widerstandsfähig und auf Standards basierend.

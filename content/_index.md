@@ -34,8 +34,8 @@ The modules of this project support you to transform your swimming pool into a s
 - ✅ Can be operated via smartphone
 - ✅ Modular to extend
 - ⬜ Can be operated via hardware
-- ⬜ Well documented
-- ⬜ Easy to setup
+- ✅ Well documented
+- ✅ Easy to setup
 
 [![Works with Home Assistant](https://img.shields.io/badge/Works%20with-Home%20Assistant-41BDF5?logo=homeassistant&logoColor=white&style=for-the-badge "Works with Home Assistant")](https://www.home-assistant.io/)
 
@@ -54,7 +54,7 @@ The modules of this project support you to transform your swimming pool into a s
   {{< hextra/feature-card
     title="openHAB Integration"
     subtitle="Smooth integration with openHAB smart home server. Control your pool via mobile app on Android and iOS."
-    link="/docs/openhab-config/"
+    link="/docs/openhab-configuration/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     image="/img/openhab-sitemap-pool-automation.jpg"
     imageClass="top-[40%] left-[36px] w-[180%] sm:w-[110%] dark:opacity-80"

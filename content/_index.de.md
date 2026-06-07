@@ -34,8 +34,8 @@ Die Module dieses Projekts unterstützen Sie dabei, Ihren Swimmingpool in ein Sm
 - ✅ Kann über Smartphone bedient werden
 - ✅ Modulare Erweiterbarkeit
 - ⬜ Kann über Hardware bedient werden
-- ⬜ Gut dokumentiert
-- ⬜ Einfach einzurichten
+- ✅ Gut dokumentiert
+- ✅ Einfach einzurichten
 
 [![Works with Home Assistant](https://img.shields.io/badge/Works%20with-Home%20Assistant-41BDF5?logo=homeassistant&logoColor=white&style=for-the-badge "Works with Home Assistant")](https://www.home-assistant.io/)
 
@@ -54,7 +54,7 @@ Die Module dieses Projekts unterstützen Sie dabei, Ihren Swimmingpool in ein Sm
   {{< hextra/feature-card
     title="openHAB Integration"
     subtitle="Reibungslose Integration mit dem openHAB-Smarthome-Server. Steuerung des Pools per App auf Android und iOS."
-    link="/docs/openhab-config/"
+    link="/docs/openhab-configuration/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     image="/img/openhab-sitemap-pool-automation.jpg"
     imageClass="top-[40%] left-[36px] w-[180%] sm:w-[110%] dark:opacity-80"
