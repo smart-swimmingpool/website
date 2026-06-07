@@ -31,17 +31,19 @@ def readyaml():
 
 
 def extract_frontmatter(data):
-    """Extract useful frontmatter fields from imported docs and return (metadata, body).
+    """Extract useful frontmatter fields from imported docs and return (metadata, body, is_internal).
     
-    Returns (dict, str) where dict has preserved fields (title, description, weight, tags)
-    and str is the remaining body content without frontmatter.
+    Returns (dict, str, bool) where:
+    - dict has preserved fields (title, description, weight, tags)
+    - str is the remaining body content without frontmatter
+    - bool is True if the document is marked as internal (noindex + private)
     """
     if not data.startswith("---"):
-        return {}, data.strip()
+        return {}, data.strip(), False
 
     end_idx = data.find("\n---", 3)
     if end_idx == -1:
-        return {}, data.strip()
+        return {}, data.strip(), False
 
     frontmatter_text = data[3:end_idx]
     body = data[end_idx + 4:].strip()
@@ -49,7 +51,10 @@ def extract_frontmatter(data):
     try:
         frontmatter = yaml.safe_load(frontmatter_text)
         if not frontmatter:
-            return {}, body
+            return {}, body, False
+
+        # Check if doc is marked as internal
+        is_internal = frontmatter.get("noindex") is True and frontmatter.get("private") is True
 
         # Keep only fields useful for Hextra
         kept = {}
@@ -57,9 +62,9 @@ def extract_frontmatter(data):
             if key in frontmatter:
                 kept[key] = frontmatter[key]
 
-        return kept, body
+        return kept, body, is_internal
     except yaml.YAMLError:
-        return {}, data.strip()
+        return {}, data.strip(), False
 
 
 # Split a markdown content by its 2nd level headings and return the array
@@ -102,7 +107,12 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     logging.info(")")
 
     # Extract useful frontmatter (title, description, etc.) from the original doc
-    metadata, body = extract_frontmatter(data)
+    metadata, body, is_internal = extract_frontmatter(data)
+
+    # Skip internal documents (e.g., drafts, proposals, private analyses)
+    if is_internal:
+        logging.info(f"  SKIPPING internal document: {filename.name}")
+        return
 
     # Build combined frontmatter with source info + preserved metadata
     combined = {}
