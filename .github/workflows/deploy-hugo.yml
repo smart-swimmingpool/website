@@ -5,16 +5,18 @@ on:
       - main
   repository_dispatch:
     types: [doc_update]
+concurrency:
+  group: deploy-${{ github.sha }}
+  cancel-in-progress: true
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
         uses: actions/checkout@v4
-
-      - name: Update theme
-        # (Optional)If you have the theme added as submodule, you can pull it and use the most updated version
-        run: git submodule update --init --recursive
+        with:
+          submodules: recursive
+          fetch-depth: 1
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -40,6 +42,14 @@ jobs:
           # Academic theme requires Hugo < 0.120.0 (site.GoogleAnalytics removed in 0.120+)
           hugo-version: '0.119.0'
           extended: true
+
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        with:
+          path: resources/_gen
+          key: hugo-${{ hashFiles('**/**.md', '**/**.toml', '**/**.yaml', '**/**.json') }}
+          restore-keys: |
+            hugo-
 
       - name: Merge Documentation of Modules
         run: python ./grabrepos.py

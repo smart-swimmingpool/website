@@ -2,7 +2,7 @@
 # Subsequent builds are faster with clean set to false
 clean: false
 # Set to true to update ("fetch") an already existing repo for this run
-updaterepos: false
+updaterepos: true
 # Specify the repos from where to fetch different parts of the convention
 specifications:
   - name: Pool Controller

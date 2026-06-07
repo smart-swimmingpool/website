@@ -12,16 +12,12 @@
 # Author: David Graeff <david.graeff@web.de>
 
 import yaml
-import io
 import os
-import re
-import fnmatch
 import shutil
-import difflib
 import coloredlogs
 import logging
 from pathlib import Path
-from git import Repo, Git
+from git import Repo
 
 
 def readyaml():
@@ -112,12 +108,6 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     logging.info("  filename: "+filename.name)
     logging.info(")")
 
-    sections = split_by_headings(data)
-    if len(sections) <= 0:
-        logging.info("No sections to keep in "+filename.name)
-        logging.info("<-- write_file")
-        return
-
     header = "---\n"
     header += "source: "+absurl+"\n"
     header += "file: "+filename.name+"\n"
@@ -128,8 +118,8 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     section_name = reponame.replace(" ", "-").lower()
     data = transform_menu_section(data, section_name)
 
-    # New file content and destination path (preserves subdirectory structure)
-    filecontent = data
+    # New file content with source header and destination path (preserves subdirectory structure)
+    filecontent = header + data
     filepath = os.path.join(targetdir, dest_filepath(reponame, srcdir, str(filename)))
     dest = Path(filepath)
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -178,7 +168,6 @@ def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, update
     repo.head.reference = default_branch
     repo.head.reset(index=True, working_tree=True)
 
-    g = Git(localpath)
     # read all files of a repo and create target files out of them
     for ref in refs:
         repo.head.reference = ref
@@ -217,18 +206,15 @@ def recreate_dir(file_path, clean):
 
 
 # Main program
-coloredlogs.install()
-logging.basicConfig(level=logging.INFO)
-logging.info("Starting grabrepos ...")
-controlfile = readyaml()
-checkoutdir = recreate_dir("temp", "clean" in controlfile and controlfile["clean"])
-targetdir = os.path.abspath("content/docs")
-update_repos = "updaterepos" in controlfile and controlfile["updaterepos"]
-# if os.path.exists(targetdir):
-#    shutil.rmtree(targetdir)
-#    os.makedirs(targetdir)
-for entry in controlfile['specifications']:
-    if 'disabled' not in entry or not entry['disabled']:
-        checkout_repo(targetdir, entry['name'], entry['repo'],
-                      entry['filepattern'], checkoutdir, update_repos)
-logging.info("Finished.")
+if __name__ == "__main__":
+    coloredlogs.install(level=logging.INFO)
+    logging.info("Starting grabrepos ...")
+    controlfile = readyaml()
+    checkoutdir = recreate_dir("temp", "clean" in controlfile and controlfile["clean"])
+    targetdir = os.path.abspath("content/docs")
+    update_repos = "updaterepos" in controlfile and controlfile["updaterepos"]
+    for entry in controlfile['specifications']:
+        if 'disabled' not in entry or not entry['disabled']:
+            checkout_repo(targetdir, entry['name'], entry['repo'],
+                          entry['filepattern'], checkoutdir, update_repos)
+    logging.info("Finished.")
