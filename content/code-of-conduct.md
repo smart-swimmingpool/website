@@ -1,6 +1,6 @@
 ---
 title: Contributor Covenant Code of Conduct
-sumary: Contributor Covenant Code of Conduct of Smart Swimming Pool
+summary: Contributor Covenant Code of Conduct of Smart Swimming Pool
 date: "2020-05-29T00:00:00+01:00"
 draft: false
 share: false
@@ -69,7 +69,7 @@ a project may be further defined and clarified by project maintainers.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at [INSERT EMAIL ADDRESS]. All
+reported by contacting the project team on GitHub. All
 complaints will be reviewed and investigated and will result in a response that
 is deemed necessary and appropriate to the circumstances. The project team is
 obligated to maintain confidentiality with regard to the reporter of an incident.

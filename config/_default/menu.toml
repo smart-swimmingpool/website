@@ -11,7 +11,7 @@
 
 [[main]]
   name = "Code of Conduct"
-  url = "code-of-conduct/"
+  url = "/code-of-conduct/"
   weight = 40
 
 # Link to a PDF of your resume/CV from the menu.

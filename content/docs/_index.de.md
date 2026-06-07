@@ -34,15 +34,15 @@ view: 2
 
 Dieses Projekt ist in verschiedene Module aufgeteilt:
 
-- [Pool Controller]({{< ref "/pool-controller" >}}):
+- [Pool Controller](https://github.com/smart-swimmingpool/pool-controller):
   Das Herz der Steuerung.
-- [OpenHab Konfiguration]({{< ref "/openhab-configuration" >}}):
+- [openHAB Konfiguration](https://github.com/smart-swimmingpool/openhab-config):
   Beispiel-Sitemap die zur Steuerung des Pools via openHAB Smartphone-App dient.
 
 
 Noch nicht dokumentierte bzw. geplante Module:
 
 - **Pool Monitor**: Zeigt die aktuelle Pool-Temperatur auf einem solarbetriebenen Display an.
-- **Smart Analysator**: Analysiert die Wasserqualität.
+- **Smart Analyzer**: Analysiert die Wasserqualität.
 
 Zudem gibt es ein [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki).

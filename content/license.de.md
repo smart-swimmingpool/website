@@ -5,7 +5,7 @@ commentable: false
 editable: false
 ---
 
-Copyright (c) 2018-2020 Smart Swimming Pool, Stephan Strittmatter
+Copyright (c) 2018-2026 Smart Swimming Pool, Stephan Strittmatter
 
 Jedem, der eine Kopie dieser Software und der zugehörigen Dokumentationsdateien
 (die "Software") erhält, wird hiermit kostenlos die Erlaubnis erteilt, ohne

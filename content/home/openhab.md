@@ -12,7 +12,7 @@ subtitle = "Smooth Integration at openHAB"
 
 [header]
   image = "openhab-smartphone-sitemap.png"
-  caption = "Image credit: [**Academic**](https://github.com/gcushen/hugo-academic/)"
+  caption = "Smart Swimming Pool openHAB Sitemap"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
@@ -21,7 +21,7 @@ subtitle = "Smooth Integration at openHAB"
 
 
 
-[OpenHAB Configuration](./docs/openhab-config/) to add the Controller to your openHAB smart home environment.
+[openHAB Configuration](./docs/openhab-config/) to add the Controller to your openHAB smart home environment.
 
 Enables control of the 🏊 Smart Swimming Pool via mobile app (Android and iOS)
 

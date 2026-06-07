@@ -38,15 +38,15 @@ Wärmetauscher das Wasser des Pools erwärmt:
 
 ## Vorbereitungen
 
-Sofern ein Heizkreislauf über einen Wärmetausccher vorberitet ist, kann mit der Umsetzung der smarten Steuerung des Pools begonnen werden.
+Sofern ein Heizkreislauf über einen Wärmetauscher vorbereitet ist, kann mit der Umsetzung der smarten Steuerung des Pools begonnen werden.
 
-Herz des Systems ist der [Pool Controller]({{< ref "../pool-controller" >}}). Dieser übernimmt die zentrale Steuerung von:
+Herz des Systems ist der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller). Dieser übernimmt die zentrale Steuerung von:
 
-- Zirkulationszeitraum für die Reinigung mittels Sandfilteranalge
+- Zirkulationszeitraum für die Reinigung mittels Sandfilteranlage
 - Zuschalten des Heizkreislaufs für Erwärmung des Poolwassers
 - Melden der Zustände und aktuellen Temperaturen für die Integration in Smart Home Server Lösungen
 
-Der [Pool Controller]({{{< ref "../pool-controller" >}}) unterstützt zur Kommunikation mit anderen Smart Home Systemen das auf MQTT basierende Protokoll [Homie](https://homieiot.github.io/) und bietet somit eine einfache Integration beispielsweise in [openHAB]({{{< ref "../openhab-configuration" >}}). Mittels der vorgestellten Konfiguration für den openHAB-Server kann so schell und einfach die Steuerung und Konfiguration des Pool Controllers vorgenommen werde.
+Der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) unterstützt zur Kommunikation mit anderen Smart Home Systemen das auf MQTT basierende Protokoll [Homie](https://homieiot.github.io/) und bietet somit eine einfache Integration beispielsweise in [openHAB](https://github.com/smart-swimmingpool/openhab-config). Mittels der vorgestellten Konfiguration für den openHAB-Server kann so schnell und einfach die Steuerung und Konfiguration des Pool Controllers vorgenommen werden.
 
 ## Historie
 

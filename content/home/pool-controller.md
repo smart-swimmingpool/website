@@ -19,4 +19,4 @@ subtitle = "The smart brain"
 
 Control your swimming pool with self-built IoT modules. The cost of the required electronic components are less than 100 Euros.
 
-{{< figure src="docs/pool-controller/pool-controller_breadboard.png" title="Breadboard Circuid of Pool Controller" lightbox="true" >}}
+{{< figure src="docs/pool-controller/pool-controller_breadboard.png" title="Breadboard Circuit of Pool Controller" lightbox="true" >}}

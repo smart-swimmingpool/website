@@ -39,13 +39,13 @@ exchanger the water of the pool:
 
 If a heating circuit is prepared via a heat exchanger, the implementation of the smart control of the pool can be started.
 
-The heart of the system is the [Pool Controller]({{{< ref "../pool-controller" >}}). This is responsible for the central control of:
+The heart of the system is the [Pool Controller](https://github.com/smart-swimmingpool/pool-controller). This is responsible for the central control of:
 
 - Circulation period for cleaning by means of a sand filter system
 - Switching on the heating circuit for warming up the pool water
 - Reporting of statuses and current temperatures for integration into Smart Home Server solutions
 
-The [pool controller]({{{{{< ref "../pool-controller" >}}) supports the MQTT based protocol [Homie](https://homieiot.github.io/) for communication with other smart home systems and thus offers easy integration into [openHAB]({{{{{< ref "../openhab-configuration" >}}). Using the configuration for the openHAB-Server presented here, the pool controller can be quickly and easily controlled and configured.
+The [pool controller](https://github.com/smart-swimmingpool/pool-controller) supports the MQTT based protocol [Homie](https://homieiot.github.io/) for communication with other smart home systems and thus offers easy integration into [openHAB](https://github.com/smart-swimmingpool/openhab-config). Using the configuration for the openHAB-Server presented here, the pool controller can be quickly and easily controlled and configured.
 
 ## History
 
