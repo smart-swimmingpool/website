@@ -67,6 +67,37 @@ nav {
   border-bottom-color: hsl(195, 30%, 25%) !important;
 }
 
+/* ===== More whitespace between paragraphs ===== */
+
+main p {
+  margin-bottom: 1.25rem;
+}
+
+main ul,
+main ol {
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+main li {
+  margin-bottom: 0.35rem;
+}
+
+main h2 {
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+main h3 {
+  margin-top: 2rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+main hr {
+  margin-top: 2.5rem !important;
+  margin-bottom: 2.5rem !important;
+}
+
 /* ===== Hero headline uses pool gradient ===== */
 
 h1.not-prose {
