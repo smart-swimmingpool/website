@@ -10,8 +10,9 @@ Dieses Projekt ist in verschiedene Module aufgeteilt:
 - [Pool Controller](https://github.com/smart-swimmingpool/pool-controller):
   Das Herz der Steuerung.
 - [openHAB Konfiguration](https://github.com/smart-swimmingpool/openhab-config):
-  Beispiel-Sitemap die zur Steuerung des Pools via openHAB Smartphone-App dient.
-
+  Beispiel-Sitemap zur Steuerung des Pools via openHAB Smartphone-App.
+- [Grafana Dashboard](https://github.com/smart-swimmingpool/grafana-dashboard):
+  Visualisieren Sie Ihre Pool-Daten mit einem ansprechenden Dashboard.
 
 Noch nicht dokumentierte bzw. geplante Module:
 

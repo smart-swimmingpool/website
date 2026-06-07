@@ -19,8 +19,6 @@ layout: hextra-home
 {{< hextra/hero-button text="Erste Schritte" link="docs/getting-started" >}}
 </div>
 
-<span style="text-shadow: none;"><a class="github-button" href="https://github.com/smart-swimmingpool/pool-controller" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script></span>
-
 ## Vision
 
 Die Module dieses Projekts unterstützen Sie dabei, Ihren Swimmingpool in ein Smart Swimmingpool zu verwandeln:
