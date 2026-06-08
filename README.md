@@ -30,6 +30,84 @@
 
 Head over to the **[Getting Started guide](https://smart-swimmingpool.com/docs/getting-started/)** to set up your smart swimming pool.
 
+---
+
+## Contributing
+
+We welcome contributions! Here's how to get started with developing the website locally.
+
+### Prerequisites
+
+- **Hugo (extended)** v0.162.1 or later — [Install Hugo](https://gohugo.io/installation/)
+- **Python** 3.x — required for the documentation merge script (`grabrepos.py`)
+- **Git** — with submodule support
+
+### Local Development Setup
+
+```bash
+# 1. Clone the repository with submodules (for the theme)
+git clone --recursive https://github.com/smart-swimmingpool/website.git
+cd website
+
+# 2. (Optional) Create a Python virtual environment and install dependencies
+python3 -m venv .venv
+source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+
+# 3. Start the Hugo development server with live reload
+hugo server -D
+```
+
+The site will be available at `http://localhost:1313`. Changes to content, layouts, and config are reflected immediately.
+
+### Project Structure
+
+```
+├── assets/              # CSS, JS, images (processed by Hugo)
+├── content/             # Page content in Markdown
+│   ├── docs/            # Documentation pages
+│   ├── _index.md        # Home page (English)
+│   └── _index.de.md     # Home page (German)
+├── i18n/                # Translation files
+├── layouts/             # Custom Hugo templates
+├── static/              # Static files (images, CNAME, etc.)
+├── themes/hextra/       # Hextra theme (git submodule)
+├── grabrepos.py         # Script to merge module documentation
+├── hugo.yaml            # Hugo configuration
+└── multiversion.yml     # Multi-version content configuration
+```
+
+### Common Tasks
+
+| Task | Command |
+|------|---------|
+| Start dev server | `hugo server -D` |
+| Build for production | `hugo --minify` |
+| Clean build cache | `hugo --cleanDestinationDir` |
+| Merge module docs | `python grabrepos.py` |
+| Update theme | `git submodule update --remote themes/hextra` |
+
+### Making Changes
+
+1. **Fork** the repository on GitHub
+2. **Create a branch** with a descriptive name (e.g. `fix/typo-in-docs`, `feat/new-contributor-guide`)
+3. **Make your changes** and test locally with `hugo server -D`
+4. **Commit** with a clear message describing what and why
+5. **Open a Pull Request** against the `main` branch
+
+### Code Style
+
+- **Markdown**: Wrap lines at ~80 characters for readability. Use semantic line breaks.
+- **Front matter**: Use YAML format. Required fields: `title`, `date` (if dated content).
+- **Images**: Place in `static/img/` and reference with `/img/...` in Markdown. Optimize images before committing.
+- **Translations**: German pages (`*.de.md`) should mirror the English version's structure. Update both when adding or changing content.
+
+### Development Tips
+
+- Use `hugo server -D --navigateToChanged` to automatically open the browser when editing content.
+- The `grabrepos.py` script fetches documentation from submodule repositories. Run it before building if module docs have changed.
+- The Hextra theme is included as a git submodule. To preview theme changes, either submit them upstream or override templates in the `layouts/` directory.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).

@@ -1,0 +1,38 @@
+# Dependabot configuration for automatic updates
+version: 2
+updates:
+  # Keep GitHub Actions up to date
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+
+  # Keep Python dependencies up to date
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    # Allow updates to security patches immediately
+    allow:
+      - dependency-type: "direct"
+    # Ignore certain dependencies if needed (uncomment and adjust as required)
+    # ignore:
+    #   - dependency-name: "some-package"
+    #     versions: ["1.0.0"]
+
+  # Keep Hugo version up to date (if we manage it via a package, but we use an action)
+  # Note: The Hugo version is set in the workflow file as an input to the action.
+  # We can let dependabot update the workflow file via the github-actions ecosystem above.
+  # However, if we want to specifically target the hugo-version input, we can use a custom approach.
+  # For simplicity, we rely on the github-actions ecosystem to update the action and then
+  # we can optionally update the hugo-version input in the same PR if needed.
+  # Alternatively, we can remove the fixed hugo-version and let the action use the latest.
+  # But for now, we leave it as is and dependabot will update the action version.
+
+  # If we had a package.json for Node.js dependencies, we would add:
+  # - package-ecosystem: "npm"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
