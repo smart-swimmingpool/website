@@ -102,10 +102,43 @@ The site will be available at `http://localhost:1313`. Changes to content, layou
 - **Images**: Place in `static/img/` and reference with `/img/...` in Markdown. Optimize images before committing.
 - **Translations**: German pages (`*.de.md`) should mirror the English version's structure. Update both when adding or changing content.
 
+### How Module Documentation Updates Work
+
+The website pulls documentation from separate module repositories (pool-controller, openhab-config, grafana-dashboard, monitor) via `grabrepos.py`. The build process:
+
+1. Reads `multiversion.yml` to find which repos to include
+2. Clones (or fetches) each repo into `temp/`
+3. Copies matching `docs/**/*.md` files into `content/docs/{modulename}/`
+
+The site is rebuilt automatically:
+- **Daily at 6:00 UTC** (cron schedule) — picks up any new module docs
+- **On push to `main`** of this repo
+- **On `repository_dispatch` with type `doc_update`** — ideal for module repos
+- **Manually** via GitHub Actions → "Run workflow" button
+
+> 💡 **For module maintainers**: Add this workflow to your module repo to trigger a rebuild automatically when docs change:
+> ```yaml
+> # .github/workflows/trigger-website-rebuild.yml
+> name: Trigger Website Rebuild
+> on:
+>   push:
+>     branches: [main]
+>     paths: ["docs/**"]
+> jobs:
+>   trigger:
+>     runs-on: ubuntu-latest
+>     steps:
+>       - name: Repository Dispatch
+>         uses: peter-evans/repository-dispatch@v3
+>         with:
+>           token: ${{ secrets.WEBSITE_DISPATCH_TOKEN }}
+>           repository: smart-swimmingpool/website
+>           event-type: doc_update
+> ```
+
 ### Development Tips
 
 - Use `hugo server -D --navigateToChanged` to automatically open the browser when editing content.
-- The `grabrepos.py` script fetches documentation from submodule repositories. Run it before building if module docs have changed.
 - The Hextra theme is included as a git submodule. To preview theme changes, either submit them upstream or override templates in the `layouts/` directory.
 
 ## License
