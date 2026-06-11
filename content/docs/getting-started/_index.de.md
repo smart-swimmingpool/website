@@ -30,6 +30,22 @@ Herz des Systems ist der [Pool Controller](https://github.com/smart-swimmingpool
 
 Der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) nutzt [Home Assistant MQTT Discovery](https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery) für nahtlose Smarthome-Integration. Mit der hier vorgestellten Konfiguration kann der Pool-Controller schnell eingerichtet und von jeder Home Assistant-kompatiblen App gesteuert werden.
 
+### Home Assistant Dashboard
+
+Der Pool Controller registriert via MQTT Discovery automatisch alle Sensoren und Steuerelemente in Home Assistant. Nachfolgend ein Beispiel des Dashboards und der zugehörigen Konfigurationseinträge:
+
+![Home Assistant Dashboard](/img/ha-pool-dashboard.jpeg)
+
+*Pool-Controller-Entitäten im Home Assistant Dashboard*
+
+![Home Assistant Device Eintrag](/img/ha-pool-device.jpeg)
+
+*MQTT Discovery-Geräteeintrag mit allen Sensoren und Steuerungen*
+
+![Home Assistant Konfiguration](/img/ha-pool-config.jpeg)
+
+*Konfigurationseinträge für den Pool Controller in Home Assistant*
+
 ## Historie
 
 🏊 Smart Swimming Pool basiert auf einem [früheren Projekt](https://github.com/stritti/smart-swimming-pool), das noch nicht modular aufgebaut war und die gesamte Steuerlogik als openHAB-Regeln implementierte.
