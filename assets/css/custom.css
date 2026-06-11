@@ -7,14 +7,14 @@
    These must use the exact variable names from the theme. */
 
 :root {
-  --primary-hue: 195deg;
-  --primary-saturation: 75%;
+  --primary-hue: 210deg;
+  --primary-saturation: 82%;
   --primary-lightness: 45%;
 }
 
 .dark {
-  --primary-hue: 195deg;
-  --primary-saturation: 70%;
+  --primary-hue: 210deg;
+  --primary-saturation: 78%;
   --primary-lightness: 55%;
 }
 
@@ -23,9 +23,9 @@
 body {
   background: linear-gradient(
     180deg,
-    hsl(195, 70%, 97%) 0%,
-    hsl(195, 40%, 92%) 30%,
-    hsl(195, 25%, 95%) 60%,
+    hsl(210, 72%, 97%) 0%,
+    hsl(210, 45%, 92%) 30%,
+    hsl(210, 28%, 95%) 60%,
     white 100%
   );
   background-attachment: fixed;
@@ -34,9 +34,9 @@ body {
 .dark body {
   background: linear-gradient(
     180deg,
-    hsl(195, 30%, 10%) 0%,
-    hsl(195, 25%, 14%) 30%,
-    hsl(195, 20%, 12%) 60%,
+    hsl(210, 35%, 10%) 0%,
+    hsl(210, 28%, 14%) 30%,
+    hsl(210, 22%, 12%) 60%,
     #111 100%
   );
   background-attachment: fixed;
@@ -50,21 +50,21 @@ body {
 
 .hextra-feature-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px hsl(195, 60%, 70%, 0.25);
+  box-shadow: 0 12px 28px hsl(210, 65%, 70%, 0.25);
 }
 
 .dark .hextra-feature-card:hover {
-  box-shadow: 0 12px 28px hsl(195, 60%, 30%, 0.3);
+  box-shadow: 0 12px 28px hsl(210, 65%, 30%, 0.3);
 }
 
 /* ===== Navbar subtle water accent ===== */
 
 nav {
-  border-bottom-color: hsl(195, 50%, 80%) !important;
+  border-bottom-color: hsl(210, 55%, 80%) !important;
 }
 
 .dark nav {
-  border-bottom-color: hsl(195, 30%, 25%) !important;
+  border-bottom-color: hsl(210, 35%, 25%) !important;
 }
 
 /* ===== More whitespace between paragraphs ===== */
@@ -101,11 +101,11 @@ main hr {
 /* ===== Hero headline uses pool gradient ===== */
 
 h1.not-prose {
-  --tw-gradient-from: hsl(195, 75%, 25%) !important;
-  --tw-gradient-to: hsl(195, 60%, 45%) !important;
+  --tw-gradient-from: hsl(210, 80%, 30%) !important;
+  --tw-gradient-to: hsl(205, 72%, 50%) !important;
 }
 
 .dark h1.not-prose {
-  --tw-gradient-from: hsl(195, 70%, 70%) !important;
-  --tw-gradient-to: hsl(195, 50%, 50%) !important;
+  --tw-gradient-from: hsl(210, 78%, 75%) !important;
+  --tw-gradient-to: hsl(205, 65%, 55%) !important;
 }
