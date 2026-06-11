@@ -34,15 +34,15 @@ The [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) use
 
 The pool controller automatically registers all sensors and controls in Home Assistant via MQTT discovery. Below is an example of the dashboard and the corresponding configuration entries:
 
-![Home Assistant Dashboard](/img/ha-pool-dashboard.jpeg)
+![Home Assistant Dashboard](/img/ha-pool-dashboard.jpg)
 
 *Pool Controller entities shown in the Home Assistant dashboard*
 
-![Home Assistant Device Entry](/img/ha-pool-device.jpeg)
+![Home Assistant Device Entry](/img/ha-pool-device.jpg)
 
 *MQTT discovery device entry with all sensors and controls*
 
-![Home Assistant Configuration](/img/ha-pool-config.jpeg)
+![Home Assistant Configuration](/img/ha-pool-config.jpg)
 
 *Configuration entries for the pool controller in Home Assistant*
 
