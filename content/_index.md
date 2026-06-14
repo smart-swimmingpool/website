@@ -19,6 +19,8 @@ layout: hextra-home
 {{< hextra/hero-button text="Getting Started" link="docs/getting-started" >}}
 </div>
 
+{{< safety-notice type="230v" >}}
+
 ## Vision
 
 The modules of this project support you to transform your swimming pool into a smart swimming pool:
