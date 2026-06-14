@@ -53,13 +53,14 @@ In einer typischen Anlage erwärmt ein thermisches Solarsystem das Wasser und un
 
 Die DS18B20-Sensoren verwenden das **OneWire-Protokoll**. Verbinden Sie sie wie folgt:
 
-| ESP32 Pin | DS18B20 | Kabel (typisch) |
-|-----------|---------|----------------|
-| 3.3V | VDD (Pin 3) | Rot |
-| GND | GND (Pin 1) | Schwarz |
-| GPIO32 | DATA (Pin 2) | Gelb/Weiß |
+Die Firmware (esp32dev-Umgebung) weist **jedem Sensor einen eigenen GPIO-Pin** zu:
 
-> **Wichtig:** Schließen Sie einen **4,7kΩ-Widerstand** zwischen DATA und 3.3V an (Pull-Up). Dies ist für den zuverlässigen OneWire-Betrieb erforderlich. Für zwei Sensoren reicht ein einzelner Pull-Up-Widerstand.
+| Sensor | ESP32 Pin | Kabel (typisch) |
+|--------|-----------|----------------|
+| Solar-Kollektor (DS18B20 #1) | **GPIO32** | VDD=Rot, GND=Schwarz, DATA=Gelb/Weiß |
+| Poolwasser (DS18B20 #2) | **GPIO33** | VDD=Rot, GND=Schwarz, DATA=Gelb/Weiß |
+
+> **Wichtig:** Schließen Sie einen **4,7kΩ-Widerstand** zwischen **jeder** DATA-Leitung und 3.3V an (Pull-Up). OneWire benötigt einen separaten Pull-Up pro GPIO-Pin. Für zwei Sensoren auf getrennten GPIOs benötigen Sie **zwei 4,7kΩ-Widerstände**.
 
 ### Schritt 3: Relais-Modul anschließen
 
@@ -82,7 +83,9 @@ Bevor Sie Pumpen oder Netzspannung anschließen:
 
 ## Firmware-Installation
 
-### Option A: PlatformIO (Empfohlen)
+### PlatformIO (Empfohlen)
+
+> ⚠️ **Wichtig:** Der Pool-Controller ist ein PlatformIO-Projekt. Es gibt **keine** Arduino-IDE-kompatible `.ino`-Datei. PlatformIO ist die einzige unterstützte Build-Methode.
 
 1. Installieren Sie [Visual Studio Code](https://code.visualstudio.com/) und die [PlatformIO-Erweiterung](https://platformio.org/install/ide?install=vscode).
 2. Repository klonen:
@@ -91,25 +94,19 @@ Bevor Sie Pumpen oder Netzspannung anschließen:
    cd pool-controller
    ```
 3. Öffnen Sie den Ordner in VS Code — PlatformIO erkennt das Projekt automatisch.
-4. Verbinden Sie den ESP32 per USB.
-5. Klicken Sie auf den **→ (Upload and Monitor)**-Button in der PlatformIO-Fußzeile.
-6. Die Firmware wird kompiliert und geflasht. Der serielle Monitor öffnet sich automatisch bei 115200 Baud.
-
-### Option B: Arduino IDE
-
-1. Installieren Sie die [Arduino IDE](https://www.arduino.cc/en/software) (Version 2.x empfohlen).
-2. ESP32-Board-Unterstützung hinzufügen:
-   - Datei → Voreinstellungen → Zusätzliche Boardverwalter-URLs:
-     `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
-   - Werkzeuge → Board → Boardverwalter → "ESP32" suchen → installieren
-3. Erforderliche Bibliotheken installieren:
-   - **ArduinoJson 7.x** (Bibliotheksverwalter)
-   - **PubSubClient** (Bibliotheksverwalter)
-   - **NTPClient** (Bibliotheksverwalter)
-4. Öffnen Sie `pool-controller.ino` aus dem geklonten Repository.
-5. Wählen Sie **ESP32 Dev Module** unter Werkzeuge → Board.
-6. Wählen Sie den richtigen COM-Port.
-7. Klicken Sie auf **Hochladen**.
+4. **Die richtige Umgebung wählen:** Das Projekt hat als Voreinstellung die Umgebung für den NORVI AE01-R Industrie-Controller. Für ein Standard-ESP32-DevKit wechseln Sie zur `esp32dev`-Umgebung:
+   - Klicken Sie auf das **PlatformIO-Logo** (⚡-Symbol) in der VS-Code-Fußzeile
+   - Gehen Sie zu **Project Tasks → esp32dev**
+   - Oder nutzen Sie den Umgebungswechsler unten im VS-Code-Fenster
+5. Verbinden Sie den ESP32 per USB.
+6. **Schritt A — Firmware flashen:** Klicken Sie auf den **→ (Upload and Monitor)**-Button neben `esp32dev` in der PlatformIO-Fußzeile. Die Firmware wird kompiliert und geflasht.
+7. **Schritt B — Dateisystem hochladen (Weboberfläche):** Die Weboberfläche wird in einer separaten LittleFS-Partition gespeichert und muss nach der Firmware hochgeladen werden:
+   - Öffnen Sie in VS Code den PlatformIO-Reiter → **esp32dev → Platform → Upload Filesystem Image**
+   - Oder per Terminal:
+     ```bash
+     pio run -e esp32dev -t uploadfs
+     ```
+   - Ohne diesen Schritt zeigt die Weboberfläche eine **Fehlerseite** statt der Konfigurationsseite.
 
 ### Nach dem Flashen prüfen
 
@@ -118,7 +115,7 @@ Bevor Sie Pumpen oder Netzspannung anschließen:
 ```
 [INFO] Pool Controller v3.3.0 starting...
 [INFO] WiFi: Starting in AP mode
-[INFO] AP: SmartPool-XXXXXXXXXXXX
+[INFO] AP: 'Pool-Controller-Setup'. IP: 192.168.4.1
 ```
 
 Der ESP32 startet standardmäßig im **Access Point (AP) Modus**.
@@ -127,7 +124,7 @@ Der ESP32 startet standardmäßig im **Access Point (AP) Modus**.
 
 ### Schritt 1: Mit ESP32 verbinden
 
-1. Suchen Sie nach WLAN-Netzwerken — Sie sehen `SmartPool-XXXXXXXXXXXX` (kein Passwort).
+1. Suchen Sie nach WLAN-Netzwerken — Sie sehen **`Pool-Controller-Setup`** (offenes Netzwerk, kein Passwort).
 2. Verbinden Sie sich von Ihrem Smartphone oder Laptop.
 3. Öffnen Sie einen Browser und gehen Sie zu **http://192.168.4.1**
 
