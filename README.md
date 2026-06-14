@@ -12,7 +12,7 @@
 
 | Module | Description |
 |--------|-------------|
-| [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) | ESP8266-based control unit with Home Assistant MQTT discovery. The smart brain of your pool. |
+| [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) | ESP32-based control unit with Home Assistant MQTT discovery. The smart brain of your pool. |
 | [openHAB Configuration](https://github.com/smart-swimmingpool/openhab-config) | Sitemap and rules to control your pool via openHAB mobile app. |
 | [Pool Monitor](https://github.com/smart-swimmingpool/monitor) | Solar-powered wireless temperature display for your pool. |
 | [Grafana Dashboard](https://github.com/smart-swimmingpool/grafana-dashboard) | Visualize pool data with a beautiful Grafana dashboard. |
