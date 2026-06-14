@@ -1,0 +1,83 @@
+name: PR Check
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches-ignore: [main]
+  workflow_dispatch:
+
+# Avoid duplicate runs for the same branch
+concurrency:
+  group: check-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-check:
+    name: Build & Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            ${{ runner.os }}-
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.162.1'
+          extended: true
+
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        with:
+          path: resources/_gen
+          key: hugo-${{ hashFiles('**/**.md', '**/**.toml', '**/**.yaml', '**/**.json') }}
+          restore-keys: |
+            hugo-
+
+      - name: Merge documentation from module repositories
+        run: python ./grabrepos.py
+
+      - name: Build Hugo site
+        run: hugo --minify
+
+      - name: Check for broken links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --exclude-mail
+            --exclude-all-private
+            --exclude 'https?://(localhost|127\.0\.0\.1)(:\d+)?(/.*)?'
+            --exclude 'https?://github\.com/smart-swimmingpool/[^/]+/blob/main/docs/'
+            './public/**/*.html'
+          fail: true
+          format: markdown
+          output: /tmp/lychee-report.md
+
+      - name: Upload link check report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lychee-report
+          path: /tmp/lychee-report.md
