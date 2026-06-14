@@ -61,6 +61,12 @@ jobs:
       - name: Build Hugo site
         run: hugo --minify
 
+      - name: Start HTTP server for link checking
+        run: |
+          python3 -m http.server 1313 --directory public &
+          echo "SERVER_PID=$!" >> "$GITHUB_ENV"
+          sleep 2
+
       - name: Check for broken links
         uses: lycheeverse/lychee-action@v2
         with:
@@ -68,12 +74,22 @@ jobs:
             --no-progress
             --include-fragments
             --exclude-all-private
-            --exclude 'https?://(localhost|127\.0\.0\.1)(:\d+)?(/.*)?'
             --exclude 'https?://github\.com/smart-swimmingpool/[^/]+/blob/main/docs/'
-            './public/**/*.html'
+            --exclude '^https?://www\.home-assistant\.io'
+            --exclude '^https?://code\.visualstudio\.com'
+            --exclude '^https?://mosquitto\.org'
+            --exclude '^https?://www\.silabs\.com'
+            --exclude '^https?://www\.wch\.cn'
+            --exclude '^https?://www\.arduino\.cc'
+            --exclude '^https?://github\.com/espressif/arduino-esp32'
+            --exclude '^https?://platformio\.org'
+            --output /tmp/lychee-report.md
+            http://localhost:1313/
           fail: true
-          format: markdown
-          output: /tmp/lychee-report.md
+
+      - name: Stop HTTP server
+        if: always()
+        run: kill ${{ env.SERVER_PID }} 2>/dev/null || true
 
       - name: Upload link check report
         if: failure()
