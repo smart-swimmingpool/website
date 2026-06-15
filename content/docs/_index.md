@@ -11,8 +11,10 @@ This project is split into several modules:
 
 - **[Pool Controller](/docs/pool-controller/)**:
   The heart of the 🏊 Smart Swimming Pool — ESP32-based central control logic.
+- **[openHAB Integration](/docs/openhab-integration/)**:
+  Step-by-step guide to integrate the Pool Controller with openHAB.
 - **[openHAB Configuration](/docs/openhab-configuration/)**:
-  Sitemap and rules to control 🏊 Smart Swimming Pool via the openHAB mobile app.
+  Reference sitemap, items and rules for openHAB.
 - **[Grafana Dashboard](/docs/grafana-dashboard/)**:
   Visualize your pool data with a beautiful dashboard.
 - **[Pool Monitor](/docs/pool-monitor/)**:

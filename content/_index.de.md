@@ -56,7 +56,7 @@ Die Module dieses Projekts unterstützen Sie dabei, Ihren Swimmingpool in ein Sm
   {{< hextra/feature-card
     title="openHAB Integration"
     subtitle="Reibungslose Integration mit dem openHAB-Smarthome-Server. Steuerung des Pools per App auf Android und iOS."
-    link="/docs/openhab-configuration/"
+    link="/docs/openhab-integration/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     image="/img/openhab-sitemap-pool-automation.jpg"
     imageClass="top-[40%] left-[36px] w-[180%] sm:w-[110%] dark:opacity-80"
