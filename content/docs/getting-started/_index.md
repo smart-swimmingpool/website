@@ -153,11 +153,9 @@ If you use Home Assistant with MQTT configured:
 2. In Home Assistant, go to **Settings → Devices & Services**.
 3. Click **Add Integration → MQTT** (if not already configured).
 4. The pool controller should appear as a new device automatically.
-5. You'll see entities for:
-   - Temperatures (pool, solar, outside)
-   - Circulation pump switch
-   - Heating circuit switch
-   - System status sensors
+5. All sensors, controls, and configuration parameters appear as entities — no manual setup needed.
+
+> ▶️ **Detailed guide**: See the [Home Assistant Integration Guide](/docs/home-assistant-integration/) for the complete entity reference, dashboard setup, automation examples, and troubleshooting.
 
 ### Step 5: Connect the Pumps
 
@@ -177,6 +175,7 @@ The Getting Started guide focuses on the **Pool Controller**, which is the centr
 | Module | Purpose | When to Add |
 |--------|---------|-------------|
 | **Pool Controller** (this guide) | Main control: pumps, heating, circulation | Required — start here |
+| **Home Assistant** | Native MQTT Discovery integration | Automatic — no setup needed |
 | **Pool Monitor** | Solar-powered wireless temperature display | After controller is running |
 | **Grafana Dashboard** | Data visualization and history | When you want historical charts |
 | **openHAB Configuration** | Integration with openHAB smart home | If you use openHAB instead of Home Assistant |
@@ -185,6 +184,7 @@ The Getting Started guide focuses on the **Pool Controller**, which is the centr
 ## What's Next?
 
 Once your Pool Controller is running:
+- Explore the **[Home Assistant Integration Guide](/docs/home-assistant-integration/)** for the complete entity reference, dashboard setup, and automation examples
 - Set up the **[Grafana Dashboard](/docs/grafana-dashboard/)** to visualize temperature trends
 - Add the **[Pool Monitor](/docs/pool-monitor/)** for a dedicated display
 - Check the **[FAQ](/docs/troubleshooting/)** if you run into issues

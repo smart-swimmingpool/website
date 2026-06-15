@@ -153,11 +153,9 @@ Wenn Sie Home Assistant mit MQTT verwenden:
 2. In Home Assistant gehen Sie zu **Einstellungen → Geräte & Dienste**.
 3. Klicken Sie auf **Integration hinzufügen → MQTT** (falls nicht schon konfiguriert).
 4. Der Pool Controller sollte automatisch als neues Gerät erscheinen.
-5. Sie sehen Entitäten für:
-   - Temperaturen (Pool, Solar, Außen)
-   - Umwälzpumpen-Schalter
-   - Heizkreisschalter
-   - Systemstatus-Sensoren
+5. Alle Sensoren, Steuerungen und Konfigurationsparameter erscheinen als Entities — keine manuelle Einrichtung nötig.
+
+> ▶️ **Ausführliche Anleitung**: Siehe [Home Assistant Integrations-Guide](/docs/home-assistant-integration/) für die vollständige Entity-Referenz, Dashboard-Einrichtung, Automatisierungsbeispiele und Fehlerbehebung.
 
 ### Schritt 5: Pumpen anschließen
 
@@ -177,6 +175,7 @@ Die Erste-Schritte-Anleitung konzentriert sich auf den **Pool Controller** als z
 | Modul | Zweck | Wann hinzufügen |
 |-------|-------|-----------------|
 | **Pool Controller** (diese Anleitung) | Hauptsteuerung: Pumpen, Heizung, Zirkulation | Erforderlich — hier starten |
+| **Home Assistant** | Nativer MQTT Discovery | Automatisch — keine Einrichtung nötig |
 | **Pool Monitor** | Solarbetriebene Temperaturanzeige | Nachdem der Controller läuft |
 | **Grafana Dashboard** | Datenvisualisierung und -verlauf | Wenn Sie historische Diagramme möchten |
 | **openHAB Konfiguration** | Integration mit openHAB | Wenn Sie openHAB statt Home Assistant nutzen |
@@ -185,6 +184,7 @@ Die Erste-Schritte-Anleitung konzentriert sich auf den **Pool Controller** als z
 ## Wie geht es weiter?
 
 Sobald Ihr Pool Controller läuft:
+- Entdecken Sie den **[Home Assistant Integrations-Guide](/docs/home-assistant-integration/)** für die vollständige Entity-Referenz, Dashboard-Einrichtung und Automatisierungsbeispiele
 - Richten Sie das **[Grafana Dashboard](/docs/grafana-dashboard/)** für Temperaturverläufe ein
 - Fügen Sie den **[Pool Monitor](/docs/pool-monitor/)** für ein eigenes Display hinzu
 - Besuchen Sie das **[FAQ](/docs/troubleshooting/)** bei Problemen

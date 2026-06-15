@@ -11,6 +11,8 @@ This project is split into several modules:
 
 - **[Pool Controller](/docs/pool-controller/)**:
   The heart of the 🏊 Smart Swimming Pool — ESP32-based central control logic.
+- **[Home Assistant Integration](/docs/home-assistant-integration/)**:
+  Automatic MQTT Discovery — the easiest way to integrate with Home Assistant.
 - **[openHAB Integration](/docs/openhab-integration/)**:
   Step-by-step guide to integrate the Pool Controller with openHAB.
 - **[openHAB Configuration](/docs/openhab-configuration/)**:
