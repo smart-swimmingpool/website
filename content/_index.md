@@ -56,7 +56,7 @@ The modules of this project support you to transform your swimming pool into a s
   {{< hextra/feature-card
     title="openHAB Integration"
     subtitle="Smooth integration with openHAB smart home server. Control your pool via mobile app on Android and iOS."
-    link="/docs/openhab-configuration/"
+    link="/docs/openhab-integration/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     image="/img/openhab-sitemap-pool-automation.jpg"
     imageClass="top-[40%] left-[36px] w-[180%] sm:w-[110%] dark:opacity-80"

@@ -188,7 +188,8 @@ Once your Pool Controller is running:
 - Set up the **[Grafana Dashboard](/docs/grafana-dashboard/)** to visualize temperature trends
 - Add the **[Pool Monitor](/docs/pool-monitor/)** for a dedicated display
 - Check the **[FAQ](/docs/troubleshooting/)** if you run into issues
-- Explore the **[openHAB Configuration](/docs/openhab-configuration/)** if you use openHAB
+- Follow the **[openHAB Integration Guide](/docs/openhab-integration/)** to set up openHAB step by step
+- Reference the **[openHAB Configuration](/docs/openhab-configuration/)** for the complete openHAB config files
 
 ## Preparations
 

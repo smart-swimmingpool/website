@@ -11,8 +11,10 @@ Dieses Projekt ist in verschiedene Module aufgeteilt:
 
 - **[Pool Controller](/docs/pool-controller/)**:
   Das Herz der Steuerung — zentrale Steuerlogik auf ESP32-Basis.
+- **[openHAB Integration](/docs/openhab-integration/)**:
+  Schritt-für-Schritt-Anleitung zur Integration des Pool Controllers mit openHAB.
 - **[openHAB Konfiguration](/docs/openhab-configuration/)**:
-  Sitemap und Regeln zur Steuerung des Pools via openHAB Smartphone-App.
+  Referenz-Sitemap, Items und Regeln für openHAB.
 - **[Grafana Dashboard](/docs/grafana-dashboard/)**:
   Visualisieren Sie Ihre Pool-Daten mit einem ansprechenden Dashboard.
 - **[Pool Monitor](/docs/pool-monitor/)**:
