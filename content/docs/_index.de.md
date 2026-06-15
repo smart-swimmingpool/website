@@ -11,6 +11,8 @@ Dieses Projekt ist in verschiedene Module aufgeteilt:
 
 - **[Pool Controller](/docs/pool-controller/)**:
   Das Herz der Steuerung — zentrale Steuerlogik auf ESP32-Basis.
+- **[Home Assistant Integration](/docs/home-assistant-integration/)**:
+  Automatischer MQTT Discovery — der einfachste Weg zur Integration in Home Assistant.
 - **[openHAB Integration](/docs/openhab-integration/)**:
   Schritt-für-Schritt-Anleitung zur Integration des Pool Controllers mit openHAB.
 - **[openHAB Konfiguration](/docs/openhab-configuration/)**:
