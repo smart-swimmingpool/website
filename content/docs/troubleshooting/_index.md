@@ -10,19 +10,22 @@ tags: ["docs", "faq", "troubleshooting"]
 
 ## Relay Issues
 
-### Relay module does not switch / pump stays ON all the time
+### Relay module does not switch / pump behaves unexpectedly
 
-**Likely cause:** Your relay module is **active-low** while the firmware assumes **active-high**.
+**Likely cause:** Your relay module polarity does not match the firmware.
 
-Many cheap relay modules (e.g., the common 2-channel 5V boards) switch the relay ON when the GPIO pin goes LOW. The pool controller firmware expects active-high relays (GPIO HIGH = relay ON).
+The pool controller firmware drives relays **active-low** (GPIO **LOW** = relay ON, GPIO **HIGH** = relay OFF). This matches the vast majority of common 2-channel 5V relay modules.
 
 **Solution:**
-1. Check your relay module type: look for a jumper or marking labeled "HIGH/LOW" or "active high/low".
-2. If your module is active-low, you have two options:
-   - **Buy an active-high module** (recommended, ~5€)
-   - **Modify the firmware**: In `Config.hpp`, change `RELAY_ACTIVE_HIGH true` to `false` and re-flash.
+1. **If your relay works normally:** You have a standard **active-low** module — everything is fine.
+2. **If your relay is stuck ON or OFF**: Your module may be **active-high** (GPIO HIGH = relay ON).
+   - Check for a jumper labeled "HIGH/LOW" on the module and set it to **LOW**.
+   - If there is no jumper, you may need to replace the module with a standard active-low type (~5€).
 
-**Quick test:** With the ESP32 powered on but NOT connected to pumps, use a multimeter to measure voltage between the relay IN pin and GND. If it reads ~3.3V when the relay should be OFF, your module is active-low.
+**Quick test:** With the ESP32 powered on but NOT connected to pumps, use a multimeter to measure voltage between the relay IN pin and GND:
+- When the relay should be OFF (web interface shows OFF): pin should read **~3.3V** (HIGH)
+- When the relay should be ON (web interface shows ON): pin should read **~0V** (LOW)
+- If the opposite happens, your module is active-high.
 
 ### Relay makes clicking noises but pump does not start
 
@@ -31,9 +34,10 @@ Many cheap relay modules (e.g., the common 2-channel 5V boards) switch the relay
 
 ### Which relay modules are compatible?
 
-Confirmed working modules:
-- **HW-279 / HW-316** 2-channel 5V relay module (active-high, optocoupler isolated)
-- **SRD-05VDC-SL-C** based modules (check jumper for active-high mode)
+Confirmed working modules (active-low, optocoupler isolated):
+- **HW-279 / HW-316** 2-channel 5V relay module
+- **SRD-05VDC-SL-C** based modules
+- Most generic 2-channel 5V relay boards with optocoupler (check jumper set to **LOW**)
 
 Avoid: modules without optocoupler isolation (single-transistor driven) — they can damage the ESP32 GPIO pins.
 
@@ -51,10 +55,11 @@ Avoid: modules without optocoupler isolation (single-transistor driven) — they
 
 **Solutions:**
 1. **Check the pull-up resistor:** You MUST have a **4.7kΩ resistor** between DATA (yellow/white) and 3.3V (red). Without it, OneWire does not work.
-2. **Verify wiring:**
+2. **Verify wiring (esp32dev config uses separate pins):**
    - Red → 3.3V (ESP32)
    - Black → GND (ESP32)
-   - Yellow/White → GPIO32 (ESP32)
+   - Solar sensor DATA → **GPIO32** (Yellow/White)
+   - Pool sensor DATA → **GPIO33** (Yellow/White)
 3. **Try one sensor at a time** to isolate a faulty sensor or bad cable.
 4. **Check cable length:** DS18B20 works reliably up to ~30m with a 4.7kΩ pull-up. For longer runs, use a lower value (e.g., 2.2kΩ) or shielded twisted-pair cable.
 5. **Avoid parasite power mode:** The pool controller firmware uses external power mode (3 wires). Make sure both sensors have all 3 wires connected.
@@ -78,7 +83,7 @@ This is expected if they are placed in water at the same temperature. To verify 
 ### ESP32 does not appear in WiFi list after flashing
 
 **Solution:**
-1. The ESP32 starts in **AP mode** on first boot (network name: `SmartPool-XXXXXXXXXXXX`).
+1. The ESP32 starts in **AP mode** on first boot (network name: **`Pool-Controller-Setup`**).
 2. If you don't see it, check the serial monitor output (115200 baud).
 3. The ESP32 may have previously been configured for your home WiFi — reset to factory defaults:
    - Connect via serial monitor

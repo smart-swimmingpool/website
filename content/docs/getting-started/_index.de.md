@@ -26,14 +26,14 @@ In einer typischen Anlage erwärmt ein thermisches Solarsystem das Wasser und un
 |-----------|-------------|----------|
 | ESP32 DevKit V1 | 10–15 € | Mind. 4MB Flash, USB-Kabel inklusive |
 | DS18B20 Temperatursensor (2x, wasserdicht) | 8–12 € | Edelstahlsonde, 1m Kabel |
-| 2-Kanal-Relais-Modul | 5–8 € | **Muss Aktiv-High sein!** Siehe Hinweise unten |
+| 2-Kanal-Relais-Modul | 5–8 € | Standard **Aktiv-Low**-Modul — siehe Hinweise |
 | 4,7kΩ Widerstände (2x) | < 1 € | Pull-Up-Widerstände für OneWire-Bus |
 | Breadboard + Jumper-Kabel | 3–8 € | Für Prototyp; für Dauerbetrieb Lochrasterplatine |
 | USB-Netzteil (5V / 1A+) | 5–10 € | Für ESP32 + Relaismodul |
 | Gehäuse (IP54+) | 5–10 € | Optional, aber empfohlen für Außeneinsatz |
 | **Gesamt** | **~45–75 €** | **Ohne Pumpen / Wärmetauscher-Infrastruktur** |
 
-> **⚠️ Relais-Modul Warnung:** Viele günstige Relais-Module sind **Aktiv-Low** (Relais schaltet bei GPIO LOW ein). Die Firmware erwartet **Aktiv-High** (GPIO HIGH = Relais EIN). Bei Aktiv-Low-Modulen wäre die Heizung/Zirkulation bereits beim Booten eingeschaltet. Prüfen Sie Ihr Modul anhand des Datenblatts oder mit einem Multimeter. Hilfe gibt es im [FAQ](/docs/troubleshooting/).
+> **⚠️ Relais-Modul Hinweis:** Die Firmware steuert die Relais **Aktiv-Low** (GPIO **LOW** = Relais EIN, GPIO **HIGH** = Relais AUS). Dies entspricht der überwiegenden Mehrheit günstiger 2-Kanal-5V-Relais-Module. Während des ESP32-Starts sind die GPIOs kurz im hochohmigen Zustand — die Firmware setzt sie sofort nach dem Start auf HIGH (Relais AUS). Falls Ihr Modul andersherum arbeitet (Aktiv-High), finden Sie Konfigurationsmöglichkeiten im [FAQ](/docs/troubleshooting/).
 
 ## Hardware-Aufbau
 
@@ -77,7 +77,7 @@ Die Firmware (esp32dev-Umgebung) weist **jedem Sensor einen eigenen GPIO-Pin** z
 
 Bevor Sie Pumpen oder Netzspannung anschließen:
 1. Überprüfen Sie alle Verbindungen anhand des Schaltplans.
-2. Vergewissern Sie sich, dass das Relais-Modul **Aktiv-High** ist (LED an = Relais geschlossen).
+2. Vergewissern Sie sich, dass das Relais-Modul korrekt arbeitet: Bei eingeschaltetem ESP32 (noch ohne Pumpensteuerung) messen Sie die GPIO-Pins mit einem Multimeter — sie sollten HIGH sein (Relais AUS). Nach dem Schalten eines Relais über die Weboberfläche sollte der zugehörige GPIO auf LOW gehen (Relais EIN).
 3. Spiele Sie zuerst die Firmware auf (siehe unten) und testen Sie mit dem Webinterface **ohne** angeschlossene Pumpen.
 4. Immer noch keine 230V? Erste erfolgreiche Firmware-Tests abwarten.
 

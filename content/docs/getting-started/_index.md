@@ -26,14 +26,14 @@ In a typical setup, a thermal solar system heats water and supports the home hea
 |-----------|-----------|-------|
 | ESP32 DevKit V1 | 10–15 € | At least 4MB flash, USB cable included |
 | DS18B20 temperature sensor (2x, waterproof) | 8–12 € | Stainless steel probe, 1m cable |
-| 2-Channel Relay Module (Dual relay) | 5–8 € | **Must be active-high!** See notes below |
+| 2-Channel Relay Module (Dual relay) | 5–8 € | Standard **active-low** module — see notes |
 | 4.7kΩ resistors (2x) | < 1 € | Pull-up resistors for OneWire bus |
 | Breadboard + jumper wires | 3–8 € | For prototyping; use perfboard for permanent build |
 | USB power supply (5V / 1A+) | 5–10 € | For ESP32 + relay module |
 | Enclosure (IP54+) | 5–10 € | Optional but recommended for outdoor use |
 | **Total** | **~45–75 €** | **Excluding pool pump / heat exchanger infrastructure** |
 
-> **⚠️ Relay module warning:** Many cheap relay modules are **active-low** (relay turns ON when GPIO is LOW). The firmware assumes **active-high** relays (GPIO HIGH = relay ON). If you have active-low modules, the heater/circulation pump will be stuck ON at boot. Check your module's datasheet or use a multimeter to verify. See the [FAQ](/docs/troubleshooting) for help.
+> **⚠️ Relay module note:** The firmware drives relays **active-low** (GPIO **LOW** = relay ON, GPIO **HIGH** = relay OFF). This matches the vast majority of cheap 2-channel 5V relay modules. During ESP32 boot, GPIOs are briefly in high-impedance state — the firmware sets them HIGH (relay OFF) as soon as possible after startup. If your module behaves differently (active-high), see the [FAQ](/docs/troubleshooting/) for configuration options.
 
 ## Hardware Assembly
 
@@ -77,7 +77,7 @@ The firmware (esp32dev environment) assigns **each sensor its own GPIO pin**:
 
 Before connecting any pump or mains voltage:
 1. Double-check all connections against the schematic.
-2. Verify the relay module is **active-high** (LED on = relay closed).
+2. Verify the relay module: with the ESP32 powered and NOT yet controlling the relays, measure the GPIO pins with a multimeter — they should be HIGH (relay OFF). After toggling a relay in the web interface, the corresponding GPIO should go LOW (relay ON).
 3. Flash the firmware first (see below) and test with the web interface **without** connecting pumps.
 4. Still no 230V mains? Only connect pump/valve wiring after successful firmware tests.
 

@@ -10,19 +10,22 @@ tags: ["docs", "faq", "troubleshooting"]
 
 ## Relais-Probleme
 
-### Relais-Modul schaltet nicht / Pumpe bleibt dauerhaft an
+### Relais-Modul schaltet nicht / Pumpe verhält sich unerwartet
 
-**Wahrscheinliche Ursache:** Das Relais-Modul ist **Aktiv-Low**, während die Firmware **Aktiv-High** erwartet.
+**Wahrscheinliche Ursache:** Die Polarität des Relais-Moduls passt nicht zur Firmware.
 
-Viele günstige Relais-Module (z. B. die üblichen 2-Kanal-5V-Platinen) schalten das Relais EIN, wenn der GPIO-Pin LOW ist. Die Pool-Controller-Firmware erwartet aktiv-high Relais (GPIO HIGH = Relais EIN).
+Die Pool-Controller-Firmware steuert die Relais **Aktiv-Low** (GPIO **LOW** = Relais EIN, GPIO **HIGH** = Relais AUS). Dies entspricht der überwiegenden Mehrheit gängiger 2-Kanal-5V-Relais-Module.
 
 **Lösung:**
-1. Prüfen Sie Ihren Relais-Modul-Typ: Suchen Sie nach einem Jumper oder einer Markierung "HIGH/LOW" oder "active high/low".
-2. Falls Ihr Modul aktiv-low ist, haben Sie zwei Optionen:
-   - **Ein aktiv-high Modul kaufen** (empfohlen, ~5€)
-   - **Firmware anpassen**: In `Config.hpp` ändern Sie `RELAY_ACTIVE_HIGH true` auf `false` und spielen die Firmware neu auf.
+1. **Wenn Ihr Relais normal funktioniert:** Sie haben ein Standard-**Aktiv-Low**-Modul — alles in Ordnung.
+2. **Wenn das Relais dauerhaft ein- oder ausgeschaltet ist:** Möglicherweise ist Ihr Modul **Aktiv-High** (GPIO HIGH = Relais EIN).
+   - Suchen Sie nach einem Jumper mit der Bezeichnung "HIGH/LOW" und stellen Sie ihn auf **LOW**.
+   - Ohne Jumper müssen Sie das Modul möglicherweise durch ein standard Aktiv-Low-Modul ersetzen (~5€).
 
-**Schnelltest:** Messen Sie bei eingeschaltetem ESP32 (ohne angeschlossene Pumpen!) die Spannung zwischen Relais-IN-Pin und GND. Bei ~3,3V im AUS-Zustand ist Ihr Modul aktiv-low.
+**Schnelltest:** Messen Sie bei eingeschaltetem ESP32 (ohne angeschlossene Pumpen!) die Spannung zwischen Relais-IN-Pin und GND:
+- Bei AUS (Weboberfläche zeigt AUS): Pin sollte **~3,3V** (HIGH) anzeigen
+- Bei EIN (Weboberfläche zeigt EIN): Pin sollte **~0V** (LOW) anzeigen
+- Bei umgekehrtem Verhalten ist Ihr Modul Aktiv-High.
 
 ### Relais klickt, aber Pumpe startet nicht
 
@@ -31,9 +34,10 @@ Viele günstige Relais-Module (z. B. die üblichen 2-Kanal-5V-Platinen) schalten
 
 ### Welche Relais-Module sind kompatibel?
 
-Bestätigt funktionierende Module:
-- **HW-279 / HW-316** 2-Kanal-5V-Relais-Modul (aktiv-high, Optokopler-isoliert)
-- **SRD-05VDC-SL-C** basierte Module (Jumper auf aktiv-high prüfen)
+Bestätigt funktionierende Module (Aktiv-Low, Optokopler-isoliert):
+- **HW-279 / HW-316** 2-Kanal-5V-Relais-Modul
+- **SRD-05VDC-SL-C** basierte Module
+- Die meisten generischen 2-Kanal-5V-Relaisplatinen mit Optokopler (Jumper auf **LOW** prüfen)
 
 Vermeiden Sie: Module ohne Optokopler-Isolation (einzeltransistor-getrieben) — diese können die ESP32-GPIO-Pins beschädigen.
 
@@ -51,10 +55,11 @@ Vermeiden Sie: Module ohne Optokopler-Isolation (einzeltransistor-getrieben) —
 
 **Lösungen:**
 1. **Pull-Up-Widerstand prüfen:** Ein **4,7kΩ-Widerstand** MUSS zwischen DATA (gelb/weiß) und 3,3V (rot) liegen. Ohne diesen funktioniert OneWire nicht.
-2. **Verdrahtung prüfen:**
+2. **Verdrahtung prüfen (esp32dev-Konfiguration verwendet getrennte Pins):**
    - Rot → 3,3V (ESP32)
    - Schwarz → GND (ESP32)
-   - Gelb/Weiß → GPIO32 (ESP32)
+   - Solar-Sensor DATA → **GPIO32** (Gelb/Weiß)
+   - Pool-Sensor DATA → **GPIO33** (Gelb/Weiß)
 3. **Einen Sensor nach dem anderen testen**, um einen defekten Sensor oder ein defektes Kabel zu identifizieren.
 4. **Kabellänge prüfen:** DS18B20 funktioniert zuverlässig bis ~30m mit 4,7kΩ Pull-Up. Für längere Strecken einen niedrigeren Wert (z. B. 2,2kΩ) oder geschirmte Twisted-Pair-Kabel verwenden.
 5. **Parasite-Power-Modus vermeiden:** Die Firmware verwendet externen Strommodus (3 Adern). Stellen Sie sicher, dass beide Sensoren mit allen 3 Adern angeschlossen sind.
@@ -78,7 +83,7 @@ Das ist normal, wenn sie im Wasser auf gleicher Temperatur liegen. Zur Überprü
 ### ESP32 erscheint nicht in der WLAN-Liste nach dem Flashen
 
 **Lösung:**
-1. Der ESP32 startet beim ersten Boot im **AP-Modus** (Netzwerkname: `SmartPool-XXXXXXXXXXXX`).
+1. Der ESP32 startet beim ersten Boot im **AP-Modus** (Netzwerkname: **`Pool-Controller-Setup`**).
 2. Wenn Sie ihn nicht sehen, prüfen Sie die serielle Monitor-Ausgabe (115200 Baud).
 3. Der ESP32 wurde möglicherweise bereits für Ihr Heim-WLAN konfiguriert — zurücksetzen auf Werkseinstellungen:
    - Per seriellem Monitor verbinden
