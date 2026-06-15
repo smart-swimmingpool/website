@@ -1,0 +1,22 @@
+{{- $type := .Get "type" | default "230v" -}}
+{{- if eq $type "230v" -}}
+<div class="hx:rounded-lg hx:border-2 hx:border-red-300 hx:bg-red-50 hx:dark:border-red-700 hx:dark:bg-red-900/20 hx:p-4 hx:my-6">
+  <div class="hx:flex hx:items-start hx:gap-3">
+    <span class="hx:text-2xl hx:flex-shrink-0">⚠️</span>
+    <div>
+      <p class="hx:font-bold hx:text-red-700 hx:dark:text-red-400 hx:text-sm hx:uppercase hx:tracking-wide hx:mb-1">
+        {{- if eq .Page.Language.Lang "de" -}}WARNUNG: 230V Netzspannung{{- else -}}WARNING: 230V Mains Voltage{{- end -}}
+      </p>
+      <p class="hx:text-sm hx:text-red-800 hx:dark:text-red-300 hx:mb-0">
+        {{- if eq .Page.Language.Lang "de" -}}
+        Dieses Projekt arbeitet mit <strong>230V Wechselstrom</strong> und darf <strong>nur von Personen mit Elektronik-Grundkenntnissen</strong> nachgebaut werden.
+        Verwende immer einen <strong>RCD (FI-Schutzschalter)</strong>. Das Projekt ist <strong>nicht CE/UL-zertifiziert</strong> und nicht für den gewerblichen Einsatz bestimmt.
+        {{- else -}}
+        This project operates with <strong>230V AC mains voltage</strong> and should only be built by individuals with <strong>basic electronics knowledge</strong>.
+        Always use an <strong>RCD (residual-current device)</strong>. This project is <strong>not CE/UL certified</strong> and not intended for commercial use.
+        {{- end -}}
+      </p>
+    </div>
+  </div>
+</div>
+{{- end -}}

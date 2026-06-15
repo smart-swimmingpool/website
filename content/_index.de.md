@@ -19,6 +19,8 @@ layout: hextra-home
 {{< hextra/hero-button text="Erste Schritte" link="docs/getting-started" >}}
 </div>
 
+{{< safety-notice type="230v" >}}
+
 ## Vision
 
 Die Module dieses Projekts unterstützen Sie dabei, Ihren Swimmingpool in ein Smart Swimmingpool zu verwandeln:

@@ -3,12 +3,14 @@ title: Documents
 weight: 1
 ---
 
+{{< safety-notice type="230v" >}}
+
 **🏊 Smart Swimming Pool: Automate your Swimming Pool in a smart way**
 
 This project is split into several modules:
 
 - **[Pool Controller](/docs/pool-controller/)**:
-  The heart of the 🏊 Smart Swimming Pool — ESP8266-based central control logic.
+  The heart of the 🏊 Smart Swimming Pool — ESP32-based central control logic.
 - **[openHAB Configuration](/docs/openhab-configuration/)**:
   Sitemap and rules to control 🏊 Smart Swimming Pool via the openHAB mobile app.
 - **[Grafana Dashboard](/docs/grafana-dashboard/)**:
@@ -20,4 +22,8 @@ Planned modules:
 
 - **Smart Analyzer**: Analyse the quality of water.
 
-Additional content can be found in the community-driven [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki).
+## Help & Support
+
+- **[FAQ & Troubleshooting](/docs/troubleshooting/)** — Common problems and solutions
+- **[Getting Started](/docs/getting-started/)** — Step-by-step build guide
+- **Community [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki)** — Additional community-driven content
