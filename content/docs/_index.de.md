@@ -9,6 +9,8 @@ weight: 1
 
 Dieses Projekt ist in verschiedene Module aufgeteilt:
 
+- **[Stückliste (BOM)](/docs/bom/)**:
+  Vollständige Einkaufsliste mit Teilenummern, Preisen und Bezugstipps.
 - **[Pool Controller](/docs/pool-controller/)**:
   Das Herz der Steuerung — zentrale Steuerlogik auf ESP32-Basis.
 - **[Home Assistant Integration](/docs/home-assistant-integration/)**:
