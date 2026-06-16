@@ -64,7 +64,9 @@ def extract_frontmatter(data):
 
         return kept, body, is_internal
     except yaml.YAMLError:
-        return {}, data.strip(), False
+        # YAML parsing failed (e.g. malformed frontmatter like missing space after colon).
+        # Still return body without frontmatter so the doc is not duplicated.
+        return {}, body, False
 
 
 # Split a markdown content by its 2nd level headings and return the array
@@ -190,8 +192,10 @@ def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, update
                 logging.info("  myfile: " + myfile.name)
                 localdata = myfile.read()
                 # Check if the file has relevant sections
+                # Always write _index.md pages (landing pages), skip other files with no sections
                 sections = split_by_headings(localdata)
-                if len(sections) <= 0:
+                is_index = filepath.name in ('_index.md', '_index.de.md')
+                if len(sections) <= 0 and not is_index:
                     continue
                 tagname = ref.name
                 date = ref.commit.committed_datetime

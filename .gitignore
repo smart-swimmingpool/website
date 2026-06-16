@@ -11,3 +11,6 @@ content/docs/openhab-configuration/
 content/docs/pool-controller/
 content/docs/grafana-dashboard/
 content/docs/pool-monitor/
+
+# grabrepos.py working directory
+temp/
