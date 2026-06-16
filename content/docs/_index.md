@@ -9,6 +9,8 @@ weight: 1
 
 This project is split into several modules:
 
+- **[Architecture](/docs/architecture/)**:
+  System overview — how components, protocols, and modules work together.
 - **[Bill of Materials](/docs/bom/)**:
   Complete shopping list with part numbers, prices, and sourcing tips.
 - **[Pool Controller](/docs/pool-controller/)**:

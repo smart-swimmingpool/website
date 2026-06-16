@@ -9,6 +9,8 @@ weight: 1
 
 Dieses Projekt ist in verschiedene Module aufgeteilt:
 
+- **[Architektur](/docs/architecture/)**:
+  Systemüberblick — wie Komponenten, Protokolle und Module zusammenwirken.
 - **[Stückliste (BOM)](/docs/bom/)**:
   Vollständige Einkaufsliste mit Teilenummern, Preisen und Bezugstipps.
 - **[Pool Controller](/docs/pool-controller/)**:
