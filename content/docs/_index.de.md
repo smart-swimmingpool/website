@@ -30,4 +30,5 @@ Geplante Module:
 
 - **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** — Häufige Probleme und Lösungen
 - **[Erste Schritte](/docs/getting-started/)** — Schritt-für-Schritt-Aufbauanleitung
+- **[Upgrade & Migration](/docs/migration/)** — Firmware-Updates zwischen Versionen
 - **Community [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki)** — Zusätzliche Inhalte von der Community
