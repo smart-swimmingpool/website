@@ -9,6 +9,8 @@ weight: 1
 
 This project is split into several modules:
 
+- **[Bill of Materials](/docs/bom/)**:
+  Complete shopping list with part numbers, prices, and sourcing tips.
 - **[Pool Controller](/docs/pool-controller/)**:
   The heart of the 🏊 Smart Swimming Pool — ESP32-based central control logic.
 - **[Home Assistant Integration](/docs/home-assistant-integration/)**:
