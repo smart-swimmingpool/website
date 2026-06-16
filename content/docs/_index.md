@@ -9,6 +9,8 @@ weight: 1
 
 This project is split into several modules:
 
+- **[Architecture](/docs/architecture/)**:
+  System overview — how components, protocols, and modules work together.
 - **[Pool Controller](/docs/pool-controller/)**:
   The heart of the 🏊 Smart Swimming Pool — ESP32-based central control logic.
 - **[Home Assistant Integration](/docs/home-assistant-integration/)**:

@@ -9,6 +9,8 @@ weight: 1
 
 Dieses Projekt ist in verschiedene Module aufgeteilt:
 
+- **[Architektur](/docs/architecture/)**:
+  Systemüberblick — wie Komponenten, Protokolle und Module zusammenwirken.
 - **[Pool Controller](/docs/pool-controller/)**:
   Das Herz der Steuerung — zentrale Steuerlogik auf ESP32-Basis.
 - **[Home Assistant Integration](/docs/home-assistant-integration/)**:
