@@ -9,6 +9,8 @@ weight: 1
 
 Dieses Projekt ist in verschiedene Module aufgeteilt:
 
+- **[Schnellstart](/docs/quickstart/)**:
+  Vom Karton bis zum laufenden Pool in 60 Minuten — der Express-Aufbau.
 - **[Architektur](/docs/architecture/)**:
   Systemüberblick — wie Komponenten, Protokolle und Module zusammenwirken.
 - **[Stückliste (BOM)](/docs/bom/)**:

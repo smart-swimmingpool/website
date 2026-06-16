@@ -9,6 +9,8 @@ weight: 1
 
 This project is split into several modules:
 
+- **[Quick Start](/docs/quickstart/)**:
+  From box to a working pool in 60 minutes — the express build guide.
 - **[Architecture](/docs/architecture/)**:
   System overview — how components, protocols, and modules work together.
 - **[Bill of Materials](/docs/bom/)**:
