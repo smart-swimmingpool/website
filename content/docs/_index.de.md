@@ -9,6 +9,8 @@ weight: 1
 
 Dieses Projekt ist in verschiedene Module aufgeteilt:
 
+- **[Schnellstart](/docs/quickstart/)**:
+  Vom Karton bis zum laufenden Pool in 60 Minuten — der Express-Aufbau.
 - **[Pool Controller](/docs/pool-controller/)**:
   Das Herz der Steuerung — zentrale Steuerlogik auf ESP32-Basis.
 - **[Home Assistant Integration](/docs/home-assistant-integration/)**:

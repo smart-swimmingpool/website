@@ -9,6 +9,8 @@ weight: 1
 
 This project is split into several modules:
 
+- **[Quick Start](/docs/quickstart/)**:
+  From box to a working pool in 60 minutes — the express build guide.
 - **[Pool Controller](/docs/pool-controller/)**:
   The heart of the 🏊 Smart Swimming Pool — ESP32-based central control logic.
 - **[Home Assistant Integration](/docs/home-assistant-integration/)**:
