@@ -84,7 +84,7 @@ These appear on the device's front page (no `entity_category`):
 | `time.pool_controller_timer_end` | Timer End | Time | — | HH:MM:SS |
 | `select.pool_controller_timezone` | Timezone | Select | — | (dynamic list) |
 | `text.pool_controller_ntp_server` | NTP Server | Text | — | — |
-| `number.pool_controller_firmware_update` | Firmware | Update | — | — |
+| `update.pool_controller_firmware` | Firmware | Update | — | — |
 | `climate.pool_controller_thermostat` | Pool Thermostat | Climate | °C | 0–40 |
 
 The **Climate** entity (`climate.pool_controller_thermostat`) provides a thermostat-style control:
@@ -240,9 +240,8 @@ conditions:
   - condition: numeric_state
     entity_id: sensor.pool_controller_solar_temp
     above: 30
-  - condition: numeric_state
-    entity_id: number.pool_controller_pool_max_temp
-    below: "{{ states('sensor.pool_controller_pool_temp') | float }}"
+  - condition: template
+    value_template: "{{ states('sensor.pool_controller_pool_temp') | float < states('number.pool_controller_pool_max_temp') | float }}"
 actions:
   - action: switch.turn_on
     target:

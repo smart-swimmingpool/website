@@ -75,7 +75,9 @@ Die Firmware (esp32dev-Umgebung) weist **jedem Sensor einen eigenen GPIO-Pin** z
 
 ### Schritt 4: Abschließende Prüfung
 
-Bevor Sie Pumpen oder Netzspannung anschließen:
+Bevor Sie Pumpen oder Netzspannung anschließen, folgen Sie der **[Inbetriebnahme-Checkliste](/docs/checklist/)** — einer vollständigen Schritt-für-Schritt-Prüfliste mit Hardware-Kontrolle, Firmware-Test, Sensor-Überprüfung, Relais-Test und Automatik-Check.
+
+Wichtige Punkte vorab:
 1. Überprüfen Sie alle Verbindungen anhand des Schaltplans.
 2. Vergewissern Sie sich, dass das Relais-Modul korrekt arbeitet: Bei eingeschaltetem ESP32 (noch ohne Pumpensteuerung) messen Sie die GPIO-Pins mit einem Multimeter — sie sollten HIGH sein (Relais AUS). Nach dem Schalten eines Relais über die Weboberfläche sollte der zugehörige GPIO auf LOW gehen (Relais EIN).
 3. Spiele Sie zuerst die Firmware auf (siehe unten) und testen Sie mit dem Webinterface **ohne** angeschlossene Pumpen.

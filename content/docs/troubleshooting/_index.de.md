@@ -43,6 +43,47 @@ Vermeiden Sie: Module ohne Optokopler-Isolation (einzeltransistor-getrieben) —
 
 ---
 
+## Heizungs- & Zirkulationsprobleme
+
+### Solarpumpe startet nie / Pool heizt nicht auf
+
+**Prüfen Sie in dieser Reihenfolge:**
+
+1. **Solartemperatur > Pooltemperatur?** Die Heizlogik aktiviert nur, wenn der Solarkollektor wärmer ist als das Poolwasser. Liest der Solar-Sensor niedrigere Werte als der Pool-Sensor, erfolgt keine Heizung — das ist bei Bewölkung oder nachts korrekt.
+
+2. **Hysterese zu hoch eingestellt?** Die Standard-Hysterese beträgt 2 K. Bei >5 K benötigt der Controller eine große Temperaturdifferenz zum Einschalten. Versuchen Sie 1–2 K.
+
+3. **Min. Solar Temp zu hoch?** Wenn der Parameter **Min. Solar Temp** über der tatsächlichen Kollektortemperatur liegt, wird der Heizkreis blockiert. Zum Test auf 20–25°C senken.
+
+4. **Sensoren vertauscht?** Wenn Solar- und Pool-Sensor an den falschen GPIO-Pins angeschlossen sind, liest der Controller die falschen Temperaturen. Prüfen Sie:
+   - GPIO32 = Solarkollektor (sollte bei Sonne wärmer sein)
+   - GPIO33 = Poolwasser (sollte näher an Umgebungstemperatur sein)
+   - **Status**-Seite in der Weboberfläche zum Vergleich der Werte
+
+5. **Heizkreis deaktiviert?** In der Weboberfläche **Configuration → Heating** prüfen, ob der Heizkreis **aktiviert** ist.
+
+6. **Motorventil geschlossen?** Falls ein Motorventil im Heizkreis verbaut ist, prüfen ob es geöffnet ist (separates Relais oder manuell).
+
+### Pumpe schaltet im Auto-Modus nicht
+
+Der Pool-Controller aktiviert Pumpen im Automatik-Modus nur unter bestimmten Bedingungen:
+
+- **Filterpumpe:** Läuft nach Zeitplan (Timer oder temperaturbasiert). Läuft nur innerhalb des eingestellten Zeitfensters.
+- **Heizpumpe:** Nur wenn Solartemperatur > Pooltemperatur + Hysterese, UND Pooltemperatur < max. Pooltemperatur.
+
+**Logik prüfen:**
+1. **Operation Mode** auf **`manu`** (Manuell) in der Weboberfläche **Control**-Seite
+2. Jede Pumpe manuell ein- und ausschalten — bestätigt, dass Relais und Verkabelung funktionieren
+3. Zurück auf **`auto`** schalten und beobachten: ggf. wartet der Controller nur auf Bedingungen
+
+### Eine Pumpe funktioniert, die andere nicht
+
+- Verkabelung der betroffenen Pumpe auf der 230V-Seite prüfen (LS, FI, Schütz)
+- Relais-Kanäle in der Weboberfläche tauschen (folgt die Pumpe dem getauschten Kanal, liegt das Problem auf der 230V-Seite; wenn nicht, ist der Relais-Kanal defekt)
+- Spannung an den Relais-Ausgangsklemmen beim Schalten messen
+
+---
+
 ## Temperatursensor-Probleme
 
 ### DS18B20 wird nicht erkannt / zeigt -127°C oder 85°C
@@ -69,6 +110,17 @@ Vermeiden Sie: Module ohne Optokopler-Isolation (einzeltransistor-getrieben) —
 - **Störungen:** Das Sensorkabel verläuft möglicherweise zu nah an 230V-Kabeln. Verlegen Sie das Sensorkabel mindestens 30cm entfernt von Netzleitung.
 - **Defekter Sensor:** Sensor ersetzen — kosten ~3€.
 - **Feuchtigkeit:** Wenn die Edelstahlsonde nicht vollständig eingetaucht ist oder das Kabelende nass ist, können die Werte unplausibel sein. Trocknen lassen und mit Schrumpfschlauch abdichten.
+
+### Temperaturwerte schwanken / springen unregelmäßig
+
+**Wahrscheinliche Ursache:** Elektrische Störungen oder lockerer Kontakt auf der DATA-Leitung.
+
+**Lösungen:**
+1. **DATA-Verbindung prüfen:** Ein loses Jumper-Kabel auf dem Breadboard kann intermittierenden Kontakt verursachen. Kabel fest in das Breadboard drücken.
+2. **Sensorkabel von 230V fernhalten:** Mindestens **30 cm** Abstand zu Netzleitungen. Parallele Verlegung über längere Strecken verstärkt Störungen.
+3. **Geschirmtes Kabel verwenden:** Bei Verlängerungen >5 m **geschirmte Twisted-Pair-Kabel** (z.B. LiYCY 2×0,25mm²) nutzen. Schirm nur auf ESP32-Seite an GND anschließen.
+4. **Pull-Up-Widerstand prüfen:** Widerstand zwischen DATA und 3,3V messen — sollte ~4,7 kΩ betragen.
+5. **Wasser in der Verbindungsdose?:** Bei Verlängerungskabeln kann die Verbindungsdose Kondenswasser enthalten. Öffnen, trocknen und mit Schrumpfschlauch oder Silikon abdichten.
 
 ### Beide Sensoren zeigen dieselbe Temperatur
 
@@ -135,6 +187,39 @@ Das ist normal, wenn sie im Wasser auf gleicher Temperatur liegen. Zur Überprü
 - Prüfen Sie die Firewall-Regeln: Port 1883 (TCP) muss zwischen ESP32 und Broker offen sein.
 - Bei Authentifizierung: Benutzername und Passwort in der MQTT-Konfiguration des Controllers prüfen.
 
+### Pumpenschalter reagieren nicht auf Home Assistant
+
+**Wahrscheinliche Ursache:** Der Controller akzeptiert Pumpenbefehle per MQTT nur im **Manuell**-Modus.
+
+**Lösungen:**
+1. **Operation Mode** auf **`manu`** in Home Assistant stellen (`select.pool_controller_mode`)
+2. Die Pumpenschalter sollten jetzt schreibbar sein
+3. Nach manueller Steuerung zurück auf `auto` für automatischen Betrieb
+
+Wenn die Schalter auch im `manu`-Modus nicht reagieren:
+1. MQTT-**Verfügbarkeits-Topic** prüfen: `homeassistant/sensor/pool-controller/availability` sollte `online` anzeigen
+2. Stale-Discovery löschen: Leeres Payload an das `/config`-Topic der Entity senden
+3. Controller über die Weboberfläche neu starten
+
+---
+
+## Controller & Automatisierungsprobleme
+
+### Controller schaltet Pumpen nicht, obwohl Bedingungen erfüllt sind
+
+**Prüfen Sie:**
+
+1. **Ist der Betriebsmodus auf `auto`?** Im Modus `manu` (Manuell) automatisiert der Controller nicht. Im Modus `timer` läuft nur der Timer-Zeitplan. Nur `auto` nutzt die vollständige Heizlogik.
+2. **Status-Seite prüfen:** Die Weboberfläche **Status** zeigt den aktuellen Zustand aller Sensoren und die Entscheidungslogik des Controllers. Wenn der Controller Bedingungen als nicht erfüllt ansieht, ist der Grund hier sichtbar.
+3. **MQTT-Befehl anhängig?** Wenn Sie kürzlich eine Pumpe via Home Assistant geschaltet haben, überschreibt ein MQTT-Befehl ggf. den Automatik-Zustand. Pumpe AUS und zurück auf AUTO schalten oder Controller neu starten.
+4. **Firmware-Fehler?** GitHub Issues für Ihre Firmware-Version prüfen.
+
+### Modus-Wahl lässt sich nicht ändern / springt zurück
+
+- Der Controller speichert den Modus im Flash-Speicher. Wenn der Modus nach Sekunden zurückspringt, kann das Schreiben fehlschlagen.
+- Controller neu starten und erneut versuchen.
+- Bei anhaltendem Problem: Firmware neu flashen (Konfiguration bleibt in den meisten Fällen erhalten).
+
 ---
 
 ## ESP32- & Firmware-Probleme
@@ -167,6 +252,23 @@ rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
 
 - Falsche Baudrate — stellen Sie sie auf **115200** ein.
 - Falsche Spannung — ESP32 arbeitet mit 3,3V. Wenn Sie ihn an einen Arduino Uno angeschlossen haben, könnte die serielle Schnittstelle beschädigt sein.
+
+### Controller nach Firmware-Update nicht erreichbar
+
+**Wahrscheinliche Ursache:** Das Update hat die WLAN-Konfiguration zurückgesetzt oder die IP-Adresse geändert.
+
+**Lösungen:**
+1. **WLAN-Zugangsdaten zurückgesetzt.** Nach manchen Updates fällt der Controller in den AP-Modus zurück (`Pool-Controller-Setup`). Mit diesem Netzwerk verbinden und WLAN über die Weboberfläche unter `http://192.168.4.1` neu konfigurieren.
+2. **IP-Adresse geändert.** DHCP-Client-Liste des Routers nach einer neuen IP durchsuchen. Der Controller kann nach dem Flashen eine andere MAC-Adresse haben, wenn die NVS-Partition gelöscht wurde.
+3. **OTA-Update fehlgeschlagen.** War das OTA-Update unterbrochen oder die neue Firmware defekt, kann der Controller in einer Boot-Schleife hängen. Wiederherstellung erfordert **serielles (USB-) Flashen**:
+   - ESP32 per USB verbinden
+   - BOOT-Taste gedrückt halten
+   - Firmware via PlatformIO wie gewohnt flashen
+4. **Partitionslayout geändert.** Bei geändertem Partitionsschema kann das Dateisystem (Weboberfläche) fehlen oder beschädigt sein. Dateisystem-Image erneut hochladen:
+   ```bash
+   pio run -e esp32dev -t uploadfs
+   ```
+5. **Vorbeugung:** Vor OTA-Update sicherstellen, dass der ESP32 in WLAN-Reichweite ist und eine stabile Stromversorgung hat. Update nicht unterbrechen.
 
 ---
 

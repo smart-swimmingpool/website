@@ -9,6 +9,12 @@ weight: 1
 
 This project is split into several modules:
 
+- **[Quick Start](/docs/quickstart/)**:
+  From box to a working pool in 60 minutes — the express build guide.
+- **[Architecture](/docs/architecture/)**:
+  System overview — how components, protocols, and modules work together.
+- **[Bill of Materials](/docs/bom/)**:
+  Complete shopping list with part numbers, prices, and sourcing tips.
 - **[Pool Controller](/docs/pool-controller/)**:
   The heart of the 🏊 Smart Swimming Pool — ESP32-based central control logic.
 - **[Home Assistant Integration](/docs/home-assistant-integration/)**:
@@ -28,7 +34,8 @@ Planned modules:
 
 ## Help & Support
 
-- **[FAQ & Troubleshooting](/docs/troubleshooting/)** — Common problems and solutions
 - **[Getting Started](/docs/getting-started/)** — Step-by-step build guide
+- **[Commissioning Checklist](/docs/checklist/)** — Pre-power-on checklist for a safe first run
+- **[FAQ & Troubleshooting](/docs/troubleshooting/)** — Common problems and solutions
 - **[Upgrade & Migration](/docs/migration/)** — How to update between firmware versions
 - **Community [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki)** — Additional community-driven content
