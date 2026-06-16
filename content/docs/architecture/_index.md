@@ -51,7 +51,7 @@ flowchart LR
 
     %% Connections
     ESP -->|GPIO 25/26<br/>Active-Low| R
-    ESP -->|WiFi / MQTT<br/>Homie Convention| MQTT
+    ESP -->|MQTT<br/>HA Discovery / Homie| MQTT
 
     R -->|230V via RCD| Mains
     RCD --- P1
@@ -92,7 +92,7 @@ The **ESP32** runs the pool controller firmware, which:
 - Reads both DS18B20 temperature sensors via OneWire protocol
 - Implements heating logic (hysteresis, temperature thresholds)
 - Controls circulation scheduling (timer, temperature-based)
-- Publishes all data via **MQTT** using the **Homie convention**
+- Publishes all data via **MQTT** using the **Home Assistant MQTT Discovery** format (v3.x) or **Homie convention** (v2.x)
 - Provides a **web interface** for configuration (LittleFS)
 - Accepts commands via MQTT and web UI
 - Operates fully **autonomously** — no smart home server required
@@ -103,8 +103,8 @@ A standard **2-channel 5V relay module** (active-low):
 
 | Channel | GPIO | Controls |
 |---------|------|----------|
-| Relay 1 | GPIO25 | Heating circuit pump |
-| Relay 2 | GPIO26 | Filter/circulation pump |
+| Relay IN1 (Ch. 1) | GPIO26 | Heating circuit pump |
+| Relay IN2 (Ch. 2) | GPIO25 | Filter/circulation pump |
 
 The relay module provides **galvanic isolation** between the ESP32 (low voltage) and the pumps (230V). Always connect pumps through an **RCD/FI circuit breaker**.
 
@@ -125,7 +125,7 @@ The relay module provides **galvanic isolation** between the ESP32 (low voltage)
 
 1. **Sensor Reading**: ESP32 reads temperatures from DS18B20 sensors via OneWire
 2. **Control Logic**: Firmware evaluates heating and circulation rules (autonomous, no server needed)
-3. **MQTT Publication**: All sensor values, switch states, and diagnostics are published to the MQTT broker using the Homie convention
+3. **MQTT Publication**: All sensor values, switch states, and diagnostics are published to the MQTT broker using the Home Assistant MQTT Discovery format (v3.x)
 4. **Smart Home Integration**: Home Assistant, openHAB, or Grafana subscribe to MQTT topics for visualization and automation
 5. **Actuation**: ESP32 drives the relay module to switch pumps on/off
 
@@ -134,7 +134,7 @@ The relay module provides **galvanic isolation** between the ESP32 (low voltage)
 | Decision | Rationale |
 |----------|-----------|
 | **Control logic on ESP32** | System remains fully functional even when WiFi or the smart home server is offline |
-| **Homie MQTT convention** | Standardized auto-discovery, loose coupling, works with any MQTT-compatible system |
+| **MQTT Discovery (HA / Homie)** | Standardized auto-discovery, loose coupling; v3.x uses Home Assistant MQTT Discovery, v2.x used Homie convention |
 | **Active-low relays** | Matches common cheap relay modules; during ESP32 boot, GPIOs are HIGH = relays stay OFF (failsafe) |
 | **Separate GPIO per sensor** | Allows independent fault detection; if one sensor fails, the other continues working |
 

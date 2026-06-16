@@ -51,7 +51,7 @@ flowchart LR
 
     %% Verbindungen
     ESP -->|GPIO 25/26<br/>Aktiv-Low| R
-    ESP -->|WiFi / MQTT<br/>Homie Convention| MQTT
+    ESP -->|MQTT<br/>HA Discovery / Homie| MQTT
 
     R -->|230V via FI| Mains
     RCD --- P1
@@ -92,7 +92,7 @@ Der **ESP32** führt die Pool-Controller-Firmware aus, welche:
 - Beide DS18B20-Temperatursensoren via OneWire ausliest
 - Die Heizungslogik implementiert (Hysterese, Temperaturschwellen)
 - Die Zirkulationssteuerung übernimmt (Timer, temperaturbasiert)
-- Alle Daten via **MQTT** nach der **Homie-Convention** veröffentlicht
+- Alle Daten via **MQTT** im **Home Assistant MQTT Discovery**-Format (v3.x) oder der **Homie-Convention** (v2.x) veröffentlicht
 - Eine **Weboberfläche** zur Konfiguration bereitstellt (LittleFS)
 - Befehle via MQTT und Web-UI entgegennimmt
 - Vollständig **autark** arbeitet — kein Smart-Home-Server erforderlich
@@ -103,8 +103,8 @@ Ein Standard **2-Kanal-5V-Relais-Modul** (Aktiv-Low):
 
 | Kanal | GPIO | Steuert |
 |-------|------|---------|
-| Relais 1 | GPIO25 | Heizkreispumpe |
-| Relais 2 | GPIO26 | Filter-/Umwälzpumpe |
+| Relais IN1 (Kanal 1) | GPIO26 | Heizkreispumpe |
+| Relais IN2 (Kanal 2) | GPIO25 | Filter-/Umwälzpumpe |
 
 Das Relais-Modul sorgt für **galvanische Trennung** zwischen ESP32 (Niederspannung) und den Pumpen (230V). Pumpen immer über einen **FI-Schutzschalter** anschließen.
 
@@ -125,7 +125,7 @@ Das Relais-Modul sorgt für **galvanische Trennung** zwischen ESP32 (Niederspann
 
 1. **Sensor-Messung**: ESP32 liest Temperaturen von DS18B20-Sensoren via OneWire
 2. **Steuerlogik**: Firmware wertet Heizungs- und Zirkulationsregeln aus (autark, kein Server nötig)
-3. **MQTT-Veröffentlichung**: Alle Sensorwerte, Schaltzustände und Diagnosedaten werden an den MQTT-Broker gesendet (Homie-Convention)
+3. **MQTT-Veröffentlichung**: Alle Sensorwerte, Schaltzustände und Diagnosedaten werden an den MQTT-Broker gesendet (Home Assistant MQTT Discovery-Format in v3.x)
 4. **Smart-Home-Integration**: Home Assistant, openHAB oder Grafana abonnieren MQTT-Themen zur Visualisierung und Automatisierung
 5. **Aktorik**: ESP32 steuert das Relais-Modul zum Schalten der Pumpen
 
@@ -134,7 +134,7 @@ Das Relais-Modul sorgt für **galvanische Trennung** zwischen ESP32 (Niederspann
 | Entscheidung | Begründung |
 |-------------|-----------|
 | **Steuerlogik auf ESP32** | System bleibt voll funktionsfähig, auch wenn WiFi oder Smart-Home-Server offline sind |
-| **Homie MQTT-Convention** | Standardisierte Auto-Discovery, lose Kopplung, funktioniert mit jedem MQTT-kompatiblen System |
+| **MQTT Discovery (HA / Homie)** | Standardisierte Auto-Discovery, lose Kopplung; v3.x nutzt Home Assistant MQTT Discovery, v2.x nutzte Homie-Convention |
 | **Aktiv-Low Relais** | Kompatibel mit gängigen Relais-Modulen; beim ESP32-Start sind GPIOs HIGH = Relais AUS (sicher) |
 | **Getrennter GPIO pro Sensor** | Ermöglicht unabhängige Fehlererkennung; bei Ausfall eines Sensors arbeitet der andere weiter |
 
