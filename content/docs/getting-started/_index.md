@@ -75,7 +75,9 @@ The firmware (esp32dev environment) assigns **each sensor its own GPIO pin**:
 
 ### Step 4: Final Checks
 
-Before connecting any pump or mains voltage:
+Before connecting any pump or mains voltage, follow the **[Commissioning Checklist](/docs/checklist/)** — a complete step-by-step guide covering hardware check, firmware test, sensor verification, relay test, and automation check.
+
+Key points before proceeding:
 1. Double-check all connections against the schematic.
 2. Verify the relay module: with the ESP32 powered and NOT yet controlling the relays, measure the GPIO pins with a multimeter — they should be HIGH (relay OFF). After toggling a relay in the web interface, the corresponding GPIO should go LOW (relay ON).
 3. Flash the firmware first (see below) and test with the web interface **without** connecting pumps.
