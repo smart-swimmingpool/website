@@ -28,6 +28,7 @@ Geplante Module:
 
 ## Hilfe & Support
 
-- **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** — Häufige Probleme und Lösungen
 - **[Erste Schritte](/docs/getting-started/)** — Schritt-für-Schritt-Aufbauanleitung
+- **[Inbetriebnahme-Checkliste](/docs/checklist/)** — Prüfliste vor dem ersten Einschalten
+- **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** — Häufige Probleme und Lösungen
 - **Community [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki)** — Zusätzliche Inhalte von der Community
