@@ -37,4 +37,5 @@ Planned modules:
 - **[Getting Started](/docs/getting-started/)** — Step-by-step build guide
 - **[Commissioning Checklist](/docs/checklist/)** — Pre-power-on checklist for a safe first run
 - **[FAQ & Troubleshooting](/docs/troubleshooting/)** — Common problems and solutions
+- **[Upgrade & Migration](/docs/migration/)** — How to update between firmware versions
 - **Community [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki)** — Additional community-driven content

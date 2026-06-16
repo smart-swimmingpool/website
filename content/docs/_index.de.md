@@ -37,4 +37,5 @@ Geplante Module:
 - **[Erste Schritte](/docs/getting-started/)** — Schritt-für-Schritt-Aufbauanleitung
 - **[Inbetriebnahme-Checkliste](/docs/checklist/)** — Prüfliste vor dem ersten Einschalten
 - **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** — Häufige Probleme und Lösungen
+- **[Upgrade & Migration](/docs/migration/)** — Firmware-Updates zwischen Versionen
 - **Community [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki)** — Zusätzliche Inhalte von der Community
