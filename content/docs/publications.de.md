@@ -22,4 +22,4 @@ Auch verfügbar als [Blog-Beiträge](/blog/) auf dieser Seite.
 
   Englischer Blogpost über Version 1 des Smart Swimming Pool.
 
-  📄 [Hier auf der Seite lesen]({{< relref "/blog/smart-swimming-pool-project" >}})
+  📄 [Hier auf der Seite lesen]({{< relref "/blog/smart-swimming-pool-project" lang="en" >}})

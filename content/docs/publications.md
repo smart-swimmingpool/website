@@ -13,11 +13,11 @@ Also available as [blog posts](/blog/) on this site.
 
   📄 [Read on this site]({{< relref "/blog/smart-swimming-pool-project" >}})
 
-- [Smart Swimming Pool: Introduction](/blog/projekt-smart-swimmingpool-einleitung/), _October 2018_
+- [Smart Swimming Pool: Introduction]({{< relref "/blog/projekt-smart-swimmingpool-einleitung" lang="de" >}}), _October 2018_
 
   Four-part German blog series on AZ-Delivery Blog about version 1 of the Smart Pool Controller.
 
-  - [Smarte Steuerung für den Swimmingpool (1/4)]({{< relref "/blog/smarte-steuerung-1-4" >}})
-  - [Der Pool-Controller (2/4)]({{< relref "/blog/pool-controller-2-4" >}})
-  - [Swimmingpool und OpenHAB (3/4)]({{< relref "/blog/swimmingpool-openhab-3-4" >}})
-  - [Der smarte Pool (4/4)]({{< relref "/blog/der-smarte-pool-4-4" >}})
+  - [Smarte Steuerung für den Swimmingpool (1/4)]({{< relref "/blog/smarte-steuerung-1-4" lang="de" >}})
+  - [Der Pool-Controller (2/4)]({{< relref "/blog/pool-controller-2-4" lang="de" >}})
+  - [Swimmingpool und OpenHAB (3/4)]({{< relref "/blog/swimmingpool-openhab-3-4" lang="de" >}})
+  - [Der smarte Pool (4/4)]({{< relref "/blog/der-smarte-pool-4-4" lang="de" >}})
