@@ -17,9 +17,8 @@ Auch verfügbar als [Blog-Beiträge](/blog/) auf dieser Seite.
   - [Swimmingpool und OpenHAB (3/4)]({{< relref "/blog/swimmingpool-openhab-3-4" >}})
   - [Der smarte Pool (4/4)]({{< relref "/blog/der-smarte-pool-4-4" >}})
 
-- [Project Smart Swimming Pool](https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741f6)
-, _Dezember 2018_
+- [Project Smart Swimming Pool](https://medium.com/diy-my-smart-home/project-smart-swimmingpool-4c40eb6741f6), _Dezember 2018_
 
   Englischer Blogpost über Version 1 des Smart Swimming Pool.
 
-  📄 [Hier auf der Seite lesen]({{< relref "/blog/smart-swimming-pool-project" lang="en" >}})
+  📄 [Hier auf der Seite lesen]({{< relref path="/blog/smart-swimming-pool-project" lang="en" >}})
