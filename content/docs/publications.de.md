@@ -4,7 +4,7 @@ weight: 80
 tags: ["docs", "publication"]
 ---
 
-Auch verfügbar als [Blog-Beiträge](/blog/) auf dieser Seite.
+Auch verfügbar als [Blog-Beiträge]({{< relref path="/blog" lang="de" >}}) auf dieser Seite.
 
 - [Projekt Smart Swimmingpool](https://www.az-delivery.de/blogs/azdelivery-blog-fur-arduino-und-raspberry-pi/projekt-smart-swimmingpool-einleitung), _Oktober 2018_
 
