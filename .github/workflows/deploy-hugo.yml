@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - master
   schedule:
     # Daily rebuild at 6:00 UTC — picks up new module docs automatically
     - cron: '0 6 * * *'
@@ -69,4 +70,4 @@ jobs:
           publish_dir: ./public
           user_name: stritti
           user_email: stritti@users.noreply.github.com
-          publish_branch: master
+          publish_branch: main
