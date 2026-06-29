@@ -2,24 +2,23 @@
 
 Thank you for your interest in contributing to the **Smart Swimming Pool Website** project!
 
-
 This document provides guidelines for contributing to the project. Please read it
 carefully before submitting your first pull request.
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [Code of Conduct](#-code-of-conduct)
-- [How to Contribute](#-how-to-contribute)
-- [Getting Started](#-getting-started)
-- [Project Structure](#-project-structure)
-- [Content Guidelines](#-content-guidelines)
-- [Pull Request Process](#-pull-request-process)
-- [Commit Message Guidelines](#-commit-message-guidelines)
-- [Quality Gates](#-quality-gates)
+- [Code of Conduct](#code-of-conduct)
+- [How to Contribute](#how-to-contribute)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Content Guidelines](#content-guidelines)
+- [Pull Request Process](#pull-request-process)
+- [Commit Message Guidelines](#commit-message-guidelines)
+- [Quality Gates](#quality-gates)
 
 ---
 
-## 🤝 Code of Conduct
+## Code of Conduct
 
 This project adheres to the
 [Contributor Covenant](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html).
@@ -31,7 +30,7 @@ See also: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 ---
 
-## 🌟 How to Contribute
+## How to Contribute
 
 ### Reporting Issues
 
@@ -62,7 +61,7 @@ See also: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -93,9 +92,9 @@ The site will be available at `http://localhost:1313`. Changes to content, layou
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
-```
+```text
 website/
 ├── assets/              # CSS, JS, images (processed by Hugo)
 ├── content/             # Page content in Markdown
@@ -120,7 +119,7 @@ website/
 
 ---
 
-## ✍️ Content Guidelines
+## Content Guidelines
 
 ### Markdown Formatting
 
@@ -157,7 +156,7 @@ tags: [tag1, tag2]
 
 ---
 
-## 🔄 Pull Request Process
+## Pull Request Process
 
 1. **Fork the repository** and create your branch from `main`
 2. **Make your changes** following the guidelines above
@@ -167,7 +166,7 @@ tags: [tag1, tag2]
 6. **Commit your changes** with clear, descriptive messages
 7. **Push to your fork** and submit a pull request
 
-### Pull Request Requirements:
+### Pull Request Requirements
 
 - ✅ All CI checks pass (build, link check)
 - ✅ Content follows project standards
@@ -177,11 +176,11 @@ tags: [tag1, tag2]
 
 ---
 
-##  Commit Message Guidelines
+## Commit Message Guidelines
 
-### Format:
+### Format
 
-```
+```text
 type(scope): subject
 
 body
@@ -189,7 +188,8 @@ body
 footer
 ```
 
-### Types:
+### Types
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
@@ -198,8 +198,9 @@ footer
 - `chore`: Maintenance tasks
 - `i18n`: Translation updates
 
-### Example:
-```
+### Example
+
+```text
 docs(pool-controller): add troubleshooting guide
 
 - Add comprehensive troubleshooting guide for pool controller
@@ -211,7 +212,7 @@ Closes #123
 
 ---
 
-## 🏆 Quality Gates
+## Quality Gates
 
 All contributions must pass the following quality checks:
 
@@ -219,7 +220,7 @@ All contributions must pass the following quality checks:
 2. **Link Check**: No broken links (using lychee)
 3. **Manual Review**: Content review by maintainers
 
-### Local Quality Checks:
+### Local Quality Checks
 
 ```bash
 # Build the site
@@ -234,18 +235,18 @@ hugo server -D
 
 ---
 
-##  Module Documentation Updates
+## Module Documentation Updates
 
 The website automatically pulls documentation from module repositories using `grabrepos.py`.
 
-### How It Works:
+### How It Works
 
 1. **Reads `multiversion.yml`** to find which repos to include
 2. **Clones repos** into `temp/` directory
 3. **Extracts and processes** Markdown files
 4. **Writes to `content/docs/{modulename}/`**
 
-### For Module Maintainers:
+### For Module Maintainers
 
 To trigger a website rebuild when your module docs change, add this workflow to your repo:
 
@@ -272,14 +273,14 @@ See [docs/trigger-website-rebuild.md](docs/trigger-website-rebuild.md) for detai
 
 ---
 
-##  Thank You!
+## Thank You
 
 Your contributions help make this website better for everyone. We appreciate your
 time and effort in improving the Smart Swimming Pool documentation!
 
 ---
 
-##  Additional Resources
+## Additional Resources
 
 - [Hugo Documentation](https://gohugo.io/documentation/)
 - [Smart Swimming Pool Website](https://smart-swimmingpool.com)

@@ -69,4 +69,4 @@ jobs:
           publish_dir: ./public
           user_name: stritti
           user_email: stritti@users.noreply.github.com
-          publish_branch: master
+          publish_branch: main
