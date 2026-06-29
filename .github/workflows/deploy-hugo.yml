@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - master
   schedule:
     # Daily rebuild at 6:00 UTC — picks up new module docs automatically
     - cron: '0 6 * * *'

@@ -1,9 +1,9 @@
 name: PR Check
 on:
   pull_request:
-    branches: [main, master]
+    branches: [main]
   push:
-    branches-ignore: [main, master]
+    branches-ignore: [main]
   workflow_dispatch:
 
 # Avoid duplicate runs for the same branch
