@@ -2,20 +2,19 @@
 
 Thank you for your interest in contributing to the **Smart Swimming Pool Website** project!
 
-
 This document provides guidelines for contributing to the project. Please read it
 carefully before submitting your first pull request.
 
 ## 📋 Table of Contents
 
-- [Code of Conduct](#-code-of-conduct)
-- [How to Contribute](#-how-to-contribute)
-- [Getting Started](#-getting-started)
-- [Project Structure](#-project-structure)
-- [Content Guidelines](#-content-guidelines)
-- [Pull Request Process](#-pull-request-process)
-- [Commit Message Guidelines](#-commit-message-guidelines)
-- [Quality Gates](#-quality-gates)
+- [Code of Conduct](#code-of-conduct)
+- [How to Contribute](#how-to-contribute)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Content Guidelines](#content-guidelines)
+- [Pull Request Process](#pull-request-process)
+- [Commit Message Guidelines](#commit-message-guidelines)
+- [Quality Gates](#quality-gates)
 
 ---
 
@@ -177,7 +176,7 @@ tags: [tag1, tag2]
 
 ---
 
-##  Commit Message Guidelines
+## Commit Message Guidelines
 
 ### Format
 
@@ -190,6 +189,7 @@ footer
 ```
 
 ### Types
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
@@ -199,6 +199,7 @@ footer
 - `i18n`: Translation updates
 
 ### Example
+
 ```text
 docs(pool-controller): add troubleshooting guide
 
@@ -234,7 +235,7 @@ hugo server -D
 
 ---
 
-##  Module Documentation Updates
+## Module Documentation Updates
 
 The website automatically pulls documentation from module repositories using `grabrepos.py`.
 
@@ -272,14 +273,14 @@ See [docs/trigger-website-rebuild.md](docs/trigger-website-rebuild.md) for detai
 
 ---
 
-##  Thank You!
+## Thank You
 
 Your contributions help make this website better for everyone. We appreciate your
 time and effort in improving the Smart Swimming Pool documentation!
 
 ---
 
-##  Additional Resources
+## Additional Resources
 
 - [Hugo Documentation](https://gohugo.io/documentation/)
 - [Smart Swimming Pool Website](https://smart-swimmingpool.com)

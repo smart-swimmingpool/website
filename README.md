@@ -4,7 +4,9 @@
 [![Works with Home Assistant](https://img.shields.io/badge/Works%20with-Home%20Assistant-41BDF5?logo=homeassistant&logoColor=white&style=flat-square)](https://www.home-assistant.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**Smart Swimming Pool** is an open-source project to automate your swimming pool using home automation. Control circulation, heating, and monitoring — all from your smartphone.
+**Smart Swimming Pool** is an open-source project to automate your swimming pool
+using home automation. Control circulation, heating, and monitoring — all from
+your smartphone.
 
 🌐 **Website:** [smart-swimmingpool.com](https://smart-swimmingpool.com)
 
@@ -111,15 +113,17 @@ The site will be available at `http://localhost:1313`. Changes to content, layou
 
 ### How Module Documentation Updates Work
 
-The website pulls documentation from separate module repositories (pool-controller, openhab-config, grafana-dashboard, monitor) via `grabrepos.py`. The build process:
+The website pulls documentation from separate module repositories
+(pool-controller, openhab-config, grafana-dashboard, monitor) via
+`grabrepos.py`. The build process:
 
 1. **Reads `multiversion.yml`** to find which repos to include and their file patterns
 2. **Clones (or fetches)** each repo into `temp/`
 3. **For each `.md` file** matching the pattern:
-   - Extracts YAML frontmatter (title, tags, date, etc.) and preserves it
-   - `_index.md` files are always written as landing pages
-   - Other files are split by `##` headings (files without any headings are skipped)
-   - Writes to `content/docs/{modulename}/` with combined frontmatter
+    - Extracts YAML frontmatter (title, tags, date, etc.) and preserves it
+    - `_index.md` files are always written as landing pages
+    - Other files are split by `##` headings (files without any headings are skipped)
+    - Writes to `content/docs/{modulename}/` with combined frontmatter
 4. Generated module docs are **gitignored** — never committed to the repo
 
 #### Edge Cases Handled by `grabrepos.py`
@@ -156,7 +160,7 @@ The website pulls documentation from separate module repositories (pool-controll
 >           repository: smart-swimmingpool/website
 >           event-type: doc_update
 > ```
-> 
+>
 > A full step-by-step guide is available at [`docs/trigger-website-rebuild.md`](docs/trigger-website-rebuild.md) (also available in German).
 
 #### Build Pipeline (CI Workflow)
@@ -167,7 +171,7 @@ flowchart LR
     B --> C[content/docs/ updated]
     C --> D[hugo --minify]
     D --> E[GitHub Pages deploy]
-    
+
     subgraph GitHub Actions
         B
         C
@@ -178,7 +182,8 @@ flowchart LR
 ### Development Tips
 
 - Use `hugo server -D --navigateToChanged` to automatically open the browser when editing content.
-- The Hextra theme is included as a git submodule. To preview theme changes, either submit them upstream or override templates in the `layouts/` directory.
+- The Hextra theme is included as a git submodule. To preview theme changes,
+  either submit them upstream or override templates in the `layouts/` directory.
 
 ## License
 
@@ -186,6 +191,4 @@ MIT — see [LICENSE](LICENSE).
 
 ---
 
-<p align="center">
-  Made with ❤️ by the Smart Swimming Pool community
-</p>
+Made with ❤️ by the Smart Swimming Pool community
