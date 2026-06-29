@@ -28,7 +28,7 @@ jobs:
           python-version: '3.x'
 
       - name: Cache pip
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
@@ -48,7 +48,7 @@ jobs:
           extended: true
 
       - name: Cache Hugo resources
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: resources/_gen
           key: hugo-${{ hashFiles('**/**.md', '**/**.toml', '**/**.yaml', '**/**.json') }}
