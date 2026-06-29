@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" width="1440" height="120">
+  <defs>
+    <linearGradient id="wave-dark-top" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0077B6" stop-opacity="0.35"/>
+      <stop offset="25%" stop-color="#00B4D8" stop-opacity="0.30"/>
+      <stop offset="50%" stop-color="#48CAE4" stop-opacity="0.35"/>
+      <stop offset="75%" stop-color="#00B4D8" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#0077B6" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="wave-light-top" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#90E0EF" stop-opacity="0.25"/>
+      <stop offset="30%" stop-color="#CAF0F8" stop-opacity="0.20"/>
+      <stop offset="60%" stop-color="#90E0EF" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#CAF0F8" stop-opacity="0.20"/>
+    </linearGradient>
+  </defs>
+  <!-- Deep wave layer (inverted) -->
+  <path d="M0,40 C320,20 380,80 720,60 C1060,40 1120,90 1440,70 L1440,0 L0,0 Z" fill="url(#wave-dark-top)"/>
+  <!-- Surface wave layer (inverted) -->
+  <path d="M0,20 C240,35 480,10 720,25 C960,40 1200,15 1440,30 L1440,0 L0,0 Z" fill="url(#wave-light-top)"/>
+  <!-- Foam highlight -->
+  <path d="M0,12 C360,20 540,2 720,8 C900,14 1080,2 1440,12 L1440,0 L0,0 Z" fill="#CAF0F8" fill-opacity="0.15"/>
+</svg>

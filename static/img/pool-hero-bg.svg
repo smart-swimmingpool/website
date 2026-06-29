@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" width="1440" height="800">
+  <defs>
+    <radialGradient id="glow1" cx="30%" cy="20%" r="70%">
+      <stop offset="0%" stop-color="#CAF0F8" stop-opacity="0.50"/>
+      <stop offset="40%" stop-color="#90E0EF" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#0077B6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="70%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#48CAE4" stop-opacity="0.30"/>
+      <stop offset="50%" stop-color="#00B4D8" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#0077B6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow3" cx="50%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#90E0EF" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0077B6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bg-fade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E8F8FA" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#CAF0F8" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#E8F8FA" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Light reflection ripples -->
+    <filter id="blur1">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <filter id="blur2">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+  <!-- Base gradient -->
+  <rect width="1440" height="800" fill="hsl(210, 72%, 97%)"/>
+  <rect width="1440" height="800" fill="url(#glow1)"/>
+  <rect width="1440" height="800" fill="url(#glow2)"/>
+  <rect width="1440" height="800" fill="url(#glow3)"/>
+  <rect width="1440" height="800" fill="url(#bg-fade)"/>
+
+  <!-- Soft elliptical ripples -->
+  <ellipse cx="280" cy="180" rx="420" ry="120" fill="none" stroke="#90E0EF" stroke-opacity="0.25" stroke-width="1.5" filter="url(#blur1)"/>
+  <ellipse cx="280" cy="180" rx="320" ry="90" fill="none" stroke="#CAF0F8" stroke-opacity="0.20" stroke-width="1.5" filter="url(#blur1)"/>
+  <ellipse cx="280" cy="180" rx="220" ry="60" fill="none" stroke="#CAF0F8" stroke-opacity="0.15" stroke-width="1" filter="url(#blur2)"/>
+
+  <ellipse cx="1100" cy="250" rx="380" ry="100" fill="none" stroke="#90E0EF" stroke-opacity="0.20" stroke-width="1.5" filter="url(#blur1)"/>
+  <ellipse cx="1100" cy="250" rx="280" ry="70" fill="none" stroke="#CAF0F8" stroke-opacity="0.15" stroke-width="1" filter="url(#blur1)"/>
+
+  <ellipse cx="720" cy="480" rx="500" ry="140" fill="none" stroke="#90E0EF" stroke-opacity="0.15" stroke-width="2" filter="url(#blur2)"/>
+
+  <ellipse cx="400" cy="620" rx="300" ry="80" fill="none" stroke="#CAF0F8" stroke-opacity="0.12" stroke-width="1" filter="url(#blur2)"/>
+
+  <!-- Light reflection streaks -->
+  <path d="M180,120 Q300,100 420,130" fill="none" stroke="white" stroke-opacity="0.30" stroke-width="2" filter="url(#blur1)"/>
+  <path d="M200,135 Q310,118 400,142" fill="none" stroke="white" stroke-opacity="0.15" stroke-width="1" filter="url(#blur1)"/>
+
+  <path d="M1020,180 Q1130,165 1250,190" fill="none" stroke="white" stroke-opacity="0.25" stroke-width="2" filter="url(#blur1)"/>
+  <path d="M1040,195 Q1140,178 1230,200" fill="none" stroke="white" stroke-opacity="0.12" stroke-width="1" filter="url(#blur1)"/>
+
+  <!-- Bottom fade to white -->
+  <rect y="600" width="1440" height="200" fill="url(#bg-fade)"/>
+</svg>

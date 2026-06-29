@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect x="6" y="8" width="52" height="48" rx="4" fill="#0077B6"/>
+  <!-- PCB traces -->
+  <path d="M16,20 L32,20 L32,36 L48,36" fill="none" stroke="#90E0EF" stroke-width="1.5"/>
+  <path d="M16,28 L28,28 L28,44" fill="none" stroke="#90E0EF" stroke-width="1.5"/>
+  <path d="M36,20 L36,28 L48,28" fill="none" stroke="#90E0EF" stroke-width="1"/>
+  <path d="M16,36 L20,36 L20,44 L28,44" fill="none" stroke="#90E0EF" stroke-width="1"/>
+  <!-- IC chip -->
+  <rect x="24" y="22" width="16" height="12" rx="1" fill="#48CAE4"/>
+  <rect x="24" y="26" width="16" height="4" fill="#CAF0F8" opacity="0.5"/>
+  <!-- IC pins left -->
+  <path d="M22,24 L18,24" fill="none" stroke="#90E0EF" stroke-width="1.5"/>
+  <path d="M22,28 L18,28" fill="none" stroke="#90E0EF" stroke-width="1.5"/>
+  <path d="M22,32 L18,32" fill="none" stroke="#90E0EF" stroke-width="1.5"/>
+  <!-- IC pins right -->
+  <path d="M42,24 L46,24" fill="none" stroke="#90E0EF" stroke-width="1.5"/>
+  <path d="M42,28 L46,28" fill="none" stroke="#90E0EF" stroke-width="1.5"/>
+  <path d="M42,32 L46,32" fill="none" stroke="#90E0EF" stroke-width="1.5"/>
+  <!-- Notch / pin 1 indicator -->
+  <circle cx="24" cy="23" r="1" fill="#CAF0F8"/>
+  <!-- Resistor-like component -->
+  <rect x="14" y="40" width="6" height="3" rx="0.5" fill="#00B4D8"/>
+  <!-- Capacitor-like component -->
+  <circle cx="44" cy="42" r="3" fill="#00B4D8" opacity="0.7"/>
+  <!-- Small mounting holes -->
+  <circle cx="12" cy="14" r="1.5" fill="none" stroke="#90E0EF" stroke-width="0.8"/>
+  <circle cx="52" cy="14" r="1.5" fill="none" stroke="#90E0EF" stroke-width="0.8"/>
+  <circle cx="12" cy="50" r="1.5" fill="none" stroke="#90E0EF" stroke-width="0.8"/>
+  <circle cx="52" cy="50" r="1.5" fill="none" stroke="#90E0EF" stroke-width="0.8"/>
+  <!-- Small decoupling caps -->
+  <circle cx="36" cy="40" r="1.5" fill="#CAF0F8" opacity="0.4"/>
+  <circle cx="52" cy="35" r="1" fill="#CAF0F8" opacity="0.4"/>
+  <!-- Subtle glow -->
+  <circle cx="32" cy="28" r="2" fill="white" opacity="0.08"/>
+</svg>
