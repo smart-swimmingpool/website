@@ -1,0 +1,48 @@
+# Markdown Lint Configuration for MegaLinter
+# https://github.com/DavidAnson/markdownlint
+
+---
+default: true
+
+MD004:
+  style: dash
+
+MD007:
+  indent: 2
+  start_indented: false
+
+MD013:
+  line_length: 150
+  code_blocks: false
+  tables: false
+  headings: false
+
+MD024:
+  siblings_only: true
+
+MD025:
+  front_matter_title: ""
+
+MD031: false
+MD032: false
+MD040: false
+MD041: false
+
+MD033:
+  allowed_elements:
+    - a
+    - br
+    - details
+    - img
+    - kbd
+    - script
+    - span
+    - sub
+    - sup
+    - summary
+
+MD046:
+  style: fenced
+
+MD060:
+  style: around
