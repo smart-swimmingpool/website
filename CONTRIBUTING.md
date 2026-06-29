@@ -5,7 +5,7 @@ Thank you for your interest in contributing to the **Smart Swimming Pool Website
 This document provides guidelines for contributing to the project. Please read it
 carefully before submitting your first pull request.
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
 - [How to Contribute](#how-to-contribute)
@@ -18,7 +18,7 @@ carefully before submitting your first pull request.
 
 ---
 
-## 🤝 Code of Conduct
+## Code of Conduct
 
 This project adheres to the
 [Contributor Covenant](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html).
@@ -30,7 +30,7 @@ See also: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 ---
 
-## 🌟 How to Contribute
+## How to Contribute
 
 ### Reporting Issues
 
@@ -61,7 +61,7 @@ See also: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -92,7 +92,7 @@ The site will be available at `http://localhost:1313`. Changes to content, layou
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 website/
@@ -119,7 +119,7 @@ website/
 
 ---
 
-## ✍️ Content Guidelines
+## Content Guidelines
 
 ### Markdown Formatting
 
@@ -156,7 +156,7 @@ tags: [tag1, tag2]
 
 ---
 
-## 🔄 Pull Request Process
+## Pull Request Process
 
 1. **Fork the repository** and create your branch from `main`
 2. **Make your changes** following the guidelines above
@@ -212,7 +212,7 @@ Closes #123
 
 ---
 
-## 🏆 Quality Gates
+## Quality Gates
 
 All contributions must pass the following quality checks:
 
