@@ -87,7 +87,7 @@ pip install -r requirements.txt
 
 # Start the Hugo development server with live reload
 hugo server -D
-```text
+```
 
 The site will be available at `http://localhost:1313`. Changes to content, layouts, and config are reflected immediately.
 
@@ -116,7 +116,7 @@ website/
 ├── multiversion.yml     # Multi-version content configuration
 └── .github/             # GitHub configuration
     └── workflows/        # GitHub Actions workflows
-```text
+```
 
 ---
 
@@ -141,7 +141,7 @@ date: 2024-01-01
 description: "Page description for SEO and social sharing"
 tags: [tag1, tag2]
 ---
-```text
+```
 
 ### Translations
 
@@ -187,7 +187,7 @@ type(scope): subject
 body
 
 footer
-```text
+```
 
 ### Types
 - `feat`: New feature
@@ -207,7 +207,7 @@ docs(pool-controller): add troubleshooting guide
 - Add screenshots for error messages
 
 Closes #123
-```text
+```
 
 ---
 
@@ -230,7 +230,7 @@ hugo server -D
 
 # Check for broken links (requires running server)
 # Then access http://localhost:1313 in browser
-```text
+```
 
 ---
 
@@ -266,7 +266,7 @@ jobs:
           token: ${{ secrets.WEBSITE_DISPATCH_TOKEN }}
           repository: smart-swimmingpool/website
           event-type: doc_update
-```text
+```
 
 See [docs/trigger-website-rebuild.md](docs/trigger-website-rebuild.md) for detailed instructions.
 

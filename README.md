@@ -56,7 +56,7 @@ pip install -r requirements.txt
 
 # 3. Start the Hugo development server with live reload
 hugo server -D
-```text
+```
 
 The site will be available at `http://localhost:1313`. Changes to content, layouts, and config are reflected immediately.
 
@@ -82,7 +82,7 @@ The site will be available at `http://localhost:1313`. Changes to content, layou
 ├── hugo.yaml            # Hugo configuration
 ├── multiversion.yml     # Multi-version content configuration
 └── .opencode/           # Opencode AI agent skill definitions (internal)
-```text
+```
 
 ### Common Tasks
 
@@ -173,7 +173,7 @@ flowchart LR
         C
         D
     end
-```text
+```
 
 ### Development Tips
 
