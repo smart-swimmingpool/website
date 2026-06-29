@@ -10,12 +10,22 @@
   --primary-hue: 210deg;
   --primary-saturation: 82%;
   --primary-lightness: 45%;
+  --water-deep: #0077B6;
+  --water-mid: #00B4D8;
+  --water-light: #48CAE4;
+  --water-pale: #90E0EF;
+  --water-foam: #CAF0F8;
 }
 
 .dark {
   --primary-hue: 210deg;
   --primary-saturation: 78%;
   --primary-lightness: 55%;
+  --water-deep: #005a8a;
+  --water-mid: #0096b8;
+  --water-light: #3aafc9;
+  --water-pale: #75c5d9;
+  --water-foam: #a8dce8;
 }
 
 /* ===== Subtle water background gradient ===== */
@@ -42,19 +52,305 @@ body {
   background-attachment: fixed;
 }
 
+/* ===== Hero Section Enhancement ===== */
+
+/* Hero area background with subtle animated wave */
+.hextra-home .hextra-hero-section,
+.hextra-home .hextra-hero-headline {
+  position: relative;
+}
+
+.hextra-home .content > .mt-6:first-of-type {
+  position: relative;
+  z-index: 2;
+}
+
+/* Animated wave background for hero area */
+.hextra-home .content > div:first-child {
+  position: relative;
+}
+.hextra-home .content > div:first-child::before {
+  content: "";
+  position: absolute;
+  top: -4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120vw;
+  height: 120%;
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, hsla(210, 75%, 70%, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  animation: hero-glow 8s ease-in-out infinite alternate;
+}
+
+@keyframes hero-glow {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(-48%) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-52%) scale(0.95);
+    opacity: 0.6;
+  }
+}
+
+/* Hero headline water gradient */
+h1.not-prose {
+  --tw-gradient-from: hsl(210, 80%, 30%) !important;
+  --tw-gradient-to: hsl(205, 72%, 50%) !important;
+  animation: headline-fade-in 0.8s ease-out forwards;
+}
+
+.dark h1.not-prose {
+  --tw-gradient-from: hsl(210, 78%, 75%) !important;
+  --tw-gradient-to: hsl(205, 65%, 55%) !important;
+}
+
+/* Hero subtitle fade-in */
+.hextra-home .content > div:first-of-type + div .not-prose {
+  animation: subtitle-fade-in 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes headline-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtitle-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero button stagger */
+.hextra-home .content > .mb-6:last-of-type .not-prose {
+  animation: btn-fade-in 0.6s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+@keyframes btn-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Wave Divider Styling ===== */
+
+.wave-divider {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  line-height: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.wave-divider--bottom {
+  margin-bottom: -1px;
+}
+
+.wave-divider--top {
+  margin-top: -1px;
+}
+
 /* ===== Feature Cards: Pool-inspired accent glow ===== */
 
 .hextra-feature-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+}
+
+.hextra-feature-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    hsla(210, 75%, 70%, 0.06) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .hextra-feature-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px hsl(210, 65%, 70%, 0.25);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow:
+    0 12px 28px hsla(210, 65%, 50%, 0.15),
+    0 4px 12px hsla(210, 65%, 50%, 0.10);
+  border-color: hsla(210, 65%, 60%, 0.4) !important;
+}
+
+.hextra-feature-card:hover::after {
+  opacity: 1;
 }
 
 .dark .hextra-feature-card:hover {
-  box-shadow: 0 12px 28px hsl(210, 65%, 30%, 0.3);
+  box-shadow:
+    0 12px 28px hsla(210, 65%, 30%, 0.25),
+    0 4px 12px hsla(210, 65%, 30%, 0.15);
+  border-color: hsla(210, 50%, 45%, 0.4) !important;
+}
+
+/* Water ripple hover effect on cards */
+.hextra-feature-card::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, hsla(210, 80%, 70%, 0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  transition: width 0.6s ease-out, height 0.6s ease-out, opacity 0.6s ease-out;
+  opacity: 0;
+}
+
+.hextra-feature-card:hover::before {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+}
+
+.dark .hextra-feature-card::before {
+  background: radial-gradient(circle, hsla(210, 60%, 40%, 0.2) 0%, transparent 70%);
+}
+
+/* Glass-morphism on cards */
+.hextra-feature-card {
+  background: hsla(0, 0%, 100%, 0.6) !important;
+  border: 1px solid hsla(210, 40%, 80%, 0.3);
+}
+
+.dark .hextra-feature-card {
+  background: hsla(210, 20%, 15%, 0.6) !important;
+  border: 1px solid hsla(210, 20%, 30%, 0.2);
+}
+
+/* Decorative water-themed gradient border on cards */
+.hextra-feature-card {
+  border-image: linear-gradient(
+    135deg,
+    hsla(210, 75%, 55%, 0.3),
+    hsla(195, 75%, 60%, 0.1),
+    hsla(210, 75%, 55%, 0.3)
+  ) 1;
+}
+
+/* Card image enhancements */
+.hextra-feature-card img {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease;
+  filter: saturate(0.9) brightness(1.02);
+}
+
+.hextra-feature-card:hover img {
+  transform: scale(1.05);
+  filter: saturate(1.05) brightness(1.05);
+}
+
+/* ===== Feature Grid gap adjustment ===== */
+
+.hextra-feature-grid {
+  gap: 1.25rem !important;
+}
+
+/* ===== Image styling in content ===== */
+
+.content img:not(.hextra-feature-card img):not(.gallery-item img) {
+  border-radius: 12px;
+  box-shadow:
+    0 4px 16px hsla(210, 30%, 50%, 0.12),
+    0 1px 4px hsla(210, 30%, 50%, 0.08);
+  border: 1px solid hsla(210, 40%, 80%, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .content img:not(.hextra-feature-card img):not(.gallery-item img) {
+  box-shadow:
+    0 4px 16px hsla(0, 0%, 0%, 0.3),
+    0 1px 4px hsla(0, 0%, 0%, 0.2);
+  border-color: hsla(210, 20%, 25%, 0.3);
+}
+
+.content img:not(.hextra-feature-card img):not(.gallery-item img):hover {
+  transform: scale(1.01);
+  box-shadow:
+    0 8px 32px hsla(210, 30%, 50%, 0.18),
+    0 2px 8px hsla(210, 30%, 50%, 0.10);
+}
+
+/* ===== Gallery image hover zoom ===== */
+
+.hextra-gallery__item {
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hextra-gallery__item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 28px hsla(210, 50%, 40%, 0.2);
+}
+
+.dark .hextra-gallery__item:hover {
+  box-shadow: 0 8px 28px hsla(210, 50%, 20%, 0.3);
+}
+
+.hextra-gallery__item img {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hextra-gallery__item:hover img {
+  transform: scale(1.08);
+}
+
+/* Image loading fade-in */
+.content img {
+  animation: img-fade-in 0.5s ease-out forwards;
+}
+
+@keyframes img-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* ===== Navbar subtle water accent ===== */
@@ -98,14 +394,126 @@ main hr {
   margin-bottom: 2.5rem !important;
 }
 
-/* ===== Hero headline uses pool gradient ===== */
+/* ===== Section heading styling ===== */
 
-h1.not-prose {
-  --tw-gradient-from: hsl(210, 80%, 30%) !important;
-  --tw-gradient-to: hsl(205, 72%, 50%) !important;
+.content h2 {
+  position: relative;
+  padding-bottom: 0.5rem;
 }
 
-.dark h1.not-prose {
-  --tw-gradient-from: hsl(210, 78%, 75%) !important;
-  --tw-gradient-to: hsl(205, 65%, 55%) !important;
+.content h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--water-mid), var(--water-pale));
+}
+
+.dark .content h2::after {
+  background: linear-gradient(90deg, var(--water-light), var(--water-pale));
+}
+
+/* ===== Gentle pulse animation for interactive elements ===== */
+
+@keyframes gentle-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 hsla(210, 70%, 55%, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 6px hsla(210, 70%, 55%, 0);
+  }
+}
+
+.hextra-home .content > .mb-6:last-of-type .not-prose {
+  animation: btn-fade-in 0.6s ease-out 0.4s forwards, gentle-pulse 2.5s ease-in-out 1.5s infinite;
+}
+
+.dark .hextra-home .content > .mb-6:last-of-type .not-prose {
+  animation: btn-fade-in 0.6s ease-out 0.4s forwards, gentle-pulse 2.5s ease-in-out 1.5s infinite;
+}
+
+/* ===== Smooth transitions on all interactive elements ===== */
+
+a, button, .hextra-feature-card, nav * {
+  transition: all 0.2s ease;
+}
+
+/* ===== Blog header wave styling ===== */
+
+.blog-header-wave {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-top: -1.5rem;
+  margin-bottom: 0;
+  line-height: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.blog-header-wave svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+
+.blog-header-wave + .content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Water texture background section ===== */
+
+.water-texture-bg {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: 3rem 0;
+  overflow: hidden;
+}
+
+.water-texture-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/img/pool-water-texture.svg");
+  background-size: 200px 200px;
+  background-repeat: repeat;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.water-texture-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Section spacing with wave dividers ===== */
+
+.section-with-waves {
+  position: relative;
+}
+
+/* ===== Call to action section ===== */
+
+.cta-section {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.cta-section h2 {
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+}
+
+.cta-section h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cta-section .not-prose a {
+  margin-top: 0.5rem;
 }
