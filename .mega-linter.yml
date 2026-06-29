@@ -1,0 +1,16 @@
+---
+APPLY_FIXES: none
+PRINT_ALPACA: false
+SHOW_ELAPSED_TIME: true
+
+# Start with low-noise linters that match this Hugo website repository.
+ENABLE_LINTERS:
+  - ACTION_ACTIONLINT
+  - EDITORCONFIG_EDITORCONFIG_CHECKER
+  - MARKDOWN_MARKDOWNLINT
+  - YAML_YAMLLINT
+
+FILTER_REGEX_EXCLUDE: '(^public/|^resources/|^temp/|^themes/|^node_modules/)'
+
+MARKDOWN_MARKDOWNLINT_CONFIG_FILE: .markdownlint.yml
+YAML_YAMLLINT_CONFIG_FILE: .yamllint.yml

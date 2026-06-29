@@ -5,21 +5,21 @@
 extends: default
 
 rules:
-  line-length:
-    max: 120
-    level: warning
-
-  indentation:
-    spaces: 2
-    indent-sequences: true
-
-  truthy:
-    allowed-values: ["true", "false", "yes", "no"]
-    check-keys: false
-
   comments:
     min-spaces-from-content: 1
 
   document-start: disable
 
+  indentation:
+    spaces: 2
+    indent-sequences: true
+
+  line-length:
+    max: 120
+    level: warning
+
   new-line-at-end-of-file: enable
+
+  truthy:
+    allowed-values: ["true", "false", "yes", "no"]
+    check-keys: false

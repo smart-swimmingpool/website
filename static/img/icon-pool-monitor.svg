@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Screen / display body -->
+  <rect x="14" y="20" width="36" height="28" rx="3" fill="#0077B6"/>
+  <rect x="18" y="24" width="28" height="18" rx="1.5" fill="#90E0EF" opacity="0.3"/>
+  <!-- Temperature reading on screen -->
+  <text x="32" y="36" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#0077B6">26°C</text>
+  <!-- Screen bezel bottom -->
+  <rect x="26" y="44" width="12" height="1.5" rx="0.75" fill="#00B4D8"/>
+  <!-- Stand -->
+  <path d="M26,48 L30,54 L34,54 L38,48" fill="none" stroke="#0077B6" stroke-width="1.5"/>
+  <rect x="28" y="54" width="8" height="2" rx="1" fill="#0077B6"/>
+  <!-- Sun above -->
+  <circle cx="44" cy="14" r="6" fill="#FFB703"/>
+  <circle cx="44" cy="14" r="4" fill="#FFD60A"/>
+  <!-- Sun rays -->
+  <path d="M44,6 L44,4" fill="none" stroke="#FFB703" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M44,22 L44,24" fill="none" stroke="#FFB703" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M36,14 L34,14" fill="none" stroke="#FFB703" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M52,14 L54,14" fill="none" stroke="#FFB703" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M38,8 L36.5,6.5" fill="none" stroke="#FFB703" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M50,20 L51.5,21.5" fill="none" stroke="#FFB703" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M50,8 L51.5,6.5" fill="none" stroke="#FFB703" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M38,20 L36.5,21.5" fill="none" stroke="#FFB703" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Water wave at bottom -->
+  <path d="M10,60 Q18,56 24,60 Q30,64 36,60 Q42,56 50,60 Q56,64 58,60" fill="none" stroke="#00B4D8" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M6,62 Q16,58 26,62 Q36,66 46,62 Q56,58 60,62" fill="none" stroke="#90E0EF" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+</svg>
