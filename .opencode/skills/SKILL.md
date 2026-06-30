@@ -114,10 +114,66 @@ content/docs/pool-monitor/
 
 ### Translation Pattern
 
-- English: `page.md` / `page.de.md`
-- German pages mirror English structure
-- `_index.md` → section landing, `_index.de.md` → German landing
-- Frontmatter: YAML with `title`, `date`, `draft`, `tags`, etc.
+This project uses Hugo's **filename-suffix** translation system (`hugo.yaml` has `languages: [en, de]` with no custom `contentDir`).
+
+**Core rule:** German translations always use the `.de.md` suffix in the **same directory** as the English original. Never place German files in a `content/de/` subdirectory — Hugo would treat them as default-language content at a `/de/` path, breaking the sidebar, language switcher, and URL structure.
+
+#### File Naming Conventions
+
+| English | German | Description |
+|---------|--------|-------------|
+| `_index.md` | `_index.de.md` | Section landing page (directory index) |
+| `page.md` | `page.de.md` | Regular content page |
+| `code-of-conduct.md` | `code-of-conduct.de.md` | Root-level standalone page |
+| `smart-swimming-pool-project.md` | `projekt-smart-swimmingpool-einleitung.de.md` | Blog post (independent filenames per language) |
+
+#### Rules per Content Type
+
+**Section landing pages (`_index.md`):**
+- English: `content/docs/<section>/_index.md`
+- German: `content/docs/<section>/_index.de.md` (same directory)
+- Both share frontmatter fields like `title`, `weight`, `tags` — each in its own language
+- Example: `content/docs/architecture/_index.md` + `content/docs/architecture/_index.de.md`
+
+**Regular doc pages:**
+- Place the German `.de.md` file right next to the English `.md` file
+- Never use `content/de/docs/...` paths
+- This applies across all doc sections: `getting-started/`, `faq/`, `quickstart/`, `migration/`, `troubleshooting/`, etc.
+
+**Root-level pages (`content/`):**
+- Same pattern: `content/privacy.md` + `content/privacy.de.md`
+- Examples: `code-of-conduct`, `license`, `privacy`
+
+**Blog posts:**
+- English: `content/blog/<english-slug>.md`
+- German: `content/blog/<german-slug>.de.md`
+- Filenames are **independent per language** (not just a suffix swap) — each uses a slug in its own language
+- Example: `content/blog/smart-swimming-pool-project.md` and `content/blog/projekt-smart-swimmingpool-einleitung.de.md`
+
+**Generated docs (via `grabrepos.py`):**
+- The script only copies English docs from module repos. German translations for `_index.md` are maintained manually in this repo
+- Generated directories (`.gitignore`d) follow the same naming rules if manual German pages are added alongside them
+
+#### Frontmatter Rules
+
+- **Required:** `title` in the respective language, `date`
+- **Optional:** `draft`, `tags`, `weight`, `description`
+- **Cross-linking:** Use Hugo's `relref` shortcode with the `lang` parameter for cross-language links:
+  ```markdown
+  {{< relref path="docs/getting-started" lang="en" >}}
+  {{< relref path="docs/getting-started" lang="de" >}}
+  ```
+- Do **not** use `content/de/` paths in `relref` — always reference the canonical English path with `lang="de"`
+
+#### Validation Checklist
+
+When adding or reviewing multilingual content:
+
+- [ ] German file has `.de.md` suffix (not in `content/de/` subdirectory)
+- [ ] Both `_index.md` and `_index.de.md` exist in the same directory
+- [ ] Frontmatter `title` is translated, not copied from English
+- [ ] Cross-language `relref` links use the `lang` parameter
+- [ ] No duplicate content at `content/de/...` paths
 
 ### Hugo Config
 
