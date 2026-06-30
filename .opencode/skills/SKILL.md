@@ -2,7 +2,9 @@
 
 ## Project Overview
 
-Static documentation site for [Smart Swimming Pool](https://smart-swimmingpool.com), built with **Hugo** + **Hextra theme**. Hosted on GitHub Pages. Supports **EN + DE** translations.
+Static documentation site for [Smart Swimming Pool](https://smart-swimmingpool.com),
+built with **Hugo** + **Hextra theme**. Hosted on GitHub Pages.
+Supports **EN + DE** translations.
 
 ## Architecture
 
@@ -19,16 +21,16 @@ Static documentation site for [Smart Swimming Pool](https://smart-swimmingpool.c
 │  │  GitHub Actions (CI) ─► Hugo ─► GitHub Pages│   │
 │  └─────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────┘
-         ▲                    ▲
-         │ module docs        │ repository_dispatch
-         │ (cloned/fetched)   │ (doc_update)
-┌────────┴────────┐   ┌───────┴────────┐
-│ Module Repos    │   │ Daily Cron     │
-│ pool-controller │   │ 6:00 UTC       │
-│ openhab-config  │   └────────────────┘
-│ grafana-dash.   │
-│ monitor         │
-└─────────────────┘
+        ▲                    ▲
+        │ module docs        │ repository_dispatch
+        │ (cloned/fetched)   │ (doc_update)
+┌───────┴────────┐   ┌──────┴─────────┐
+│ Module Repos   │   │ Daily Cron     │
+│ pool-controller│   │ 6:00 UTC       │
+│ openhab-config │   └────────────────┘
+│ grafana-dash.  │
+│ monitor        │
+└────────────────┘
 ```
 
 ## Module Documentation Workflow
@@ -48,10 +50,10 @@ Four external module repos provide documentation that is merged into the website
 2. **Clones/fetches each repo** into `temp/<name>/`
 3. **Scans for matching files** (default: `docs/**/*.md`)
 4. **For each file**:
-   - Extracts frontmatter (YAML) with `extract_frontmatter()`
-   - Checks for `##` headings via `split_by_headings()`
-   - **`_index.md` files** are always written (even without `##` headings)
-   - **Other files** are skipped if they have no `##` sections
+    - Extracts frontmatter (YAML) with `extract_frontmatter()`
+    - Checks for `##` headings via `split_by_headings()`
+    - **`_index.md` files** are always written (even without `##` headings)
+    - **Other files** are skipped if they have no `##` sections
 5. **Writes output** to `content/docs/<reponame>/` with combined frontmatter (source info + preserved metadata)
 
 ### Key Files
@@ -82,7 +84,9 @@ hugo server -D
 ### Known `grabrepos.py` Edge Cases
 
 - **No `##` headings in `_index.md`**: Safe — always written regardless
-- **Malformed YAML frontmatter** (e.g. `summary:Überwache` — missing space after colon): `extract_frontmatter` returns empty metadata but still strips frontmatter from body to avoid duplication
+- **Malformed YAML frontmatter** (e.g. `summary:Überwache` — missing space after colon):
+  `extract_frontmatter` returns empty metadata but still strips frontmatter from body
+  to avoid duplication
 - **Internal documents**: Skipped if frontmatter has `noindex: true` + `private: true`
 
 ### Build Triggers
@@ -116,7 +120,10 @@ content/docs/pool-monitor/
 
 This project uses Hugo's **filename-suffix** translation system (`hugo.yaml` has `languages: [en, de]` with no custom `contentDir`).
 
-**Core rule:** German translations always use the `.de.md` suffix in the **same directory** as the English original. Never place German files in a `content/de/` subdirectory — Hugo would treat them as default-language content at a `/de/` path, breaking the sidebar, language switcher, and URL structure.
+**Core rule:** German translations always use the `.de.md` suffix in the **same directory**
+as the English original. Never place German files in a `content/de/` subdirectory — Hugo
+would treat them as default-language content at a `/de/` path, breaking the sidebar,
+language switcher, and URL structure.
 
 #### File Naming Conventions
 
