@@ -155,11 +155,19 @@ language switcher, and URL structure.
 - English: `content/blog/<english-slug>.md`
 - German: `content/blog/<german-slug>.de.md`
 - Filenames are **independent per language** (not just a suffix swap) — each uses a slug in its own language
+- ⚠️ Because the base names differ, Hugo will **not** auto-link them as translations. Add a
+  shared `translationKey` in both files' frontmatter (see Frontmatter Rules below)
 - Example: `content/blog/smart-swimming-pool-project.md` and `content/blog/projekt-smart-swimmingpool-einleitung.de.md`
+  — these are paired via `translationKey: "smart-pool-project"`, not by filename
 
 **Generated docs (via `grabrepos.py`):**
-- The script only copies English docs from module repos. German translations for `_index.md` are maintained manually in this repo
-- Generated directories (`.gitignore`d) follow the same naming rules if manual German pages are added alongside them
+- The script copies all `_index.md` and `_index.de.md` files from source module repos — it already
+  handles German landing pages if they exist in the source
+- Add German `_index.de.md` files directly in the **source module repo** (`smart-swimmingpool/pool-controller`,
+  `smart-swimmingpool/openhab-config`, etc.), not in this repo
+- The generated directories (`content/docs/pool-controller/`, etc.) are **gitignored** — manual files
+  placed there will never be committed. If an override in this repo is absolutely required, modify
+  `.gitignore` to allow specific `.de.md` files first
 
 #### Frontmatter Rules
 
@@ -171,6 +179,18 @@ language switcher, and URL structure.
   {{< relref path="docs/getting-started" lang="de" >}}
   ```
 - Do **not** use `content/de/` paths in `relref` — always reference the canonical English path with `lang="de"`
+- **Translation linking for independent filenames:** When English and German files use different
+  base names (e.g. blog posts with language-specific slugs), Hugo does **not** auto-link them
+  as translations. Add a shared `translationKey` frontmatter field in **both** files:
+  ```yaml
+  # English: content/blog/smart-swimming-pool-project.md
+  title: "Smart Swimming Pool Project"
+  translationKey: "smart-pool-project"
+  ---
+  # German: content/blog/projekt-smart-swimmingpool-einleitung.de.md
+  title: "Projekt Smart Swimmingpool – Einleitung"
+  translationKey: "smart-pool-project"
+  ```
 
 #### Validation Checklist
 
@@ -181,6 +201,7 @@ When adding or reviewing multilingual content:
 - [ ] Frontmatter `title` is translated, not copied from English
 - [ ] Cross-language `relref` links use the `lang` parameter
 - [ ] No duplicate content at `content/de/...` paths
+- [ ] Independent filename pairs (blog posts) share a `translationKey` in frontmatter
 
 ### Hugo Config
 
