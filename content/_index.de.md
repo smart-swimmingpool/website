@@ -94,7 +94,6 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
     subtitle="Von der Box zum funktionierenden Pool in 60 Minuten. Der schnellste Weg zum Erfolg."
     link="/docs/quickstart/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    icon="rocket"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
@@ -102,7 +101,6 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
     subtitle="W\u00e4hle deinen Weg basierend auf deinen Zielen und deinem Kenntnisstand."
     link="/docs/start-here/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    icon="compass"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
@@ -110,7 +108,6 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
     subtitle="Umfassende Schritt-f\u00fcr-Schritt-Anleitung. Perfekt f\u00fcr alle, die jedes Detail verstehen m\u00f6chten."
     link="/docs/getting-started/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    icon="book-open"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
@@ -136,7 +133,6 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
     subtitle="Vollst\u00e4ndige Dokumentation f\u00fcr alle Module. Architektur, Fehlerbehebung, FAQ und mehr."
     link="/docs/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    icon="folder-open"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.08),hsla(0,0%,100%,0));"
   >}}
 {{< /hextra/feature-grid >}}
@@ -152,7 +148,7 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
         <stop offset="100%" stop-color="#0077B6" stop-opacity="0.30"/>
       </linearGradient>
     </defs>
-    <path d="M0,80 C320,100 380,40 720,60 C1060,80 1120,30 14440,50 L1440,120 L0,120 Z" fill="url(#wave-footer-de)"/>
+    <path d="M0,80 C320,100 380,40 720,60 C1060,80 1120,30 1440,50 L1440,120 L0,120 Z" fill="url(#wave-footer-de)"/>
     <path d="M0,100 C240,85 480,110 720,95 C960,80 1200,105 1440,90 L1440,120 L0,120 Z" fill="#90E0EF" fill-opacity="0.2"/>
   </svg>
 </div>

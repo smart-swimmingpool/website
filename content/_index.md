@@ -47,7 +47,7 @@ layout: hextra-home
 <div class="water-texture-bg">
 <div class="hextra-max-page-width" style="margin-left:auto; margin-right:auto; padding: 0 1.5rem;">
 
-## \ud83c\udfca Why Smart Swimming Pool?
+## \u2728 Why Smart Swimming Pool?
 
 Transform your swimming pool into a smart, automated system with these benefits:
 
@@ -57,7 +57,7 @@ Transform your swimming pool into a smart, automated system with these benefits:
 - \u2705 **Smart Home Integration** - Works with Home Assistant and openHAB
 - \u2705 **Offline Operation** - Continues working even without WiFi
 - \u2705 **Open Source** - MIT License, free to use and modify
-- \u2705 **Modular Design** - Start small, expand as needed
+- \u2705 **Modular Design** - Start small and expand as needed
 - \u2705 **Cost Effective** - Build for less than 100\u20ac in components
 
 [![Works with Home Assistant](https://img.shields.io/badge/Works%20with-Home%20Assistant-41BDF5?logo=homeassistant&logoColor=white&style=for-the-badge "Works with Home Assistant")](https://www.home-assistant.io/)
@@ -94,7 +94,6 @@ Transform your swimming pool into a smart, automated system with these benefits:
     subtitle="From box to working pool in 60 minutes. The fastest way to get started with minimal theory."
     link="/docs/quickstart/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    icon="rocket"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
@@ -102,7 +101,6 @@ Transform your swimming pool into a smart, automated system with these benefits:
     subtitle="Choose your path based on your goals. Find the right approach for your skill level and requirements."
     link="/docs/start-here/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    icon="compass"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
@@ -110,7 +108,6 @@ Transform your swimming pool into a smart, automated system with these benefits:
     subtitle="Comprehensive step-by-step guide. Perfect for those who want to understand every detail."
     link="/docs/getting-started/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    icon="book-open"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
@@ -136,7 +133,6 @@ Transform your swimming pool into a smart, automated system with these benefits:
     subtitle="Complete documentation for all modules. Architecture, troubleshooting, FAQ, and more."
     link="/docs/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    icon="folder-open"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.08),hsla(0,0%,100%,0));"
   >}}
 {{< /hextra/feature-grid >}}
