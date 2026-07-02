@@ -6,11 +6,19 @@ resources/
 public/
 .hugo_build.lock
 
-# imported modules
-content/docs/openhab-configuration/
-content/docs/pool-controller/
-content/docs/grafana-dashboard/
-content/docs/pool-monitor/
+# imported modules - allow _index.md files but ignore the rest
+content/docs/openhab-configuration/*
+!content/docs/openhab-configuration/_index.md
+!content/docs/openhab-configuration/_index.de.md
+content/docs/pool-controller/*
+!content/docs/pool-controller/_index.md
+!content/docs/pool-controller/_index.de.md
+content/docs/grafana-dashboard/*
+!content/docs/grafana-dashboard/_index.md
+!content/docs/grafana-dashboard/_index.de.md
+content/docs/pool-monitor/*
+!content/docs/pool-monitor/_index.md
+!content/docs/pool-monitor/_index.de.md
 
 # grabrepos.py working directory
 temp/

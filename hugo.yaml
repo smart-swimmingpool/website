@@ -46,34 +46,112 @@ languages:
 
 menu:
   main:
-    - identifier: docs
-      name: Documents
-      pageRef: /docs
+    - identifier: get-started
+      name: Get Started
+      pageRef: /docs/start-here
       weight: 1
-    - identifier: code-of-conduct
-      name: Code of Conduct
-      pageRef: /code-of-conduct
+    - identifier: documentation
+      name: Documentation
+      pageRef: /docs
       weight: 2
+    - identifier: modules
+      name: Modules
+      weight: 3
+      params:
+        type: dropdown
+      children:
+        - identifier: pool-controller
+          name: Pool Controller
+          url: /docs/pool-controller/
+          weight: 1
+        - identifier: home-assistant
+          name: Home Assistant
+          url: /docs/home-assistant-integration/
+          weight: 2
+        - identifier: openhab
+          name: openHAB
+          url: /docs/openhab-integration/
+          weight: 3
+        - identifier: openhab-config
+          name: openHAB Configuration
+          url: /docs/openhab-configuration/
+          weight: 4
+        - identifier: pool-monitor
+          name: Pool Monitor
+          url: /docs/pool-monitor/
+          weight: 5
+        - identifier: grafana
+          name: Grafana Dashboard
+          url: /docs/grafana-dashboard/
+          weight: 6
+    - identifier: resources
+      name: Resources
+      weight: 4
+      params:
+        type: dropdown
+      children:
+        - identifier: architecture
+          name: Architecture
+          url: /docs/architecture/
+          weight: 1
+        - identifier: bom
+          name: Bill of Materials
+          url: /docs/bom/
+          weight: 2
+        - identifier: checklist
+          name: Checklist
+          url: /docs/checklist/
+          weight: 3
+        - identifier: troubleshooting
+          name: Troubleshooting
+          url: /docs/troubleshooting/
+          weight: 4
+        - identifier: publications
+          name: Publications
+          url: /docs/publications/
+          weight: 5
+        - identifier: faq
+          name: FAQ
+          url: /docs/faq/
+          weight: 6
+    - identifier: community
+      name: Community
+      weight: 5
+      params:
+        type: dropdown
+      children:
+        - identifier: code-of-conduct
+          name: Code of Conduct
+          pageRef: /code-of-conduct
+          weight: 1
+        - identifier: contributing
+          name: Contributing
+          pageRef: /CONTRIBUTING
+          weight: 2
+        - identifier: changelog
+          name: Changelog
+          pageRef: /CHANGELOG
+          weight: 3
+        - identifier: license
+          name: License
+          pageRef: /license
+          weight: 4
     - identifier: blog
       name: Blog
       pageRef: /blog
-      weight: 3
-    - identifier: publications
-      name: Publications
-      pageRef: /docs/publications
-      weight: 5
-    - name: Search
       weight: 6
+    - name: Search
+      weight: 7
       params:
         type: search
     - name: GitHub
-      weight: 7
+      weight: 8
       url: "https://github.com/smart-swimmingpool"
       params:
         icon: github
 
 params:
-  description: "🏊 Smart Swimming Pool - Open Source Project to manage your Swimming Pool using Home Automation"
+  description: "\ud83c\udfca Smart Swimming Pool - Open Source Project to manage your Swimming Pool using Home Automation"
 
   navbar:
     displayTitle: true

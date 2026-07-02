@@ -1,5 +1,5 @@
 ---
-title: 🏊 Smart Swimming Pool
+title: \ud83c\udfca Smart Swimming Pool
 layout: hextra-home
 ---
 
@@ -11,12 +11,12 @@ layout: hextra-home
 
 <div class="mb-12 hero-subtitle-wrapper">
 {{< hextra/hero-subtitle >}}
-  An Open Source Project to manage your Swimming Pool using Home Automation.&nbsp;<br class="sm:block hidden" />Control circulation, heating, and monitoring - all from your smartphone.
+  An Open Source Project to manage your Swimming Pool using Home Automation.\nbsp;<br class="sm:block hidden" />Control circulation, heating, and monitoring - all from your smartphone.
 {{< /hextra/hero-subtitle >}}
 </div>
 
 <div class="mb-6 hero-button-wrapper">
-{{< hextra/hero-button text="Getting Started" link="docs/getting-started" >}}
+{{< hextra/hero-button text="Get Started - Choose Your Path" link="docs/start-here" >}}
 </div>
 
 <div class="wave-divider wave-divider--bottom">
@@ -47,23 +47,18 @@ layout: hextra-home
 <div class="water-texture-bg">
 <div class="hextra-max-page-width" style="margin-left:auto; margin-right:auto; padding: 0 1.5rem;">
 
-## Vision
+## \u2728 Why Smart Swimming Pool?
 
-The modules of this project support you to transform your swimming pool into a smart swimming pool:
+Transform your swimming pool into a smart, automated system with these benefits:
 
-- ✅ Automation of the circulation time for cleaning water
-- ✅ Simple and ecological temperature control with solar energy
-- ✅ Manage water heating by additional pump for heating (solar) circuit
-- ✅ Independent of specific smarthome servers
-- ✅ Open Source (MIT License)
-- ✅ Open for suggestions and improvements
-- ✅ Supporting standards
-- ✅ Works without permanent WiFi connection
-- ✅ Can be operated via smartphone
-- ✅ Modular to extend
-- ⬜ Can be operated via hardware
-- ✅ Well documented
-- ✅ Easy to setup
+- \u2705 **Automated Circulation** - Clean water automatically with scheduled pump operation
+- \u2705 **Solar Heating Control** - Ecological temperature control using solar energy
+- \u2705 **Remote Monitoring** - Check pool status from anywhere via smartphone
+- \u2705 **Smart Home Integration** - Works with Home Assistant and openHAB
+- \u2705 **Offline Operation** - Continues working even without WiFi
+- \u2705 **Open Source** - MIT License, free to use and modify
+- \u2705 **Modular Design** - Start small and expand as needed
+- \u2705 **Cost Effective** - Build for less than 100\u20ac in components
 
 [![Works with Home Assistant](https://img.shields.io/badge/Works%20with-Home%20Assistant-41BDF5?logo=homeassistant&logoColor=white&style=for-the-badge "Works with Home Assistant")](https://www.home-assistant.io/)
 
@@ -95,8 +90,29 @@ The modules of this project support you to transform your swimming pool into a s
 
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card
+    title="Quick Start"
+    subtitle="From box to working pool in 60 minutes. The fastest way to get started with minimal theory."
+    link="/docs/quickstart/"
+    class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.15),hsla(0,0%,100%,0));"
+  >}}
+  {{< hextra/feature-card
+    title="Start Here"
+    subtitle="Choose your path based on your goals. Find the right approach for your skill level and requirements."
+    link="/docs/start-here/"
+    class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
+  >}}
+  {{< hextra/feature-card
+    title="Getting Started"
+    subtitle="Comprehensive step-by-step guide. Perfect for those who want to understand every detail."
+    link="/docs/getting-started/"
+    class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.15),hsla(0,0%,100%,0));"
+  >}}
+  {{< hextra/feature-card
     title="Pool Controller"
-    subtitle="The smart brain of your pool. Central control logic running on ESP8266 with Home Assistant MQTT discovery. Cost of components less than 100€."
+    subtitle="The smart brain of your pool. Central control logic running on ESP32 with Home Assistant MQTT discovery."
     link="/docs/pool-controller/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     image="/img/pool-controller_breadboard.png"
@@ -104,40 +120,19 @@ The modules of this project support you to transform your swimming pool into a s
     style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
-    title="openHAB Integration"
-    subtitle="Smooth integration with openHAB smart home server. Control your pool via mobile app on Android and iOS."
-    link="/docs/openhab-integration/"
+    title="Home Assistant Integration"
+    subtitle="Smooth integration with Home Assistant smart home server. Control your pool via mobile app."
+    link="/docs/home-assistant-integration/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     image="/img/openhab-sitemap-pool-automation.jpg"
     imageClass="top-[40%] left-[36px] w-[180%] sm:w-[110%] dark:opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
-    title="Pool Monitor"
-    subtitle="Monitor your pool temperature with a solar-powered display. Wireless and energy-efficient."
-    link="/docs/pool-monitor/"
+    title="Documentation"
+    subtitle="Complete documentation for all modules. Architecture, troubleshooting, FAQ, and more."
+    link="/docs/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    image="/img/pool-monitor-prototype.jpg"
-    imageClass="top-[40%] left-[36px] w-[110%] sm:w-[110%] dark:opacity-80"
-    style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.15),hsla(0,0%,100%,0));"
-  >}}
-  {{< hextra/feature-card
-    title="Open Source"
-    subtitle="MIT Licensed - free to use, modify, and share. Contributions welcome!"
-    icon="sparkles"
-    style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.08),hsla(0,0%,100%,0));"
-  >}}
-  {{< hextra/feature-card
-    title="Works with Home Assistant"
-    subtitle="Uses Home Assistant MQTT discovery for seamless smart home integration."
-    icon="globe-alt"
-    style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.08),hsla(0,0%,100%,0));"
-  >}}
-  {{< hextra/feature-card
-    title="Grafana Dashboard"
-    subtitle="Visualize your pool data with a beautiful Grafana dashboard. Track temperature trends and system status."
-    link="/docs/grafana-dashboard/"
-    icon="chart-bar"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.08),hsla(0,0%,100%,0));"
   >}}
 {{< /hextra/feature-grid >}}
@@ -160,8 +155,10 @@ The modules of this project support you to transform your swimming pool into a s
 
 <div class="cta-section">
   <h2>Ready to dive in?</h2>
-  <p class="hx:text-lg hx:text-gray-600 hx:dark:text-gray-400">Start your smart pool automation journey today.</p>
+  <p class="text-lg text-gray-600 dark:text-gray-400">Start your smart pool automation journey today. Choose your path and begin building!</p>
   <div class="mt-4">
-    {{< hextra/hero-button text="Get Started" link="docs/getting-started" >}}
+    {{< hextra/hero-button text="Choose Your Path - Start Here" link="docs/start-here" >}}
+    {{< hextra/hero-button text="Quick Start - 60 Minutes" link="docs/quickstart" >}}
+    {{< hextra/hero-button text="Full Documentation" link="docs" >}}
   </div>
 </div>
