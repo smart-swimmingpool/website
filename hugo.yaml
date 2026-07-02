@@ -62,27 +62,27 @@ menu:
       children:
         - identifier: pool-controller
           name: Pool Controller
-          pageRef: /docs/pool-controller
+          url: /docs/pool-controller/
           weight: 1
         - identifier: home-assistant
           name: Home Assistant
-          pageRef: /docs/home-assistant-integration
+          url: /docs/home-assistant-integration/
           weight: 2
         - identifier: openhab
           name: openHAB
-          pageRef: /docs/openhab-integration
+          url: /docs/openhab-integration/
           weight: 3
         - identifier: openhab-config
           name: openHAB Configuration
-          pageRef: /docs/openhab-configuration
+          url: /docs/openhab-configuration/
           weight: 4
         - identifier: pool-monitor
           name: Pool Monitor
-          pageRef: /docs/pool-monitor
+          url: /docs/pool-monitor/
           weight: 5
         - identifier: grafana
           name: Grafana Dashboard
-          pageRef: /docs/grafana-dashboard
+          url: /docs/grafana-dashboard/
           weight: 6
     - identifier: resources
       name: Resources
@@ -92,27 +92,27 @@ menu:
       children:
         - identifier: architecture
           name: Architecture
-          pageRef: /docs/architecture
+          url: /docs/architecture/
           weight: 1
         - identifier: bom
           name: Bill of Materials
-          pageRef: /docs/bom
+          url: /docs/bom/
           weight: 2
         - identifier: checklist
           name: Checklist
-          pageRef: /docs/checklist
+          url: /docs/checklist/
           weight: 3
         - identifier: troubleshooting
           name: Troubleshooting
-          pageRef: /docs/troubleshooting
+          url: /docs/troubleshooting/
           weight: 4
         - identifier: publications
           name: Publications
-          pageRef: /docs/publications
+          url: /docs/publications/
           weight: 5
         - identifier: faq
           name: FAQ
-          pageRef: /docs/faq
+          url: /docs/faq/
           weight: 6
     - identifier: community
       name: Community
