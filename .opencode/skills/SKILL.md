@@ -173,12 +173,19 @@ language switcher, and URL structure.
 
 - **Required:** `title` in the respective language, `date`
 - **Optional:** `draft`, `tags`, `weight`, `description`
-- **Cross-linking:** Use Hugo's `relref` shortcode with the `lang` parameter for cross-language links:
+- **Cross-linking:** Use Hugo's `relref` shortcode with the `lang` parameter for cross-language links.
+  For pages where English and German share the same logical path (section indexes, same-slug pages):
   ```markdown
   {{< relref path="docs/getting-started" lang="en" >}}
   {{< relref path="docs/getting-started" lang="de" >}}
   ```
-- Do **not** use `content/de/` paths in `relref` — always reference the canonical English path with `lang="de"`
+- Do **not** use `content/de/` paths in `relref` — always reference the canonical path with `lang="de"`
+- ⚠️ **For independent filenames (blog posts):** The `path` must point to the actual file path
+  in the target language, because the English and German slugs differ:
+  ```markdown
+  {{< relref path="/blog/projekt-smart-swimmingpool-einleitung" lang="de" >}}
+  {{< relref path="/blog/smart-swimming-pool-project" lang="en" >}}
+  ```
 - **Translation linking for independent filenames:** When English and German files use different
   base names (e.g. blog posts with language-specific slugs), Hugo does **not** auto-link them
   as translations. Add a shared `translationKey` frontmatter field in **both** files:
