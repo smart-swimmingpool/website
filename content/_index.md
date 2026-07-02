@@ -155,7 +155,7 @@ Transform your swimming pool into a smart, automated system with these benefits:
 
 <div class="cta-section">
   <h2>Ready to dive in?</h2>
-  <p class="hx:text-lg hx:text-gray-600 hx:dark:text-gray-400">Start your smart pool automation journey today. Choose your path and begin building!</p>
+  <p class="text-lg text-gray-600 dark:text-gray-400">Start your smart pool automation journey today. Choose your path and begin building!</p>
   <div class="mt-4">
     {{< hextra/hero-button text="Choose Your Path - Start Here" link="docs/start-here" >}}
     {{< hextra/hero-button text="Quick Start - 60 Minutes" link="docs/quickstart" >}}

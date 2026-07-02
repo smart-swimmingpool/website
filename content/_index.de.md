@@ -155,7 +155,7 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
 
 <div class="cta-section">
   <h2>Bereit einzutauchen?</h2>
-  <p class="hx:text-lg hx:text-gray-600 hx:dark:text-gray-400">Starte noch heute deine smarte Pool-Automatisierung. W\u00e4hle deinen Weg und beginne mit dem Bau!</p>
+  <p class="text-lg text-gray-600 dark:text-gray-400">Starte noch heute deine smarte Pool-Automatisierung. W\u00e4hle deinen Weg und beginne mit dem Bau!</p>
   <div class="mt-4">
     {{< hextra/hero-button text="Weg w\u00e4hlen - Hier beginnen" link="docs/start-here" >}}
     {{< hextra/hero-button text="Schnellstart - 60 Minuten" link="docs/quickstart" >}}
