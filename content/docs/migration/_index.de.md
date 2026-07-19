@@ -144,7 +144,7 @@ Falls ein Update Probleme verursacht, kann auf die vorherige Version zurückgese
 
 | Version | Datum | Highlights |
 |---------|-------|-----------|
-| **v3.3.0** | 2026-06-06 | OTA-Updates, NTP-Konfiguration, lokale Zeit, Timer-Entities, Web-UI-Neustrukturierung |
+| **v3.3.0** | 2026-06-22 | OTA-Updates, NTP-Konfiguration, lokale Zeit, Timer-Entities, Web-UI-Neustrukturierung |
 | **v3.2.0** | 2026-05-22 | HA MQTT Discovery, nur ESP32, neue Web-UI, WPS-Onboarding |
 | **v2.x** | 2020–2025 | Homie-Convention, ESP8266+ESP32, openHAB-zentriert |
 

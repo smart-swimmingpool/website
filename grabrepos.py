@@ -13,6 +13,7 @@
 
 import yaml
 import os
+import re
 import shutil
 import coloredlogs
 import logging
@@ -87,6 +88,43 @@ def split_by_headings(data):
     return sections
 
 
+# Slugs of pool-controller sub-pages that are placed under /docs/pool-controller/ on the website
+# but whose internal links reference /docs/{slug}/ (as if they were top-level pages).
+POOL_CONTROLLER_SUBPAGES = frozenset({
+    'build-from-zero', 'hardware-guide', 'software-guide', 'mqtt-configuration',
+    'electrical-safety', 'safety-model', 'production-checklist', 'security-checklist',
+    'ota-updates', 'troubleshooting-matrix', 'state-persistence',
+    'temperature-based-circulation', 'norvi-ae01-r', 'users-guide',
+    'quickstart', 'quick-start', 'esp32-complete-wiring-schematic',
+    'esp32-schematic-optimization', 'contactor-guide', 'safety',
+})
+
+
+def rewrite_pool_controller_links(content):
+    """Fix broken absolute /docs/{slug}/ links in imported pool-controller docs.
+
+    The pool-controller source docs use absolute links like /docs/build-from-zero/
+    but on the website these pages live under /docs/pool-controller/build-from-zero/.
+    Also fixes relative image paths and special home-assistant redirect.
+    """
+    # Special case: /docs/home-assistant/ → /docs/home-assistant-integration/
+    content = content.replace(
+        '/docs/home-assistant/',
+        '/docs/home-assistant-integration/',
+    )
+    # Rewrite /docs/{subpage}/ → /docs/pool-controller/{subpage}/
+    # for all known pool-controller sub-page slugs
+    slugs = sorted(POOL_CONTROLLER_SUBPAGES, key=len, reverse=True)
+    for slug in slugs:
+        content = content.replace(f'/docs/{slug}/', f'/docs/pool-controller/{slug}/')
+    # Fix relative image path: ../pool-controller_breadboard.png → /img/pool-controller_breadboard.png
+    content = content.replace(
+        '../pool-controller_breadboard.png',
+        '/img/pool-controller_breadboard.png',
+    )
+    return content
+
+
 # Compute the relative destination path for a source file.
 # Preserves subdirectory structure (e.g. docs/home-assistant/_index.md → pool-controller/home-assistant/_index.md)
 def dest_filepath(reponame, srcdir, srcfile):
@@ -131,6 +169,16 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     filecontent = "---\n" + frontmatter_yaml + "\n---\n" + body
     filepath = os.path.join(targetdir, dest_filepath(reponame, srcdir, str(filename)))
     dest = Path(filepath)
+    # Skip _index.md files that already exist — the website has its own crafted landing pages
+    # for each module section that should not be overwritten by imported repo docs.
+    if dest.name in ('_index.md', '_index.de.md') and dest.exists():
+        logging.info(f"  SKIPPING existing _index page (website version takes precedence): {dest}")
+        return
+    # Post-process links in pool-controller docs (they live under /docs/pool-controller/ on the
+    # website but their source may reference /docs/{slug}/ as if at root level)
+    norm_repo = reponame.replace(" ", "-").lower()
+    if norm_repo == "pool-controller":
+        filecontent = rewrite_pool_controller_links(filecontent)
     dest.parent.mkdir(parents=True, exist_ok=True)
     logging.info("write filename: " + str(dest))
     with open(dest, "w+", encoding="utf8") as text_file:

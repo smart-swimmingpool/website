@@ -144,7 +144,7 @@ If an update causes issues, you can roll back to the previous version:
 
 | Version | Date | Highlights |
 |---------|------|-----------|
-| **v3.3.0** | 2026-06-06 | OTA updates, NTP config, local time display, timer entities, web UI restructure |
+| **v3.3.0** | 2026-06-22 | OTA updates, NTP config, local time display, timer entities, web UI restructure |
 | **v3.2.0** | 2026-05-22 | HA MQTT Discovery, ESP32-only, new web UI, WPS onboarding |
 | **v2.x** | 2020–2025 | Homie convention, ESP8266+ESP32, openHAB-centric |
 

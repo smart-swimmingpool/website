@@ -36,8 +36,8 @@ Dieses Modul enth\u00e4lt:
 
 ### Konfigurationsdateien
 - **[Sitemap](https://github.com/smart-swimmingpool/openhab-config/blob/main/sitemaps/pool.sitemap)** - Benutzeroberfl\u00e4chendefinition
-- **[Items](https://github.com/smart-swimmingpool/openhab-config/blob/main/items/pool.items)** - Datenpunkte und Steuerungen
-- **[Regeln](https://github.com/smart-swimmingpool/openhab-config/blob/main/rules/pool.rules)** - Automatisierungslogik
+- **[Items](https://github.com/smart-swimmingpool/openhab-config/blob/main/items/pool-controller.items)** - Datenpunkte und Steuerungen
+- **[Regeln](https://github.com/smart-swimmingpool/openhab-config/blob/main/rules/pool-automation.rules)** - Automatisierungslogik
 - **[Transformationen](https://github.com/smart-swimmingpool/openhab-config/tree/main/transform)** - Datenformatierung
 - **[Persistenz](https://github.com/smart-swimmingpool/openhab-config/blob/main/persistence/rrd4j.persist)** - Historische Datenspeicherung
 

@@ -13,6 +13,7 @@ content/docs/openhab-configuration/*
 content/docs/pool-controller/*
 !content/docs/pool-controller/_index.md
 !content/docs/pool-controller/_index.de.md
+!content/docs/pool-controller/pool-controller_breadboard.png
 content/docs/grafana-dashboard/*
 !content/docs/grafana-dashboard/_index.md
 !content/docs/grafana-dashboard/_index.de.md
