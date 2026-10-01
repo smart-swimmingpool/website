@@ -11,6 +11,7 @@
 # License: Public domain
 # Author: David Graeff <david.graeff@web.de>
 
+import fnmatch
 import yaml
 import os
 import re
@@ -18,6 +19,7 @@ import shutil
 import coloredlogs
 import logging
 from pathlib import Path
+from urllib.parse import quote, unquote
 from git import Repo
 
 
@@ -125,6 +127,54 @@ def rewrite_pool_controller_links(content):
     return content
 
 
+IMAGE_EXTENSIONS = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
+# Relative targets of Markdown links/images, e.g. [x](foo.svg) or ![x](../img/a.png "t")
+RELATIVE_MD_LINK_RE = re.compile(
+    r'(!?\[[^\]]*\]\()(?![a-zA-Z][a-zA-Z0-9+.-]*:|/|#)([^)\s]+)((?:\s+"[^"]*")?\))')
+# Relative targets of HTML attributes, e.g. <img src="foo.png">
+RELATIVE_HTML_LINK_RE = re.compile(
+    r'(\b(?:src|href)=")(?![a-zA-Z][a-zA-Z0-9+.-]*:|/|#|\{)([^"]+)(")')
+
+
+def rewrite_relative_links(content, repopath, srcfile, repourl, branch, docsdir="docs"):
+    """Make relative links of imported docs work on the website.
+
+    Only Markdown files below the docs directory are copied into the Hugo content tree,
+    so relative links to any other file of the module repo (images, PDFs, Fritzing/YAML
+    files, Markdown outside docs/, ...) would break. They are rewritten to absolute
+    GitHub URLs (raw for images, blob for everything else).
+    Links to German translations (foo.de.md) are rewritten to foo.md, which Hugo
+    resolves to the page in the current language.
+    """
+    webbase = repourl[:-4] if repourl.endswith(".git") else repourl
+    rawbase = webbase.replace("https://github.com/", "https://raw.githubusercontent.com/")
+    srcdir = os.path.dirname(srcfile)
+    importdir = os.path.join(repopath, docsdir)
+
+    def replace(match):
+        prefix, target, suffix = match.groups()
+        path, sep, anchor = target.partition('#')
+        resolved = os.path.normpath(os.path.join(srcdir, unquote(path)))
+        is_imported_page = path.endswith('.md') and \
+            os.path.commonpath([resolved, importdir]) == importdir
+        if is_imported_page:
+            if path.endswith('.de.md'):
+                path = path[:-len('.de.md')] + '.md'
+            return prefix + path + sep + anchor + suffix
+        relpath = os.path.relpath(resolved, repopath)
+        if relpath.startswith('..') or not os.path.exists(resolved):
+            return match.group(0)
+        relpath = quote(relpath.replace(os.sep, '/'))
+        if path.lower().endswith(IMAGE_EXTENSIONS):
+            url = f"{rawbase}/{branch}/{relpath}"
+        else:
+            url = f"{webbase}/blob/{branch}/{relpath}"
+        return prefix + url + sep + anchor + suffix
+
+    content = RELATIVE_MD_LINK_RE.sub(replace, content)
+    return RELATIVE_HTML_LINK_RE.sub(replace, content)
+
+
 # Compute the relative destination path for a source file.
 # Preserves subdirectory structure (e.g. docs/home-assistant/_index.md → pool-controller/home-assistant/_index.md)
 def dest_filepath(reponame, srcdir, srcfile):
@@ -179,6 +229,8 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     norm_repo = reponame.replace(" ", "-").lower()
     if norm_repo == "pool-controller":
         filecontent = rewrite_pool_controller_links(filecontent)
+    filecontent = rewrite_relative_links(filecontent, srcdir, str(filename),
+                                         absurl.split("/tree/")[0], tagname)
     dest.parent.mkdir(parents=True, exist_ok=True)
     logging.info("write filename: " + str(dest))
     with open(dest, "w+", encoding="utf8") as text_file:
@@ -204,7 +256,8 @@ def get_default_branch(repo):
 
 # Clone a repository url (or update repo), checkout all tags.
 # Call copy_files for each checked out working directory
-def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, update_repos):
+def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, update_repos,
+                  excludes=()):
     logging.info(f"--> checkout_repo repourl={repourl}")
     localpath = os.path.join(checkoutdir, reponame)
     if os.path.exists(localpath):
@@ -235,6 +288,10 @@ def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, update
         if clean_pattern.startswith("**/"):
             clean_pattern = clean_pattern[3:]
         for filepath in Path(localpath).rglob(clean_pattern):
+            relpath = filepath.relative_to(localpath).as_posix()
+            if any(fnmatch.fnmatch(relpath, pattern) for pattern in excludes):
+                logging.info("  SKIPPING excluded file: " + relpath)
+                continue
             logging.info("  filepath.name: " + filepath.name)
             with open(filepath, 'r', encoding="utf8") as myfile:
                 logging.info("  myfile: " + myfile.name)
@@ -275,5 +332,6 @@ if __name__ == "__main__":
     for entry in controlfile['specifications']:
         if 'disabled' not in entry or not entry['disabled']:
             checkout_repo(targetdir, entry['name'], entry['repo'],
-                          entry['filepattern'], checkoutdir, update_repos)
+                          entry['filepattern'], checkoutdir, update_repos,
+                          entry.get('exclude', ()))
     logging.info("Finished.")

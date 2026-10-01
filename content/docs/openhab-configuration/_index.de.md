@@ -4,77 +4,79 @@ weight: 1
 tags: ["docs", "openhab", "configuration", "smarthome"]
 ---
 
-# \ud83c\udfed openHAB Konfiguration
+# 🏠 openHAB Konfiguration
 
-Die **openHAB Konfiguration** bietet vollst\u00e4ndige Konfigurationsdateien f\u00fcr die Integration Ihres Smart Swimming Pools mit dem openHAB Smarthome-Server.
+Die **openHAB Konfiguration** bietet vollständige Konfigurationsdateien für die Integration Ihres Smart Swimming Pools mit dem openHAB Smarthome-Server.
 
-## \ud83d\udca1 \u00dcbersicht
+## 💡 Übersicht
 
-Dieses Modul enth\u00e4lt:
+Dieses Modul enthält:
 
-- **Sitemap**: Benutzeroberfl\u00e4che zur Steuerung Ihres Pools \u00fcber openHAB-Apps
-- **Items**: Alle Datenpunkte und Steuerungen f\u00fcr Ihr Poolsystem
-- **Regeln**: Automatisierungslogik f\u00fcr die Poolsteuerung
+- **Sitemap**: Benutzeroberfläche zur Steuerung Ihres Pools über openHAB-Apps
+- **Items**: Alle Datenpunkte und Steuerungen für Ihr Poolsystem
+- **Regeln**: Automatisierungslogik für die Poolsteuerung
 - **Transformationen**: Datenformatierung und Einheitenumrechnungen
-- **Persistenz**: Konfiguration f\u00fcr historische Datenspeicherung
+- **Persistenz**: Konfiguration für historische Datenspeicherung
 
-## \ud83d\udcc Hauptmerkmale
+## ✨ Hauptmerkmale
 
-- \u2705 **Vollst\u00e4ndige Sitemap**: Mobilefreundliche Oberfl\u00e4che zur Poolsteuerung
-- \u2705 **MQTT-Binding**: Integration mit Ihrem Pool-Controller \u00fcber MQTT
-- \u2705 **Automatisierungsregeln**: Fortgeschrittene Automatisierungslogik
-- \u2705 **Historische Daten**: Persistenzkonfiguration f\u00fcr Diagramme und Trends
-- \u2705 **Mehrsprachig**: Unterst\u00fctzung f\u00fcr verschiedene Sprachen
-- \u2705 **Open Source**: MIT-Lizenz, frei zu verwenden und zu modifizieren
+- ✅ **Vollständige Sitemap**: Mobilefreundliche Oberfläche zur Poolsteuerung
+- ✅ **MQTT-Binding**: Integration mit Ihrem Pool-Controller über MQTT
+- ✅ **Automatisierungsregeln**: Fortgeschrittene Automatisierungslogik
+- ✅ **Historische Daten**: Persistenzkonfiguration für Diagramme und Trends
+- ✅ **Mehrsprachig**: Unterstützung für verschiedene Sprachen
+- ✅ **Open Source**: MIT-Lizenz, frei zu verwenden und zu modifizieren
 
-## \ud83d\ud87 Schnelle Links
+## 🧭 Schnelle Links
 
 ### Erste Schritte
+
 - **[openHAB Konfiguration Repository](https://github.com/smart-swimmingpool/openhab-config)** - Haupt-Repository mit allen Konfigurationsdateien
-- **[openHAB Integrationsanleitung](/docs/openhab-integration/)** - Schritt-f\u00fcr-Schritt-Integrationsanleitung
+- **[openHAB Integrationsanleitung](/docs/openhab-integration/)** - Schritt-für-Schritt-Integrationsanleitung
 - **[Installation](https://github.com/smart-swimmingpool/openhab-config#installation)** - Setup-Anleitung
 
 ### Konfigurationsdateien
-- **[Sitemap](https://github.com/smart-swimmingpool/openhab-config/blob/main/sitemaps/pool.sitemap)** - Benutzeroberfl\u00e4chendefinition
-- **[Items](https://github.com/smart-swimmingpool/openhab-config/blob/main/items/pool-controller.items)** - Datenpunkte und Steuerungen
-- **[Regeln](https://github.com/smart-swimmingpool/openhab-config/blob/main/rules/pool-automation.rules)** - Automatisierungslogik
-- **[Transformationen](https://github.com/smart-swimmingpool/openhab-config/tree/main/transform)** - Datenformatierung
-- **[Persistenz](https://github.com/smart-swimmingpool/openhab-config/blob/main/persistence/rrd4j.persist)** - Historische Datenspeicherung
 
-## \ud83c\udf9b Sitemap-Vorschau
+- **[Sitemap](https://github.com/smart-swimmingpool/openhab-config/blob/master/sitemaps/pool.sitemap)** - Benutzeroberflächendefinition
+- **[Items](https://github.com/smart-swimmingpool/openhab-config/blob/master/items/2-pool.items)** - Datenpunkte und Steuerungen
+- **[Regeln](https://github.com/smart-swimmingpool/openhab-config/blob/master/rules/pool.rules)** - Automatisierungslogik
+- **[Transformationen](https://github.com/smart-swimmingpool/openhab-config/tree/master/transform)** - Datenformatierung
+- **[Persistenz](https://github.com/smart-swimmingpool/openhab-config/blob/master/persistence/rrd4j.persist)** - Historische Datenspeicherung
 
-Die Sitemap bietet eine mobilefreundliche Oberfl\u00e4che mit:
+## 🖼️ Sitemap-Vorschau
 
-- **Dashboard**: \u00dcbersicht \u00fcber alle Pool-Status und Steuerungen
+Die Sitemap bietet eine mobilefreundliche Oberfläche mit:
+
+- **Dashboard**: Übersicht über alle Pool-Status und Steuerungen
 - **Temperaturen**: Aktuelle Pool- und Solartemperaturen
 - **Pumpensteuerung**: Manuelle und automatische Pumpensteuerung
 - **Heizung**: Heizkreislaufsteuerung und Einstellungen
-- **Zeitpl\u00e4ne**: Zirkulations- und Heizungszeitpl\u00e4ne
+- **Zeitpläne**: Zirkulations- und Heizungszeitpläne
 - **Verlauf**: Historische Daten und Diagramme
 - **Einstellungen**: Konfiguration und Systemeinstellungen
 
-## \ud83d\udda5 Items \u00dcbersicht
+## 📋 Items Übersicht
 
-Die Items-Datei enth\u00e4lt:
+Die Items-Datei enthält:
 
 | Kategorie | Items | Beschreibung |
 |----------|-------|--------------|
 | **Temperaturen** | PoolTemp, SolarTemp | Aktuelle Temperaturen von den Sensoren |
 | **Pumpen** | FilterPumpe, Heizungspumpe | Pumpenstatus und Steuerung |
 | **Heizung** | HeizungAktiviert, MaxPoolTemp | Heizungssteuerungsparameter |
-| **Zeitpl\u00e4ne** | Zirkulationszeitplan | Zeitschaltungseinstellungen |
+| **Zeitpläne** | Zirkulationszeitplan | Zeitschaltungseinstellungen |
 | **System** | Systemstatus, Betriebszeit | Systemgesundheit und Status |
 
-## \ud83d\udc82 N\u00e4chste Schritte
+## 🚀 Nächste Schritte
 
-1. **[Hier beginnen](/docs/start-here/)** - W\u00e4hlen Sie Ihren Weg basierend auf Ihren Zielen
-2. **[openHAB Integrationsanleitung](/docs/openhab-integration/)** - Schritt-f\u00fcr-Schritt-Integrationsanleitung
+1. **[Hier beginnen](/docs/start-here/)** - Wählen Sie Ihren Weg basierend auf Ihren Zielen
+2. **[openHAB Integrationsanleitung](/docs/openhab-integration/)** - Schritt-für-Schritt-Integrationsanleitung
 3. **[Repository besuchen](https://github.com/smart-swimmingpool/openhab-config)** - Zugriff auf alle Konfigurationsdateien
-4. **[Pool Controller Setup](/docs/pool-controller/)** - Stellen Sie sicher, dass Ihr Controller l\u00e4uft
+4. **[Pool Controller Setup](/docs/pool-controller/)** - Stellen Sie sicher, dass Ihr Controller läuft
 
-## \ud83d\udcdd Brauchen Sie Hilfe?
+## 💬 Brauchen Sie Hilfe?
 
-- Pr\u00fcfen Sie die **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** Seite
+- Prüfen Sie die **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** Seite
 - Besuchen Sie das **[openHAB Konfiguration Repository](https://github.com/smart-swimmingpool/openhab-config)**
-- \u00d6ffnen Sie ein **[Issue](https://github.com/smart-swimmingpool/openhab-config/issues)** f\u00fcr Bugs oder Feature-Anfragen
-- Konsultieren Sie die **[openHAB-Dokumentation](https://www.openhab.org/docs/)** f\u00fcr openHAB-spezifische Fragen
+- Öffnen Sie ein **[Issue](https://github.com/smart-swimmingpool/openhab-config/issues)** für Bugs oder Feature-Anfragen
+- Konsultieren Sie die **[openHAB-Dokumentation](https://www.openhab.org/docs/)** für openHAB-spezifische Fragen

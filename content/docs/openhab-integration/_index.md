@@ -314,9 +314,9 @@ The complete reference configuration lives in the **[openhab-config repository](
 
 | File | Purpose |
 |------|---------|
-| [`things/mqtt.things`](https://github.com/smart-swimmingpool/openhab-config/blob/main/things/mqtt.things) | MQTT Broker and Topic Things |
-| [`items/2-pool.items`](https://github.com/smart-swimmingpool/openhab-config/blob/main/items/2-pool.items) | Item definitions linked to channels |
-| [`sitemaps/pool.sitemap`](https://github.com/smart-swimmingpool/openhab-config/blob/main/sitemaps/pool.sitemap) | BasicUI and mobile app layout |
+| [`things/mqtt.things`](https://github.com/smart-swimmingpool/openhab-config/blob/master/things/mqtt.things) | MQTT Broker and Topic Things |
+| [`items/2-pool.items`](https://github.com/smart-swimmingpool/openhab-config/blob/master/items/2-pool.items) | Item definitions linked to channels |
+| [`sitemaps/pool.sitemap`](https://github.com/smart-swimmingpool/openhab-config/blob/master/sitemaps/pool.sitemap) | BasicUI and mobile app layout |
 
 > **Note**: The openhab-config repository currently references **Homie 3.0** MQTT topics (for controller v2.x). If you are running controller v3.x, adapt the topics to the `homeassistant/` format shown in this guide. See the [Firmware Migration](/docs/firmware-migration/) guide for details.
 

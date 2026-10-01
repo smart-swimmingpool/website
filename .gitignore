@@ -20,6 +20,9 @@ content/docs/grafana-dashboard/*
 content/docs/pool-monitor/*
 !content/docs/pool-monitor/_index.md
 !content/docs/pool-monitor/_index.de.md
+content/docs/water-quality-monitor/*
+!content/docs/water-quality-monitor/_index.md
+!content/docs/water-quality-monitor/_index.de.md
 
 # grabrepos.py working directory
 temp/
