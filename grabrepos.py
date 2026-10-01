@@ -35,7 +35,7 @@ def readyaml():
 
 def extract_frontmatter(data):
     """Extract useful frontmatter fields from imported docs and return (metadata, body, is_internal).
-    
+
     Returns (dict, str, bool) where:
     - dict has preserved fields (title, description, weight, tags)
     - str is the remaining body content without frontmatter
@@ -214,8 +214,8 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
         if key in metadata:
             combined[key] = metadata[key]
 
-    frontmatter_yaml = yaml.dump(combined, default_flow_style=False,
-                                 allow_unicode=True, sort_keys=False).strip()
+    frontmatter_yaml = yaml.dump(
+        combined, default_flow_style=False, allow_unicode=True, sort_keys=False).strip()
     filecontent = "---\n" + frontmatter_yaml + "\n---\n" + body
     filepath = os.path.join(targetdir, dest_filepath(reponame, srcdir, str(filename)))
     dest = Path(filepath)
@@ -229,8 +229,8 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     norm_repo = reponame.replace(" ", "-").lower()
     if norm_repo == "pool-controller":
         filecontent = rewrite_pool_controller_links(filecontent)
-    filecontent = rewrite_relative_links(filecontent, srcdir, str(filename),
-                                         absurl.split("/tree/")[0], tagname)
+    filecontent = rewrite_relative_links(
+        filecontent, srcdir, str(filename), absurl.split("/tree/")[0], tagname)
     dest.parent.mkdir(parents=True, exist_ok=True)
     logging.info("write filename: " + str(dest))
     with open(dest, "w+", encoding="utf8") as text_file:
@@ -305,8 +305,8 @@ def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, update
                 tagname = ref.name
                 date = ref.commit.committed_datetime
                 absurl = repourl.replace(".git", "")+"/tree/"+ref.name
-                write_file(reponame, targetdir, localpath, filepath,
-                           localdata, tagname, date, absurl)
+                write_file(
+                    reponame, targetdir, localpath, filepath, localdata, tagname, date, absurl)
     logging.info("<-- checkout_repo")
 
 
