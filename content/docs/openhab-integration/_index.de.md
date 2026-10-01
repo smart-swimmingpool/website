@@ -40,10 +40,10 @@ In der openHAB-Weboberfläche:
 2. Klicken Sie auf **+** (Thing hinzufügen)
 3. Suchen Sie nach **"MQTT"** und wählen Sie **MQTT Broker**
 4. Konfigurieren Sie:
-   - **Host**: IP-Adresse Ihres MQTT-Brokers (z. B. `192.168.1.100` oder `core-mosquitto`)
-   - **Port**: `1883` (Standard, unverschlüsselt)
-   - **Client ID**: `openHAB-pool` (muss auf Ihrem Broker eindeutig sein)
-   - **Benutzername/Passwort**: Nur wenn Ihr Broker eine Authentifizierung erfordert
+    - **Host**: IP-Adresse Ihres MQTT-Brokers (z. B. `192.168.1.100` oder `core-mosquitto`)
+    - **Port**: `1883` (Standard, unverschlüsselt)
+    - **Client ID**: `openHAB-pool` (muss auf Ihrem Broker eindeutig sein)
+    - **Benutzername/Passwort**: Nur wenn Ihr Broker eine Authentifizierung erfordert
 5. Klicken Sie auf **Thing erstellen**
 
 Das Broker Thing sollte innerhalb von Sekunden **Online** sein. Falls nicht, überprüfen Sie, ob Ihr MQTT-Broker läuft und erreichbar ist.
@@ -61,30 +61,30 @@ Installieren Sie [MQTT Explorer](http://mqtt-explorer.com/) auf Ihrem Computer:
 1. Verbinden Sie sich mit Ihrem MQTT-Broker (Host, Port — wie oben)
 2. Navigieren Sie zum Präfix `homeassistant/`
 3. Sie sehen die Topics nach Entitätstyp organisiert:
-   ```
-   homeassistant/
-   ├── sensor/
-   │   └── pool-controller/
-   │       ├── pool_temp/
-   │       ├── solar_temp/
-   │       └── availability/
-   ├── switch/
-   │   └── pool-controller/
-   │       ├── pool_pump/
-   │       └── solar_pump/
-   ├── select/
-   │   └── pool-controller/
-   │       └── operation_mode/
-   └── number/
-       └── pool-controller/
-           ├── pool_max_temp/
-           ├── solar_min_temp/
-           ├── hysteresis/
-           ├── timer_start_h/
-           ├── timer_start_m/
-           ├── timer_end_h/
-           └── timer_end_m/
-   ```
+    ```
+    homeassistant/
+    ├── sensor/
+    │   └── pool-controller/
+    │       ├── pool_temp/
+    │       ├── solar_temp/
+    │       └── availability/
+    ├── switch/
+    │   └── pool-controller/
+    │       ├── pool_pump/
+    │       └── solar_pump/
+    ├── select/
+    │   └── pool-controller/
+    │       └── operation_mode/
+    └── number/
+        └── pool-controller/
+            ├── pool_max_temp/
+            ├── solar_min_temp/
+            ├── hysteresis/
+            ├── timer_start_h/
+            ├── timer_start_m/
+            ├── timer_end_h/
+            └── timer_end_m/
+    ```
 
 Jede Entität hat:
 - `config` — Discovery-Payload mit Metadaten

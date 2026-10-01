@@ -20,9 +20,9 @@ Pool Controller ──MQTT discovery──▶ Home Assistant ──InfluxDB inte
 ```
 
 1. The Pool Controller publishes its entities via Home Assistant MQTT discovery
-   (see [Home Assistant Integration](/docs/home-assistant-integration/)).
+    (see [Home Assistant Integration](/docs/home-assistant-integration/)).
 2. The [InfluxDB integration](https://www.home-assistant.io/integrations/influxdb/) of
-   Home Assistant stores the entity states in InfluxDB.
+    Home Assistant stores the entity states in InfluxDB.
 3. Grafana queries this database and renders the dashboard.
 
 ## ✨ Dashboard Panels
@@ -61,7 +61,7 @@ influxdb:
 
 1. Add an **InfluxDB** data source (query language **InfluxQL**) in Grafana.
 2. Download
-   [`dashboard-smart-swimming-pool.json`](https://github.com/smart-swimmingpool/grafana-dashboard/blob/master/dashboard-smart-swimming-pool.json).
+    [`dashboard-smart-swimming-pool.json`](https://github.com/smart-swimmingpool/grafana-dashboard/blob/master/dashboard-smart-swimming-pool.json).
 3. Open **Dashboards → New → Import**, upload the file and select your InfluxDB data source.
 
 If you renamed the Pool Controller entities in Home Assistant, adjust the dashboard
