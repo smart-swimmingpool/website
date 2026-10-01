@@ -4,76 +4,81 @@ weight: 1
 tags: ["docs", "grafana", "visualization", "monitoring"]
 ---
 
-# \ud83d\udcc Grafana Dashboard
+# 📊 Grafana Dashboard
 
-The **Grafana Dashboard** provides beautiful visualization of your pool data, allowing you to track temperature trends, system status, and historical data over time.
+The **Grafana Dashboard** visualizes your Smart Swimming Pool over time: pool and solar
+temperatures, pump switching times, the operation mode and controller diagnostics. It is
+made for the [Pool Controller](/docs/pool-controller/) **v5.x** and reads the data that
+**Home Assistant** stores in **InfluxDB**.
 
-## \ud83d\udca1 Overview
+![Grafana Dashboard with example data](https://raw.githubusercontent.com/smart-swimmingpool/grafana-dashboard/master/docs/dashboard-screenshot.png)
 
-The Grafana Dashboard offers:
+## 💡 How It Works
 
-- **Temperature Visualization**: Track pool and solar temperatures over time
-- **Historical Data**: View trends and patterns in your pool data
-- **System Monitoring**: Monitor pump status, uptime, and other metrics
-- **Customizable**: Adapt the dashboard to your specific needs
-- **Real-Time Updates**: Live data from your pool controller via MQTT
-- **Alerting**: Set up notifications for specific conditions
+```text
+Pool Controller ──MQTT discovery──▶ Home Assistant ──InfluxDB integration──▶ InfluxDB ──▶ Grafana
+```
 
-## \ud83d\udcc Key Features
+1. The Pool Controller publishes its entities via Home Assistant MQTT discovery
+    (see [Home Assistant Integration](/docs/home-assistant-integration/)).
+2. The [InfluxDB integration](https://www.home-assistant.io/integrations/influxdb/) of
+    Home Assistant stores the entity states in InfluxDB.
+3. Grafana queries this database and renders the dashboard.
 
-- \u2705 **Temperature Charts**: Beautiful graphs showing temperature trends
-- \u2705 **Pump Status**: Visual indication of pump operation times
-- \u2705 **System Health**: Monitor controller uptime and connectivity
-- \u2705 **Custom Panels**: Add or modify panels to suit your needs
-- \u2705 **Time Range Selection**: View data from hours to months
-- \u2705 **Export/Import**: Share your dashboard configuration with others
-- \u2705 **Open Source**: MIT License, free to use and modify
+## ✨ Dashboard Panels
 
-## \ud83d\ud87 Quick Links
+| Section | Panels |
+|---------|--------|
+| **Temperatures** | Pool and solar gauges, history of pool, solar and controller temperature |
+| **Pumps & Operation** | Pump state timeline, current pump state, effective runtime, circulation extension, operation mode (auto, manual, boost, timer) |
+| **Diagnostics** | WiFi signal, uptime, free heap, controller temperature with history |
 
-### Getting Started
-- **[Grafana Dashboard Repository](https://github.com/smart-swimmingpool/grafana-dashboard)** - Main repository with dashboard JSON
-- **[Installation Guide](https://github.com/smart-swimmingpool/grafana-dashboard#installation)** - Step-by-step setup instructions
-- **[Configuration](https://github.com/smart-swimmingpool/grafana-dashboard#configuration)** - Dashboard setup and customization
+## 🔧 Installation
 
 ### Prerequisites
-- **[Grafana Installation](https://grafana.com/docs/grafana/latest/setup-grafana/installation/)** - Install Grafana on your system
-- **[InfluxDB Setup](https://www.influxdata.com/time-series-platform/influxdb/)** - Time series database for storing pool data
-- **[MQTT to InfluxDB](https://github.com/smart-swimmingpool/grafana-dashboard#mqtt-to-influxdb)** - Bridge MQTT data to InfluxDB
 
-### Dashboard Setup
-- **[Import Dashboard](https://github.com/smart-swimmingpool/grafana-dashboard#import-dashboard)** - Import the pre-configured dashboard
-- **[Data Sources](https://github.com/smart-swimmingpool/grafana-dashboard#data-sources)** - Configure data sources in Grafana
-- **[Customization](https://github.com/smart-swimmingpool/grafana-dashboard#customization)** - Adapt the dashboard to your needs
+- [Pool Controller](/docs/pool-controller/) v5.x connected to Home Assistant
+- Home Assistant [InfluxDB integration](https://www.home-assistant.io/integrations/influxdb/)
+  with default measurement settings
+- InfluxDB 1.x (or 2.x with InfluxQL) and Grafana 10 or newer
 
-## \ud83c\udf9b Screenshot
+### Store the pool data in InfluxDB
 
-![Grafana Dashboard](/img/grafana-dashboard.png)
+Example for Home Assistant's `configuration.yaml`:
 
-*The Smart Swimming Pool Grafana Dashboard showing temperature trends and system status*
+```yaml
+influxdb:
+  host: influxdb.local
+  database: home_assistant
+  include:
+    entity_globs:
+      - sensor.pool_controller_*
+      - switch.pool_controller_*
+      - select.pool_controller_*
+```
 
-## \ud83d\udda5 Dashboard Panels
+### Import the dashboard
 
-The default dashboard includes:
+1. Add an **InfluxDB** data source (query language **InfluxQL**) in Grafana.
+2. Download
+    [`dashboard-smart-swimming-pool.json`](https://github.com/smart-swimmingpool/grafana-dashboard/blob/master/dashboard-smart-swimming-pool.json).
+3. Open **Dashboards → New → Import**, upload the file and select your InfluxDB data source.
 
-| Panel | Description | Data Source |
-|-------|-------------|-------------|
-| **Pool Temperature** | Current and historical pool water temperature | MQTT/InfluxDB |
-| **Solar Temperature** | Current and historical solar collector temperature | MQTT/InfluxDB |
-| **Temperature Difference** | Difference between solar and pool temperature | Calculated |
-| **Pump Status** | Current state and operation times of both pumps | MQTT/InfluxDB |
-| **System Uptime** | Controller uptime and connectivity status | MQTT/InfluxDB |
-| **Heating Efficiency** | Heating performance metrics | Calculated |
-| **Daily Statistics** | Daily temperature ranges and pump operation | MQTT/InfluxDB |
+If you renamed the Pool Controller entities in Home Assistant, adjust the dashboard
+variables under **Dashboard settings → Variables**.
 
-## \ud83d\udc82 Next Steps
+> [!NOTE]
+> Using openHAB with Pool Controller v1/v2? The original dashboard is still available as
+> [`dashboard-smart-swimming-pool-openhab-legacy.json`](https://github.com/smart-swimmingpool/grafana-dashboard/blob/master/dashboard-smart-swimming-pool-openhab-legacy.json).
+
+## 🚀 Next Steps
 
 1. **[Start Here](/docs/start-here/)** - Choose your path based on your goals
-2. **[Visit Repository](https://github.com/smart-swimmingpool/grafana-dashboard)** - Access dashboard JSON and documentation
+2. **[Visit Repository](https://github.com/smart-swimmingpool/grafana-dashboard)** - Dashboard JSON and documentation
 3. **[Pool Controller Setup](/docs/pool-controller/)** - Ensure your controller is running
-4. **[Home Assistant Integration](/docs/home-assistant-integration/)** - Alternative visualization option
+4. **[Home Assistant Integration](/docs/home-assistant-integration/)** - Connect the controller to Home Assistant
 
-## \ud83d\udcdd Need Help?
+## 💬 Need Help?
 
 - Check the **[FAQ & Troubleshooting](/docs/troubleshooting/)** page
 - Visit the **[Grafana Dashboard Repository](https://github.com/smart-swimmingpool/grafana-dashboard)**

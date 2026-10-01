@@ -40,10 +40,10 @@ In the openHAB web interface:
 2. Click **+** (Add Thing)
 3. Search for **"MQTT"** and select **MQTT Broker**
 4. Configure:
-   - **Host**: IP address of your MQTT broker (e.g., `192.168.1.100` or `core-mosquitto`)
-   - **Port**: `1883` (default, unencrypted)
-   - **Client ID**: `openHAB-pool` (must be unique on your broker)
-   - **Username/Password**: Only if your broker requires authentication
+    - **Host**: IP address of your MQTT broker (e.g., `192.168.1.100` or `core-mosquitto`)
+    - **Port**: `1883` (default, unencrypted)
+    - **Client ID**: `openHAB-pool` (must be unique on your broker)
+    - **Username/Password**: Only if your broker requires authentication
 5. Click **Create Thing**
 
 The Broker thing should come **Online** within seconds. If it doesn't, check that your MQTT broker is running and reachable.
@@ -61,30 +61,30 @@ Install [MQTT Explorer](http://mqtt-explorer.com/) on your computer:
 1. Connect to your MQTT broker (host, port — same as above)
 2. Browse to the `homeassistant/` prefix
 3. You'll see topics organized by entity type:
-   ```
-   homeassistant/
-   ├── sensor/
-   │   └── pool-controller/
-   │       ├── pool_temp/
-   │       ├── solar_temp/
-   │       └── availability/
-   ├── switch/
-   │   └── pool-controller/
-   │       ├── pool_pump/
-   │       └── solar_pump/
-   ├── select/
-   │   └── pool-controller/
-   │       └── operation_mode/
-   └── number/
-       └── pool-controller/
-           ├── pool_max_temp/
-           ├── solar_min_temp/
-           ├── hysteresis/
-           ├── timer_start_h/
-           ├── timer_start_m/
-           ├── timer_end_h/
-           └── timer_end_m/
-   ```
+    ```
+    homeassistant/
+    ├── sensor/
+    │   └── pool-controller/
+    │       ├── pool_temp/
+    │       ├── solar_temp/
+    │       └── availability/
+    ├── switch/
+    │   └── pool-controller/
+    │       ├── pool_pump/
+    │       └── solar_pump/
+    ├── select/
+    │   └── pool-controller/
+    │       └── operation_mode/
+    └── number/
+        └── pool-controller/
+            ├── pool_max_temp/
+            ├── solar_min_temp/
+            ├── hysteresis/
+            ├── timer_start_h/
+            ├── timer_start_m/
+            ├── timer_end_h/
+            └── timer_end_m/
+    ```
 
 Each entity has:
 - `config` — discovery payload with metadata
@@ -314,9 +314,9 @@ The complete reference configuration lives in the **[openhab-config repository](
 
 | File | Purpose |
 |------|---------|
-| [`things/mqtt.things`](https://github.com/smart-swimmingpool/openhab-config/blob/main/things/mqtt.things) | MQTT Broker and Topic Things |
-| [`items/2-pool.items`](https://github.com/smart-swimmingpool/openhab-config/blob/main/items/2-pool.items) | Item definitions linked to channels |
-| [`sitemaps/pool.sitemap`](https://github.com/smart-swimmingpool/openhab-config/blob/main/sitemaps/pool.sitemap) | BasicUI and mobile app layout |
+| [`things/mqtt.things`](https://github.com/smart-swimmingpool/openhab-config/blob/master/things/mqtt.things) | MQTT Broker and Topic Things |
+| [`items/2-pool.items`](https://github.com/smart-swimmingpool/openhab-config/blob/master/items/2-pool.items) | Item definitions linked to channels |
+| [`sitemaps/pool.sitemap`](https://github.com/smart-swimmingpool/openhab-config/blob/master/sitemaps/pool.sitemap) | BasicUI and mobile app layout |
 
 > **Note**: The openhab-config repository currently references **Homie 3.0** MQTT topics (for controller v2.x). If you are running controller v3.x, adapt the topics to the `homeassistant/` format shown in this guide. See the [Firmware Migration](/docs/firmware-migration/) guide for details.
 

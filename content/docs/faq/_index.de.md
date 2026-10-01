@@ -24,7 +24,7 @@ tags: ["docs", "faq"]
 
 ### Gibt es eine Community?
 
-Ja. Das Projekt hat eine [GitHub-Community](https://github.com/smart-swimmingpool/smart-swimmingpool) für Issues und Diskussionen. Auch das [Wiki](https://github.com/smart-swimmingpool/smart-swimmingpool/wiki) enthält Community-Inhalte.
+Ja. Alle Module werden offen in der [Smart-Swimming-Pool-Organisation auf GitHub](https://github.com/smart-swimmingpool) entwickelt. Fragen, Fehlerberichte und Ideen sind als [Issues](https://github.com/smart-swimmingpool/pool-controller/issues) im Pool-Controller-Repository willkommen.
 
 ---
 

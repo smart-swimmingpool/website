@@ -3,11 +3,15 @@
 clean: false
 # Set to true to update ("fetch") an already existing repo for this run
 updaterepos: true
-# Specify the repos from where to fetch different parts of the convention
+# Specify the repos from where to fetch different parts of the convention.
+# Optional "exclude" lists fnmatch patterns (relative to the repo root) of files to skip.
 specifications:
   - name: Pool Controller
     repo: https://github.com/smart-swimmingpool/pool-controller.git
     filepattern: "docs/**/*.md"
+    # Internal development plans/specs are not meant for end users
+    exclude:
+      - "docs/superpowers/*"
     disabled: false
   - name: openHAB Configuration
     repo: https://github.com/smart-swimmingpool/openhab-config.git
@@ -19,5 +23,9 @@ specifications:
     disabled: false
   - name: Pool Monitor
     repo: https://github.com/smart-swimmingpool/monitor.git
+    filepattern: "docs/**/*.md"
+    disabled: false
+  - name: Water Quality Monitor
+    repo: https://github.com/smart-swimmingpool/water-quality-monitor.git
     filepattern: "docs/**/*.md"
     disabled: false

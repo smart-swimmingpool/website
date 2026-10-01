@@ -1,5 +1,5 @@
 ---
-title: \ud83c\udfca Smart Swimming Pool
+title: 🏊 Smart Swimming Pool
 layout: hextra-home
 ---
 
@@ -11,12 +11,12 @@ layout: hextra-home
 
 <div class="mb-12 hero-subtitle-wrapper">
 {{< hextra/hero-subtitle >}}
-  Ein Open-Source-Projekt zur smarten Verwaltung deines Swimming Pools\nbsp;<br class="sm:block hidden" />\u00fcber die Heimautomatisierung. Steuere Zirkulation, Heizung und \u00dcberwachung - alles vom Smartphone.
+  Ein Open-Source-Projekt zur smarten Verwaltung deines Swimming Pools&nbsp;<br class="sm:block hidden" />über die Heimautomatisierung. Steuere Zirkulation, Heizung und Überwachung - alles vom Smartphone.
 {{< /hextra/hero-subtitle >}}
 </div>
 
 <div class="mb-6 hero-button-wrapper">
-{{< hextra/hero-button text="Loslegen - W\u00e4hle deinen Weg" link="docs/start-here" >}}
+{{< hextra/hero-button text="Loslegen - Wähle deinen Weg" link="docs/start-here" >}}
 </div>
 
 <div class="wave-divider wave-divider--bottom">
@@ -47,18 +47,18 @@ layout: hextra-home
 <div class="water-texture-bg">
 <div class="hextra-max-page-width" style="margin-left:auto; margin-right:auto; padding: 0 1.5rem;">
 
-## \u2728 Warum Smart Swimming Pool?
+## ✨ Warum Smart Swimming Pool?
 
 Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit diesen Vorteilen:
 
-- \u2705 **Automatisierte Zirkulation** - Reinigt das Wasser automatisch mit zeitgesteuerter Pumpensteuerung
-- \u2705 **Solar-Heizungssteuerung** - \u00d6kologische Temperaturregelung mit Sonnenenergie
-- \u2705 **Fern\u00fcberwachung** - Pr\u00fcf den Pool-Status von \u00fcberall per Smartphone
-- \u2705 **Smarthome-Integration** - Funktioniert mit Home Assistant und openHAB
-- \u2705 **Offline-Betrieb** - Funktioniert auch ohne WLAN-Verbindung weiter
-- \u2705 **Open Source** - MIT-Lizenz, frei zu verwenden und zu modifizieren
-- \u2705 **Modulares Design** - Beginne klein und erweitere bei Bedarf
-- \u2705 **Kosteng\u00fcnstig** - Baukosten unter 100\u20ac f\u00fcr Komponenten
+- ✅ **Automatisierte Zirkulation** - Reinigt das Wasser automatisch mit zeitgesteuerter Pumpensteuerung
+- ✅ **Solar-Heizungssteuerung** - Ökologische Temperaturregelung mit Sonnenenergie
+- ✅ **Fernüberwachung** - Prüf den Pool-Status von überall per Smartphone
+- ✅ **Smarthome-Integration** - Funktioniert mit Home Assistant und openHAB
+- ✅ **Offline-Betrieb** - Funktioniert auch ohne WLAN-Verbindung weiter
+- ✅ **Open Source** - MIT-Lizenz, frei zu verwenden und zu modifizieren
+- ✅ **Modulares Design** - Beginne klein und erweitere bei Bedarf
+- ✅ **Kostengünstig** - Baukosten unter 100€ für Komponenten
 
 [![Works with Home Assistant](https://img.shields.io/badge/Works%20with-Home%20Assistant-41BDF5?logo=homeassistant&logoColor=white&style=for-the-badge "Works with Home Assistant")](https://www.home-assistant.io/)
 
@@ -98,14 +98,14 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
   >}}
   {{< hextra/feature-card
     title="Hier beginnen"
-    subtitle="W\u00e4hle deinen Weg basierend auf deinen Zielen und deinem Kenntnisstand."
+    subtitle="Wähle deinen Weg basierend auf deinen Zielen und deinem Kenntnisstand."
     link="/docs/start-here/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="Erste Schritte"
-    subtitle="Umfassende Schritt-f\u00fcr-Schritt-Anleitung. Perfekt f\u00fcr alle, die jedes Detail verstehen m\u00f6chten."
+    subtitle="Umfassende Schritt-für-Schritt-Anleitung. Perfekt für alle, die jedes Detail verstehen möchten."
     link="/docs/getting-started/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.15),hsla(0,0%,100%,0));"
@@ -121,7 +121,7 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
   >}}
   {{< hextra/feature-card
     title="Home Assistant Integration"
-    subtitle="Nahtlose Integration mit Home Assistant. Steuere deinen Pool \u00fcber die mobile App."
+    subtitle="Nahtlose Integration mit Home Assistant. Steuere deinen Pool über die mobile App."
     link="/docs/home-assistant-integration/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     image="/img/openhab-sitemap-pool-automation.jpg"
@@ -130,7 +130,7 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
   >}}
   {{< hextra/feature-card
     title="Dokumentation"
-    subtitle="Vollst\u00e4ndige Dokumentation f\u00fcr alle Module. Architektur, Fehlerbehebung, FAQ und mehr."
+    subtitle="Vollständige Dokumentation für alle Module. Architektur, Fehlerbehebung, FAQ und mehr."
     link="/docs/"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.08),hsla(0,0%,100%,0));"
@@ -155,10 +155,10 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
 
 <div class="cta-section">
   <h2>Bereit einzutauchen?</h2>
-  <p class="text-lg text-gray-600 dark:text-gray-400">Starte noch heute deine smarte Pool-Automatisierung. W\u00e4hle deinen Weg und beginne mit dem Bau!</p>
+  <p class="text-lg text-gray-600 dark:text-gray-400">Starte noch heute deine smarte Pool-Automatisierung. Wähle deinen Weg und beginne mit dem Bau!</p>
   <div class="mt-4">
-    {{< hextra/hero-button text="Weg w\u00e4hlen - Hier beginnen" link="docs/start-here" >}}
+    {{< hextra/hero-button text="Weg wählen - Hier beginnen" link="docs/start-here" >}}
     {{< hextra/hero-button text="Schnellstart - 60 Minuten" link="docs/quickstart" >}}
-    {{< hextra/hero-button text="Vollst\u00e4ndige Dokumentation" link="docs" >}}
+    {{< hextra/hero-button text="Vollständige Dokumentation" link="docs" >}}
   </div>
 </div>

@@ -18,6 +18,7 @@ your smartphone.
 | [openHAB Configuration](https://github.com/smart-swimmingpool/openhab-config) | Sitemap and rules to control your pool via openHAB mobile app. |
 | [Pool Monitor](https://github.com/smart-swimmingpool/monitor) | Solar-powered wireless temperature display for your pool. |
 | [Grafana Dashboard](https://github.com/smart-swimmingpool/grafana-dashboard) | Visualize pool data with a beautiful Grafana dashboard. |
+| [Water Quality Monitor](https://github.com/smart-swimmingpool/water-quality-monitor) | pH, chlorine and temperature measurement *(in development)*. |
 
 ## Features
 

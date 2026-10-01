@@ -1,5 +1,5 @@
 ---
-title: \ud83c\udfca Smart Swimming Pool
+title: 🏊 Smart Swimming Pool
 layout: hextra-home
 ---
 
@@ -11,7 +11,7 @@ layout: hextra-home
 
 <div class="mb-12 hero-subtitle-wrapper">
 {{< hextra/hero-subtitle >}}
-  An Open Source Project to manage your Swimming Pool using Home Automation.\nbsp;<br class="sm:block hidden" />Control circulation, heating, and monitoring - all from your smartphone.
+  An Open Source Project to manage your Swimming Pool using Home Automation.&nbsp;<br class="sm:block hidden" />Control circulation, heating, and monitoring - all from your smartphone.
 {{< /hextra/hero-subtitle >}}
 </div>
 
@@ -47,18 +47,18 @@ layout: hextra-home
 <div class="water-texture-bg">
 <div class="hextra-max-page-width" style="margin-left:auto; margin-right:auto; padding: 0 1.5rem;">
 
-## \u2728 Why Smart Swimming Pool?
+## ✨ Why Smart Swimming Pool?
 
 Transform your swimming pool into a smart, automated system with these benefits:
 
-- \u2705 **Automated Circulation** - Clean water automatically with scheduled pump operation
-- \u2705 **Solar Heating Control** - Ecological temperature control using solar energy
-- \u2705 **Remote Monitoring** - Check pool status from anywhere via smartphone
-- \u2705 **Smart Home Integration** - Works with Home Assistant and openHAB
-- \u2705 **Offline Operation** - Continues working even without WiFi
-- \u2705 **Open Source** - MIT License, free to use and modify
-- \u2705 **Modular Design** - Start small and expand as needed
-- \u2705 **Cost Effective** - Build for less than 100\u20ac in components
+- ✅ **Automated Circulation** - Clean water automatically with scheduled pump operation
+- ✅ **Solar Heating Control** - Ecological temperature control using solar energy
+- ✅ **Remote Monitoring** - Check pool status from anywhere via smartphone
+- ✅ **Smart Home Integration** - Works with Home Assistant and openHAB
+- ✅ **Offline Operation** - Continues working even without WiFi
+- ✅ **Open Source** - MIT License, free to use and modify
+- ✅ **Modular Design** - Start small and expand as needed
+- ✅ **Cost Effective** - Build for less than 100€ in components
 
 [![Works with Home Assistant](https://img.shields.io/badge/Works%20with-Home%20Assistant-41BDF5?logo=homeassistant&logoColor=white&style=for-the-badge "Works with Home Assistant")](https://www.home-assistant.io/)
 

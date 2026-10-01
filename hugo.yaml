@@ -1,5 +1,5 @@
 # Configuration for Smart Swimming Pool with Hextra Theme
-baseURL: "https://smart-swimmingpool.github.io/"
+baseURL: "https://smart-swimmingpool.com/"
 title: "Smart Swimming Pool"
 
 # Theme
@@ -84,6 +84,10 @@ menu:
           name: Grafana Dashboard
           url: /docs/grafana-dashboard/
           weight: 6
+        - identifier: water-quality-monitor
+          name: Water Quality Monitor (in development)
+          url: /docs/water-quality-monitor/
+          weight: 7
     - identifier: resources
       name: Resources
       weight: 4
@@ -151,7 +155,7 @@ menu:
         icon: github
 
 params:
-  description: "\ud83c\udfca Smart Swimming Pool - Open Source Project to manage your Swimming Pool using Home Automation"
+  description: "🏊 Smart Swimming Pool - Open Source Project to manage your Swimming Pool using Home Automation"
 
   navbar:
     displayTitle: true
