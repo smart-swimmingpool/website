@@ -6,9 +6,13 @@ on:
     branches-ignore: [main]
   workflow_dispatch:
 
-# Avoid duplicate runs for the same branch
+permissions:
+  contents: read
+
+# Avoid duplicate runs for the same branch. pull_request uses github.head_ref while
+# push uses github.ref_name, so both events collapse into the same concurrency group.
 concurrency:
-  group: check-${{ github.workflow }}-${{ github.ref }}
+  group: check-${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
@@ -25,21 +29,12 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v7
         with:
-          python-version: '3.x'
-
-      - name: Cache pip
-        uses: actions/cache@v6
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-            ${{ runner.os }}-
+          python-version: '3.14'
+          cache: pip
+          cache-dependency-path: requirements.txt
 
       - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+        run: python -m pip install --disable-pip-version-check -r requirements.txt
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -47,13 +42,13 @@ jobs:
           hugo-version: '0.162.1'
           extended: true
 
-      - name: Cache Hugo resources
+      - name: Cache module repositories
         uses: actions/cache@v6
         with:
-          path: resources/_gen
-          key: hugo-${{ hashFiles('**/**.md', '**/**.toml', '**/**.yaml', '**/**.json') }}
+          path: temp
+          key: module-repos-v1-${{ runner.os }}-${{ hashFiles('multiversion.yml') }}
           restore-keys: |
-            hugo-
+            module-repos-v1-${{ runner.os }}-
 
       - name: Merge documentation from module repositories
         run: python ./grabrepos.py
