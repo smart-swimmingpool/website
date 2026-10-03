@@ -58,9 +58,16 @@ jobs:
 
       - name: Start HTTP server for link checking
         run: |
-          python3 -m http.server 1313 --directory public &
+          python3 -m http.server 1313 --directory public >/tmp/http-server.log 2>&1 &
           echo "SERVER_PID=$!" >> "$GITHUB_ENV"
-          sleep 2
+          for _ in {1..20}; do
+            if curl --fail --silent http://localhost:1313/ >/dev/null; then
+              exit 0
+            fi
+            sleep 0.1
+          done
+          cat /tmp/http-server.log
+          exit 1
 
       - name: Check for broken links
         uses: lycheeverse/lychee-action@v2
