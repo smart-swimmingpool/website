@@ -55,7 +55,7 @@ dark theme, and the source stays readable as text on GitHub.
   and 3V3.
 - Keep the 230V side out of low-voltage drawings and link to the
   [electrical safety guide](/docs/electrical-safety/) instead.
-- Avoid `(`, `)`, `/`, `\\`, `<`, `>` and a single `-` inside labels, because
+- Avoid `(`, `)`, `/`, `\`, `<`, `>` and a single `-` inside labels, because
   Svgbob turns them into arcs, diagonals or arrows. Write `2 channels`, not
   `2-channel`.
 - Draw one diagram per subsystem instead of one large drawing.

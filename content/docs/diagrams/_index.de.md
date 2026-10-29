@@ -55,7 +55,7 @@ hellen und dunklen Theme, und der Quelltext bleibt auf GitHub als Text lesbar.
   Verbindung zwischen DATA und 3V3.
 - Die 230V-Seite gehört nicht in Niederspannungszeichnungen, stattdessen auf die
   [Anleitung Elektrische Sicherheit](/docs/electrical-safety/) verweisen.
-- `(`, `)`, `/`, `\\`, `<`, `>` und ein einzelnes `-` in Beschriftungen
+- `(`, `)`, `/`, `\`, `<`, `>` und ein einzelnes `-` in Beschriftungen
   vermeiden, Svgbob macht daraus Bögen, Diagonalen oder Pfeile. `2 Kanal`
   statt `2-Kanal`.
 - Ein Diagramm pro Teilsystem statt einer großen Zeichnung.
