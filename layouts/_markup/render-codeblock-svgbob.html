@@ -1,0 +1,24 @@
+{{- /*
+  Renders ```svgbob code blocks as inline SVG at build time via Kroki.
+  Visitors never talk to Kroki; only the Hugo build does. Responses are cached
+  by Hugo, so unchanged diagrams are not requested again.
+  Self-hosted Kroki: set params.kroki.url in hugo.yaml (default https://kroki.io).
+*/ -}}
+{{- $krokiURL := strings.TrimSuffix "/" (site.Params.kroki.url | default "https://kroki.io") -}}
+{{- $label := or (.Attributes.title) (T "mermaidDiagram") | default "Diagram" -}}
+{{- $opts := dict "method" "post" "headers" (dict "Content-Type" "text/plain") "body" .Inner -}}
+{{- with try (resources.GetRemote (printf "%s/svgbob/svg" $krokiURL) $opts) -}}
+  {{- with .Err -}}
+    {{- warnf "svgbob: Kroki request failed, falling back to plain text: %s" . -}}
+    <pre class="hx:mt-6"><code>{{ $.Inner }}</code></pre>
+  {{- else with .Value -}}
+    {{- /* Drop Kroki's embedded stylesheet: colours come from assets/css/custom.css (light/dark) */ -}}
+    {{- $svg := .Content | replaceRE `(?s)<style>.*?</style>` "" -}}
+    <figure class="svgbob-diagram hx:mt-6" role="img" aria-label="{{ $label }}">
+      {{ $svg | safeHTML }}
+    </figure>
+  {{- else -}}
+    {{- warnf "svgbob: empty response from Kroki, falling back to plain text" -}}
+    <pre class="hx:mt-6"><code>{{ $.Inner }}</code></pre>
+  {{- end -}}
+{{- end -}}
