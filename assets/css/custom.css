@@ -588,3 +588,72 @@ a, button, .hextra-feature-card, nav * {
   gap: 0.5rem;
   padding: 1rem 0;
 }
+
+/* ===== Svgbob diagrams (rendered via Kroki, see layouts/_markup/render-codeblock-svgbob.html) ===== */
+/* The SVG carries no colours of its own, so it follows the theme in light and dark mode. */
+.svgbob-diagram {
+  overflow-x: auto;
+  color: #1f2937;
+}
+
+.dark .svgbob-diagram {
+  color: #e5e7eb;
+}
+
+.svgbob-diagram svg {
+  max-width: none;
+  height: auto;
+}
+
+.svgbob-diagram svg line,
+.svgbob-diagram svg path,
+.svgbob-diagram svg circle,
+.svgbob-diagram svg rect,
+.svgbob-diagram svg polygon {
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: miter;
+  fill-opacity: 1;
+  stroke-opacity: 1;
+}
+
+.svgbob-diagram svg text {
+  white-space: pre;
+  fill: currentColor;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 14px;
+}
+
+.svgbob-diagram svg rect.backdrop {
+  stroke: none;
+  fill: transparent;
+}
+
+.svgbob-diagram svg .filled {
+  fill: currentColor;
+}
+
+.svgbob-diagram svg .nofill,
+.svgbob-diagram svg .bg_filled {
+  fill: transparent;
+}
+
+.svgbob-diagram svg .bg_filled {
+  stroke-width: 1;
+}
+
+.svgbob-diagram svg .broken {
+  stroke-dasharray: 8;
+}
+
+.svgbob-diagram svg .end_marked_arrow { marker-end: url(#arrow); }
+.svgbob-diagram svg .start_marked_arrow { marker-start: url(#arrow); }
+.svgbob-diagram svg .end_marked_diamond { marker-end: url(#diamond); }
+.svgbob-diagram svg .start_marked_diamond { marker-start: url(#diamond); }
+.svgbob-diagram svg .end_marked_circle { marker-end: url(#circle); }
+.svgbob-diagram svg .start_marked_circle { marker-start: url(#circle); }
+.svgbob-diagram svg .end_marked_open_circle { marker-end: url(#open_circle); }
+.svgbob-diagram svg .start_marked_open_circle { marker-start: url(#open_circle); }
+.svgbob-diagram svg .end_marked_big_open_circle { marker-end: url(#big_open_circle); }
+.svgbob-diagram svg .start_marked_big_open_circle { marker-start: url(#big_open_circle); }

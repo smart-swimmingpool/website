@@ -157,6 +157,10 @@ menu:
 params:
   description: "🏊 Smart Swimming Pool - Open Source Project to manage your Swimming Pool using Home Automation"
 
+  # Build-time diagram rendering (```svgbob blocks); point url to a self-hosted Kroki if preferred
+  kroki:
+    url: "https://kroki.io"
+
   navbar:
     displayTitle: true
     displayLogo: false
