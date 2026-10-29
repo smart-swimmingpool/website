@@ -44,6 +44,24 @@ hellen und dunklen Theme, und der Quelltext bleibt auf GitHub als Text lesbar.
 - Nur Leerzeichen, keine Tabs, und Zeilen unter 100 Zeichen.
 - Mit `title` für Screenreader: ` ```svgbob {title="Relais-Verdrahtung"} `.
 
+## Regeln für Schaltpläne
+
+- Pro Gerät ein Kasten mit einem `o`-Anschluss je Pin, beschriftet wie am Gerät
+  (`GPIO25`, `VDD`, `SDA`).
+- Bauteile wie Widerstände als kleiner Kasten auf der Leitung, mittig betreten:
+  `.--+--.` / `|4.7k |` / `'--+--'`.
+- Jedes Gerät bekommt eigene Leitungen für DATA, VDD und GND. Ein `*` verbindet
+  nur Leitungen desselben Netzes. Der Pull-up eines DS18B20 ist die einzige
+  Verbindung zwischen DATA und 3V3.
+- Die 230V-Seite gehört nicht in Niederspannungszeichnungen, stattdessen auf die
+  [Anleitung Elektrische Sicherheit](/docs/electrical-safety/) verweisen.
+- `(`, `)`, `/`, `\\`, `<`, `>` und ein einzelnes `-` in Beschriftungen
+  vermeiden, Svgbob macht daraus Bögen, Diagonalen oder Pfeile. `2 Kanal`
+  statt `2-Kanal`.
+- Ein Diagramm pro Teilsystem statt einer großen Zeichnung.
+- Alle Zeilen eines Kastens auf gleiche Länge auffüllen, damit der rechte Rand
+  fluchtet.
+
 ## Hosting
 
 Der Hugo-Build sendet jedes Diagramm einmal an die in `hugo.yaml`

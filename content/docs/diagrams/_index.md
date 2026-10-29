@@ -44,6 +44,23 @@ dark theme, and the source stays readable as text on GitHub.
 - Use spaces, not tabs, and keep lines below 100 characters.
 - Add a `title` for screen readers: ` ```svgbob {title="Relay wiring"} `.
 
+## Wiring diagram rules
+
+- Draw a box per device with one `o` terminal per pin, and label every pin the
+  way the device is labelled (`GPIO25`, `VDD`, `SDA`).
+- Draw components such as resistors as a small box on the wire, entered at the
+  centre column: `.--+--.` / `|4.7k |` / `'--+--'`.
+- Give every device its own DATA, VDD and GND wires. A `*` junction may only join
+  wires of the same net. The pull-up of a DS18B20 is the only link between DATA
+  and 3V3.
+- Keep the 230V side out of low-voltage drawings and link to the
+  [electrical safety guide](/docs/electrical-safety/) instead.
+- Avoid `(`, `)`, `/`, `\\`, `<`, `>` and a single `-` inside labels, because
+  Svgbob turns them into arcs, diagonals or arrows. Write `2 channels`, not
+  `2-channel`.
+- Draw one diagram per subsystem instead of one large drawing.
+- Pad all rows of a box to the same length so the right border lines up.
+
 ## Hosting
 
 The Hugo build sends each diagram once to the Kroki instance configured in
