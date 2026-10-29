@@ -18,8 +18,8 @@ Use this checklist **before** connecting pumps to mains voltage. Tick off each i
 
 - [ ] ESP32 firmly seated on breadboard or perfboard
 - [ ] Relay module connected: **VCC → 5V** (not 3.3V!), **GND → GND**
-- [ ] Relay IN1 (GPIO26) prepared for **heating circuit pump**
-- [ ] Relay IN2 (GPIO25) prepared for **filter/circulation pump**
+- [ ] Relay IN2 (GPIO26) prepared for **heating circuit pump**
+- [ ] Relay IN1 (GPIO25) prepared for **filter/circulation pump**
 - [ ] DS18B20 solar sensor: **DATA → GPIO32**, **VDD → 3.3V**, **GND → GND**
 - [ ] DS18B20 pool sensor: **DATA → GPIO33**, **VDD → 3.3V**, **GND → GND**
 - [ ] **4.7kΩ pull-up resistor** between each DATA pin and 3.3V (2 resistors total)
@@ -156,8 +156,8 @@ Before connecting any pump, test that the controller can switch the relays.
 
 | GPIO | Expected OFF | Expected ON | Controls |
 |------|-------------|-------------|----------|
-| GPIO26 (IN1) | ~3.3V (HIGH) | ~0V (LOW) | Heating pump (not yet connected) |
-| GPIO25 (IN2) | ~3.3V (HIGH) | ~0V (LOW) | Filter pump (not yet connected) |
+| GPIO26 (IN2) | ~3.3V (HIGH) | ~0V (LOW) | Heating pump (not yet connected) |
+| GPIO25 (IN1) | ~3.3V (HIGH) | ~0V (LOW) | Filter pump (not yet connected) |
 
 ---
 
@@ -221,8 +221,8 @@ Print this abbreviated checklist for quick on-site reference:
 ```
 ☐ ESP32: 5V USB power, data cable
 ☐ Relay VCC → 5V, GND → GND
-☐ Relay IN1 → GPIO26 (heating)
-☐ Relay IN2 → GPIO25 (filter)
+☐ Relay IN2 → GPIO26 (heating)
+☐ Relay IN1 → GPIO25 (filter)
 ☐ DS18B20 #1: GPIO32 + 4.7kΩ pull-up
 ☐ DS18B20 #2: GPIO33 + 4.7kΩ pull-up
 ☐ RCD / FI installed on 230V side

@@ -66,8 +66,8 @@ The firmware (esp32dev environment) assigns **each sensor its own GPIO pin**:
 
 | ESP32 Pin | Relay Module | Notes |
 |-----------|-------------|-------|
-| GPIO26 | Relay IN1 | Heating circuit pump |
-| GPIO25 | Relay IN2 | Circulation/filter pump |
+| GPIO26 | Relay IN2 | Heating circuit pump |
+| GPIO25 | Relay IN1 | Circulation/filter pump |
 | 5V (VIN) | Relay VCC | **5V** not 3.3V! |
 | GND | Relay GND | Common ground with ESP32 |
 
