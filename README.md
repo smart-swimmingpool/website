@@ -1,6 +1,6 @@
 # 🏊 Smart Swimming Pool
 
-[![Deploy Hugo site](https://github.com/smart-swimmingpool/website/actions/workflows/deploy-hugo.yml/badge.svg)](https://github.com/smart-swimmingpool/website/actions/workflows/deploy-hugo.yml)
+[![Deploy Hugo site](https://github.com/smart-swimmingpool/website/actions/workflows/ci.yml/badge.svg)](https://github.com/smart-swimmingpool/website/actions/workflows/ci.yml)
 [![Works with Home Assistant](https://img.shields.io/badge/Works%20with-Home%20Assistant-41BDF5?logo=homeassistant&logoColor=white&style=flat-square)](https://www.home-assistant.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -138,7 +138,7 @@ The website pulls documentation from separate module repositories
 | Trigger | Method |
 |---------|--------|
 | Push to `main` | GitHub Actions CI |
-| Daily 6:00 UTC | Cron in `deploy-hugo.yml` |
+| Daily 6:00 UTC | Cron in `ci.yml` |
 | Module doc change | `repository_dispatch` `doc_update` |
 | Manual | GitHub Actions → "Run workflow" |
 

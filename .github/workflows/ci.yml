@@ -1,22 +1,44 @@
-name: PR Check
+name: CI
+
 on:
   pull_request:
     branches: [main]
   push:
-    branches-ignore: [main]
+    branches: [main]
+  schedule:
+    # Daily rebuild at 6:00 UTC — picks up new module docs automatically
+    - cron: '0 6 * * *'
+  repository_dispatch:
+    types: [doc_update]
   workflow_dispatch:
 
 permissions:
   contents: read
 
-# Avoid duplicate runs for the same branch. pull_request uses github.head_ref while
-# push uses github.ref_name, so both events collapse into the same concurrency group.
+# One run per PR (a new push cancels the old run). Runs on main are never cancelled,
+# so every merge is deployed; a newer queued run replaces an older queued one.
 concurrency:
-  group: check-${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
-  cancel-in-progress: true
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  build-and-check:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Run MegaLinter
+        uses: oxsecurity/megalinter@v10.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # PRs lint only the changed files, everything else lints the whole repository
+          VALIDATE_ALL_CODEBASE: ${{ github.event_name != 'pull_request' }}
+
+  build:
     name: Build & Check
     runs-on: ubuntu-latest
     steps:
@@ -56,7 +78,10 @@ jobs:
       - name: Build Hugo site
         run: hugo --minify
 
+      # The link check runs on PRs only: broken links should block a change,
+      # but must not block the daily deploy.
       - name: Start HTTP server for link checking
+        if: github.event_name == 'pull_request'
         run: |
           python3 -m http.server 1313 --directory public >/tmp/http-server.log 2>&1 &
           echo "SERVER_PID=$!" >> "$GITHUB_ENV"
@@ -70,6 +95,7 @@ jobs:
           exit 1
 
       - name: Check for broken links
+        if: github.event_name == 'pull_request'
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
@@ -90,12 +116,23 @@ jobs:
           output: /tmp/lychee-report.md
 
       - name: Stop HTTP server
-        if: always()
+        if: always() && github.event_name == 'pull_request'
         run: kill ${{ env.SERVER_PID }} 2>/dev/null || true
 
       - name: Upload link check report
-        if: failure()
+        if: failure() && github.event_name == 'pull_request'
         uses: actions/upload-artifact@v7
         with:
           name: lychee-report
           path: /tmp/lychee-report.md
+
+      - name: Deploy
+        if: github.event_name != 'pull_request'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.HUGO_DEPLOY_TOKEN }}
+          external_repository: smart-swimmingpool/smart-swimmingpool.github.io
+          publish_dir: ./public
+          user_name: stritti
+          user_email: stritti@users.noreply.github.com
+          publish_branch: main
