@@ -11,11 +11,8 @@ MD007:
   indent: 2
   start_indented: false
 
-MD013:
-  line_length: 150
-  code_blocks: false
-  tables: false
-  headings: false
+# Content is written as one line per paragraph (Hugo wraps it), so line length is not checked
+MD013: false
 
 MD024:
   siblings_only: true
@@ -28,18 +25,30 @@ MD032: false
 MD040: false
 MD041: false
 
+# Bold lines are used on purpose as page subtitles and image captions
+MD036: false
+
+# The home pages embed SVG wave dividers and wrapper divs
 MD033:
   allowed_elements:
     - a
     - br
+    - defs
     - details
+    - div
+    - h2
     - img
     - kbd
+    - linearGradient
+    - p
+    - path
     - script
     - span
+    - stop
     - sub
     - sup
     - summary
+    - svg
 
 MD046:
   style: fenced

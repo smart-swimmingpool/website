@@ -103,11 +103,11 @@ Verwenden Sie diese Checkliste **bevor** Sie Pumpen an die Netzspannung anschlie
 ## 5. WLAN & Netzwerk
 
 - [ ] Mit WLAN-Netzwerk `Pool-Controller-Setup` verbunden
-- [ ] Weboberfläche erreichbar unter **http://192.168.4.1**
+- [ ] Weboberfläche erreichbar unter **<http://192.168.4.1>**
 - [ ] Heim-WLAN in der Weboberfläche konfiguriert → **Connection**
 - [ ] ESP32 neu gestartet und mit Heimnetz verbunden
 - [ ] Neue IP-Adresse notiert (Router-DHCP oder serielle Monitor-Ausgabe)
-- [ ] Weboberfläche erreichbar unter **http://<neue-ip>/**
+- [ ] Weboberfläche erreichbar unter **`http://<neue-ip>/`**
 - [ ] ESP32 per Ping erreichbar: `ping <neue-ip>`
 
 ---

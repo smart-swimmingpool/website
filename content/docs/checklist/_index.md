@@ -103,11 +103,11 @@ Use this checklist **before** connecting pumps to mains voltage. Tick off each i
 ## 5. WiFi & Network
 
 - [ ] Connected to `Pool-Controller-Setup` WiFi network
-- [ ] Web interface reachable at **http://192.168.4.1**
+- [ ] Web interface reachable at **<http://192.168.4.1>**
 - [ ] Home WiFi configured in web interface → **Connection** section
 - [ ] ESP32 rebooted and connected to home network
 - [ ] New IP address noted (from router DHCP or serial monitor)
-- [ ] Web interface reachable at **http://<new-ip>/**
+- [ ] Web interface reachable at **`http://<new-ip>/`**
 - [ ] ESP32 pingable from your computer: `ping <new-ip>`
 
 ---
