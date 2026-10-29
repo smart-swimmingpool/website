@@ -94,7 +94,7 @@ Dies ist der Express-Pfad — minimale Theorie, maximale Aktion. Führen Sie jed
 ## Schritt 3: WLAN konfigurieren (3 Minuten)
 
 1. Mit WLAN **`Pool-Controller-Setup`** verbinden (offen, kein Passwort)
-2. Browser öffnen → **http://192.168.4.1**
+2. Browser öffnen → **<http://192.168.4.1>**
 3. WLAN-Name und Passwort des Heimnetzes eingeben
 4. **Save** klicken — ESP32 startet neu und verbindet sich mit dem Heimnetz
 
@@ -103,7 +103,7 @@ Dies ist der Express-Pfad — minimale Theorie, maximale Aktion. Führen Sie jed
 ## Schritt 4: MQTT verbinden (3 Minuten)
 
 1. IP-Adresse des ESP32 im Router ermitteln (oder serielle Monitor-Ausgabe)
-2. **http://<esp32-ip>/** im Browser öffnen
+2. **`http://<esp32-ip>/`** im Browser öffnen
 3. **Configuration → MQTT**
 4. MQTT-Broker-Adresse eintragen (z.B. `192.168.1.100` oder `core-mosquitto`)
 5. Bei Authentifizierung: Benutzername/Passwort eintragen

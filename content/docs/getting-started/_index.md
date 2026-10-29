@@ -128,7 +128,7 @@ The ESP32 starts in **Access Point (AP) mode** by default.
 
 1. Scan for WiFi networks — you'll see **`Pool-Controller-Setup`** (open network, no password).
 2. Connect to it from your phone or laptop.
-3. Open a browser and go to **http://192.168.4.1**
+3. Open a browser and go to **<http://192.168.4.1>**
 
 ### Step 2: Configure WiFi
 
