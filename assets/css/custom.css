@@ -4,7 +4,7 @@
 
 /* ===== Pool Color Scheme ===== */
 /* Hextra uses CSS custom properties for primary color.
-   These must use the exact variable names from the theme. */
+  These must use the exact variable names from the theme. */
 
 :root {
   --primary-hue: 210deg;
