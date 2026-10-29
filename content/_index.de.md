@@ -93,6 +93,7 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
     title="Schnellstart"
     subtitle="Von der Box zum funktionierenden Pool in 60 Minuten. Der schnellste Weg zum Erfolg."
     link="/docs/quickstart/"
+    icon="lightning-bolt"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.15),hsla(0,0%,100%,0));"
   >}}
@@ -100,6 +101,7 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
     title="Hier beginnen"
     subtitle="Wähle deinen Weg basierend auf deinen Zielen und deinem Kenntnisstand."
     link="/docs/start-here/"
+    icon="map"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
   >}}
@@ -107,6 +109,7 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
     title="Erste Schritte"
     subtitle="Umfassende Schritt-für-Schritt-Anleitung. Perfekt für alle, die jedes Detail verstehen möchten."
     link="/docs/getting-started/"
+    icon="book-open"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.15),hsla(0,0%,100%,0));"
   >}}
@@ -114,24 +117,23 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
     title="Pool Controller"
     subtitle="Das smarte Gehirn deines Pools. Zentrale Steuerlogik auf ESP32 mit Home Assistant MQTT Discovery."
     link="/docs/pool-controller/"
+    icon="chip"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    image="/img/pool-controller_breadboard.png"
-    imageClass="top-[40%] left-[24px] w-[180%] sm:w-[110%] dark:opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="Home Assistant Integration"
     subtitle="Nahtlose Integration mit Home Assistant. Steuere deinen Pool über die mobile App."
     link="/docs/home-assistant-integration/"
+    icon="home"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    image="/img/openhab-sitemap-pool-automation.jpg"
-    imageClass="top-[40%] left-[36px] w-[180%] sm:w-[110%] dark:opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="Dokumentation"
     subtitle="Vollständige Dokumentation für alle Module. Architektur, Fehlerbehebung, FAQ und mehr."
     link="/docs/"
+    icon="collection"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.08),hsla(0,0%,100%,0));"
   >}}
