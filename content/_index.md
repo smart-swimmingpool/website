@@ -93,6 +93,7 @@ Transform your swimming pool into a smart, automated system with these benefits:
     title="Quick Start"
     subtitle="From box to working pool in 60 minutes. The fastest way to get started with minimal theory."
     link="/docs/quickstart/"
+    icon="lightning-bolt"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.15),hsla(0,0%,100%,0));"
   >}}
@@ -100,6 +101,7 @@ Transform your swimming pool into a smart, automated system with these benefits:
     title="Start Here"
     subtitle="Choose your path based on your goals. Find the right approach for your skill level and requirements."
     link="/docs/start-here/"
+    icon="map"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
   >}}
@@ -107,6 +109,7 @@ Transform your swimming pool into a smart, automated system with these benefits:
     title="Getting Started"
     subtitle="Comprehensive step-by-step guide. Perfect for those who want to understand every detail."
     link="/docs/getting-started/"
+    icon="book-open"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.15),hsla(0,0%,100%,0));"
   >}}
@@ -114,24 +117,23 @@ Transform your swimming pool into a smart, automated system with these benefits:
     title="Pool Controller"
     subtitle="The smart brain of your pool. Central control logic running on ESP32 with Home Assistant MQTT discovery."
     link="/docs/pool-controller/"
+    icon="chip"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    image="/img/pool-controller_breadboard.png"
-    imageClass="top-[40%] left-[24px] w-[180%] sm:w-[110%] dark:opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="Home Assistant Integration"
     subtitle="Smooth integration with Home Assistant smart home server. Control your pool via mobile app."
     link="/docs/home-assistant-integration/"
+    icon="home"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
-    image="/img/openhab-sitemap-pool-automation.jpg"
-    imageClass="top-[40%] left-[36px] w-[180%] sm:w-[110%] dark:opacity-80"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
     title="Documentation"
     subtitle="Complete documentation for all modules. Architecture, troubleshooting, FAQ, and more."
     link="/docs/"
+    icon="collection"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.08),hsla(0,0%,100%,0));"
   >}}
