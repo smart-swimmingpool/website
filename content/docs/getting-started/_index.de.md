@@ -31,7 +31,7 @@ In einer typischen Anlage erwärmt ein thermisches Solarsystem das Wasser und un
 | Breadboard + Jumper-Kabel | 3–8 € | Für Prototyp; für Dauerbetrieb Lochrasterplatine |
 | USB-Netzteil (5V / 1A+) | 5–10 € | Für ESP32 + Relaismodul |
 | Gehäuse (IP54+) | 5–10 € | Optional, aber empfohlen für Außeneinsatz |
-| **Gesamt** | **~45–75 €** | **Ohne Pumpen / Wärmetauscher-Infrastruktur** |
+| **Gesamt** | **~35–65 €** | **Ohne Pumpen / Wärmetauscher-Infrastruktur** |
 
 > **⚠️ Relais-Modul Hinweis:** Die Firmware steuert die Relais **Aktiv-Low** (GPIO **LOW** = Relais EIN, GPIO **HIGH** = Relais AUS). Dies entspricht der überwiegenden Mehrheit günstiger 2-Kanal-5V-Relais-Module. Während des ESP32-Starts sind die GPIOs kurz im hochohmigen Zustand — die Firmware setzt sie sofort nach dem Start auf HIGH (Relais AUS). Falls Ihr Modul andersherum arbeitet (Aktiv-High), finden Sie Konfigurationsmöglichkeiten im [Fehlerbehebung](/docs/troubleshooting/).
 
@@ -157,7 +157,7 @@ Wenn Sie Home Assistant mit MQTT verwenden:
 4. Der Pool Controller sollte automatisch als neues Gerät erscheinen.
 5. Alle Sensoren, Steuerungen und Konfigurationsparameter erscheinen als Entities — keine manuelle Einrichtung nötig.
 
-> ▶️ **Ausführliche Anleitung**: Siehe [Home Assistant Integrations-Guide](/docs/home-assistant-integration/) für die vollständige Entity-Referenz, Dashboard-Einrichtung, Automatisierungsbeispiele und Fehlerbehebung.
+> ▶️ **Ausführliche Anleitung**: Siehe [Home Assistant Integrations-Guide](/docs/integrations/home-assistant/) für die vollständige Entity-Referenz, Dashboard-Einrichtung, Automatisierungsbeispiele und Fehlerbehebung.
 
 ### Schritt 5: Pumpen anschließen
 
@@ -173,9 +173,9 @@ Erst jetzt — nach erfolgreichem Test — die Pumpen anschließen:
 ## Wie geht es weiter?
 
 Sobald Ihr Pool Controller läuft:
-- Entdecken Sie den **[Home Assistant Integrations-Guide](/docs/home-assistant-integration/)** für die vollständige Entity-Referenz, Dashboard-Einrichtung und Automatisierungsbeispiele
-- Richten Sie das **[Grafana Dashboard](/docs/grafana-dashboard/)** für Temperaturverläufe ein
-- Fügen Sie den **[Pool Monitor](/docs/pool-monitor/)** für ein eigenes Display hinzu
+- Entdecken Sie den **[Home Assistant Integrations-Guide](/docs/integrations/home-assistant/)** für die vollständige Entity-Referenz, Dashboard-Einrichtung und Automatisierungsbeispiele
+- Richten Sie das **[Grafana Dashboard](/docs/components/grafana-dashboard/)** für Temperaturverläufe ein
+- Fügen Sie den **[Pool Monitor](/docs/components/pool-monitor/)** für ein eigenes Display hinzu
 - Besuchen Sie das **[Fehlerbehebung](/docs/troubleshooting/)** bei Problemen
-- Folgen Sie der **[openHAB Integrations-Anleitung](/docs/openhab-integration/)**, um openHAB Schritt für Schritt einzurichten
-- Nutzen Sie die **[openHAB Konfiguration](/docs/openhab-configuration/)** als Referenz für die vollständigen Konfigurationsdateien
+- Folgen Sie der **[openHAB Integrations-Anleitung](/docs/integrations/openhab/)**, um openHAB Schritt für Schritt einzurichten
+- Nutzen Sie die **[openHAB Konfiguration](/docs/integrations/openhab-configuration/)** als Referenz für die vollständigen Konfigurationsdateien

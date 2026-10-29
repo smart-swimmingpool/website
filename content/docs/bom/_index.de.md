@@ -26,7 +26,6 @@ Diese Teile bilden den Kern des Pool-Controllers. Alle Komponenten sind Standard
 | 8 | **USB-A auf Micro-USB Kabel** | 1 | 3–5 € | **Datenkabel** (kein reines Ladekabel) | Amazon |
 
 | | **Zwischensumme (nur Controller)** | | **~35–55 €** | |
-| | (Bestehende BOM = 45–75 € inkl. Gehäuse) | | | |
 
 ---
 
@@ -151,4 +150,4 @@ Sie können mit **Must-have-Teilen** (Kategorie 1) starten und später erweitern
 | **Gesamt (komplette Installation)** | Kategorien 1–4 | **145–255 €** |
 | **Inkl. Werkzeug** | Kategorien 1–5 | **205–355 €** |
 
-> 💡 Die bestehende "Erste Schritte"-BOM schätzt **45–75 €** für die **Controller-Elektronik + Gehäuse** (Kategorien 1+2). Die erweiterte BOM oben ergänzt die **Elektroinstallation (230V)** und das **Sensor-Montagematerial**, die für eine reale Pool-Installation notwendig sind.
+> 💡 Die Controller-Elektronik (Kategorie 1) kostet **35–55 €**; mit Gehäuse und Mechanik (Kategorien 1+2) sind **60–100 €** zu planen. Die Kategorien oben ergänzen die **Elektroinstallation (230V)** und das **Sensor-Montagematerial**, die für eine reale Pool-Installation notwendig sind.

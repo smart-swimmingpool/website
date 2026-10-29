@@ -92,7 +92,7 @@ Das Relais-Modul schaltet **230V / 10A max** (ohmsche Last). Bei induktiven Last
 
 ### Das System hat mehr als 100€ gekostet — ist das normal?
 
-Die Schätzung von **~45–75€** umfasst **nur die Controller-Elektronik** (ESP32, Sensoren, Relais, Breadboard, Gehäuse). Nicht enthalten sind:
+Die Schätzung von **~35–55€** umfasst **nur die Controller-Elektronik** (ESP32, Sensoren, Relais, Breadboard, Netzteil); mit Gehäuse und Mechanik sind **~60–100€** zu planen. Nicht enthalten sind:
 - Poolpumpe und Filtersystem
 - Heizkreispumpe
 - Wärmetauscher-Installation
@@ -106,11 +106,11 @@ Wenn diese Komponenten hinzukommen, können die Gesamtkosten deutlich höher sei
 
 ### Funktioniert es mit Home Assistant?
 
-**Ja, nahtlos.** Der Controller nutzt **Home Assistant MQTT Discovery** — alle Sensoren, Steuerungen und Parameter erscheinen automatisch als Entities. Keine YAML-Konfiguration nötig. Siehe [Home Assistant Integration](/docs/home-assistant-integration/).
+**Ja, nahtlos.** Der Controller nutzt **Home Assistant MQTT Discovery** — alle Sensoren, Steuerungen und Parameter erscheinen automatisch als Entities. Keine YAML-Konfiguration nötig. Siehe [Home Assistant Integration](/docs/integrations/home-assistant/).
 
 ### Funktioniert es mit openHAB?
 
-**Ja.** Der Controller veröffentlicht alle Daten per MQTT im HA Discovery-Format (v3.x) oder der Homie-Convention (v2.x). openHAB kann diese Topics via MQTT-Binding abonnieren. Siehe [openHAB Konfiguration](/docs/openhab-configuration/).
+**Ja.** Der Controller veröffentlicht alle Daten per MQTT im HA Discovery-Format (v3.x) oder der Homie-Convention (v2.x). openHAB kann diese Topics via MQTT-Binding abonnieren. Siehe [openHAB Konfiguration](/docs/integrations/openhab-configuration/).
 
 ### Funktioniert es mit Alexa, Google Home oder Apple HomeKit?
 
@@ -118,7 +118,7 @@ Wenn diese Komponenten hinzukommen, können die Gesamtkosten deutlich höher sei
 
 ### Kann ich Grafana nutzen?
 
-**Ja.** Der Controller veröffentlicht alle Daten per MQTT. Mit [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) können MQTT-Daten in [InfluxDB](https://www.influxdata.com/) gespeichert und mit [Grafana](/docs/grafana-dashboard/) visualisiert werden.
+**Ja.** Der Controller veröffentlicht alle Daten per MQTT. Mit [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) können MQTT-Daten in [InfluxDB](https://www.influxdata.com/) gespeichert und mit [Grafana](/docs/components/grafana-dashboard/) visualisiert werden.
 
 ---
 

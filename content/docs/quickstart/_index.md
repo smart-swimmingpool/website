@@ -23,7 +23,7 @@ This is the express path — minimal theory, maximum action. Follow each step ex
 - Computer with VS Code + PlatformIO installed
 - MQTT broker running on your network (optional for first test)
 
-**All parts: ~45–75 €** — see [Bill of Materials](/docs/bom/) for details.
+**All parts: ~35–55 €** — see [Bill of Materials](/docs/bom/) for details.
 
 ---
 
@@ -178,7 +178,7 @@ If you use Home Assistant:
 3. The **Pool Controller** should appear as a new device automatically
 4. Add entities to your Lovelace dashboard
 
-See the [Home Assistant Integration Guide](/docs/home-assistant-integration/) for the complete dashboard setup and automation examples.
+See the [Home Assistant Integration Guide](/docs/integrations/home-assistant/) for the complete dashboard setup and automation examples.
 
 ---
 
@@ -186,8 +186,8 @@ See the [Home Assistant Integration Guide](/docs/home-assistant-integration/) fo
 
 Your pool controller is now fully operational. Next steps:
 
-- Set up the **[Grafana Dashboard](/docs/grafana-dashboard/)** for temperature history
-- Add the **[Pool Monitor](/docs/pool-monitor/)** for a wireless display
+- Set up the **[Grafana Dashboard](/docs/components/grafana-dashboard/)** for temperature history
+- Add the **[Pool Monitor](/docs/components/pool-monitor/)** for a wireless display
 - Follow the **[Commissioning Checklist](/docs/checklist/)** for a more thorough verification
 - Read the **[Troubleshooting](/docs/troubleshooting/)** if something isn't working
 

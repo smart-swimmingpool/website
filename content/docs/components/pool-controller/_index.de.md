@@ -1,6 +1,8 @@
 ---
 title: Pool Controller
-weight: 31
+weight: 1
+aliases:
+  - /docs/pool-controller/
 tags: ["docs", "pool-controller", "hardware", "firmware"]
 ---
 
@@ -34,32 +36,32 @@ Der Pool Controller übernimmt:
 
 ### Erste Schritte
 
-- **[Aufbau von Grund auf](/docs/pool-controller/build-from-zero/)** - Vollständige Aufbauanleitung
-- **[Elektrische Sicherheit](/docs/pool-controller/electrical-safety/)** - Wichtige Sicherheitsinformationen
-- **[Produktions-Checkliste](/docs/pool-controller/production-checklist/)** - Prüfung vor der Inbetriebnahme
-- **[Sicherheits-Checkliste](/docs/pool-controller/security-checklist/)** - Empfehlungen zur IT-Sicherheit
+- **[Aufbau von Grund auf](/docs/components/pool-controller/build-from-zero/)** - Vollständige Aufbauanleitung
+- **[Elektrische Sicherheit](/docs/components/pool-controller/electrical-safety/)** - Wichtige Sicherheitsinformationen
+- **[Produktions-Checkliste](/docs/components/pool-controller/production-checklist/)** - Prüfung vor der Inbetriebnahme
+- **[Sicherheits-Checkliste](/docs/components/pool-controller/security-checklist/)** - Empfehlungen zur IT-Sicherheit
 
 ### Hardware
 
-- **[Hardware-Anleitung](/docs/pool-controller/hardware-guide/)** - Komponenten, Verdrahtung und Status-LED
-- **[ESP32-Verdrahtungsplan](/docs/pool-controller/esp32-complete-wiring-schematic/)** - Vollständige Anschlussanleitung
-- **[NORVI AE01-R](/docs/pool-controller/norvi-ae01-r/)** - Industrielle Hutschienen-Variante
-- **[Olimex ESP32-C6-EVB](/docs/pool-controller/olimex-esp32-c6-evb/)** - Variante mit TFT-Display und Drehgeber (englisch)
-- **[Schütz-Anleitung](/docs/pool-controller/contactor-guide/)** - Pumpen sicher schalten
+- **[Hardware-Anleitung](/docs/components/pool-controller/hardware-guide/)** - Komponenten, Verdrahtung und Status-LED
+- **[ESP32-Verdrahtungsplan](/docs/components/pool-controller/esp32-complete-wiring-schematic/)** - Vollständige Anschlussanleitung
+- **[NORVI AE01-R](/docs/components/pool-controller/norvi-ae01-r/)** - Industrielle Hutschienen-Variante
+- **[Olimex ESP32-C6-EVB](/docs/components/pool-controller/olimex-esp32-c6-evb/)** - Variante mit TFT-Display und Drehgeber (englisch)
+- **[Schütz-Anleitung](/docs/components/pool-controller/contactor-guide/)** - Pumpen sicher schalten
 - **[Stückliste (BOM)](/docs/bom/)** - Vollständige Teileliste
 
 ### Firmware
 
-- **[Software-Anleitung](/docs/pool-controller/software-guide/)** - Firmware bauen und flashen
-- **[Benutzerhandbuch](/docs/pool-controller/users-guide/)** - Konfiguration über das Web-Interface
-- **[MQTT-Konfiguration](/docs/pool-controller/mqtt-configuration/)** - Broker-Einrichtung und Topics
-- **[OTA-Updates](/docs/pool-controller/ota-updates/)** - Firmware-Updates über WLAN
+- **[Software-Anleitung](/docs/components/pool-controller/software-guide/)** - Firmware bauen und flashen
+- **[Benutzerhandbuch](/docs/components/pool-controller/users-guide/)** - Konfiguration über das Web-Interface
+- **[MQTT-Konfiguration](/docs/components/pool-controller/mqtt-configuration/)** - Broker-Einrichtung und Topics
+- **[OTA-Updates](/docs/components/pool-controller/ota-updates/)** - Firmware-Updates über WLAN
 
 ### Fortgeschritten
 
-- **[Sicherheitsmodell](/docs/pool-controller/safety-model/)** - Sicherheitsarchitektur
-- **[Temperaturbasierte Umwälzung](/docs/pool-controller/temperature-based-circulation/)** - Adaptive Filterlaufzeit
-- **[Fehlerbehebungs-Matrix](/docs/pool-controller/troubleshooting-matrix/)** - Häufige Probleme und Lösungen
+- **[Sicherheitsmodell](/docs/components/pool-controller/safety-model/)** - Sicherheitsarchitektur
+- **[Temperaturbasierte Umwälzung](/docs/components/pool-controller/temperature-based-circulation/)** - Adaptive Filterlaufzeit
+- **[Fehlerbehebungs-Matrix](/docs/components/pool-controller/troubleshooting-matrix/)** - Häufige Probleme und Lösungen
 
 ## 🔧 Hardware-Anforderungen
 
@@ -106,7 +108,7 @@ nutzen eigene Pinbelegungen, siehe `src/Config.hpp` und die oben verlinkten Boar
 1. **[Hier beginnen](/docs/start-here/)** - Wählen Sie Ihren Weg basierend auf Ihren Zielen
 2. **[Schnellstart](/docs/quickstart/)** - Schnellster Weg zum Laufen (60 Minuten)
 3. **[Bauanleitung](/docs/getting-started/)** - Umfassliche Aufbauanleitung
-4. **[Home Assistant Integration](/docs/home-assistant-integration/)** - Smarthome-Integration
+4. **[Home Assistant Integration](/docs/integrations/home-assistant/)** - Smarthome-Integration
 
 ## 💬 Brauchen Sie Hilfe?
 

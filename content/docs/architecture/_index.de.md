@@ -157,5 +157,5 @@ Die Architektur unterstützt mehrere optionale Erweiterungen:
 ## Verwandte Seiten
 
 - [Bauanleitung](/docs/getting-started/) — Eigenen Pool Controller bauen
-- [Home Assistant Integration](/docs/home-assistant-integration/) — Dashboard- und Automations-Guide
+- [Home Assistant Integration](/docs/integrations/home-assistant/) — Dashboard- und Automations-Guide
 - [Fehlerbehebung](/docs/troubleshooting/) — Häufige Probleme und Lösungen

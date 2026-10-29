@@ -1,6 +1,8 @@
 ---
 title: Home Assistant Integration
-weight: 41
+weight: 1
+aliases:
+  - /docs/home-assistant-integration/
 tags: ["docs", "home-assistant", "tutorial"]
 ---
 

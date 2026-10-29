@@ -25,8 +25,8 @@ Kern des Systems ist der **Pool Controller**, ein ESP32-basiertes Gerät, das:
 |---------|----------------|--------|
 | **1 · Start** | Bauweise wählen und ein erstes lauffähiges System aufbauen | [Hier starten](/docs/start-here/) · [Schnellstart](/docs/quickstart/) · [Bauanleitung](/docs/getting-started/) |
 | **2 · Planen & Bauen** | System verstehen, Teile kaufen, sicher in Betrieb nehmen | [Architektur](/docs/architecture/) · [Stückliste](/docs/bom/) · [Inbetriebnahme-Checkliste](/docs/checklist/) |
-| **3 · Komponenten** | Die einzelnen Module kennenlernen | [Pool Controller](/docs/pool-controller/) · [Pool Monitor](/docs/pool-monitor/) · [Grafana Dashboard](/docs/grafana-dashboard/) · [Water Quality Monitor](/docs/water-quality-monitor/) |
-| **4 · Smart-Home-Integration** | Den Controller mit dem Smart Home verbinden | [Home Assistant](/docs/home-assistant-integration/) · [openHAB](/docs/openhab-integration/) · [openHAB Konfiguration](/docs/openhab-configuration/) |
+| **3 · Komponenten** | Die einzelnen Module kennenlernen | [Pool Controller](/docs/components/pool-controller/) · [Pool Monitor](/docs/components/pool-monitor/) · [Grafana Dashboard](/docs/components/grafana-dashboard/) · [Water Quality Monitor](/docs/components/water-quality-monitor/) |
+| **4 · Smart-Home-Integration** | Den Controller mit dem Smart Home verbinden | [Home Assistant](/docs/integrations/home-assistant/) · [openHAB](/docs/integrations/openhab/) · [openHAB Konfiguration](/docs/integrations/openhab-configuration/) |
 | **5 · Betrieb & Support** | Etwas ist unklar, defekt oder muss aktualisiert werden | [FAQ](/docs/faq/) · [Fehlerbehebung](/docs/troubleshooting/) · [Upgrade & Migration](/docs/migration/) |
 | **6 · Projekt** | Hintergrund, Mitmachen, Medien | [Diagramme mit Svgbob](/docs/diagrams/) · [Publikationen](/docs/publications/) · [Galerie](/docs/gallery/) |
 
@@ -38,12 +38,12 @@ Kern des Systems ist der **Pool Controller**, ein ESP32-basiertes Gerät, das:
 
 | Modul | Zweck | Schwierigkeit | Kosten |
 |-------|-------|---------------|--------|
-| **[Pool Controller](/docs/pool-controller/)** | Hauptsteuerlogik (erforderlich) | ⭐⭐ | ~35–55 € |
-| **[Home Assistant Integration](/docs/home-assistant-integration/)** | Smart-Home-Dashboard | ⭐ | Kostenlos |
-| **[openHAB Integration](/docs/openhab-integration/)** | Alternatives Smart Home | ⭐⭐ | Kostenlos |
-| **[Pool Monitor](/docs/pool-monitor/)** | Kabelloses Temperaturdisplay | ⭐⭐ | ~20–40 € |
-| **[Grafana Dashboard](/docs/grafana-dashboard/)** | Datenvisualisierung | ⭐ | Kostenlos |
-| **[Water Quality Monitor](/docs/water-quality-monitor/)** | pH, Chlor und Temperatur (in Entwicklung) | ⭐⭐⭐ | offen |
+| **[Pool Controller](/docs/components/pool-controller/)** | Hauptsteuerlogik (erforderlich) | ⭐⭐ | ~35–55 € |
+| **[Home Assistant Integration](/docs/integrations/home-assistant/)** | Smart-Home-Dashboard | ⭐ | Kostenlos |
+| **[openHAB Integration](/docs/integrations/openhab/)** | Alternatives Smart Home | ⭐⭐ | Kostenlos |
+| **[Pool Monitor](/docs/components/pool-monitor/)** | Kabelloses Temperaturdisplay | ⭐⭐ | ~20–40 € |
+| **[Grafana Dashboard](/docs/components/grafana-dashboard/)** | Datenvisualisierung | ⭐ | Kostenlos |
+| **[Water Quality Monitor](/docs/components/water-quality-monitor/)** | pH, Chlor und Temperatur (in Entwicklung) | ⭐⭐⭐ | offen |
 
 Die Kosten des Controllers gelten nur für die Elektronik; die [Stückliste](/docs/bom/) enthält zusätzlich Gehäuse, Netzverkabelung und Werkzeug.
 

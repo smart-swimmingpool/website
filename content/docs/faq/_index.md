@@ -93,7 +93,7 @@ The **ESP32 and relay module are NOT weatherproof** out of the box. For outdoor 
 
 ### The system cost more than 100€ — is that normal?
 
-The **~45–75€** estimate covers the **controller electronics only** (ESP32, sensors, relay, breadboard, enclosure). It does **not** include:
+The **~35–55€** estimate covers the **controller electronics only** (ESP32, sensors, relay, breadboard, power supply); with enclosure and mechanics plan **~60–100€**. It does **not** include:
 - Pool pump and filter system
 - Heating circuit pump
 - Heat exchanger installation
@@ -107,11 +107,11 @@ If you need to add these, the total project cost can be significantly higher.
 
 ### Does it work with Home Assistant?
 
-**Yes, seamlessly.** The controller uses **Home Assistant MQTT Discovery** — it automatically registers all sensors, controls, and configuration parameters as entities. No YAML configuration is needed. See the [Home Assistant Integration](/docs/home-assistant-integration/) guide.
+**Yes, seamlessly.** The controller uses **Home Assistant MQTT Discovery** — it automatically registers all sensors, controls, and configuration parameters as entities. No YAML configuration is needed. See the [Home Assistant Integration](/docs/integrations/home-assistant/) guide.
 
 ### Does it work with openHAB?
 
-**Yes.** The controller publishes all data via MQTT using the Homie convention (v2.x) or HA Discovery format (v3.x). openHAB can subscribe to these topics via its MQTT binding. See the [openHAB Configuration](/docs/openhab-configuration/) page.
+**Yes.** The controller publishes all data via MQTT using the Homie convention (v2.x) or HA Discovery format (v3.x). openHAB can subscribe to these topics via its MQTT binding. See the [openHAB Configuration](/docs/integrations/openhab-configuration/) page.
 
 ### Does it work with Alexa, Google Home, or Apple HomeKit?
 
@@ -119,7 +119,7 @@ If you need to add these, the total project cost can be significantly higher.
 
 ### Can I use Grafana with this?
 
-**Yes.** The pool controller publishes all data to MQTT. You can use [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) to ingest MQTT data into [InfluxDB](https://www.influxdata.com/) and visualize it with [Grafana](/docs/grafana-dashboard/).
+**Yes.** The pool controller publishes all data to MQTT. You can use [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) to ingest MQTT data into [InfluxDB](https://www.influxdata.com/) and visualize it with [Grafana](/docs/components/grafana-dashboard/).
 
 ---
 

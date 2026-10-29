@@ -1,6 +1,8 @@
 ---
 title: openHAB Configuration
-weight: 43
+weight: 3
+aliases:
+  - /docs/openhab-configuration/
 tags: ["docs", "openhab", "configuration", "smarthome"]
 ---
 
@@ -32,7 +34,7 @@ This module includes:
 ### Getting Started
 
 - **[openHAB Configuration Repository](https://github.com/smart-swimmingpool/openhab-config)** - Main repository with all configuration files
-- **[openHAB Integration Guide](/docs/openhab-integration/)** - Step-by-step integration guide
+- **[openHAB Integration Guide](/docs/integrations/openhab/)** - Step-by-step integration guide
 - **[Installation](https://github.com/smart-swimmingpool/openhab-config#installation)** - Setup instructions
 
 ### Configuration Files
@@ -70,9 +72,9 @@ The items file includes:
 ## 🚀 Next Steps
 
 1. **[Start Here](/docs/start-here/)** - Choose your path based on your goals
-2. **[openHAB Integration Guide](/docs/openhab-integration/)** - Step-by-step integration instructions
+2. **[openHAB Integration Guide](/docs/integrations/openhab/)** - Step-by-step integration instructions
 3. **[Visit Repository](https://github.com/smart-swimmingpool/openhab-config)** - Access all configuration files
-4. **[Pool Controller Setup](/docs/pool-controller/)** - Ensure your controller is running
+4. **[Pool Controller Setup](/docs/components/pool-controller/)** - Ensure your controller is running
 
 ## 💬 Need Help?
 

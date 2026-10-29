@@ -1,6 +1,8 @@
 ---
 title: Grafana Dashboard
-weight: 33
+weight: 3
+aliases:
+  - /docs/grafana-dashboard/
 tags: ["docs", "grafana", "visualization", "monitoring"]
 ---
 
@@ -8,7 +10,7 @@ tags: ["docs", "grafana", "visualization", "monitoring"]
 
 Das **Grafana Dashboard** zeigt Ihren Smart Swimming Pool im zeitlichen Verlauf: Pool- und
 Solartemperatur, Pumpen-Schaltzeiten, Betriebsmodus und Diagnosewerte des Controllers. Es ist
-für den [Pool Controller](/docs/pool-controller/) **v5.x** gemacht und liest die Daten, die
+für den [Pool Controller](/docs/components/pool-controller/) **v5.x** gemacht und liest die Daten, die
 **Home Assistant** in **InfluxDB** speichert.
 
 ![Grafana Dashboard mit Beispieldaten](https://raw.githubusercontent.com/smart-swimmingpool/grafana-dashboard/master/docs/dashboard-screenshot.png)
@@ -20,7 +22,7 @@ Pool Controller ──MQTT Discovery──▶ Home Assistant ──InfluxDB-Inte
 ```
 
 1. Der Pool Controller meldet seine Entitäten per Home-Assistant-MQTT-Discovery an
-    (siehe [Home Assistant Integration](/docs/home-assistant-integration/)).
+    (siehe [Home Assistant Integration](/docs/integrations/home-assistant/)).
 2. Die [InfluxDB-Integration](https://www.home-assistant.io/integrations/influxdb/) von
     Home Assistant speichert die Zustände in InfluxDB.
 3. Grafana fragt diese Datenbank ab und stellt das Dashboard dar.
@@ -37,7 +39,7 @@ Pool Controller ──MQTT Discovery──▶ Home Assistant ──InfluxDB-Inte
 
 ### Voraussetzungen
 
-- [Pool Controller](/docs/pool-controller/) v5.x, verbunden mit Home Assistant
+- [Pool Controller](/docs/components/pool-controller/) v5.x, verbunden mit Home Assistant
 - [InfluxDB-Integration](https://www.home-assistant.io/integrations/influxdb/) von Home Assistant
   mit Standard-Einstellungen für Measurements
 - InfluxDB 1.x (oder 2.x mit InfluxQL) und Grafana 10 oder neuer
@@ -76,8 +78,8 @@ unter **Dashboard settings → Variables** an.
 
 1. **[Hier beginnen](/docs/start-here/)** - Wählen Sie Ihren Weg passend zu Ihren Zielen
 2. **[Repository besuchen](https://github.com/smart-swimmingpool/grafana-dashboard)** - Dashboard-JSON und Dokumentation
-3. **[Pool Controller Setup](/docs/pool-controller/)** - Stellen Sie sicher, dass Ihr Controller läuft
-4. **[Home Assistant Integration](/docs/home-assistant-integration/)** - Controller mit Home Assistant verbinden
+3. **[Pool Controller Setup](/docs/components/pool-controller/)** - Stellen Sie sicher, dass Ihr Controller läuft
+4. **[Home Assistant Integration](/docs/integrations/home-assistant/)** - Controller mit Home Assistant verbinden
 
 ## 💬 Hilfe benötigt?
 

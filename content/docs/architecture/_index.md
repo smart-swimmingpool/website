@@ -157,5 +157,5 @@ The architecture supports several optional add-ons:
 ## Related Pages
 
 - [Build Guide](/docs/getting-started/) — Build your own pool controller
-- [Home Assistant Integration](/docs/home-assistant-integration/) — Dashboard and automation guide
+- [Home Assistant Integration](/docs/integrations/home-assistant/) — Dashboard and automation guide
 - [Troubleshooting](/docs/troubleshooting/) — Common problems and solutions

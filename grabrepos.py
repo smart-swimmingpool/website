@@ -90,7 +90,25 @@ def split_by_headings(data):
     return sections
 
 
-# Slugs of pool-controller sub-pages that are placed under /docs/pool-controller/ on the website
+# Section of the docs tree (below content/docs/) each module repo is imported into.
+# Repos not listed here are placed directly below content/docs/.
+MODULE_SECTIONS = {
+    'pool-controller': 'components',
+    'pool-monitor': 'components',
+    'grafana-dashboard': 'components',
+    'water-quality-monitor': 'components',
+    'openhab-configuration': 'integrations',
+}
+
+
+def module_path(reponame):
+    """Return the docs-relative directory of a module, e.g. components/pool-controller."""
+    name = reponame.replace(" ", "-").lower()
+    section = MODULE_SECTIONS.get(name)
+    return f"{section}/{name}" if section else name
+
+
+# Slugs of pool-controller sub-pages that are placed under /docs/components/pool-controller/ on the website
 # but whose internal links reference /docs/{slug}/ (as if they were top-level pages).
 POOL_CONTROLLER_SUBPAGES = frozenset({
     'build-from-zero', 'hardware-guide', 'software-guide', 'mqtt-configuration',
@@ -106,19 +124,19 @@ def rewrite_pool_controller_links(content):
     """Fix broken absolute /docs/{slug}/ links in imported pool-controller docs.
 
     The pool-controller source docs use absolute links like /docs/build-from-zero/
-    but on the website these pages live under /docs/pool-controller/build-from-zero/.
+    but on the website these pages live under /docs/components/pool-controller/build-from-zero/.
     Also fixes relative image paths and special home-assistant redirect.
     """
-    # Special case: /docs/home-assistant/ → /docs/home-assistant-integration/
+    # Special case: /docs/home-assistant/ → /docs/integrations/home-assistant/
     content = content.replace(
         '/docs/home-assistant/',
-        '/docs/home-assistant-integration/',
+        '/docs/integrations/home-assistant/',
     )
-    # Rewrite /docs/{subpage}/ → /docs/pool-controller/{subpage}/
+    # Rewrite /docs/{subpage}/ → /docs/components/pool-controller/{subpage}/
     # for all known pool-controller sub-page slugs
     slugs = sorted(POOL_CONTROLLER_SUBPAGES, key=len, reverse=True)
     for slug in slugs:
-        content = content.replace(f'/docs/{slug}/', f'/docs/pool-controller/{slug}/')
+        content = content.replace(f'/docs/{slug}/', f'/docs/components/pool-controller/{slug}/')
     # Fix relative image path: ../pool-controller_breadboard.png → /img/pool-controller_breadboard.png
     content = content.replace(
         '../pool-controller_breadboard.png',
@@ -176,15 +194,28 @@ def rewrite_relative_links(content, repopath, srcfile, repourl, branch, docsdir=
 
 
 # Compute the relative destination path for a source file.
-# Preserves subdirectory structure (e.g. docs/home-assistant/_index.md → pool-controller/home-assistant/_index.md)
+# Preserves subdirectory structure (e.g. docs/home-assistant/_index.md → components/pool-controller/home-assistant/_index.md)
 def dest_filepath(reponame, srcdir, srcfile):
-    reponame = reponame.replace(" ", "-").lower()
     # Compute relative path from repo root to source file
     relpath = os.path.relpath(srcfile, srcdir)
     # Strip leading 'docs/' prefix since files go into content/docs/
     if relpath.startswith("docs/"):
         relpath = relpath[5:]
-    return os.path.join(reponame, relpath)
+    return os.path.join(module_path(reponame), relpath)
+
+
+# URL the page had before modules were moved into sections, or None if it did not move.
+def legacy_url(reponame, srcdir, srcfile):
+    name = reponame.replace(" ", "-").lower()
+    if module_path(reponame) == name:
+        return None
+    relpath = os.path.relpath(srcfile, srcdir)
+    if relpath.startswith("docs/"):
+        relpath = relpath[5:]
+    page = re.sub(r"(\.de)?\.md$", "", relpath)
+    if page.endswith("_index"):
+        page = page[:-len("_index")]
+    return "/docs/" + (name + "/" + page).rstrip("/") + "/"
 
 
 # Copy files to "docs/". Filter sections of file first. Add generated header to file.
@@ -209,6 +240,10 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     combined["source"] = absurl
     combined["file"] = filename.name
     combined["lastmod"] = date.strftime("%Y-%m-%d")
+    # Keep the pre-restructuring URL (/docs/<repo>/...) working
+    old_url = legacy_url(reponame, srcdir, str(filename))
+    if old_url:
+        combined["aliases"] = [old_url]
     # Preserve original title/description if they exist
     for key in ("title", "description", "date", "draft", "weight", "tags", "categories"):
         if key in metadata:
@@ -224,7 +259,7 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
     if dest.name in ('_index.md', '_index.de.md') and dest.exists():
         logging.info(f"  SKIPPING existing _index page (website version takes precedence): {dest}")
         return
-    # Post-process links in pool-controller docs (they live under /docs/pool-controller/ on the
+    # Post-process links in pool-controller docs (they live under /docs/components/pool-controller/ on the
     # website but their source may reference /docs/{slug}/ as if at root level)
     norm_repo = reponame.replace(" ", "-").lower()
     if norm_repo == "pool-controller":

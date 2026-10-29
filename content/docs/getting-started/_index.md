@@ -31,7 +31,7 @@ In a typical setup, a thermal solar system heats water and supports the home hea
 | Breadboard + jumper wires | 3–8 € | For prototyping; use perfboard for permanent build |
 | USB power supply (5V / 1A+) | 5–10 € | For ESP32 + relay module |
 | Enclosure (IP54+) | 5–10 € | Optional but recommended for outdoor use |
-| **Total** | **~45–75 €** | **Excluding pool pump / heat exchanger infrastructure** |
+| **Total** | **~35–65 €** | **Excluding pool pump / heat exchanger infrastructure** |
 
 > **⚠️ Relay module note:** The firmware drives relays **active-low** (GPIO **LOW** = relay ON, GPIO **HIGH** = relay OFF). This matches the vast majority of cheap 2-channel 5V relay modules. During ESP32 boot, GPIOs are briefly in high-impedance state — the firmware sets them HIGH (relay OFF) as soon as possible after startup. If your module behaves differently (active-high), see the [Troubleshooting](/docs/troubleshooting/) for configuration options.
 
@@ -157,7 +157,7 @@ If you use Home Assistant with MQTT configured:
 4. The pool controller should appear as a new device automatically.
 5. All sensors, controls, and configuration parameters appear as entities — no manual setup needed.
 
-> ▶️ **Detailed guide**: See the [Home Assistant Integration Guide](/docs/home-assistant-integration/) for the complete entity reference, dashboard setup, automation examples, and troubleshooting.
+> ▶️ **Detailed guide**: See the [Home Assistant Integration Guide](/docs/integrations/home-assistant/) for the complete entity reference, dashboard setup, automation examples, and troubleshooting.
 
 ### Step 5: Connect the Pumps
 
@@ -173,9 +173,9 @@ Only now — after verifying everything works:
 ## What's Next?
 
 Once your Pool Controller is running:
-- Explore the **[Home Assistant Integration Guide](/docs/home-assistant-integration/)** for the complete entity reference, dashboard setup, and automation examples
-- Set up the **[Grafana Dashboard](/docs/grafana-dashboard/)** to visualize temperature trends
-- Add the **[Pool Monitor](/docs/pool-monitor/)** for a dedicated display
+- Explore the **[Home Assistant Integration Guide](/docs/integrations/home-assistant/)** for the complete entity reference, dashboard setup, and automation examples
+- Set up the **[Grafana Dashboard](/docs/components/grafana-dashboard/)** to visualize temperature trends
+- Add the **[Pool Monitor](/docs/components/pool-monitor/)** for a dedicated display
 - Check the **[Troubleshooting](/docs/troubleshooting/)** if you run into issues
-- Follow the **[openHAB Integration Guide](/docs/openhab-integration/)** to set up openHAB step by step
-- Reference the **[openHAB Configuration](/docs/openhab-configuration/)** for the complete openHAB config files
+- Follow the **[openHAB Integration Guide](/docs/integrations/openhab/)** to set up openHAB step by step
+- Reference the **[openHAB Configuration](/docs/integrations/openhab-configuration/)** for the complete openHAB config files

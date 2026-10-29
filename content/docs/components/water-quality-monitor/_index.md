@@ -1,6 +1,8 @@
 ---
 title: Water Quality Monitor
-weight: 34
+weight: 4
+aliases:
+  - /docs/water-quality-monitor/
 tags: ["docs", "water-quality", "pH", "chlorine", "esp8266"]
 ---
 
@@ -24,13 +26,13 @@ to your smart home system.
 
 ## 🧩 Fit in the Smart Swimming Pool System
 
-- Publishes measurements via **MQTT**, like the [Pool Controller](/docs/pool-controller/)
-- Values can be stored and visualized, e.g. with the [Grafana Dashboard](/docs/grafana-dashboard/)
-- Usable from [Home Assistant](/docs/home-assistant-integration/) and [openHAB](/docs/openhab-integration/)
+- Publishes measurements via **MQTT**, like the [Pool Controller](/docs/components/pool-controller/)
+- Values can be stored and visualized, e.g. with the [Grafana Dashboard](/docs/components/grafana-dashboard/)
+- Usable from [Home Assistant](/docs/integrations/home-assistant/) and [openHAB](/docs/integrations/openhab/)
 
 ## 🧭 Documentation
 
-- **[Hardware Guide](/docs/water-quality-monitor/hardware-guide/)** - Sensor options, circuit ideas and parts list
+- **[Hardware Guide](/docs/components/water-quality-monitor/hardware-guide/)** - Sensor options, circuit ideas and parts list
 - **[Repository](https://github.com/smart-swimmingpool/water-quality-monitor)** - Source code and current status
 
 ## 🤝 How You Can Help

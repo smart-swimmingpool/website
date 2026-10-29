@@ -20,7 +20,7 @@ the right path based on what you want to build.
 - Flash the pre-built firmware
 - Control via Home Assistant
 
-**Start here**: [Pool Controller — Build from Zero](/docs/pool-controller/build-from-zero/)
+**Start here**: [Pool Controller — Build from Zero](/docs/components/pool-controller/build-from-zero/)
 
 | Component | Approx. Cost |
 |-----------|-------------|
@@ -37,16 +37,16 @@ the right path based on what you want to build.
 
 **Goal**: Full automation with circulation scheduling and solar heating.
 
-- Follow the [Build from Zero](/docs/pool-controller/build-from-zero/) guide
+- Follow the [Build from Zero](/docs/components/pool-controller/build-from-zero/) guide
 - Use an **IP65 enclosure** for weather protection
 - Proper **mains wiring** with fuse and RCD protection
 - **Home Assistant** integration for dashboard and automation
 - **MQTT** for reliable communication
 
 **Required reading**:
-- [Electrical Safety](/docs/pool-controller/electrical-safety/)
-- [Production Checklist](/docs/pool-controller/production-checklist/)
-- [Security Checklist](/docs/pool-controller/security-checklist/)
+- [Electrical Safety](/docs/components/pool-controller/electrical-safety/)
+- [Production Checklist](/docs/components/pool-controller/production-checklist/)
+- [Security Checklist](/docs/components/pool-controller/security-checklist/)
 
 ---
 
@@ -63,11 +63,11 @@ the right path based on what you want to build.
 - Regular **maintenance schedule**
 
 **Required reading**:
-- [Build from Zero](/docs/pool-controller/build-from-zero/)
-- [Electrical Safety](/docs/pool-controller/electrical-safety/)
-- [Safety Model](/docs/pool-controller/safety-model/)
-- [Production Checklist](/docs/pool-controller/production-checklist/)
-- [Security Checklist](/docs/pool-controller/security-checklist/)
+- [Build from Zero](/docs/components/pool-controller/build-from-zero/)
+- [Electrical Safety](/docs/components/pool-controller/electrical-safety/)
+- [Safety Model](/docs/components/pool-controller/safety-model/)
+- [Production Checklist](/docs/components/pool-controller/production-checklist/)
+- [Security Checklist](/docs/components/pool-controller/security-checklist/)
 - [Troubleshooting](/docs/troubleshooting/)
 
 ---
@@ -102,7 +102,7 @@ Common questions (Do I need Home Assistant? What if I have no solar heating? Do 
 2. Order the parts from the [Bill of Materials](/docs/bom/)
 3. Build and test on a breadboard, then run the [Commissioning Checklist](/docs/checklist/)
 4. Install in an enclosure
-5. Integrate with [Home Assistant](/docs/home-assistant-integration/) or [openHAB](/docs/openhab-integration/)
+5. Integrate with [Home Assistant](/docs/integrations/home-assistant/) or [openHAB](/docs/integrations/openhab/)
 6. Enjoy your smart pool!
 
 ---
