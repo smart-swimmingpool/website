@@ -4,7 +4,7 @@
 
 /* ===== Pool Color Scheme ===== */
 /* Hextra uses CSS custom properties for primary color.
-   These must use the exact variable names from the theme. */
+  These must use the exact variable names from the theme. */
 
 :root {
   --primary-hue: 210deg;
@@ -516,4 +516,75 @@ a, button, .hextra-feature-card, nav * {
 
 .cta-section .not-prose a {
   margin-top: 0.5rem;
+}
+
+/* ===== Layout fixes =====
+ * Classes used only in custom layouts/shortcodes are not always emitted by the
+ * theme's Tailwind build, so the essentials are defined here as plain CSS. */
+
+/* Headings inside raw HTML blocks do not get the theme's heading styles */
+.water-texture-bg h2,
+.cta-section h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  margin: 0 0 1rem;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.cta-section .mt-4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* 230 V warning box */
+.safety-notice {
+  max-width: 64rem;
+  margin: 1.5rem auto;
+  padding: 1rem 1.25rem;
+  border: 2px solid #fca5a5;
+  border-radius: 0.5rem;
+  background: #fef2f2;
+}
+
+.dark .safety-notice {
+  border-color: #b91c1c;
+  background: rgba(127, 29, 29, 0.2);
+}
+
+.safety-notice > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.safety-notice p {
+  margin: 0;
+}
+
+.safety-notice p + p {
+  margin-top: 0.25rem;
+}
+
+/* Footer links */
+.site-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1rem;
+}
+
+.site-footer-extra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0;
 }
