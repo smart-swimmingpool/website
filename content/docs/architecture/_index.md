@@ -103,8 +103,8 @@ A standard **2-channel 5V relay module** (active-low):
 
 | Channel | GPIO | Controls |
 |---------|------|----------|
-| Relay IN1 (Ch. 1) | GPIO26 | Heating circuit pump |
-| Relay IN2 (Ch. 2) | GPIO25 | Filter/circulation pump |
+| Relay IN1 (Ch. 1) | GPIO25 | Filter/circulation pump |
+| Relay IN2 (Ch. 2) | GPIO26 | Heating circuit pump |
 
 The relay module provides **galvanic isolation** between the ESP32 (low voltage) and the pumps (230V). Always connect pumps through an **RCD/FI circuit breaker**.
 

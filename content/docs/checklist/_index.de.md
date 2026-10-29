@@ -18,8 +18,8 @@ Verwenden Sie diese Checkliste **bevor** Sie Pumpen an die Netzspannung anschlie
 
 - [ ] ESP32 fest auf Breadboard oder Lochrasterplatine
 - [ ] Relais-Modul angeschlossen: **VCC → 5V** (nicht 3,3V!), **GND → GND**
-- [ ] Relais IN1 (GPIO26) vorbereitet für **Heizkreispumpe**
-- [ ] Relais IN2 (GPIO25) vorbereitet für **Filter-/Umwälzpumpe**
+- [ ] Relais IN2 (GPIO26) vorbereitet für **Heizkreispumpe**
+- [ ] Relais IN1 (GPIO25) vorbereitet für **Filter-/Umwälzpumpe**
 - [ ] DS18B20 Solar-Sensor: **DATA → GPIO32**, **VDD → 3,3V**, **GND → GND**
 - [ ] DS18B20 Pool-Sensor: **DATA → GPIO33**, **VDD → 3,3V**, **GND → GND**
 - [ ] **4,7kΩ Pull-Up-Widerstand** zwischen jeder DATA-Leitung und 3,3V (insgesamt 2 Widerstände)
@@ -156,8 +156,8 @@ Bevor Sie Pumpen anschließen, testen Sie, ob der Controller die Relais schalten
 
 | GPIO | Erwartet AUS | Erwartet EIN | Steuert |
 |------|-------------|-------------|---------|
-| GPIO26 (IN1) | ~3,3V (HIGH) | ~0V (LOW) | Heizpumpe (noch nicht angeschlossen) |
-| GPIO25 (IN2) | ~3,3V (HIGH) | ~0V (LOW) | Filterpumpe (noch nicht angeschlossen) |
+| GPIO26 (IN2) | ~3,3V (HIGH) | ~0V (LOW) | Heizpumpe (noch nicht angeschlossen) |
+| GPIO25 (IN1) | ~3,3V (HIGH) | ~0V (LOW) | Filterpumpe (noch nicht angeschlossen) |
 
 ---
 
@@ -221,8 +221,8 @@ Druckbare Kurzfassung für den Einsatz vor Ort:
 ```
 ☐ ESP32: 5V USB-Strom, Datenkabel
 ☐ Relais VCC → 5V, GND → GND
-☐ Relais IN1 → GPIO26 (Heizung)
-☐ Relais IN2 → GPIO25 (Filter)
+☐ Relais IN2 → GPIO26 (Heizung)
+☐ Relais IN1 → GPIO25 (Filter)
 ☐ DS18B20 #1: GPIO32 + 4,7kΩ Pull-Up
 ☐ DS18B20 #2: GPIO33 + 4,7kΩ Pull-Up
 ☐ FI-Schutzschalter auf 230V-Seite

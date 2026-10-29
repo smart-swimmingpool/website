@@ -31,20 +31,39 @@ Dies ist der Express-Pfad — minimale Theorie, maximale Aktion. Führen Sie jed
 
 ### Breadboard-Aufbau
 
+```svgbob
+ .---------------------.             .--------------------.
+ |        ESP32        |             |   DS18B20 Solar    |
+ |                     |             |                    |
+ |           GPIO32 o--+----*--------+--o DATA            |
+ |                     |    |        |                    |
+ |                     | .--+--.     |                    |
+ |                     | |4.7k |     |                    |
+ |                     | '--+--'     |                    |
+ |                     |    |        |                    |
+ |              3V3 o--+----*--------+--o VDD             |
+ |                     |             |                    |
+ |              GND o--+-------------+--o GND             |
+ '---------------------'             '--------------------'
 ```
-┌─────────────────────────────────────────┐
-│  ESP32 DevKit                           │
-│  ┌──────────────────────────────────────┤
-│  │ USB    GND  5V  GPIO32  GPIO33  ... │
-│  └──────────────────────────────────────┤
-│           │    │    │       │           │
-│           │    │    ├──4,7kΩ─┤ 3,3V    │
-│           │    │    │       │           │
-│  ─────────┤    │    │       │           │
-│  DS18B20 #1   │    │   DS18B20 #2       │
-│  (Solar)      │    │   (Pool)           │
-└─────────────────────────────────────────┘
+
+```svgbob
+ .---------------------.             .--------------------.
+ |        ESP32        |             |    DS18B20 Pool    |
+ |                     |             |                    |
+ |           GPIO33 o--+----*--------+--o DATA            |
+ |                     |    |        |                    |
+ |                     | .--+--.     |                    |
+ |                     | |4.7k |     |                    |
+ |                     | '--+--'     |                    |
+ |                     |    |        |                    |
+ |              3V3 o--+----*--------+--o VDD             |
+ |                     |             |                    |
+ |              GND o--+-------------+--o GND             |
+ '---------------------'             '--------------------'
 ```
+
+Der 4,7kΩ-Widerstand ist die einzige Verbindung zwischen DATA und 3,3V. Der Pool-Sensor wird genauso an GPIO33 angeschlossen.
 
 **Verbindungen:**
 
@@ -60,8 +79,8 @@ Dies ist der Express-Pfad — minimale Theorie, maximale Aktion. Führen Sie jed
 | GPIO33 → 3,3V | 4,7kΩ Pull-Up | — |
 | ESP32 5V (VIN) | Relais-Modul VCC | Rot |
 | ESP32 GND | Relais-Modul GND | Schwarz |
-| ESP32 GPIO26 | Relais IN1 (Heizpumpe) | Blau |
-| ESP32 GPIO25 | Relais IN2 (Filterpumpe) | Grün |
+| ESP32 GPIO26 | Relais IN2 (Heizpumpe) | Blau |
+| ESP32 GPIO25 | Relais IN1 (Filterpumpe) | Grün |
 
 > ⚠️ **Doppelprüfung:** Relais VCC geht an **5V** (ESP32 VIN), NICHT an 3,3V.
 
@@ -134,7 +153,7 @@ Weboberfläche **Status**-Seite prüfen:
 1. Webinterface **Control** → **Operation Mode** auf **`manu`** (Manuell)
 2. Multimeter auf Gleichspannung einstellen
 3. **Heating Pump** EIN schalten:
-   - GPIO26 (Relais IN1) sollte **~0V (LOW)** anzeigen
+   - GPIO26 (Relais IN2) sollte **~0V (LOW)** anzeigen
 4. EIN → AUS:
    - GPIO26 sollte wieder **~3,3V (HIGH)** anzeigen
 5. Wiederholung für **Filter Pump** an GPIO25
@@ -200,8 +219,8 @@ Ihr Pool-Controller ist betriebsbereit. Nächste Schritte:
 | DS18B20 Solar (DATA) | GPIO32 |
 | DS18B20 Pool (DATA) | GPIO33 |
 | 4,7kΩ Pull-Up (pro Sensor) | DATA → 3,3V |
-| Relais IN1 (Heizpumpe) | GPIO26 |
-| Relais IN2 (Filterpumpe) | GPIO25 |
+| Relais IN2 (Heizpumpe) | GPIO26 |
+| Relais IN1 (Filterpumpe) | GPIO25 |
 | Relais VCC | 5V (VIN) |
 | Relais GND | GND |
 | DS18B20 VDD | 3,3V |

@@ -103,8 +103,8 @@ Ein Standard **2-Kanal-5V-Relais-Modul** (Aktiv-Low):
 
 | Kanal | GPIO | Steuert |
 |-------|------|---------|
-| Relais IN1 (Kanal 1) | GPIO26 | Heizkreispumpe |
-| Relais IN2 (Kanal 2) | GPIO25 | Filter-/Umwälzpumpe |
+| Relais IN1 (Kanal 1) | GPIO25 | Filter-/Umwälzpumpe |
+| Relais IN2 (Kanal 2) | GPIO26 | Heizkreispumpe |
 
 Das Relais-Modul sorgt für **galvanische Trennung** zwischen ESP32 (Niederspannung) und den Pumpen (230V). Pumpen immer über einen **FI-Schutzschalter** anschließen.
 

@@ -66,8 +66,8 @@ Die Firmware (esp32dev-Umgebung) weist **jedem Sensor einen eigenen GPIO-Pin** z
 
 | ESP32 Pin | Relais-Modul | Hinweise |
 |-----------|-------------|----------|
-| GPIO26 | IN1 | Heizkreispumpe |
-| GPIO25 | IN2 | Umwälzpumpe / Filter |
+| GPIO26 | IN2 | Heizkreispumpe |
+| GPIO25 | IN1 | Umwälzpumpe / Filter |
 | 5V (VIN) | VCC | **5V** nicht 3.3V! |
 | GND | GND | Gemeinsame Masse mit ESP32 |
 
