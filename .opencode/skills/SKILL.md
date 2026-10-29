@@ -94,7 +94,7 @@ hugo server -D
 | Trigger | Method |
 |---------|--------|
 | Push to `main` | GitHub Actions CI |
-| Daily 6:00 UTC | Cron in `deploy-hugo.yml` |
+| Daily 6:00 UTC | Cron in `ci.yml` |
 | Module doc update | `repository_dispatch` with type `doc_update` |
 | Manual | GitHub Actions → "Run workflow" |
 

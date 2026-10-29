@@ -76,7 +76,7 @@ sequenceDiagram
     M->>G: Push to main (docs/ changed)
     G->>G: Runs trigger-website-rebuild.yml
     G->>W: repository_dispatch (doc_update)
-    W->>W: Runs deploy-hugo.yml
+    W->>W: Runs ci.yml
     W->>W: grabrepos.py clones/fetches module repos
     W->>W: hugo --minify builds the site
     W->>S: Deploy to GitHub Pages
