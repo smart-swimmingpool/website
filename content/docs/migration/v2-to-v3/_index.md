@@ -1,6 +1,8 @@
 ---
-title: Firmware Migration (v2.x → v3.x)
-weight: 50
+title: "v2.x → v3.x Migration Guide"
+weight: 10
+aliases:
+  - /docs/firmware-migration/
 tags: ["docs", "migration", "homie", "firmware"]
 ---
 
@@ -8,7 +10,7 @@ tags: ["docs", "migration", "homie", "firmware"]
 
 If you are running the **Pool Controller v2.x** (or earlier) and plan to upgrade to **v3.x**, this guide explains what changes and how to update your smart home integration.
 
-> 💡 **New user?** If you are installing the pool controller for the first time, follow the [Getting Started](/docs/getting-started/) guide instead. This guide is only relevant if you have an existing Homie 3.0 setup.
+> 💡 **New user?** If you are installing the pool controller for the first time, follow the [Build Guide](/docs/getting-started/) guide instead. This guide is only relevant if you have an existing Homie 3.0 setup.
 
 ---
 
@@ -39,7 +41,7 @@ openHAB remains fully supported via manual MQTT configuration.
 
 ### Step 1: Flash v3.x
 
-Follow the standard flashing procedure in the [Getting Started](/docs/getting-started/#firmware-installation) guide:
+Follow the standard flashing procedure in the [Build Guide](/docs/getting-started/#firmware-installation) guide:
 
 ```bash
 # In VS Code with PlatformIO:

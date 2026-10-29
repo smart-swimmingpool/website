@@ -1,6 +1,6 @@
 ---
-title: Diagramme mit Svgbob
-weight: 90
+title: "Diagramme schreiben (Svgbob)"
+weight: 61
 tags: ["docs", "contributing", "diagrams"]
 ---
 

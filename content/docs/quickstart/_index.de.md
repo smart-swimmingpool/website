@@ -1,6 +1,6 @@
 ---
 title: Schnellstart
-weight: 8
+weight: 12
 tags: ["docs", "getting-started", "quickstart", "tutorial"]
 ---
 
@@ -8,7 +8,7 @@ tags: ["docs", "getting-started", "quickstart", "tutorial"]
 
 Dies ist der Express-Pfad — minimale Theorie, maximale Aktion. Führen Sie jeden Schritt genau aus, und Sie haben innerhalb einer Stunde einen funktionierenden Pool-Controller.
 
-> 📖 Ausführliche Erklärungen im [Erste Schritte](/docs/getting-started/)-Handbuch.
+> 📖 Ausführliche Erklärungen in der [Bauanleitung](/docs/getting-started/).
 
 ---
 
@@ -189,7 +189,7 @@ Ihr Pool-Controller ist betriebsbereit. Nächste Schritte:
 - **[Grafana Dashboard](/docs/grafana-dashboard/)** für Temperaturverlauf einrichten
 - **[Pool Monitor](/docs/pool-monitor/)** für kabelloses Display hinzufügen
 - **[Inbetriebnahme-Checkliste](/docs/checklist/)** für ausführlichere Prüfung durchgehen
-- **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** bei Problemen
+- **[Fehlerbehebung](/docs/troubleshooting/)** bei Problemen
 
 ---
 

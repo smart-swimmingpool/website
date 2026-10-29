@@ -1,6 +1,6 @@
 ---
 title: Grafana Dashboard
-weight: 1
+weight: 33
 tags: ["docs", "grafana", "visualization", "monitoring"]
 ---
 
@@ -80,7 +80,7 @@ variables under **Dashboard settings → Variables**.
 
 ## 💬 Need Help?
 
-- Check the **[FAQ & Troubleshooting](/docs/troubleshooting/)** page
+- Check the **[Troubleshooting](/docs/troubleshooting/)** page
 - Visit the **[Grafana Dashboard Repository](https://github.com/smart-swimmingpool/grafana-dashboard)**
 - Open an **[Issue](https://github.com/smart-swimmingpool/grafana-dashboard/issues)** for bugs or feature requests
 - Consult the **[Grafana Documentation](https://grafana.com/docs/)** for Grafana-specific questions

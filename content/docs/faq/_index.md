@@ -1,6 +1,6 @@
 ---
-title: Frequently Asked Questions
-weight: 28
+title: "FAQ"
+weight: 51
 tags: ["docs", "faq"]
 ---
 
@@ -90,6 +90,16 @@ The **ESP32 and relay module are NOT weatherproof** out of the box. For outdoor 
 ### Is the pool controller CE / UL certified?
 
 **No.** This is a hobbyist DIY project. It has not been tested or certified by any regulatory body. You build and operate it at your own risk. Always use an **RCD / FI circuit breaker** when connecting to mains power.
+
+### The system cost more than 100€ — is that normal?
+
+The **~45–75€** estimate covers the **controller electronics only** (ESP32, sensors, relay, breadboard, enclosure). It does **not** include:
+- Pool pump and filter system
+- Heating circuit pump
+- Heat exchanger installation
+- Wiring materials (cables, connectors, circuit breakers)
+
+If you need to add these, the total project cost can be significantly higher.
 
 ---
 

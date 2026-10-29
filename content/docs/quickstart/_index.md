@@ -1,6 +1,6 @@
 ---
 title: Quick Start
-weight: 8
+weight: 12
 tags: ["docs", "getting-started", "quickstart", "tutorial"]
 ---
 
@@ -8,7 +8,7 @@ tags: ["docs", "getting-started", "quickstart", "tutorial"]
 
 This is the express path — minimal theory, maximum action. Follow each step exactly, and you will have a working pool controller within an hour.
 
-> 📖 For detailed explanations and background, see the [Getting Started guide](/docs/getting-started/).
+> 📖 For detailed explanations and background, see the [Build Guide](/docs/getting-started/).
 
 ---
 
@@ -189,7 +189,7 @@ Your pool controller is now fully operational. Next steps:
 - Set up the **[Grafana Dashboard](/docs/grafana-dashboard/)** for temperature history
 - Add the **[Pool Monitor](/docs/pool-monitor/)** for a wireless display
 - Follow the **[Commissioning Checklist](/docs/checklist/)** for a more thorough verification
-- Read the **[FAQ & Troubleshooting](/docs/troubleshooting/)** if something isn't working
+- Read the **[Troubleshooting](/docs/troubleshooting/)** if something isn't working
 
 ---
 

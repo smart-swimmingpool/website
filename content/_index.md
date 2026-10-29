@@ -106,7 +106,7 @@ Transform your swimming pool into a smart, automated system with these benefits:
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
-    title="Getting Started"
+    title="Build Guide"
     subtitle="Comprehensive step-by-step guide. Perfect for those who want to understand every detail."
     link="/docs/getting-started/"
     icon="book-open"

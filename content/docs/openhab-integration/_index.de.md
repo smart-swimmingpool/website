@@ -1,6 +1,6 @@
 ---
 title: openHAB Integration
-weight: 15
+weight: 42
 tags: ["docs", "openHAB", "tutorial"]
 ---
 
@@ -17,7 +17,7 @@ Im Gegensatz zu [Home Assistant](/docs/getting-started/#step-4-home-assistant-in
 
 Bevor Sie beginnen, stellen Sie sicher, dass Folgendes vorhanden ist:
 
-1. **Der Pool Controller** ist geflasht und läuft in Ihrem Netzwerk (siehe [Erste Schritte](/docs/getting-started/))
+1. **Der Pool Controller** ist geflasht und läuft in Ihrem Netzwerk (siehe [Bauanleitung](/docs/getting-started/))
 2. **Ein MQTT-Broker** (z. B. [Mosquitto](https://mosquitto.org/)) — installieren Sie ihn auf dem gleichen Rechner wie openHAB oder in Ihrem Netzwerk
 3. **openHAB** (Version 3 oder 4) läuft und ist über die Weboberfläche erreichbar
 
@@ -318,7 +318,7 @@ Die vollständige Referenzkonfiguration liegt im **[openhab-config Repository](h
 | [`items/2-pool.items`](https://github.com/smart-swimmingpool/openhab-config/blob/master/items/2-pool.items) | Item-Definitionen verknüpft mit Channels |
 | [`sitemaps/pool.sitemap`](https://github.com/smart-swimmingpool/openhab-config/blob/master/sitemaps/pool.sitemap) | BasicUI- und App-Layout |
 
-> **Hinweis**: Das openhab-config Repository verwendet derzeit **Homie 3.0** MQTT-Topics (für Controller v2.x). Wenn Sie Controller v3.x betreiben, passen Sie die Topics an das in dieser Anleitung gezeigte `homeassistant/`-Format an. Siehe dazu die [Firmware-Migration](/docs/firmware-migration/).
+> **Hinweis**: Das openhab-config Repository verwendet derzeit **Homie 3.0** MQTT-Topics (für Controller v2.x). Wenn Sie Controller v3.x betreiben, passen Sie die Topics an das in dieser Anleitung gezeigte `homeassistant/`-Format an. Siehe dazu die [Firmware-Migration](/docs/migration/v2-to-v3/).
 
 ---
 

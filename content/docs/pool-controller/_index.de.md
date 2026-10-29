@@ -1,6 +1,6 @@
 ---
 title: Pool Controller
-weight: 1
+weight: 31
 tags: ["docs", "pool-controller", "hardware", "firmware"]
 ---
 
@@ -72,7 +72,7 @@ Der Pool Controller übernimmt:
 | 2× DS18B20 Sensoren | Temperaturmessung | 6-10 € |
 | 4,7kΩ Widerstände (2x) | Pull-up-Widerstände | < 1 € |
 | Steckbrett + Kabel | Prototyping | 3-8 € |
-| **Gesamt** | | **~30 €** |
+| **Gesamt** | | **~35–55 €** (siehe [Stückliste](/docs/bom/)) |
 
 ### Produktionsaufbau
 
@@ -105,11 +105,11 @@ nutzen eigene Pinbelegungen, siehe `src/Config.hpp` und die oben verlinkten Boar
 
 1. **[Hier beginnen](/docs/start-here/)** - Wählen Sie Ihren Weg basierend auf Ihren Zielen
 2. **[Schnellstart](/docs/quickstart/)** - Schnellster Weg zum Laufen (60 Minuten)
-3. **[Erste Schritte](/docs/getting-started/)** - Umfassliche Aufbauanleitung
+3. **[Bauanleitung](/docs/getting-started/)** - Umfassliche Aufbauanleitung
 4. **[Home Assistant Integration](/docs/home-assistant-integration/)** - Smarthome-Integration
 
 ## 💬 Brauchen Sie Hilfe?
 
-- Prüfen Sie die **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** Seite
+- Prüfen Sie die **[Fehlerbehebung](/docs/troubleshooting/)** Seite
 - Besuchen Sie das **[Pool Controller Repository](https://github.com/smart-swimmingpool/pool-controller)**
 - Öffnen Sie ein **[Issue](https://github.com/smart-swimmingpool/pool-controller/issues)** für Bugs oder Feature-Anfragen

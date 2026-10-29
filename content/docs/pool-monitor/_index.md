@@ -1,6 +1,6 @@
 ---
 title: Pool Monitor
-weight: 1
+weight: 32
 tags: ["docs", "pool-monitor", "display", "solar"]
 ---
 
@@ -82,6 +82,6 @@ The Pool Monitor provides:
 
 ## 💬 Need Help?
 
-- Check the **[FAQ & Troubleshooting](/docs/troubleshooting/)** page
+- Check the **[Troubleshooting](/docs/troubleshooting/)** page
 - Visit the **[Pool Monitor Repository](https://github.com/smart-swimmingpool/monitor)**
 - Open an **[Issue](https://github.com/smart-swimmingpool/monitor/issues)** for bugs or feature requests

@@ -1,6 +1,6 @@
 ---
 title: Home Assistant Integration
-weight: 14
+weight: 41
 tags: ["docs", "home-assistant", "tutorial"]
 ---
 
@@ -9,7 +9,25 @@ tags: ["docs", "home-assistant", "tutorial"]
 The Pool Controller v3.x integrates with Home Assistant through **native [MQTT Discovery](https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery)**. When connected to your MQTT broker, the controller automatically registers all its sensors, controls, and configuration parameters as Home Assistant entities — no manual configuration required.
 
 > 💡 **First time setting up the pool controller?**  
-> Follow the [Getting Started](/docs/getting-started/) guide first, which covers flashing the firmware, WiFi configuration, and MQTT setup.
+> Follow the [Build Guide](/docs/getting-started/) guide first, which covers flashing the firmware, WiFi configuration, and MQTT setup.
+
+---
+
+## Dashboard Preview
+
+The pool controller automatically registers all sensors and controls in Home Assistant via MQTT discovery. Below is an example of the dashboard and the corresponding configuration entries:
+
+![Home Assistant Dashboard](/img/ha-pool-dashboard.jpg)
+
+*Pool Controller entities shown in the Home Assistant dashboard*
+
+![Home Assistant Device Entry](/img/ha-pool-device.jpg)
+
+*MQTT discovery device entry with all sensors and controls*
+
+![Home Assistant Configuration](/img/ha-pool-config.jpg)
+
+*Configuration entries for the pool controller in Home Assistant*
 
 ---
 

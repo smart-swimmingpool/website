@@ -1,6 +1,6 @@
 ---
-title: Häufig gestellte Fragen (FAQ)
-weight: 28
+title: "FAQ"
+weight: 51
 tags: ["docs", "faq"]
 ---
 
@@ -89,6 +89,16 @@ Das Relais-Modul schaltet **230V / 10A max** (ohmsche Last). Bei induktiven Last
 ### Ist der Pool-Controller CE-/UL-zertifiziert?
 
 **Nein.** Dies ist ein Hobby-DIY-Projekt. Es wurde von keiner Aufsichtsbehörde geprüft oder zertifiziert. Sie bauen und betreiben es auf eigene Gefahr. Verwenden Sie immer einen **FI-Schutzschalter (RCD)** beim Anschluss an die Netzspannung.
+
+### Das System hat mehr als 100€ gekostet — ist das normal?
+
+Die Schätzung von **~45–75€** umfasst **nur die Controller-Elektronik** (ESP32, Sensoren, Relais, Breadboard, Gehäuse). Nicht enthalten sind:
+- Poolpumpe und Filtersystem
+- Heizkreispumpe
+- Wärmetauscher-Installation
+- Verdrahtungsmaterial (Kabel, Steckverbinder, Sicherungen)
+
+Wenn diese Komponenten hinzukommen, können die Gesamtkosten deutlich höher sein.
 
 ---
 

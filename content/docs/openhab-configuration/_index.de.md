@@ -1,6 +1,6 @@
 ---
 title: openHAB Konfiguration
-weight: 1
+weight: 43
 tags: ["docs", "openhab", "configuration", "smarthome"]
 ---
 
@@ -76,7 +76,7 @@ Die Items-Datei enthält:
 
 ## 💬 Brauchen Sie Hilfe?
 
-- Prüfen Sie die **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** Seite
+- Prüfen Sie die **[Fehlerbehebung](/docs/troubleshooting/)** Seite
 - Besuchen Sie das **[openHAB Konfiguration Repository](https://github.com/smart-swimmingpool/openhab-config)**
 - Öffnen Sie ein **[Issue](https://github.com/smart-swimmingpool/openhab-config/issues)** für Bugs oder Feature-Anfragen
 - Konsultieren Sie die **[openHAB-Dokumentation](https://www.openhab.org/docs/)** für openHAB-spezifische Fragen

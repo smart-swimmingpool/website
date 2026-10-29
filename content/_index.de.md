@@ -106,7 +106,7 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
-    title="Erste Schritte"
+    title="Bauanleitung"
     subtitle="Umfassende Schritt-für-Schritt-Anleitung. Perfekt für alle, die jedes Detail verstehen möchten."
     link="/docs/getting-started/"
     icon="book-open"

@@ -1,6 +1,6 @@
 ---
 title: Architektur
-weight: 5
+weight: 21
 tags: ["docs", "architecture", "overview"]
 ---
 
@@ -156,6 +156,6 @@ Die Architektur unterstützt mehrere optionale Erweiterungen:
 
 ## Verwandte Seiten
 
-- [Erste Schritte](/docs/getting-started/) — Eigenen Pool Controller bauen
+- [Bauanleitung](/docs/getting-started/) — Eigenen Pool Controller bauen
 - [Home Assistant Integration](/docs/home-assistant-integration/) — Dashboard- und Automations-Guide
-- [FAQ & Fehlerbehebung](/docs/troubleshooting/) — Häufige Probleme und Lösungen
+- [Fehlerbehebung](/docs/troubleshooting/) — Häufige Probleme und Lösungen

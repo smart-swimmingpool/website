@@ -1,6 +1,6 @@
 ---
 title: Bill of Materials
-weight: 9
+weight: 22
 tags: ["docs", "bom", "hardware", "shopping-list"]
 ---
 

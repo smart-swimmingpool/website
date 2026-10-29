@@ -1,6 +1,6 @@
 ---
 title: Upgrade & Migration
-weight: 25
+weight: 53
 tags: ["docs", "migration", "upgrade", "releases"]
 ---
 
@@ -37,13 +37,7 @@ This update is a **major rewrite** of the firmware. The entire MQTT protocol cha
 
 ### Migration Steps
 
-1. **Back up your settings** — Take screenshots of your v2.x configuration (MQTT broker, temperature limits, timer settings)
-2. **Flash the new firmware** via USB (PlatformIO, `esp32dev` environment)
-3. **Upload the filesystem image** (`pio run -e esp32dev -t uploadfs`)
-4. **Reconfigure everything** via the new web interface (WiFi, MQTT, temperature limits)
-5. **Reconfigure Home Assistant:** The new controller appears as a new device (`Pool Controller`). Add entities to your dashboard. Delete the old v2.x device from HA
-6. **Reconfigure automation:** MQTT topics have changed — update any custom automations that referenced Homie topics
-7. **Verify** that all sensors report correct values and pumps respond
+The step-by-step guide — flashing, reconfiguring, topic mapping for Home Assistant and openHAB, and rollback — lives on its own page: **[v2.x → v3.x Migration Guide](/docs/migration/v2-to-v3/)**.
 
 ### What Changed for the Better
 

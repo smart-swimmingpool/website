@@ -7,109 +7,48 @@ weight: 1
 
 # 🏊 Smart Swimming Pool Dokumentation
 
-Willkommen zur umfassenden Dokumentation des Smart Swimming Pool Projekts. Hier finden Sie alles, was Sie benötigen, um Ihr intelligentes Pool-Automatisierungssystem aufzubauen, zu konfigurieren und zu warten.
+Alles, was Sie brauchen, um Ihre smarte Pool-Automatisierung zu bauen, anzubinden und zu warten. Die Seiten sind in der Reihenfolge gruppiert, in der Sie sie voraussichtlich brauchen — genau wie in der Seitenleiste.
 
-## 🧭 Schnelle Navigation
+Kern des Systems ist der **Pool Controller**, ein ESP32-basiertes Gerät, das:
 
-### 👋 Neu bei Smart Swimming Pool?
-
-Beginnen Sie hier, um das Projekt zu verstehen und Ihren Weg zu wählen:
-
-- **[Hier beginnen](/docs/start-here/)** - Wählen Sie Ihren Weg basierend auf Ihren Zielen und Ihrem Kenntnisstand
-- **[Schnellstart](/docs/quickstart/)** - Von der Box zum funktionierenden Pool in 60 Minuten
-- **[Erste Schritte](/docs/getting-started/)** - Detaillierte Schritt-für-Schritt-Anleitung
-
-### 🧩 Kernkomponenten
-
-- **[Pool Controller](/docs/pool-controller/)** - Das Herz des Systems: ESP32-basierte zentrale Steuerlogik
-- **[Home Assistant Integration](/docs/home-assistant-integration/)** - Automatische MQTT Discovery für nahtlose Integration
-- **[openHAB Integration](/docs/openhab-integration/)** - Schritt-für-Schritt-Anleitung für openHAB-Benutzer
-- **[Pool Monitor](/docs/pool-monitor/)** - Solarbetriebenes, kabelloses Temperaturdisplay
-- **[Grafana Dashboard](/docs/grafana-dashboard/)** - Visualisieren Sie Ihre Pool-Daten mit schönen Diagrammen
-- **[Water Quality Monitor](/docs/water-quality-monitor/)** - Messung von pH-Wert und Chlor (in Entwicklung)
-
-### 🗺️ Systemdesign & Planung
-
-- **[Architektur](/docs/architecture/)** - Systemübersicht und Datenfluss
-- **[Stückliste (BOM)](/docs/bom/)** - Vollständige Einkaufsliste mit Preisen und Bezugsquellen
-- **[Inbetriebnahme-Checkliste](/docs/checklist/)** - Prüfliste vor dem ersten Einschalten
-
-### ⚠️ Fehlerbehebung & Support
-
-- **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** - Häufige Probleme und Lösungen
-- **[Migrationsanleitung](/docs/migration/)** - Upgrade zwischen Firmware-Versionen
-- **[Firmware-Migration](/docs/firmware-migration/)** - Migration von älteren Versionen
+- ✅ die Umwälzzeit zur Reinigung des Wassers automatisiert
+- ✅ per Solarenergie heizt und eine zusätzliche Heizkreispumpe schaltet
+- ✅ unabhängig von einem bestimmten Smart-Home-Server arbeitet und auch ohne WLAN weiterläuft
+- ✅ per MQTT Discovery in Home Assistant eingebunden wird (openHAB über manuelle MQTT-Konfiguration)
+- ✅ per Smartphone oder über die eingebaute Weboberfläche bedient werden kann
 
 ---
 
-## 📋 Projektübersicht
+## 🧭 Orientierung
 
-Das **Smart Swimming Pool** Projekt ist ein modulares, Open-Source-System zur Automatisierung Ihres Swimmingpools. Das Kernmodul ist der **Pool Controller**, ein ESP32-basiertes Gerät, das:
+| Schritt | Was Sie vorhaben | Seiten |
+|---------|----------------|--------|
+| **1 · Start** | Bauweise wählen und ein erstes lauffähiges System aufbauen | [Hier starten](/docs/start-here/) · [Schnellstart](/docs/quickstart/) · [Bauanleitung](/docs/getting-started/) |
+| **2 · Planen & Bauen** | System verstehen, Teile kaufen, sicher in Betrieb nehmen | [Architektur](/docs/architecture/) · [Stückliste](/docs/bom/) · [Inbetriebnahme-Checkliste](/docs/checklist/) |
+| **3 · Komponenten** | Die einzelnen Module kennenlernen | [Pool Controller](/docs/pool-controller/) · [Pool Monitor](/docs/pool-monitor/) · [Grafana Dashboard](/docs/grafana-dashboard/) · [Water Quality Monitor](/docs/water-quality-monitor/) |
+| **4 · Smart-Home-Integration** | Den Controller mit dem Smart Home verbinden | [Home Assistant](/docs/home-assistant-integration/) · [openHAB](/docs/openhab-integration/) · [openHAB Konfiguration](/docs/openhab-configuration/) |
+| **5 · Betrieb & Support** | Etwas ist unklar, defekt oder muss aktualisiert werden | [FAQ](/docs/faq/) · [Fehlerbehebung](/docs/troubleshooting/) · [Upgrade & Migration](/docs/migration/) |
+| **6 · Projekt** | Hintergrund, Mitmachen, Medien | [Diagramme mit Svgbob](/docs/diagrams/) · [Publikationen](/docs/publications/) · [Galerie](/docs/gallery/) |
 
-- ✅ Die Zirkulationszeit zur Wasserreinigung automatisiert
-- ✅ Die Heizung mit Solarenergie steuert
-- ✅ Die Wassererwärmung über eine zusätzliche Pumpe für den Heizkreislauf verwaltet
-- ✅ Unabhängig von bestimmten Smarthome-Servern funktioniert
-- ✅ Sich nahtlos mit Home Assistant über MQTT Discovery integriert
-- ✅ Auch ohne dauerhafte WLAN-Verbindung funktioniert
-- ✅ Über Smartphone oder Hardware-Tasten bedient werden kann
-- ✅ Modular und erweiterbar ist
-
----
-
-## 💡 Wie diese Dokumentation organisiert ist
-
-### Für Anfänger
-
-Wenn Sie neu im Projekt sind, folgen Sie diesem Pfad:
-
-1. **[Hier beginnen](/docs/start-here/)** - Verstehen Sie die verschiedenen Wege, die Sie einschlagen können
-2. **[Schnellstart](/docs/quickstart/)** oder **[Erste Schritte](/docs/getting-started/)** - Bauen Sie Ihren ersten Controller
-3. **[Architektur](/docs/architecture/)** - Verstehen Sie, wie alles zusammenarbeitet
-
-### Für Fortgeschrittene
-
-Wenn Sie bereits mit den Grundlagen vertraut sind:
-
-1. **[Pool Controller](/docs/pool-controller/)** - Vertiefung in den Hauptcontroller
-2. **[Home Assistant Integration](/docs/home-assistant-integration/)** - Fortgeschrittenes Dashboard und Automatisierung
-3. **[openHAB Integration](/docs/openhab-integration/)** - Alternative Smarthome-Integration
-4. **[Fehlerbehebung](/docs/troubleshooting/)** - Lösen Sie komplexe Probleme
-
-### Referenzmaterialien
-
-- **[Stückliste (BOM)](/docs/bom/)** - Vollständige Teileliste
-- **[Checkliste](/docs/checklist/)** - Sicherheits- und Inbetriebnahme-Checkliste
-- **[FAQ](/docs/faq/)** - Häufig gestellte Fragen
+**Neu hier?** Lesen Sie [Hier starten](/docs/start-here/) und folgen Sie dann entweder dem [Schnellstart](/docs/quickstart/) (60 Minuten, Steckbrett) oder der ausführlichen [Bauanleitung](/docs/getting-started/). Arbeiten Sie die [Inbetriebnahme-Checkliste](/docs/checklist/) ab, bevor Sie eine Pumpe an die Netzspannung anschließt.
 
 ---
 
-## 📦 Modulübersicht
+## 📦 Module im Überblick
 
-| Modul | Zweck | Schwierigkeitsgrad | Kosten |
-|-------|-------|------------------|--------|
-| **[Pool Controller](/docs/pool-controller/)** | Hauptsteuerlogik | ⭐⭐ | ~30-75 € |
-| **[Home Assistant Integration](/docs/home-assistant-integration/)** | Smarthome-Dashboard | ⭐ | Kostenlos |
-| **[Pool Monitor](/docs/pool-monitor/)** | Kabelloses Temperaturdisplay | ⭐⭐ | ~20-40 € |
+| Modul | Zweck | Schwierigkeit | Kosten |
+|-------|-------|---------------|--------|
+| **[Pool Controller](/docs/pool-controller/)** | Hauptsteuerlogik (erforderlich) | ⭐⭐ | ~35–55 € |
+| **[Home Assistant Integration](/docs/home-assistant-integration/)** | Smart-Home-Dashboard | ⭐ | Kostenlos |
+| **[openHAB Integration](/docs/openhab-integration/)** | Alternatives Smart Home | ⭐⭐ | Kostenlos |
+| **[Pool Monitor](/docs/pool-monitor/)** | Kabelloses Temperaturdisplay | ⭐⭐ | ~20–40 € |
 | **[Grafana Dashboard](/docs/grafana-dashboard/)** | Datenvisualisierung | ⭐ | Kostenlos |
-| **[openHAB Integration](/docs/openhab-integration/)** | Alternative Smarthome | ⭐⭐ | Kostenlos |
 | **[Water Quality Monitor](/docs/water-quality-monitor/)** | pH, Chlor und Temperatur (in Entwicklung) | ⭐⭐⭐ | offen |
+
+Die Kosten des Controllers gelten nur für die Elektronik; die [Stückliste](/docs/bom/) enthält zusätzlich Gehäuse, Netzverkabelung und Werkzeug.
 
 ---
 
 ## 💬 Brauchen Sie Hilfe?
 
-- Prüfen Sie die **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** Seite
-- Lesen Sie die **[FAQ](/docs/faq/)**
-- Öffnen Sie ein **[Issue](https://github.com/smart-swimmingpool/pool-controller/issues)** für Fragen, Bugs oder Feature-Anfragen
-- Alle **[Projekt-Repositories](https://github.com/smart-swimmingpool)** auf GitHub ansehen
-
----
-
-## 🚀 Nächste Schritte
-
-Bereit loszulegen? Wählen Sie Ihren Weg:
-
-- **[Hier beginnen](/docs/start-here/)** - Finden Sie den richtigen Weg für Ihre Bedürfnisse
-- **[Schnellstart](/docs/quickstart/)** - Schnellster Weg zum Laufen
-- **[Erste Schritte](/docs/getting-started/)** - Umfassliche Aufbauanleitung
+Schlagen Sie das Symptom in der [Fehlerbehebung](/docs/troubleshooting/) nach, lesen Sie die [FAQ](/docs/faq/) oder öffnen Sie ein [Issue](https://github.com/smart-swimmingpool/pool-controller/issues). Alle Projekt-Repositories finden Sie auf [GitHub](https://github.com/smart-swimmingpool).

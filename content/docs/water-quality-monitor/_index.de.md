@@ -1,13 +1,13 @@
 ---
 title: Water Quality Monitor
-weight: 1
+weight: 34
 tags: ["docs", "water-quality", "pH", "chlorine", "esp8266"]
 ---
 
 # 🧪 Water Quality Monitor
 
-Der **Water Quality Monitor** ist ein geplantes Modul, das die chemische Wasserqualität deines
-Pools misst — **pH-Wert**, **Chlor** und **Wassertemperatur** — und die Werte per MQTT an dein
+Der **Water Quality Monitor** ist ein geplantes Modul, das die chemische Wasserqualität Ihres
+Pools misst — **pH-Wert**, **Chlor** und **Wassertemperatur** — und die Werte per MQTT an Ihr
 Smarthome-System sendet.
 
 > [!WARNING]
@@ -41,4 +41,4 @@ Smarthome-System sendet.
 - Praxistests durchführen und mit Teststreifen/Testkits vergleichen
 
 Öffne ein **[Issue](https://github.com/smart-swimmingpool/water-quality-monitor/issues)**, um Ideen
-zu diskutieren oder deinen Beitrag abzustimmen.
+zu diskutieren oder Ihren Beitrag abzustimmen.

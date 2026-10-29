@@ -1,6 +1,6 @@
 ---
 title: Water Quality Monitor
-weight: 1
+weight: 34
 tags: ["docs", "water-quality", "pH", "chlorine", "esp8266"]
 ---
 

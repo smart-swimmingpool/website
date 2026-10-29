@@ -1,6 +1,6 @@
 ---
 title: openHAB Integration
-weight: 15
+weight: 42
 tags: ["docs", "openHAB", "tutorial"]
 ---
 
@@ -17,7 +17,7 @@ Unlike [Home Assistant](/docs/getting-started/#step-4-home-assistant-integration
 
 Before you begin, make sure you have:
 
-1. **The pool controller** flashed and running on your network (see [Getting Started](/docs/getting-started/))
+1. **The pool controller** flashed and running on your network (see [Build Guide](/docs/getting-started/))
 2. **An MQTT broker** (e.g., [Mosquitto](https://mosquitto.org/)) — install one on the same machine as openHAB or on your network
 3. **openHAB** (version 3 or 4) running and accessible via its web interface
 
@@ -318,7 +318,7 @@ The complete reference configuration lives in the **[openhab-config repository](
 | [`items/2-pool.items`](https://github.com/smart-swimmingpool/openhab-config/blob/master/items/2-pool.items) | Item definitions linked to channels |
 | [`sitemaps/pool.sitemap`](https://github.com/smart-swimmingpool/openhab-config/blob/master/sitemaps/pool.sitemap) | BasicUI and mobile app layout |
 
-> **Note**: The openhab-config repository currently references **Homie 3.0** MQTT topics (for controller v2.x). If you are running controller v3.x, adapt the topics to the `homeassistant/` format shown in this guide. See the [Firmware Migration](/docs/firmware-migration/) guide for details.
+> **Note**: The openhab-config repository currently references **Homie 3.0** MQTT topics (for controller v2.x). If you are running controller v3.x, adapt the topics to the `homeassistant/` format shown in this guide. See the [Firmware Migration](/docs/migration/v2-to-v3/) guide for details.
 
 ---
 
