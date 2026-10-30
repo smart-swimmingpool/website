@@ -197,13 +197,13 @@ Sobald Ihr Pool Controller läuft:
 
 Sofern ein Heizkreislauf mit Wärmetauscher vorbereitet ist, kann mit der Umsetzung der smarten Steuerung des Pools begonnen werden.
 
-Herz des Systems ist der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller). Dieser übernimmt:
+Herz des Systems ist der [Pool Controller](/docs/pool-controller/). Dieser übernimmt:
 
 - Steuerung der Zirkulationszeit für die Sandfilterreinigung
 - Zuschalten des Heizkreislaufs zur Erwärmung des Poolwassers
 - Melden von Status und Temperaturen für die Integration in Smart-Home-Server
 
-Der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) nutzt [Home Assistant MQTT Discovery](https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery) für nahtlose Smarthome-Integration. Mit der hier vorgestellten Konfiguration kann der Pool-Controller schnell eingerichtet und von jeder Home Assistant-kompatiblen App gesteuert werden.
+Der [Pool Controller](/docs/pool-controller/) nutzt [Home Assistant MQTT Discovery](https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery) für nahtlose Smarthome-Integration. Mit der hier vorgestellten Konfiguration kann der Pool-Controller schnell eingerichtet und von jeder Home Assistant-kompatiblen App gesteuert werden.
 
 ### Home Assistant Dashboard
 

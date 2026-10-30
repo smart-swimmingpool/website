@@ -127,6 +127,34 @@ def rewrite_pool_controller_links(content):
     return content
 
 
+# Absolute GitHub links to Markdown docs of an imported repo, e.g.
+# https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/hardware-guide.md#wiring
+GITHUB_DOC_LINK_RE = re.compile(
+    r'https://github\.com/smart-swimmingpool/([a-z0-9-]+)/blob/[^/\s)#]+/docs/'
+    r'([A-Za-z0-9_./-]+?)(?:\.de)?\.md(#[^\s)]*)?(?=[\s)"\']|$)')
+
+
+def rewrite_github_doc_links(content, imported_repos):
+    """Point absolute GitHub links to imported docs at the generated Hugo pages instead.
+
+    imported_repos maps repository names (e.g. "pool-controller") to their section name
+    below /docs/ on the website (e.g. "pool-controller", "monitor" -> "pool-monitor").
+    Links to repos or files that are not imported stay untouched.
+    """
+    def replace(match):
+        repo, path, anchor = match.groups()
+        section = imported_repos.get(repo)
+        if section is None:
+            return match.group(0)
+        if path == '_index' or path.endswith('/_index'):
+            path = path[:-len('_index')]
+        else:
+            path += '/'
+        return f"/docs/{section}/{path}{anchor or ''}"
+
+    return GITHUB_DOC_LINK_RE.sub(replace, content)
+
+
 IMAGE_EXTENSIONS = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
 # Relative targets of Markdown links/images, e.g. [x](foo.svg) or ![x](../img/a.png "t")
 RELATIVE_MD_LINK_RE = re.compile(
@@ -188,7 +216,8 @@ def dest_filepath(reponame, srcdir, srcfile):
 
 
 # Copy files to "docs/". Filter sections of file first. Add generated header to file.
-def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absurl):
+def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absurl,
+               imported_repos=None):
     logging.info("--> write_file (")
     logging.info("  reponame: "+reponame)
     logging.info("  targetdir: "+targetdir)
@@ -231,6 +260,7 @@ def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absur
         filecontent = rewrite_pool_controller_links(filecontent)
     filecontent = rewrite_relative_links(
         filecontent, srcdir, str(filename), absurl.split("/tree/")[0], tagname)
+    filecontent = rewrite_github_doc_links(filecontent, imported_repos or {})
     dest.parent.mkdir(parents=True, exist_ok=True)
     logging.info("write filename: " + str(dest))
     with open(dest, "w+", encoding="utf8") as text_file:
@@ -257,7 +287,7 @@ def get_default_branch(repo):
 # Clone a repository url (or update repo), checkout all tags.
 # Call copy_files for each checked out working directory
 def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, update_repos,
-                  excludes=()):
+                  excludes=(), imported_repos=None):
     logging.info(f"--> checkout_repo repourl={repourl}")
     localpath = os.path.join(checkoutdir, reponame)
     if os.path.exists(localpath):
@@ -306,7 +336,8 @@ def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, update
                 date = ref.commit.committed_datetime
                 absurl = repourl.replace(".git", "")+"/tree/"+ref.name
                 write_file(
-                    reponame, targetdir, localpath, filepath, localdata, tagname, date, absurl)
+                    reponame, targetdir, localpath, filepath, localdata, tagname, date, absurl,
+                           imported_repos)
     logging.info("<-- checkout_repo")
 
 
@@ -329,9 +360,15 @@ if __name__ == "__main__":
     checkoutdir = recreate_dir("temp", "clean" in controlfile and controlfile["clean"])
     targetdir = os.path.abspath("content/docs")
     update_repos = "updaterepos" in controlfile and controlfile["updaterepos"]
+    # Repository name (from its URL) -> section name below /docs/ (see dest_filepath)
+    imported_repos = {
+        entry['repo'].rstrip('/').removesuffix('.git').rsplit('/', 1)[-1]:
+            entry['name'].replace(" ", "-").lower()
+        for entry in controlfile['specifications'] if not entry.get('disabled')
+    }
     for entry in controlfile['specifications']:
         if 'disabled' not in entry or not entry['disabled']:
             checkout_repo(targetdir, entry['name'], entry['repo'],
                           entry['filepattern'], checkoutdir, update_repos,
-                          entry.get('exclude', ()))
+                          entry.get('exclude', ()), imported_repos)
     logging.info("Finished.")

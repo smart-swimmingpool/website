@@ -197,13 +197,13 @@ Once your Pool Controller is running:
 
 If a heating circuit with a heat exchanger is in place, you can start implementing the smart pool control.
 
-The heart of the system is the [Pool Controller](https://github.com/smart-swimmingpool/pool-controller). It handles:
+The heart of the system is the [Pool Controller](/docs/pool-controller/). It handles:
 
 - Circulation scheduling for sand filter cleaning
 - Switching on the heating circuit to warm the pool water
 - Reporting status and temperature data for integration with Smart Home servers
 
-The [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) uses [Home Assistant MQTT discovery](https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery) for seamless smart home integration. With the configuration presented here, the pool controller can be quickly set up and controlled from any Home Assistant-compatible app.
+The [Pool Controller](/docs/pool-controller/) uses [Home Assistant MQTT discovery](https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery) for seamless smart home integration. With the configuration presented here, the pool controller can be quickly set up and controlled from any Home Assistant-compatible app.
 
 ### Home Assistant Dashboard
 

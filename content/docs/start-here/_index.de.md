@@ -20,7 +20,7 @@ den richtigen Einstieg zu finden — je nachdem, was du bauen möchtest.
 - Vorgefertigte Firmware flashen
 - Steuerung über Home Assistant
 
-**Hier starten**: [Pool-Controller — Von Null aufgebaut](https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/build-from-zero.de.md)
+**Hier starten**: [Pool-Controller — Von Null aufgebaut](/docs/pool-controller/build-from-zero/)
 
 | Komponente | Ca. Preis |
 |-----------|-----------|
@@ -36,16 +36,16 @@ den richtigen Einstieg zu finden — je nachdem, was du bauen möchtest.
 
 **Ziel**: Vollautomation mit Zeitplan-Umwälzung und Solarheizungsregelung.
 
-- Die [Von Null aufgebaut](https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/build-from-zero.de.md)-Anleitung befolgen
+- Die [Von Null aufgebaut](/docs/pool-controller/build-from-zero/)-Anleitung befolgen
 - **IP65-Gehäuse** für Wetterschutz verwenden
 - Ordnungsgemäße **Netzspannungs-Verdrahtung** mit Sicherung und FI-Schutz
 - **Home Assistant**-Integration für Dashboard und Automatisierung
 - **MQTT** für zuverlässige Kommunikation
 
 **Erforderliche Lektüre**:
-- [Elektrische Sicherheit](https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/electrical-safety.de.md)
-- [Produktions-Checkliste](https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/production-checklist.de.md)
-- [Sicherheits-Checkliste](https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/security-checklist.de.md)
+- [Elektrische Sicherheit](/docs/pool-controller/electrical-safety/)
+- [Produktions-Checkliste](/docs/pool-controller/production-checklist/)
+- [Sicherheits-Checkliste](/docs/pool-controller/security-checklist/)
 
 ---
 
@@ -63,12 +63,12 @@ Sicherheit.
 - Regelmäßiger **Wartungsplan**
 
 **Erforderliche Lektüre**:
-- [Von Null aufgebaut](https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/build-from-zero.de.md)
-- [Elektrische Sicherheit](https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/electrical-safety.de.md)
-- [Sicherheitsmodell](https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/safety-model.de.md)
-- [Produktions-Checkliste](https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/production-checklist.de.md)
-- [Sicherheits-Checkliste](https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/security-checklist.de.md)
-- [Fehlerbehebung](https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/troubleshooting.de.md)
+- [Von Null aufgebaut](/docs/pool-controller/build-from-zero/)
+- [Elektrische Sicherheit](/docs/pool-controller/electrical-safety/)
+- [Sicherheitsmodell](/docs/pool-controller/safety-model/)
+- [Produktions-Checkliste](/docs/pool-controller/production-checklist/)
+- [Sicherheits-Checkliste](/docs/pool-controller/security-checklist/)
+- [Fehlerbehebung](/docs/pool-controller/troubleshooting/)
 
 ---
 
@@ -174,7 +174,7 @@ unterstützen.
 
 ## Nächste Schritte
 
-1. Die [Von Null aufgebaut](https://github.com/smart-swimmingpool/pool-controller/blob/main/docs/build-from-zero.de.md)-Anleitung lesen
+1. Die [Von Null aufgebaut](/docs/pool-controller/build-from-zero/)-Anleitung lesen
 2. Teile aus der Stückliste bestellen
 3. Auf dem Steckbrett aufbauen und testen
 4. Im Gehäuse installieren

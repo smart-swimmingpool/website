@@ -34,19 +34,19 @@ Der Pool Monitor bietet:
 ### Erste Schritte
 
 - **[Pool Monitor Repository](https://github.com/smart-swimmingpool/monitor)** - Haupt-Repository mit aller Dokumentation
-- **[Aufbauanleitung](https://github.com/smart-swimmingpool/monitor#build-guide)** - Schritt-für-Schritt-Bauanleitung
-- **[Hardware Übersicht](https://github.com/smart-swimmingpool/monitor#hardware)** - Komponentenbeschreibungen
+- **[Aufbauanleitung](/docs/pool-monitor/hardware-guide/)** - Schritt-für-Schritt-Bauanleitung
+- **[Hardware Übersicht](/docs/pool-monitor/hardware-guide/#übersicht)** - Komponentenbeschreibungen
 
 ### Hardware
 
-- **[Verdrahtungsdiagramm](https://github.com/smart-swimmingpool/monitor#wiring)** - Anschlussanleitung
-- **[Stückliste](https://github.com/smart-swimmingpool/monitor#bill-of-materials)** - Vollständige Teileliste
+- **[Verdrahtungsdiagramm](/docs/pool-monitor/hardware-guide/#verdrahtung)** - Anschlussanleitung
+- **[Stückliste](/docs/pool-monitor/hardware-guide/#benötigte-teile-bom)** - Vollständige Teileliste
 
 ### Firmware
 
-- **[Firmware-Installation](https://github.com/smart-swimmingpool/monitor#firmware)** - Flash-Anleitung
-- **[Konfiguration](https://github.com/smart-swimmingpool/monitor#configuration)** - Einrichtungshinweise
-- **[MQTT-Konfiguration](https://github.com/smart-swimmingpool/monitor#mqtt-configuration)** - Broker-Einrichtung
+- **[Firmware-Installation](/docs/pool-monitor/software-guide/#bauen--flashen)** - Flash-Anleitung
+- **[Konfiguration](/docs/pool-monitor/software-guide/#konfiguration)** - Einrichtungshinweise
+- **[MQTT-Konfiguration](/docs/pool-monitor/software-guide/#wifi--mqtt-einrichtung)** - Broker-Einrichtung
 
 ## 🔧 Hardware-Anforderungen
 
