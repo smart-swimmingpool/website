@@ -173,12 +173,12 @@ menu:
     - identifier: contributing
       parent: community
       name: Contributing
-      pageRef: /CONTRIBUTING
+      url: https://github.com/smart-swimmingpool/website/blob/main/CONTRIBUTING.md
       weight: 4
     - identifier: changelog
       parent: community
       name: Changelog
-      pageRef: /CHANGELOG
+      url: https://github.com/smart-swimmingpool/website/blob/main/CHANGELOG.md
       weight: 5
     - identifier: code-of-conduct
       parent: community
