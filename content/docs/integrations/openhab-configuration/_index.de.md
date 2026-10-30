@@ -1,6 +1,8 @@
 ---
 title: openHAB Konfiguration
-weight: 1
+weight: 3
+aliases:
+  - /docs/openhab-configuration/
 tags: ["docs", "openhab", "configuration", "smarthome"]
 ---
 
@@ -32,7 +34,7 @@ Dieses Modul enthält:
 ### Erste Schritte
 
 - **[openHAB Konfiguration Repository](https://github.com/smart-swimmingpool/openhab-config)** - Haupt-Repository mit allen Konfigurationsdateien
-- **[openHAB Integrationsanleitung](/docs/openhab-integration/)** - Schritt-für-Schritt-Integrationsanleitung
+- **[openHAB Integrationsanleitung](/docs/integrations/openhab/)** - Schritt-für-Schritt-Integrationsanleitung
 - **[Installation](https://github.com/smart-swimmingpool/openhab-config#installation)** - Setup-Anleitung
 
 ### Konfigurationsdateien
@@ -70,13 +72,13 @@ Die Items-Datei enthält:
 ## 🚀 Nächste Schritte
 
 1. **[Hier beginnen](/docs/start-here/)** - Wählen Sie Ihren Weg basierend auf Ihren Zielen
-2. **[openHAB Integrationsanleitung](/docs/openhab-integration/)** - Schritt-für-Schritt-Integrationsanleitung
+2. **[openHAB Integrationsanleitung](/docs/integrations/openhab/)** - Schritt-für-Schritt-Integrationsanleitung
 3. **[Repository besuchen](https://github.com/smart-swimmingpool/openhab-config)** - Zugriff auf alle Konfigurationsdateien
-4. **[Pool Controller Setup](/docs/pool-controller/)** - Stellen Sie sicher, dass Ihr Controller läuft
+4. **[Pool Controller Setup](/docs/components/pool-controller/)** - Stellen Sie sicher, dass Ihr Controller läuft
 
 ## 💬 Brauchen Sie Hilfe?
 
-- Prüfen Sie die **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** Seite
+- Prüfen Sie die **[Fehlerbehebung](/docs/troubleshooting/)** Seite
 - Besuchen Sie das **[openHAB Konfiguration Repository](https://github.com/smart-swimmingpool/openhab-config)**
 - Öffnen Sie ein **[Issue](https://github.com/smart-swimmingpool/openhab-config/issues)** für Bugs oder Feature-Anfragen
 - Konsultieren Sie die **[openHAB-Dokumentation](https://www.openhab.org/docs/)** für openHAB-spezifische Fragen

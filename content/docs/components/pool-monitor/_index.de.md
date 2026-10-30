@@ -1,6 +1,8 @@
 ---
 title: Pool Monitor
-weight: 1
+weight: 2
+aliases:
+  - /docs/pool-monitor/
 tags: ["docs", "pool-monitor", "display", "solar"]
 ---
 
@@ -77,11 +79,11 @@ Der Pool Monitor bietet:
 
 1. **[Hier beginnen](/docs/start-here/)** - Wählen Sie Ihren Weg basierend auf Ihren Zielen
 2. **[Repository besuchen](https://github.com/smart-swimmingpool/monitor)** - Zugriff auf alle Dokumentationen und Quellcode
-3. **[Home Assistant Integration](/docs/home-assistant-integration/)** - Smarthome-Integration
-4. **[Grafana Dashboard](/docs/grafana-dashboard/)** - Datenvisualisierung
+3. **[Home Assistant Integration](/docs/integrations/home-assistant/)** - Smarthome-Integration
+4. **[Grafana Dashboard](/docs/components/grafana-dashboard/)** - Datenvisualisierung
 
 ## 💬 Brauchen Sie Hilfe?
 
-- Prüfen Sie die **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** Seite
+- Prüfen Sie die **[Fehlerbehebung](/docs/troubleshooting/)** Seite
 - Besuchen Sie das **[Pool Monitor Repository](https://github.com/smart-swimmingpool/monitor)**
 - Öffnen Sie ein **[Issue](https://github.com/smart-swimmingpool/monitor/issues)** für Bugs oder Feature-Anfragen

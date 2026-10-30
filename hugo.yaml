@@ -52,104 +52,154 @@ menu:
       weight: 1
     - identifier: documentation
       name: Documentation
-      pageRef: /docs
       weight: 2
-    - identifier: modules
-      name: Modules
+      params:
+        type: dropdown
+    - identifier: docs-overview
+      parent: documentation
+      name: Overview
+      pageRef: /docs
+      weight: 1
+    - identifier: quickstart
+      parent: documentation
+      name: Quick Start
+      pageRef: /docs/quickstart
+      weight: 2
+    - identifier: build-guide
+      parent: documentation
+      name: Build Guide
+      pageRef: /docs/getting-started
+      weight: 3
+    - identifier: architecture
+      parent: documentation
+      name: Architecture
+      pageRef: /docs/architecture
+      weight: 4
+    - identifier: bom
+      parent: documentation
+      name: Bill of Materials
+      pageRef: /docs/bom
+      weight: 5
+    - identifier: checklist
+      parent: documentation
+      name: Commissioning Checklist
+      pageRef: /docs/checklist
+      weight: 6
+    - identifier: components
+      name: Components
       weight: 3
       params:
         type: dropdown
-      children:
-        - identifier: pool-controller
-          name: Pool Controller
-          url: /docs/pool-controller/
-          weight: 1
-        - identifier: home-assistant
-          name: Home Assistant
-          url: /docs/home-assistant-integration/
-          weight: 2
-        - identifier: openhab
-          name: openHAB
-          url: /docs/openhab-integration/
-          weight: 3
-        - identifier: openhab-config
-          name: openHAB Configuration
-          url: /docs/openhab-configuration/
-          weight: 4
-        - identifier: pool-monitor
-          name: Pool Monitor
-          url: /docs/pool-monitor/
-          weight: 5
-        - identifier: grafana
-          name: Grafana Dashboard
-          url: /docs/grafana-dashboard/
-          weight: 6
-        - identifier: water-quality-monitor
-          name: Water Quality Monitor (in development)
-          url: /docs/water-quality-monitor/
-          weight: 7
-    - identifier: resources
-      name: Resources
+    - identifier: pool-controller
+      parent: components
+      name: Pool Controller
+      pageRef: /docs/components/pool-controller
+      weight: 1
+    - identifier: pool-monitor
+      parent: components
+      name: Pool Monitor
+      pageRef: /docs/components/pool-monitor
+      weight: 2
+    - identifier: grafana
+      parent: components
+      name: Grafana Dashboard
+      pageRef: /docs/components/grafana-dashboard
+      weight: 3
+    - identifier: water-quality-monitor
+      parent: components
+      name: Water Quality Monitor (in development)
+      pageRef: /docs/components/water-quality-monitor
+      weight: 4
+    - identifier: integrations
+      name: Integrations
       weight: 4
       params:
         type: dropdown
-      children:
-        - identifier: architecture
-          name: Architecture
-          url: /docs/architecture/
-          weight: 1
-        - identifier: bom
-          name: Bill of Materials
-          url: /docs/bom/
-          weight: 2
-        - identifier: checklist
-          name: Checklist
-          url: /docs/checklist/
-          weight: 3
-        - identifier: troubleshooting
-          name: Troubleshooting
-          url: /docs/troubleshooting/
-          weight: 4
-        - identifier: publications
-          name: Publications
-          url: /docs/publications/
-          weight: 5
-        - identifier: faq
-          name: FAQ
-          url: /docs/faq/
-          weight: 6
-    - identifier: community
-      name: Community
+    - identifier: home-assistant
+      parent: integrations
+      name: Home Assistant
+      pageRef: /docs/integrations/home-assistant
+      weight: 1
+    - identifier: openhab
+      parent: integrations
+      name: openHAB
+      pageRef: /docs/integrations/openhab
+      weight: 2
+    - identifier: openhab-config
+      parent: integrations
+      name: openHAB Configuration
+      pageRef: /docs/integrations/openhab-configuration
+      weight: 3
+    - identifier: support
+      name: Support
       weight: 5
       params:
         type: dropdown
-      children:
-        - identifier: code-of-conduct
-          name: Code of Conduct
-          pageRef: /code-of-conduct
-          weight: 1
-        - identifier: contributing
-          name: Contributing
-          pageRef: /CONTRIBUTING
-          weight: 2
-        - identifier: changelog
-          name: Changelog
-          pageRef: /CHANGELOG
-          weight: 3
-        - identifier: license
-          name: License
-          pageRef: /license
-          weight: 4
+    - identifier: faq
+      parent: support
+      name: FAQ
+      pageRef: /docs/faq
+      weight: 1
+    - identifier: troubleshooting
+      parent: support
+      name: Troubleshooting
+      pageRef: /docs/troubleshooting
+      weight: 2
+    - identifier: migration
+      parent: support
+      name: Upgrade & Migration
+      pageRef: /docs/migration
+      weight: 3
+    - identifier: community
+      name: Community
+      weight: 6
+      params:
+        type: dropdown
+    - identifier: publications
+      parent: community
+      name: Publications
+      pageRef: /docs/publications
+      weight: 1
+    - identifier: gallery
+      parent: community
+      name: Gallery
+      pageRef: /docs/gallery
+      weight: 2
+    - identifier: diagrams
+      parent: community
+      name: Diagram Guide
+      pageRef: /docs/diagrams
+      weight: 3
+    - identifier: contributing
+      parent: community
+      name: Contributing
+      pageRef: /CONTRIBUTING
+      weight: 4
+    - identifier: changelog
+      parent: community
+      name: Changelog
+      pageRef: /CHANGELOG
+      weight: 5
+    - identifier: code-of-conduct
+      parent: community
+      name: Code of Conduct
+      pageRef: /code-of-conduct
+      weight: 6
+    - identifier: license
+      parent: community
+      name: License
+      pageRef: /license
+      weight: 7
     - identifier: blog
       name: Blog
       pageRef: /blog
-      weight: 6
-    - name: Search
       weight: 7
+    - name: Search
+      weight: 8
       params:
         type: search
     - name: GitHub
-      weight: 8
+      weight: 9
       url: "https://github.com/smart-swimmingpool"
       params:
         icon: github

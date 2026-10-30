@@ -1,6 +1,6 @@
 ---
-title: Diagrams with Svgbob
-weight: 90
+title: "Writing Diagrams (Svgbob)"
+weight: 61
 tags: ["docs", "contributing", "diagrams"]
 ---
 

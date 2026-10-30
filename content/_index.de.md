@@ -106,7 +106,7 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
-    title="Erste Schritte"
+    title="Bauanleitung"
     subtitle="Umfassende Schritt-für-Schritt-Anleitung. Perfekt für alle, die jedes Detail verstehen möchten."
     link="/docs/getting-started/"
     icon="book-open"
@@ -116,7 +116,7 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
   {{< hextra/feature-card
     title="Pool Controller"
     subtitle="Das smarte Gehirn deines Pools. Zentrale Steuerlogik auf ESP32 mit Home Assistant MQTT Discovery."
-    link="/docs/pool-controller/"
+    link="/docs/components/pool-controller/"
     icon="chip"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.15),hsla(0,0%,100%,0));"
@@ -124,7 +124,7 @@ Verwandle deinen Swimmingpool in ein intelligentes, automatisiertes System mit d
   {{< hextra/feature-card
     title="Home Assistant Integration"
     subtitle="Nahtlose Integration mit Home Assistant. Steuere deinen Pool über die mobile App."
-    link="/docs/home-assistant-integration/"
+    link="/docs/integrations/home-assistant/"
     icon="home"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"

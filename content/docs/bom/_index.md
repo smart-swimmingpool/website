@@ -1,6 +1,6 @@
 ---
 title: Bill of Materials
-weight: 9
+weight: 22
 tags: ["docs", "bom", "hardware", "shopping-list"]
 ---
 
@@ -26,7 +26,6 @@ These parts make up the core pool controller. All items are standard maker/hobby
 | 8 | **USB-A to Micro-USB cable** | 1 | 3–5 € | **Data cable** (not charge-only) | Amazon |
 
 | | **Subtotal (controller only)** | | **~35–55 €** | |
-| | (Existing BOM = 45–75 € incl. enclosure) | | | |
 
 ---
 
@@ -151,4 +150,4 @@ You can start with just the **must-have items** (category 1) and expand later.
 | **Total (full installation)** | Categories 1–4 | **145–255 €** |
 | **Including tools** | Categories 1–5 | **205–355 €** |
 
-> 💡 The existing "Getting Started" BOM estimates **45–75 €** for the **controller electronics + enclosure** (categories 1+2). The expanded BOM above adds the **electrical installation (230V)** and **sensor mounting** materials which are necessary for a real pool installation.
+> 💡 The controller electronics (category 1) cost **35–55 €**; with enclosure and mechanics (categories 1+2) plan **60–100 €**. The categories above add the **electrical installation (230V)** and **sensor mounting** materials which are necessary for a real pool installation.

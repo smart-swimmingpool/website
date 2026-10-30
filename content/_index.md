@@ -106,7 +106,7 @@ Transform your swimming pool into a smart, automated system with these benefits:
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
   >}}
   {{< hextra/feature-card
-    title="Getting Started"
+    title="Build Guide"
     subtitle="Comprehensive step-by-step guide. Perfect for those who want to understand every detail."
     link="/docs/getting-started/"
     icon="book-open"
@@ -116,7 +116,7 @@ Transform your swimming pool into a smart, automated system with these benefits:
   {{< hextra/feature-card
     title="Pool Controller"
     subtitle="The smart brain of your pool. Central control logic running on ESP32 with Home Assistant MQTT discovery."
-    link="/docs/pool-controller/"
+    link="/docs/components/pool-controller/"
     icon="chip"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.15),hsla(0,0%,100%,0));"
@@ -124,7 +124,7 @@ Transform your swimming pool into a smart, automated system with these benefits:
   {{< hextra/feature-card
     title="Home Assistant Integration"
     subtitle="Smooth integration with Home Assistant smart home server. Control your pool via mobile app."
-    link="/docs/home-assistant-integration/"
+    link="/docs/integrations/home-assistant/"
     icon="home"
     class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[280px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"

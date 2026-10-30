@@ -1,6 +1,8 @@
 ---
 title: openHAB Integration
-weight: 15
+weight: 2
+aliases:
+  - /docs/openhab-integration/
 tags: ["docs", "openHAB", "tutorial"]
 ---
 
@@ -9,7 +11,7 @@ tags: ["docs", "openHAB", "tutorial"]
 Unlike [Home Assistant](/docs/getting-started/#step-4-home-assistant-integration), which automatically discovers the pool controller via MQTT Discovery, openHAB requires **manual configuration**. This guide walks you through the process step by step.
 
 > 💡 **Already using openHAB?**  
-> The [openHAB Configuration](/docs/openhab-configuration/) page contains the complete reference files (Things, Items, Sitemap). This guide explains *how* to set them up and adapt them to your system.
+> The [openHAB Configuration](/docs/integrations/openhab-configuration/) page contains the complete reference files (Things, Items, Sitemap). This guide explains *how* to set them up and adapt them to your system.
 
 ---
 
@@ -17,7 +19,7 @@ Unlike [Home Assistant](/docs/getting-started/#step-4-home-assistant-integration
 
 Before you begin, make sure you have:
 
-1. **The pool controller** flashed and running on your network (see [Getting Started](/docs/getting-started/))
+1. **The pool controller** flashed and running on your network (see [Build Guide](/docs/getting-started/))
 2. **An MQTT broker** (e.g., [Mosquitto](https://mosquitto.org/)) — install one on the same machine as openHAB or on your network
 3. **openHAB** (version 3 or 4) running and accessible via its web interface
 
@@ -103,7 +105,7 @@ mosquitto_sub -h <broker-ip> -t "homeassistant/#" -v
 mosquitto_sub -h <broker-ip> -t "homeassistant/+/pool-controller/#" -v
 ```
 
-> ⚠️ **Note**: Your controller's device ID may differ from `pool-controller` if you changed the **MQTT Device ID** in the pool controller's web interface. Adjust the topic prefix accordingly.
+> ℹ️ **Note**: The topic segment `pool-controller` is fixed in the firmware. Only the Home Assistant device ID (`pool_controller_<last 3 MAC bytes>`) is derived from the MAC address, and it does not appear in the topics used here.
 
 ---
 
@@ -171,7 +173,7 @@ Bridge mqtt:broker:mosquitto "Mosquitto" [ host="127.0.0.1", port=1883, secure=f
 }
 ```
 
-> **Replace `pool-controller`** in the topic paths with your actual device ID if you changed it.
+> The `pool-controller` segment in the topic paths is fixed; there is nothing to replace.
 
 ---
 
@@ -318,7 +320,7 @@ The complete reference configuration lives in the **[openhab-config repository](
 | [`items/2-pool.items`](https://github.com/smart-swimmingpool/openhab-config/blob/master/items/2-pool.items) | Item definitions linked to channels |
 | [`sitemaps/pool.sitemap`](https://github.com/smart-swimmingpool/openhab-config/blob/master/sitemaps/pool.sitemap) | BasicUI and mobile app layout |
 
-> **Note**: The openhab-config repository currently references **Homie 3.0** MQTT topics (for controller v2.x). If you are running controller v3.x, adapt the topics to the `homeassistant/` format shown in this guide. See the [Firmware Migration](/docs/firmware-migration/) guide for details.
+> **Note**: The openhab-config repository currently references **Homie 3.0** MQTT topics (for controller v2.x). If you are running controller v3.x, adapt the topics to the `homeassistant/` format shown in this guide. See the [Firmware Migration](/docs/migration/v2-to-v3/) guide for details.
 
 ---
 
@@ -342,6 +344,6 @@ The complete reference configuration lives in the **[openhab-config repository](
 - Check that the controller is connected to the MQTT broker (green LED on, or check the web interface)
 - Test manually: `mosquitto_pub -h <broker-ip> -t "homeassistant/switch/pool-controller/pool_pump/set" -m "ON"`
 
-### Wrong MQTT Device ID
+### Wrong topic paths
 
-The default device ID is `pool-controller`. If you changed it in the controller's web interface (**Configuration → MQTT → Device ID**), update all topic paths in your `.things` file to match.
+All topics of the v3.x firmware have the form `homeassistant/<component>/pool-controller/<object-id>/…`. If your `.things` file still contains Homie topics (`homie/<mac>/…`) from v2.x, replace them — see the [v2.x → v3.x migration guide](/docs/migration/v2-to-v3/).
