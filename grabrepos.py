@@ -115,7 +115,7 @@ POOL_CONTROLLER_SUBPAGES = frozenset({
     'electrical-safety', 'safety-model', 'production-checklist', 'security-checklist',
     'ota-updates', 'troubleshooting-matrix', 'state-persistence',
     'temperature-based-circulation', 'norvi-ae01-r', 'users-guide',
-    'quickstart', 'quick-start', 'esp32-complete-wiring-schematic',
+    'esp32-complete-wiring-schematic',
     'esp32-schematic-optimization', 'contactor-guide', 'safety',
 })
 
