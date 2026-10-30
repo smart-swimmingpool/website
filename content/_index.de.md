@@ -51,7 +51,7 @@ layout: hextra-home
   {{< hextra/feature-card
     title="Arbeitet eigenständig"
     subtitle="Die Steuerlogik läuft auf dem ESP32. Umwälzung und Heizung funktionieren auch ohne Internet, WLAN oder Smarthome-Server weiter."
-    link="/docs/architecture/"
+    link="/de/docs/architecture/"
     icon="chip"
     class="aspect-auto min-h-[180px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.15),hsla(0,0%,100%,0));"
@@ -59,7 +59,7 @@ layout: hextra-home
   {{< hextra/feature-card
     title="Umwälzung und Solarheizung"
     subtitle="Zeitgesteuerte Filterpumpe und Solarheizung mit Hysterese. Betriebsarten: Auto, Manuell, Boost und Timer."
-    link="/docs/components/pool-controller/"
+    link="/de/docs/components/pool-controller/"
     icon="sun"
     class="aspect-auto min-h-[180px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
@@ -67,7 +67,7 @@ layout: hextra-home
   {{< hextra/feature-card
     title="Smarthome-fähig"
     subtitle="Home Assistant erkennt den Controller automatisch per MQTT Discovery. openHAB und andere MQTT-Systeme binden sich mit manueller Konfiguration an."
-    link="/docs/integrations/"
+    link="/de/docs/integrations/"
     icon="home"
     class="aspect-auto min-h-[180px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.15),hsla(0,0%,100%,0));"
@@ -75,7 +75,7 @@ layout: hextra-home
   {{< hextra/feature-card
     title="Auf Zuverlässigkeit ausgelegt"
     subtitle="Einstellungen überstehen Neustarts, ein Hardware-Watchdog fängt Fehler ab, und die Relais bleiben beim Booten aus."
-    link="/docs/components/pool-controller/safety-model/"
+    link="/de/docs/components/pool-controller/safety-model/"
     icon="shield-check"
     class="aspect-auto min-h-[180px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(75,180,227,0.15),hsla(0,0%,100%,0));"
@@ -83,7 +83,7 @@ layout: hextra-home
   {{< hextra/feature-card
     title="Einfach zu bedienen"
     subtitle="Integrierte Weboberfläche für Konfiguration und Steuerung sowie Firmware-Updates über die Luft (OTA)."
-    link="/docs/components/pool-controller/ota-updates/"
+    link="/de/docs/components/pool-controller/ota-updates/"
     icon="globe"
     class="aspect-auto min-h-[180px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,150,200,0.15),hsla(0,0%,100%,0));"
@@ -91,7 +91,7 @@ layout: hextra-home
   {{< hextra/feature-card
     title="Offen und modular"
     subtitle="MIT-Lizenz. Starte mit dem Controller (Elektronik ca. 35–55 €) und ergänze später Monitor, Grafana-Dashboard oder Wasserqualitätsmonitor."
-    link="/docs/components/"
+    link="/de/docs/components/"
     icon="puzzle"
     class="aspect-auto min-h-[180px]"
     style="background: radial-gradient(ellipse at 50% 80%,rgba(0,180,220,0.15),hsla(0,0%,100%,0));"
@@ -102,12 +102,12 @@ layout: hextra-home
 
 <div class="home-start">
 <ol>
-  <li><a href="/docs/start-here/">Hier beginnen</a> — wähle den Weg, der zu deinem Aufbau passt</li>
-  <li><a href="/docs/quickstart/">Schnellstart</a> — Aufbau auf dem Steckbrett in 60 Minuten, oder die ausführliche <a href="/docs/getting-started/">Bauanleitung</a></li>
-  <li><a href="/docs/bom/">Stückliste</a> und <a href="/docs/checklist/">Inbetriebnahme-Checkliste</a> — bevor eine Pumpe an Netzspannung kommt</li>
-  <li>Anbindung an <a href="/docs/integrations/home-assistant/">Home Assistant</a> oder <a href="/docs/integrations/openhab/">openHAB</a></li>
+  <li><a href="/de/docs/start-here/">Hier beginnen</a> — wähle den Weg, der zu deinem Aufbau passt</li>
+  <li><a href="/de/docs/quickstart/">Schnellstart</a> — Aufbau auf dem Steckbrett in 60 Minuten, oder die ausführliche <a href="/de/docs/getting-started/">Bauanleitung</a></li>
+  <li><a href="/de/docs/bom/">Stückliste</a> und <a href="/de/docs/checklist/">Inbetriebnahme-Checkliste</a> — bevor eine Pumpe an Netzspannung kommt</li>
+  <li>Anbindung an <a href="/de/docs/integrations/home-assistant/">Home Assistant</a> oder <a href="/de/docs/integrations/openhab/">openHAB</a></li>
 </ol>
-<p>Alles Weitere steht in der <a href="/docs/">vollständigen Dokumentation</a>.</p>
+<p>Alles Weitere steht in der <a href="/de/docs/">vollständigen Dokumentation</a>.</p>
 <p><a href="https://www.home-assistant.io/"><img src="https://img.shields.io/badge/Works%20with-Home%20Assistant-41BDF5?logo=homeassistant&logoColor=white&style=for-the-badge" alt="Works with Home Assistant" /></a></p>
 </div>
 
