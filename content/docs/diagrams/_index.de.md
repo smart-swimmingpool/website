@@ -1,6 +1,6 @@
 ---
-title: Diagramme mit Svgbob
-weight: 90
+title: "Diagramme schreiben (Svgbob)"
+weight: 61
 tags: ["docs", "contributing", "diagrams"]
 ---
 
@@ -54,7 +54,7 @@ hellen und dunklen Theme, und der Quelltext bleibt auf GitHub als Text lesbar.
   nur Leitungen desselben Netzes. Der Pull-up eines DS18B20 ist die einzige
   Verbindung zwischen DATA und 3V3.
 - Die 230V-Seite gehört nicht in Niederspannungszeichnungen, stattdessen auf die
-  [Anleitung Elektrische Sicherheit](/docs/pool-controller/electrical-safety/) verweisen.
+  [Anleitung Elektrische Sicherheit](/docs/components/pool-controller/electrical-safety/) verweisen.
 - `(`, `)`, `/`, `\`, `<`, `>` und ein einzelnes `-` in Beschriftungen
   vermeiden, Svgbob macht daraus Bögen, Diagonalen oder Pfeile. `2 Kanal`
   statt `2-Kanal`.

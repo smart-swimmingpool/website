@@ -1,6 +1,8 @@
 ---
 title: Pool Monitor
-weight: 1
+weight: 2
+aliases:
+  - /docs/pool-monitor/
 tags: ["docs", "pool-monitor", "display", "solar"]
 ---
 
@@ -34,19 +36,19 @@ Der Pool Monitor bietet:
 ### Erste Schritte
 
 - **[Pool Monitor Repository](https://github.com/smart-swimmingpool/monitor)** - Haupt-Repository mit aller Dokumentation
-- **[Aufbauanleitung](/docs/pool-monitor/hardware-guide/)** - Schritt-für-Schritt-Bauanleitung
-- **[Hardware Übersicht](/docs/pool-monitor/hardware-guide/#übersicht)** - Komponentenbeschreibungen
+- **[Aufbauanleitung](/docs/components/pool-monitor/hardware-guide/)** - Schritt-für-Schritt-Bauanleitung
+- **[Hardware Übersicht](/docs/components/pool-monitor/hardware-guide/#übersicht)** - Komponentenbeschreibungen
 
 ### Hardware
 
-- **[Verdrahtungsdiagramm](/docs/pool-monitor/hardware-guide/#verdrahtung)** - Anschlussanleitung
-- **[Stückliste](/docs/pool-monitor/hardware-guide/#benötigte-teile-bom)** - Vollständige Teileliste
+- **[Verdrahtungsdiagramm](/docs/components/pool-monitor/hardware-guide/#verdrahtung)** - Anschlussanleitung
+- **[Stückliste](/docs/components/pool-monitor/hardware-guide/#benötigte-teile-bom)** - Vollständige Teileliste
 
 ### Firmware
 
-- **[Firmware-Installation](/docs/pool-monitor/software-guide/#bauen--flashen)** - Flash-Anleitung
-- **[Konfiguration](/docs/pool-monitor/software-guide/#konfiguration)** - Einrichtungshinweise
-- **[MQTT-Konfiguration](/docs/pool-monitor/software-guide/#wifi--mqtt-einrichtung)** - Broker-Einrichtung
+- **[Firmware-Installation](/docs/components/pool-monitor/software-guide/#bauen--flashen)** - Flash-Anleitung
+- **[Konfiguration](/docs/components/pool-monitor/software-guide/#konfiguration)** - Einrichtungshinweise
+- **[MQTT-Konfiguration](/docs/components/pool-monitor/software-guide/#wifi--mqtt-einrichtung)** - Broker-Einrichtung
 
 ## 🔧 Hardware-Anforderungen
 
@@ -77,11 +79,11 @@ Der Pool Monitor bietet:
 
 1. **[Hier beginnen](/docs/start-here/)** - Wählen Sie Ihren Weg basierend auf Ihren Zielen
 2. **[Repository besuchen](https://github.com/smart-swimmingpool/monitor)** - Zugriff auf alle Dokumentationen und Quellcode
-3. **[Home Assistant Integration](/docs/home-assistant-integration/)** - Smarthome-Integration
-4. **[Grafana Dashboard](/docs/grafana-dashboard/)** - Datenvisualisierung
+3. **[Home Assistant Integration](/docs/integrations/home-assistant/)** - Smarthome-Integration
+4. **[Grafana Dashboard](/docs/components/grafana-dashboard/)** - Datenvisualisierung
 
 ## 💬 Brauchen Sie Hilfe?
 
-- Prüfen Sie die **[FAQ & Fehlerbehebung](/docs/troubleshooting/)** Seite
+- Prüfen Sie die **[Fehlerbehebung](/docs/troubleshooting/)** Seite
 - Besuchen Sie das **[Pool Monitor Repository](https://github.com/smart-swimmingpool/monitor)**
 - Öffnen Sie ein **[Issue](https://github.com/smart-swimmingpool/monitor/issues)** für Bugs oder Feature-Anfragen

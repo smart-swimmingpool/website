@@ -1,14 +1,14 @@
 ---
 title: Hier starten
-weight: 1
+weight: 11
 ---
 
-👋 Willkommen beim **Smart Swimming Pool**-Projekt! Diese Seite hilft dir,
-den richtigen Einstieg zu finden — je nachdem, was du bauen möchtest.
+👋 Willkommen beim **Smart Swimming Pool**-Projekt! Diese Seite hilft Ihnen,
+den richtigen Einstieg zu finden — je nachdem, was Sie bauen möchten.
 
 ---
 
-## Wähle deinen Pfad
+## Wählen Sie Ihren Pfad
 
 ### 🔰 Ich möchte den einfachstmöglichen Aufbau
 
@@ -20,7 +20,7 @@ den richtigen Einstieg zu finden — je nachdem, was du bauen möchtest.
 - Vorgefertigte Firmware flashen
 - Steuerung über Home Assistant
 
-**Hier starten**: [Pool-Controller — Von Null aufgebaut](/docs/pool-controller/build-from-zero/)
+**Hier starten**: [Pool-Controller — Von Null aufgebaut](/docs/components/pool-controller/build-from-zero/)
 
 | Komponente | Ca. Preis |
 |-----------|-----------|
@@ -28,7 +28,8 @@ den richtigen Einstieg zu finden — je nachdem, was du bauen möchtest.
 | 2-Kanal-Relaismodul | 4–6 € |
 | 2× DS18B20 Sensoren | 6–10 € |
 | Steckbrett + Kabel | 5 € |
-| **Gesamt** | **~30 €** |
+| Widerstände, Netzteil, Kleinteile | siehe Stückliste |
+| **Gesamt** | **~35–55 €** (siehe [Stückliste](/docs/bom/)) |
 
 ---
 
@@ -36,16 +37,16 @@ den richtigen Einstieg zu finden — je nachdem, was du bauen möchtest.
 
 **Ziel**: Vollautomation mit Zeitplan-Umwälzung und Solarheizungsregelung.
 
-- Die [Von Null aufgebaut](/docs/pool-controller/build-from-zero/)-Anleitung befolgen
+- Die [Von Null aufgebaut](/docs/components/pool-controller/build-from-zero/)-Anleitung befolgen
 - **IP65-Gehäuse** für Wetterschutz verwenden
 - Ordnungsgemäße **Netzspannungs-Verdrahtung** mit Sicherung und FI-Schutz
 - **Home Assistant**-Integration für Dashboard und Automatisierung
 - **MQTT** für zuverlässige Kommunikation
 
 **Erforderliche Lektüre**:
-- [Elektrische Sicherheit](/docs/pool-controller/electrical-safety/)
-- [Produktions-Checkliste](/docs/pool-controller/production-checklist/)
-- [Sicherheits-Checkliste](/docs/pool-controller/security-checklist/)
+- [Elektrische Sicherheit](/docs/components/pool-controller/electrical-safety/)
+- [Produktions-Checkliste](/docs/components/pool-controller/production-checklist/)
+- [Sicherheits-Checkliste](/docs/components/pool-controller/security-checklist/)
 
 ---
 
@@ -63,54 +64,18 @@ Sicherheit.
 - Regelmäßiger **Wartungsplan**
 
 **Erforderliche Lektüre**:
-- [Von Null aufgebaut](/docs/pool-controller/build-from-zero/)
-- [Elektrische Sicherheit](/docs/pool-controller/electrical-safety/)
-- [Sicherheitsmodell](/docs/pool-controller/safety-model/)
-- [Produktions-Checkliste](/docs/pool-controller/production-checklist/)
-- [Sicherheits-Checkliste](/docs/pool-controller/security-checklist/)
-- [Fehlerbehebung](/docs/pool-controller/troubleshooting/)
+- [Von Null aufgebaut](/docs/components/pool-controller/build-from-zero/)
+- [Elektrische Sicherheit](/docs/components/pool-controller/electrical-safety/)
+- [Sicherheitsmodell](/docs/components/pool-controller/safety-model/)
+- [Produktions-Checkliste](/docs/components/pool-controller/production-checklist/)
+- [Sicherheits-Checkliste](/docs/components/pool-controller/security-checklist/)
+- [Fehlerbehebung](/docs/troubleshooting/)
 
 ---
 
-## Architektur-Übersicht
+## So hängt alles zusammen
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                      Pool-Umgebung                            │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────────┐ │
-│  │ Pool-    │  │ Solar-   │  │ Sand-    │  │ Wärme-       │ │
-│  │ pumpe    │  │ pumpe    │  │ filter   │  │ tauscher     │ │
-│  └────┬─────┘  └────┬─────┘  └──────────┘  └──────┬───────┘ │
-│       │              │                              │         │
-└───────┼──────────────┼──────────────────────────────┼─────────┘
-        │              │                              │
-        ▼              ▼                              ▼
-┌──────────────────────────────────────────────────────────────┐
-│                   Pool-Controller (ESP32)                     │
-│  ┌────────────┐  ┌────────────┐  ┌──────────────────────┐   │
-│  │ DS18B20    │  │ DS18B20    │  │ 2-Kanal-Relais       │   │
-│  │ Pool-Temp  │  │ Solar-Temp │  │ GPIO18 → Poolpumpe   │   │
-│  │ GPIO16     │  │ GPIO15     │  │ GPIO19 → Solarpumpe  │   │
-│  └────────────┘  └────────────┘  └──────────────────────┘   │
-│                          │                                    │
-│                    ┌─────┴──────┐                              │
-│                    │  WiFi STA  │                              │
-│                    │  MQTT Pub  │                              │
-│                    │  Web-UI    │                              │
-│                    └─────┬──────┘                              │
-└──────────────────────────┼────────────────────────────────────┘
-                           │ MQTT
-                           ▼
-┌──────────────────────────────────────────────────────────────┐
-│                   Smart-Home-Server                            │
-│  ┌────────────────────┐  ┌────────────────────────────────┐  │
-│  │ Home Assistant     │  │ MQTT-Broker (Mosquitto)        │  │
-│  │ • MQTT Discovery   │  │ • pool-controller/# Topics     │  │
-│  │ • Lovelace UI      │  │ • Auth aktiviert               │  │
-│  │ • Automatisierungen│  │ • Nur lokal                    │  │
-│  └────────────────────┘  └────────────────────────────────┘  │
-└──────────────────────────────────────────────────────────────┘
-```
+Sensoren und Relais hängen am ESP32-Pool-Controller, der per MQTT mit Ihrem Smart Home (Home Assistant, openHAB) spricht. Pinbelegung, Schaltplan und Datenfluss sind einmalig in der **[Architektur](/docs/architecture/)** dokumentiert — damit nichts auseinanderläuft.
 
 ---
 
@@ -126,57 +91,31 @@ Sicherheit.
 
 ---
 
-## FAQ
+## Fragen?
 
-### Brauche ich Home Assistant?
-
-Nein. Der Controller hat ein integriertes Web-Interface zur direkten Steuerung.
-Home Assistant bietet ein schöneres Dashboard und Automatisierungsmöglichkeiten,
-ist aber nicht erforderlich.
-
-### Kann ich openHAB verwenden?
-
-Ja. openHAB wird über MQTT unterstützt. Siehe das
-[openHAB-Config-Repository](https://github.com/smart-swimmingpool/openhab-config).
-Hinweis: Home Assistant Discovery ist heute der primäre Integrationspfad —
-openHAB erfordert manuelle MQTT-Konfiguration.
-
-### Was, wenn ich keine Solarheizung habe?
-
-Kein Problem. Die Solarpumpen-Funktionen können ungenutzt bleiben. Der
-Controller funktioniert einwandfrei nur mit der Pool-Umwälzung.
-
-### Kann ich das mit jeder Poolpumpe verwenden?
-
-Ja, solange die Pumpe über ein Relais (Netzspannung) ein- und ausgeschaltet
-werden kann. Die meisten Sandfilterpumpen unterstützen dies. Beachte den
-Schaltplan deiner Pumpe.
-
-### Wie lang dürfen die DS18B20-Sensorkabel sein?
-
-Bis zu 10 Meter mit 4,7 kΩ Pull-up. Für längere Strecken einen niedrigeren
-Pull-up-Wert (z. B. 2,2 kΩ) oder einen dedizierten OneWire-Treiber verwenden.
-
-### Muss ich Elektriker sein?
-
-Die grundlegende Verdrahtung (Relais zu Pumpen) erfordert Arbeiten mit 230V AC.
-Wenn du dich mit Netzspannung nicht wohlfühlst, beauftrage eine
-qualifizierte Elektrofachkraft.
-
-### Kann ich den Controller ohne WLAN betreiben?
-
-Der Controller benötigt WLAN für die MQTT-Kommunikation, arbeitet aber mit
-der zuletzt bekannten Konfiguration weiter, wenn das WLAN ausfällt. Eine
-zukünftige Version wird den standalone-Betrieb mit Display und Tasten
-unterstützen.
+Häufige Fragen (Brauche ich Home Assistant? Was, wenn ich keine Solarheizung habe? Brauche ich einen Elektriker?) beantwortet die **[FAQ](/docs/faq/)**. Wenn etwas nicht funktioniert, hilft die **[Fehlerbehebung](/docs/troubleshooting/)**.
 
 ---
 
 ## Nächste Schritte
 
-1. Die [Von Null aufgebaut](/docs/pool-controller/build-from-zero/)-Anleitung lesen
-2. Teile aus der Stückliste bestellen
-3. Auf dem Steckbrett aufbauen und testen
-4. Im Gehäuse installieren
-5. In Home Assistant integrieren
-6. Deinen smarten Pool genießen!
+1. Wählen Sie oben einen Pfad und folgen Sie dem [Schnellstart](/docs/quickstart/) oder der ausführlichen [Bauanleitung](/docs/getting-started/)
+2. Bestellen Sie die Teile laut [Stückliste](/docs/bom/)
+3. Bauen Sie auf dem Steckbrett auf, testen Sie und arbeiten Sie die [Inbetriebnahme-Checkliste](/docs/checklist/) ab
+4. Installieren Sie alles im Gehäuse
+5. Binden Sie [Home Assistant](/docs/integrations/home-assistant/) oder [openHAB](/docs/integrations/openhab/) ein
+6. Genießen Sie Ihren smarten Pool!
+
+---
+
+## Projektgeschichte
+
+🏊 Smart Swimming Pool basiert auf einem [früheren Projekt](https://github.com/stritti/smart-swimming-pool), das noch nicht modular aufgebaut war und die gesamte Steuerlogik als openHAB-Regeln implementierte.
+
+Die erste Version war im **Sommer 2018** im Einsatz und zeigte einige Schwächen:
+
+- Die Steuerung der Pumpen über 433-MHz-Steckdosenschalter war unzuverlässig — ohne Rückmeldung war der tatsächliche Status unbekannt
+- Die Schaltlogik lebte in openHAB-Regeln, was bei unzuverlässigem WLAN zu Problemen führte
+- MQTT-Nachrichten verwendeten ein proprietäres Format
+
+Aus diesen Erfahrungen entstand die überarbeitete Version des 🏊 Smart Swimming Pools: modular, widerstandsfähig und auf Standards basierend.

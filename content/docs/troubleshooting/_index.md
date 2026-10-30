@@ -1,10 +1,10 @@
 ---
-title: FAQ & Troubleshooting
-weight: 30
+title: "Troubleshooting"
+weight: 52
 tags: ["docs", "faq", "troubleshooting"]
 ---
 
-**🏊 Frequently asked questions and solutions for common problems.**
+**🏊 Diagnose and fix common problems — sorted by symptom. For general questions see the [FAQ](/docs/faq/).**
 
 {{< safety-notice type="230v" >}}
 
@@ -273,50 +273,8 @@ rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
 
 ---
 
-## General & Hardware
+## More questions?
 
-### The system cost more than 100€ — is that normal?
-
-The **~45–75€** estimate covers the **controller electronics only** (ESP32, sensors, relay, breadboard, enclosure). It does **not** include:
-- Pool pump and filter system
-- Heating circuit pump
-- Heat exchanger installation
-- Wiring materials (cables, connectors, circuit breakers)
-
-If you need to add these, the total project cost can be significantly higher.
-
-### Can I use this without a smart home server?
-
-**Yes.** The pool controller is fully autonomous:
-- It handles circulation scheduling and heating control **without** any server.
-- The web interface allows basic configuration and manual control.
-- MQTT integration and Home Assistant are optional — they add remote control, automation, and visualization.
-
-### How weatherproof is the system?
-
-The pool controller itself is **not weatherproof** out of the box. You need:
-
-| Location | Protection |
-|----------|-----------|
-| Indoor installation (preferred) | No special protection needed |
-| Outdoor / pool house | **IP54+** enclosure, cable glands for all entries |
-| Sensors (DS18B20) | Stainless steel probe is IP68 — cable entry must be sealed |
-| Power supply | Must be in a dry location or in an IP-rated enclosure |
-
-### Can I use this with a heat pump instead of solar heating?
-
-Yes. The pool controller's heating logic switches a pump when heating is needed. This works with any heat source:
-- Solar thermal system
-- Heat pump
-- Gas/oil heater with heat exchanger
-- Electric heating element (via relay / contactor)
-
-### Which pumps can be controlled?
-
-The relay module switches 230V/10A max (resistive load). For inductive loads (motors, pumps), derate to ~5A. For larger pumps, use the relay to switch a contactor that handles the pump current.
-
-### Is this project CE / UL certified?
-
-**No.** This is a hobbyist DIY project. It is not tested or certified by any regulatory body. You build and operate it at your own risk. Always use an RCD (residual-current device / FI-Schutzschalter) when connecting to mains power.
+General questions about cost, weatherproofing, heat pumps, pumps and certification are answered in the [FAQ](/docs/faq/).
 
 {{< safety-notice type="230v" >}}

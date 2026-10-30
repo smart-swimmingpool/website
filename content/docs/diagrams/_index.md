@@ -1,6 +1,6 @@
 ---
-title: Diagrams with Svgbob
-weight: 90
+title: "Writing Diagrams (Svgbob)"
+weight: 61
 tags: ["docs", "contributing", "diagrams"]
 ---
 
@@ -54,7 +54,7 @@ dark theme, and the source stays readable as text on GitHub.
   wires of the same net. The pull-up of a DS18B20 is the only link between DATA
   and 3V3.
 - Keep the 230V side out of low-voltage drawings and link to the
-  [electrical safety guide](/docs/pool-controller/electrical-safety/) instead.
+  [electrical safety guide](/docs/components/pool-controller/electrical-safety/) instead.
 - Avoid `(`, `)`, `/`, `\`, `<`, `>` and a single `-` inside labels, because
   Svgbob turns them into arcs, diagonals or arrows. Write `2 channels`, not
   `2-channel`.

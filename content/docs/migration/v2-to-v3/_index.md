@@ -1,6 +1,8 @@
 ---
-title: Firmware Migration (v2.x → v3.x)
-weight: 50
+title: "v2.x → v3.x Migration Guide"
+weight: 10
+aliases:
+  - /docs/firmware-migration/
 tags: ["docs", "migration", "homie", "firmware"]
 ---
 
@@ -8,7 +10,7 @@ tags: ["docs", "migration", "homie", "firmware"]
 
 If you are running the **Pool Controller v2.x** (or earlier) and plan to upgrade to **v3.x**, this guide explains what changes and how to update your smart home integration.
 
-> 💡 **New user?** If you are installing the pool controller for the first time, follow the [Getting Started](/docs/getting-started/) guide instead. This guide is only relevant if you have an existing Homie 3.0 setup.
+> 💡 **New user?** If you are installing the pool controller for the first time, follow the [Build Guide](/docs/getting-started/) guide instead. This guide is only relevant if you have an existing Homie 3.0 setup.
 
 ---
 
@@ -17,7 +19,7 @@ If you are running the **Pool Controller v2.x** (or earlier) and plan to upgrade
 | Aspect | v2.x (Homie 3.0) | v3.x (HA Discovery) |
 |--------|------------------|---------------------|
 | **MQTT topic format** | `homie/<mac>/<node>/<property>` | `homeassistant/<component>/pool-controller/<id>/state` |
-| **Device identifier** | MAC address (e.g., `5ccf7fb97572`) | `pool-controller` (configurable) |
+| **Device identifier** | MAC address (e.g., `5ccf7fb97572`) | Fixed topic segment `pool-controller`; Home Assistant device ID `pool_controller_<last 3 MAC bytes>` |
 | **Availability** | `homie/<mac>/$state` (`ready`/`lost`) | `homeassistant/sensor/pool-controller/availability` (`online`/`offline`) |
 | **Home Assistant** | Limited support, manual config | **Native** — auto-discovery via MQTT |
 | **openHAB** | Full support (native configuration) | Manual MQTT configuration required |
@@ -39,7 +41,7 @@ openHAB remains fully supported via manual MQTT configuration.
 
 ### Step 1: Flash v3.x
 
-Follow the standard flashing procedure in the [Getting Started](/docs/getting-started/#firmware-installation) guide:
+Follow the standard flashing procedure in the [Build Guide](/docs/getting-started/#firmware-installation) guide:
 
 ```bash
 # In VS Code with PlatformIO:
@@ -75,13 +77,13 @@ After migration, reconfigure these parameters in the web interface (or via Home 
 
 1. Go to **Settings → Devices & Services**
 2. The **Pool Controller** device should appear automatically
-3. See the [Home Assistant Integration Guide](/docs/home-assistant-integration/) for the complete entity reference
+3. See the [Home Assistant Integration Guide](/docs/integrations/home-assistant/) for the complete entity reference
 
 > **Note**: If you had manually configured MQTT sensors in Home Assistant for the Homie topics, those will show as **unavailable** after the upgrade. Remove them manually — the auto-discovered entities replace them.
 
 ### openHAB Users
 
-openHAB requires **manual MQTT configuration**. The [openHAB Integration Guide](/docs/openhab-integration/) shows the complete setup.
+openHAB requires **manual MQTT configuration**. The [openHAB Integration Guide](/docs/integrations/openhab/) shows the complete setup.
 
 #### What needs to change
 
@@ -159,11 +161,11 @@ v3.3 added three new configuration parameters for temperature-controlled circula
 
 These did not exist in v2.x and have no Homie equivalent.
 
-### 4. Device identifier is now configurable
+### 4. Device identifier is no longer the MAC address
 
-In v2.x, the device ID was **always** the MAC address (`5ccf7fb97572`). In v3.x, the default device ID is `pool-controller`, but you can **change it** in **Configuration → MQTT → Device ID** in the web interface.
+In v2.x, the device ID was the MAC address (`5ccf7fb97572`) and appeared in every topic. In v3.x, all topics use the fixed segment `pool-controller` (`homeassistant/<component>/pool-controller/<object-id>/…`). Home Assistant identifies the device as `pool_controller_<last 3 MAC bytes in hex>`. Neither can be changed in the web interface.
 
-If you change it, update all topic paths accordingly.
+Adjust any topic paths that still contain the MAC address.
 
 ### 5. No Homie-compatibility mode
 
