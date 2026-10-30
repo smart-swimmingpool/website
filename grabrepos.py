@@ -217,7 +217,7 @@ def dest_filepath(reponame, srcdir, srcfile):
 
 # Copy files to "docs/". Filter sections of file first. Add generated header to file.
 def write_file(reponame, targetdir, srcdir, filename, data, tagname, date, absurl,
-               imported_repos=None):
+                imported_repos=None):
     logging.info("--> write_file (")
     logging.info("  reponame: "+reponame)
     logging.info("  targetdir: "+targetdir)
@@ -337,7 +337,7 @@ def checkout_repo(targetdir, reponame, repourl, filepattern, checkoutdir, update
                 absurl = repourl.replace(".git", "")+"/tree/"+ref.name
                 write_file(
                     reponame, targetdir, localpath, filepath, localdata, tagname, date, absurl,
-                           imported_repos)
+                            imported_repos)
     logging.info("<-- checkout_repo")
 
 
