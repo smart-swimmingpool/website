@@ -1,10 +1,10 @@
 ---
-title: FAQ & Fehlerbehebung
-weight: 30
+title: "Fehlerbehebung"
+weight: 52
 tags: ["docs", "faq", "troubleshooting"]
 ---
 
-**🏊 Häufig gestellte Fragen und Lösungen für typische Probleme.**
+**🏊 Typische Probleme erkennen und beheben — nach Symptom sortiert. Allgemeine Fragen beantwortet die [FAQ](/docs/faq/).**
 
 {{< safety-notice type="230v" >}}
 
@@ -272,50 +272,8 @@ rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
 
 ---
 
-## Allgemein & Hardware
+## Weitere Fragen?
 
-### Das System hat mehr als 100€ gekostet — ist das normal?
-
-Die Schätzung von **~45–75€** umfasst **nur die Controller-Elektronik** (ESP32, Sensoren, Relais, Breadboard, Gehäuse). Nicht enthalten sind:
-- Poolpumpe und Filtersystem
-- Heizkreispumpe
-- Wärmetauscher-Installation
-- Verdrahtungsmaterial (Kabel, Steckverbinder, Sicherungen)
-
-Wenn diese Komponenten hinzukommen, können die Gesamtkosten deutlich höher sein.
-
-### Kann ich das ohne Smart-Home-Server nutzen?
-
-**Ja.** Der Pool Controller ist vollständig autark:
-- Er übernimmt Zirkulationssteuerung und Heizungsregelung **ohne** externen Server.
-- Die Weboberfläche erlaubt grundlegende Konfiguration und manuelle Steuerung.
-- MQTT-Integration und Home Assistant sind optional — sie erweitern um Fernsteuerung, Automatisierung und Visualisierung.
-
-### Wie wetterfest ist das System?
-
-Der Pool Controller selbst ist **nicht wetterfest** im Auslieferungszustand. Sie benötigen:
-
-| Standort | Schutz |
-|----------|--------|
-| Inneninstallation (bevorzugt) | Kein besonderer Schutz nötig |
-| Außen / Gartenhaus | **IP54+**-Gehäuse, Kabelverschraubungen für alle Eingänge |
-| Sensoren (DS18B20) | Edelstahlsonde ist IP68 — Kabeleinführung muss abgedichtet sein |
-| Netzteil | Muss trocken stehen oder in IP-geschütztem Gehäuse |
-
-### Kann ich das mit einer Wärmepumpe statt Solarheizung nutzen?
-
-Ja. Die Heizungslogik des Pool Controllers schaltet eine Pumpe bei Heizbedarf. Das funktioniert mit jeder Wärmequelle:
-- Solarthermie-Anlage
-- Wärmepumpe
-- Gas-/Ölheizung mit Wärmetauscher
-- Elektro-Heizelement (über Relais/Schütz)
-
-### Welche Pumpen können gesteuert werden?
-
-Das Relais-Modul schaltet 230V/10A max (ohmsche Last). Bei induktiven Lasten (Motoren, Pumpen) mit ~5A. Verwenden Sie für größere Pumpen das Relais zur Ansteuerung eines Schützes.
-
-### Ist dieses Projekt CE-/UL-zertifiziert?
-
-**Nein.** Dies ist ein Hobby-DIY-Projekt. Es wurde von keiner Aufsichtsbehörde geprüft oder zertifiziert. Sie bauen und betreiben es auf eigene Gefahr. Verwenden Sie immer einen **RCD (FI-Schutzschalter)** beim Anschluss an die Netzspannung.
+Allgemeine Fragen zu Kosten, Wetterschutz, Wärmepumpe, Pumpen und Zertifizierung beantwortet die [FAQ](/docs/faq/).
 
 {{< safety-notice type="230v" >}}

@@ -1,6 +1,8 @@
 ---
-title: Firmware-Migration (v2.x → v3.x)
-weight: 50
+title: "Migrationsanleitung v2.x → v3.x"
+weight: 10
+aliases:
+  - /docs/firmware-migration/
 tags: ["docs", "migration", "homie", "firmware"]
 ---
 
@@ -8,7 +10,7 @@ tags: ["docs", "migration", "homie", "firmware"]
 
 Wenn Sie den **Pool Controller v2.x** (oder älter) betreiben und auf **v3.x** upgraden möchten, erklärt dieser Leitfaden, was sich ändert und wie Sie Ihre Smart-Home-Integration aktualisieren müssen.
 
-> 💡 **Neuling?** Wenn Sie den Pool Controller zum ersten Mal installieren, folgen Sie stattdessen der [Erste Schritte](/docs/getting-started/)-Anleitung. Diese Anleitung ist nur relevant, wenn Sie bereits ein Homie 3.0-Setup haben.
+> 💡 **Neuling?** Wenn Sie den Pool Controller zum ersten Mal installieren, folgen Sie stattdessen der [Bauanleitung](/docs/getting-started/)-Anleitung. Diese Anleitung ist nur relevant, wenn Sie bereits ein Homie 3.0-Setup haben.
 
 ---
 
@@ -17,7 +19,7 @@ Wenn Sie den **Pool Controller v2.x** (oder älter) betreiben und auf **v3.x** u
 | Aspekt | v2.x (Homie 3.0) | v3.x (HA Discovery) |
 |--------|------------------|---------------------|
 | **MQTT-Topic-Format** | `homie/<mac>/<node>/<property>` | `homeassistant/<component>/pool-controller/<id>/state` |
-| **Geräte-ID** | MAC-Adresse (z.B. `5ccf7fb97572`) | `pool-controller` (konfigurierbar) |
+| **Geräte-ID** | MAC-Adresse (z.B. `5ccf7fb97572`) | Fester Topic-Abschnitt `pool-controller`; Home-Assistant-Geräte-ID `pool_controller_<letzte 3 MAC-Bytes>` |
 | **Verfügbarkeit** | `homie/<mac>/$state` (`ready`/`lost`) | `homeassistant/sensor/pool-controller/availability` (`online`/`offline`) |
 | **Home Assistant** | Eingeschränkt, manuelle Konfiguration | **Nativ** — automatische Erkennung via MQTT |
 | **openHAB** | Volle Unterstützung (native Konfiguration) | Manuelle MQTT-Konfiguration erforderlich |
@@ -39,7 +41,7 @@ openHAB wird weiterhin vollständig über manuelle MQTT-Konfiguration unterstüt
 
 ### Schritt 1: v3.x flashen
 
-Folgen Sie der Standard-Flash-Prozedur in der [Erste Schritte](/docs/getting-started/#firmware-installation)-Anleitung:
+Folgen Sie der Standard-Flash-Prozedur in der [Bauanleitung](/docs/getting-started/#firmware-installation)-Anleitung:
 
 ```bash
 # In VS Code mit PlatformIO:
@@ -75,13 +77,13 @@ Nach der Migration konfigurieren Sie diese Parameter im Webinterface (oder über
 
 1. Gehen Sie zu **Einstellungen → Geräte & Dienste**
 2. Das Gerät **Pool Controller** sollte automatisch erscheinen
-3. Siehe [Home Assistant Integrations-Guide](/docs/home-assistant-integration/) für die vollständige Entity-Referenz
+3. Siehe [Home Assistant Integrations-Guide](/docs/integrations/home-assistant/) für die vollständige Entity-Referenz
 
 > **Hinweis**: Wenn Sie manuell MQTT-Sensoren in Home Assistant für die Homie-Topics konfiguriert hatten, werden diese nach dem Upgrade als **nicht verfügbar** angezeigt. Entfernen Sie sie manuell — die automatisch erkannten Entitäten ersetzen sie.
 
 ### openHAB-Nutzer
 
-openHAB erfordert **manuelle MQTT-Konfiguration**. Der [openHAB Integrations-Guide](/docs/openhab-integration/) zeigt die vollständige Einrichtung.
+openHAB erfordert **manuelle MQTT-Konfiguration**. Der [openHAB Integrations-Guide](/docs/integrations/openhab/) zeigt die vollständige Einrichtung.
 
 #### Was sich ändern muss
 
@@ -159,11 +161,11 @@ v3.3 fügte drei neue Konfigurationsparameter für temperaturgesteuerte Zirkulat
 
 Diese gab es in v2.x nicht und haben kein Homie-Äquivalent.
 
-### 4. Geräte-ID ist jetzt konfigurierbar
+### 4. Geräte-ID ist nicht mehr die MAC-Adresse
 
-In v2.x war die Geräte-ID **immer** die MAC-Adresse (`5ccf7fb97572`). In v3.x ist die Standard-ID `pool-controller`, aber Sie können sie im Webinterface unter **Konfiguration → MQTT → Geräte-ID** **ändern**.
+In v2.x war die Geräte-ID die MAC-Adresse (`5ccf7fb97572`) und kam in jedem Topic vor. In v3.x verwenden alle Topics den festen Abschnitt `pool-controller` (`homeassistant/<Komponente>/pool-controller/<Objekt-ID>/…`). Home Assistant erkennt das Gerät als `pool_controller_<letzte 3 MAC-Bytes in Hex>`. Beides lässt sich im Webinterface nicht ändern.
 
-Wenn Sie sie ändern, aktualisieren Sie alle Topic-Pfade entsprechend.
+Passen Sie Topic-Pfade an, die noch die MAC-Adresse enthalten.
 
 ### 5. Kein Homie-Kompatibilitätsmodus
 

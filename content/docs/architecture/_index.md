@@ -1,6 +1,6 @@
 ---
 title: Architecture
-weight: 5
+weight: 21
 tags: ["docs", "architecture", "overview"]
 ---
 
@@ -156,6 +156,6 @@ The architecture supports several optional add-ons:
 
 ## Related Pages
 
-- [Getting Started](/docs/getting-started/) — Build your own pool controller
-- [Home Assistant Integration](/docs/home-assistant-integration/) — Dashboard and automation guide
-- [FAQ & Troubleshooting](/docs/troubleshooting/) — Common problems and solutions
+- [Build Guide](/docs/getting-started/) — Build your own pool controller
+- [Home Assistant Integration](/docs/integrations/home-assistant/) — Dashboard and automation guide
+- [Troubleshooting](/docs/troubleshooting/) — Common problems and solutions
