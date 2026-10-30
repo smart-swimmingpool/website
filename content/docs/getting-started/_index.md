@@ -22,16 +22,17 @@ In a typical setup, a thermal solar system heats water and supports the home hea
 
 ## Parts List (Bill of Materials)
 
-| Component | Est. Price | Notes |
-|-----------|-----------|-------|
-| ESP32 DevKit V1 | 10–15 € | At least 4MB flash, USB cable included |
-| DS18B20 temperature sensor (2x, waterproof) | 8–12 € | Stainless steel probe, 1m cable |
-| 2-Channel Relay Module (Dual relay) | 5–8 € | Standard **active-low** module — see notes |
-| 4.7kΩ resistors (2x) | < 1 € | Pull-up resistors for OneWire bus |
-| Breadboard + jumper wires | 3–8 € | For prototyping; use perfboard for permanent build |
-| USB power supply (5V / 1A+) | 5–10 € | For ESP32 + relay module |
-| Enclosure (IP54+) | 5–10 € | Optional but recommended for outdoor use |
-| **Total** | **~35–65 €** | **Excluding pool pump / heat exchanger infrastructure** |
+| Component | Notes |
+|---|---|
+| ESP32 DevKit V1 | At least 4MB flash, USB cable included |
+| DS18B20 temperature sensor (2x, waterproof) | Stainless steel probe, 1m cable |
+| 2-Channel Relay Module (Dual relay) | Standard **active-low** module — see notes |
+| 4.7kΩ resistors (2x) | Pull-up resistors for OneWire bus |
+| Breadboard + jumper wires | For prototyping; use perfboard for permanent build |
+| USB power supply (5V / 1A+) | For ESP32 + relay module |
+| Enclosure (IP54+) | Optional but recommended for outdoor use |
+
+Prices and the full parts list: see the [Bill of Materials](/docs/bom/) (controller electronics ~35–55 €, excluding pool pump and heat exchanger infrastructure).
 
 > **⚠️ Relay module note:** The firmware drives relays **active-low** (GPIO **LOW** = relay ON, GPIO **HIGH** = relay OFF). This matches the vast majority of cheap 2-channel 5V relay modules. During ESP32 boot, GPIOs are briefly in high-impedance state — the firmware sets them HIGH (relay OFF) as soon as possible after startup. If your module behaves differently (active-high), see the [Troubleshooting](/docs/troubleshooting/) for configuration options.
 

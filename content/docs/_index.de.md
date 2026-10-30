@@ -34,18 +34,18 @@ Kern des Systems ist der **Pool Controller**, ein ESP32-basiertes Gerät, das:
 
 ---
 
-## 📦 Module im Überblick
+## 🗂️ Repositories
 
-| Modul | Zweck | Schwierigkeit | Kosten |
-|-------|-------|---------------|--------|
-| **[Pool Controller](/docs/components/pool-controller/)** | Hauptsteuerlogik (erforderlich) | ⭐⭐ | ~35–55 € |
-| **[Home Assistant Integration](/docs/integrations/home-assistant/)** | Smart-Home-Dashboard | ⭐ | Kostenlos |
-| **[openHAB Integration](/docs/integrations/openhab/)** | Alternatives Smart Home | ⭐⭐ | Kostenlos |
-| **[Pool Monitor](/docs/components/pool-monitor/)** | Kabelloses Temperaturdisplay | ⭐⭐ | ~20–40 € |
-| **[Grafana Dashboard](/docs/components/grafana-dashboard/)** | Datenvisualisierung | ⭐ | Kostenlos |
-| **[Water Quality Monitor](/docs/components/water-quality-monitor/)** | pH, Chlor und Temperatur (in Entwicklung) | ⭐⭐⭐ | offen |
+Details zu den Modulen (Zweck, Schwierigkeit, Kosten) stehen unter [Komponenten](/docs/components/) und [Smart-Home-Integration](/docs/integrations/). Die Kosten des Controllers gelten nur für die Elektronik; die [Stückliste](/docs/bom/) enthält zusätzlich Gehäuse, Netzverkabelung und Werkzeug.
 
-Die Kosten des Controllers gelten nur für die Elektronik; die [Stückliste](/docs/bom/) enthält zusätzlich Gehäuse, Netzverkabelung und Werkzeug.
+| Repository | Zweck | Sprache |
+|-----------|-------|---------|
+| [pool-controller](https://github.com/smart-swimmingpool/pool-controller) | ESP32-Firmware, Web-UI, Hardware-Doku | C++ (PlatformIO) |
+| [monitor](https://github.com/smart-swimmingpool/monitor) | Solarbetriebene Temperaturanzeige | C++ |
+| [grafana-dashboard](https://github.com/smart-swimmingpool/grafana-dashboard) | Grafana-Dashboard-JSON | JSON |
+| [water-quality-monitor](https://github.com/smart-swimmingpool/water-quality-monitor) | pH- und Chlor-Monitor (in Entwicklung) | — |
+| [openhab-config](https://github.com/smart-swimmingpool/openhab-config) | openHAB-Konfiguration (Legacy) | openHAB DSL |
+| [website](https://github.com/smart-swimmingpool/website) | Projekt-Website (Hugo) | Markdown, Hugo |
 
 ---
 

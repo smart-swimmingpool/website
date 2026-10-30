@@ -22,14 +22,7 @@ den richtigen Einstieg zu finden — je nachdem, was Sie bauen möchten.
 
 **Hier starten**: [Pool-Controller — Von Null aufgebaut](/docs/components/pool-controller/build-from-zero/)
 
-| Komponente | Ca. Preis |
-|-----------|-----------|
-| ESP32 DevKit V1 | 8–12 € |
-| 2-Kanal-Relaismodul | 4–6 € |
-| 2× DS18B20 Sensoren | 6–10 € |
-| Steckbrett + Kabel | 5 € |
-| Widerstände, Netzteil, Kleinteile | siehe Stückliste |
-| **Gesamt** | **~35–55 €** (siehe [Stückliste](/docs/bom/)) |
+**Kosten:** ca. **35–55 €** für die Controller-Elektronik — Teile, Gehäuse und Netzverkabelung stehen in der [Stückliste](/docs/bom/).
 
 ---
 
@@ -79,18 +72,6 @@ Sensoren und Relais hängen am ESP32-Pool-Controller, der per MQTT mit Ihrem Sma
 
 ---
 
-## Repository-Übersicht
-
-| Repository | Zweck | Sprache |
-|-----------|-------|---------|
-| [pool-controller](https://github.com/smart-swimmingpool/pool-controller) | ESP32-Firmware, Web-UI, Hardware-Doku | C++ (PlatformIO) |
-| [website](https://github.com/smart-swimmingpool/website) | Projekt-Website (Hugo) | Markdown, Hugo |
-| [openhab-config](https://github.com/smart-swimmingpool/openhab-config) | openHAB-Konfiguration (Legacy) | openHAB DSL |
-| [monitor](https://github.com/smart-swimmingpool/monitor) | Solarbetriebene Temperaturanzeige | C++ |
-| [grafana-dashboard](https://github.com/smart-swimmingpool/grafana-dashboard) | Grafana-Dashboard-JSON | JSON |
-
----
-
 ## Fragen?
 
 Häufige Fragen (Brauche ich Home Assistant? Was, wenn ich keine Solarheizung habe? Brauche ich einen Elektriker?) beantwortet die **[FAQ](/docs/faq/)**. Wenn etwas nicht funktioniert, hilft die **[Fehlerbehebung](/docs/troubleshooting/)**.
@@ -99,23 +80,6 @@ Häufige Fragen (Brauche ich Home Assistant? Was, wenn ich keine Solarheizung ha
 
 ## Nächste Schritte
 
-1. Wählen Sie oben einen Pfad und folgen Sie dem [Schnellstart](/docs/quickstart/) oder der ausführlichen [Bauanleitung](/docs/getting-started/)
-2. Bestellen Sie die Teile laut [Stückliste](/docs/bom/)
-3. Bauen Sie auf dem Steckbrett auf, testen Sie und arbeiten Sie die [Inbetriebnahme-Checkliste](/docs/checklist/) ab
-4. Installieren Sie alles im Gehäuse
-5. Binden Sie [Home Assistant](/docs/integrations/home-assistant/) oder [openHAB](/docs/integrations/openhab/) ein
-6. Genießen Sie Ihren smarten Pool!
+Wählen Sie einen Pfad, folgen Sie dem [Schnellstart](/docs/quickstart/) oder der [Bauanleitung](/docs/getting-started/), bestellen Sie die Teile laut [Stückliste](/docs/bom/), testen Sie auf dem Steckbrett, arbeiten Sie die [Inbetriebnahme-Checkliste](/docs/checklist/) ab, bauen Sie alles ins Gehäuse und binden Sie [Home Assistant](/docs/integrations/home-assistant/) oder [openHAB](/docs/integrations/openhab/) ein. Alle Repositories und Seiten im Überblick finden Sie in der [Dokumentation](/docs/).
 
----
-
-## Projektgeschichte
-
-🏊 Smart Swimming Pool basiert auf einem [früheren Projekt](https://github.com/stritti/smart-swimming-pool), das noch nicht modular aufgebaut war und die gesamte Steuerlogik als openHAB-Regeln implementierte.
-
-Die erste Version war im **Sommer 2018** im Einsatz und zeigte einige Schwächen:
-
-- Die Steuerung der Pumpen über 433-MHz-Steckdosenschalter war unzuverlässig — ohne Rückmeldung war der tatsächliche Status unbekannt
-- Die Schaltlogik lebte in openHAB-Regeln, was bei unzuverlässigem WLAN zu Problemen führte
-- MQTT-Nachrichten verwendeten ein proprietäres Format
-
-Aus diesen Erfahrungen entstand die überarbeitete Version des 🏊 Smart Swimming Pools: modular, widerstandsfähig und auf Standards basierend.
+Hintergrund zur Entstehung des Projekts: [Projektgeschichte](/docs/publications/#projektgeschichte).

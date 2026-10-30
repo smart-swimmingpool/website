@@ -21,21 +21,20 @@ Der Pool Controller übernimmt:
 - **MQTT-Integration**: Veröffentlicht alle Daten im Home Assistant MQTT Discovery Format
 - **Web-Interface**: Integrierte Konfigurationsoberfläche für einfache Einrichtung
 - **Autonomer Betrieb**: Funktioniert unabhängig ohne Smarthome-Server
-
-## ✨ Hauptmerkmale
-
-- ✅ **ESP32-basiert**: Leistungsstarker Mikrocontroller mit WLAN-Anbindung
-- ✅ **MQTT Discovery**: Automatische Integration mit Home Assistant
-- ✅ **Web-UI**: Einfache Konfiguration über Browser
-- ✅ **Active-Low-Relais**: Sichere Standardzustände (Relais AUS während des Boots)
-- ✅ **Separate GPIO pro Sensor**: Unabhängige Fehlererkennung
-- ✅ **Offline-Betrieb**: Funktioniert auch ohne WLAN weiter
-- ✅ **Open Source**: MIT-Lizenz, frei zu verwenden und zu modifizieren
+- **ESP32-basiert**: Leistungsstarker Mikrocontroller mit WLAN-Anbindung
+- **Active-Low-Relais**: Sichere Standardzustände (Relais AUS während des Boots)
+- **Separate GPIO pro Sensor**: Unabhängige Fehlererkennung
+- **Offline-Betrieb**: Funktioniert auch ohne WLAN weiter
+- **Open Source**: MIT-Lizenz, frei zu verwenden und zu modifizieren
 
 ## 🧭 Schnelle Links
 
 ### Erste Schritte
 
+- **[Hier beginnen](/docs/start-here/)** - Wählen Sie Ihren Weg basierend auf Ihren Zielen
+- **[Schnellstart](/docs/quickstart/)** - Schnellster Weg zum Laufen (60 Minuten)
+- **[Bauanleitung](/docs/getting-started/)** - Umfassende Aufbauanleitung
+- **[Home Assistant Integration](/docs/integrations/home-assistant/)** - Smarthome-Integration
 - **[Aufbau von Grund auf](/docs/components/pool-controller/build-from-zero/)** - Vollständige Aufbauanleitung
 - **[Elektrische Sicherheit](/docs/components/pool-controller/electrical-safety/)** - Wichtige Sicherheitsinformationen
 - **[Produktions-Checkliste](/docs/components/pool-controller/production-checklist/)** - Prüfung vor der Inbetriebnahme
@@ -102,13 +101,6 @@ nutzen eigene Pinbelegungen, siehe `src/Config.hpp` und die oben verlinkten Boar
 | Sensor GND | GND | Masse für Sensoren |
 
 > ⚠️ **Wichtig**: Jede DS18B20-Datenleitung benötigt einen **4,7kΩ Pull-up-Widerstand** zu 3,3V.
-
-## 🚀 Nächste Schritte
-
-1. **[Hier beginnen](/docs/start-here/)** - Wählen Sie Ihren Weg basierend auf Ihren Zielen
-2. **[Schnellstart](/docs/quickstart/)** - Schnellster Weg zum Laufen (60 Minuten)
-3. **[Bauanleitung](/docs/getting-started/)** - Umfassliche Aufbauanleitung
-4. **[Home Assistant Integration](/docs/integrations/home-assistant/)** - Smarthome-Integration
 
 ## 💬 Brauchen Sie Hilfe?
 

@@ -22,16 +22,17 @@ In einer typischen Anlage erwärmt ein thermisches Solarsystem das Wasser und un
 
 ## Teileliste (Bill of Materials)
 
-| Komponente | Preis (ca.) | Hinweise |
-|-----------|-------------|----------|
-| ESP32 DevKit V1 | 10–15 € | Mind. 4MB Flash, USB-Kabel inklusive |
-| DS18B20 Temperatursensor (2x, wasserdicht) | 8–12 € | Edelstahlsonde, 1m Kabel |
-| 2-Kanal-Relais-Modul | 5–8 € | Standard **Aktiv-Low**-Modul — siehe Hinweise |
-| 4,7kΩ Widerstände (2x) | < 1 € | Pull-Up-Widerstände für OneWire-Bus |
-| Breadboard + Jumper-Kabel | 3–8 € | Für Prototyp; für Dauerbetrieb Lochrasterplatine |
-| USB-Netzteil (5V / 1A+) | 5–10 € | Für ESP32 + Relaismodul |
-| Gehäuse (IP54+) | 5–10 € | Optional, aber empfohlen für Außeneinsatz |
-| **Gesamt** | **~35–65 €** | **Ohne Pumpen / Wärmetauscher-Infrastruktur** |
+| Komponente | Hinweise |
+|---|---|
+| ESP32 DevKit V1 | Mind. 4MB Flash, USB-Kabel inklusive |
+| DS18B20 Temperatursensor (2x, wasserdicht) | Edelstahlsonde, 1m Kabel |
+| 2-Kanal-Relais-Modul | Standard **Aktiv-Low**-Modul — siehe Hinweise |
+| 4,7kΩ Widerstände (2x) | Pull-Up-Widerstände für OneWire-Bus |
+| Breadboard + Jumper-Kabel | Für Prototyp; für Dauerbetrieb Lochrasterplatine |
+| USB-Netzteil (5V / 1A+) | Für ESP32 + Relaismodul |
+| Gehäuse (IP54+) | Optional, aber empfohlen für Außeneinsatz |
+
+Preise und vollständige Teileliste: siehe [Stückliste](/docs/bom/) (Controller-Elektronik ~35–55 €, ohne Pumpen und Wärmetauscher-Infrastruktur).
 
 > **⚠️ Relais-Modul Hinweis:** Die Firmware steuert die Relais **Aktiv-Low** (GPIO **LOW** = Relais EIN, GPIO **HIGH** = Relais AUS). Dies entspricht der überwiegenden Mehrheit günstiger 2-Kanal-5V-Relais-Module. Während des ESP32-Starts sind die GPIOs kurz im hochohmigen Zustand — die Firmware setzt sie sofort nach dem Start auf HIGH (Relais AUS). Falls Ihr Modul andersherum arbeitet (Aktiv-High), finden Sie Konfigurationsmöglichkeiten im [Fehlerbehebung](/docs/troubleshooting/).
 
