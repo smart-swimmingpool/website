@@ -1,6 +1,8 @@
 ---
 title: Pool Controller
 weight: 1
+aliases:
+  - /docs/pool-controller/
 tags: ["docs", "pool-controller", "hardware", "firmware"]
 ---
 
@@ -34,32 +36,32 @@ The Pool Controller handles:
 
 ### Getting Started
 
-- **[Build from Zero](/docs/pool-controller/build-from-zero/)** - Complete build guide
-- **[Electrical Safety](/docs/pool-controller/electrical-safety/)** - Important safety information
-- **[Production Checklist](/docs/pool-controller/production-checklist/)** - Pre-deployment verification
-- **[Security Checklist](/docs/pool-controller/security-checklist/)** - Security best practices
+- **[Build from Zero](/docs/components/pool-controller/build-from-zero/)** - Complete build guide
+- **[Electrical Safety](/docs/components/pool-controller/electrical-safety/)** - Important safety information
+- **[Production Checklist](/docs/components/pool-controller/production-checklist/)** - Pre-deployment verification
+- **[Security Checklist](/docs/components/pool-controller/security-checklist/)** - Security best practices
 
 ### Hardware
 
-- **[Hardware Guide](/docs/pool-controller/hardware-guide/)** - Components, wiring and status LED
-- **[ESP32 Wiring Schematic](/docs/pool-controller/esp32-complete-wiring-schematic/)** - Complete connection guide
-- **[NORVI AE01-R](/docs/pool-controller/norvi-ae01-r/)** - Industrial DIN-rail variant
-- **[Olimex ESP32-C6-EVB](/docs/pool-controller/olimex-esp32-c6-evb/)** - Variant with TFT display and rotary encoder
-- **[Contactor Guide](/docs/pool-controller/contactor-guide/)** - Switching pumps safely
+- **[Hardware Guide](/docs/components/pool-controller/hardware-guide/)** - Components, wiring and status LED
+- **[ESP32 Wiring Schematic](/docs/components/pool-controller/esp32-complete-wiring-schematic/)** - Complete connection guide
+- **[NORVI AE01-R](/docs/components/pool-controller/norvi-ae01-r/)** - Industrial DIN-rail variant
+- **[Olimex ESP32-C6-EVB](/docs/components/pool-controller/olimex-esp32-c6-evb/)** - Variant with TFT display and rotary encoder
+- **[Contactor Guide](/docs/components/pool-controller/contactor-guide/)** - Switching pumps safely
 - **[Bill of Materials](/docs/bom/)** - Complete parts list
 
 ### Firmware
 
-- **[Software Guide](/docs/pool-controller/software-guide/)** - Building and flashing the firmware
-- **[User's Guide](/docs/pool-controller/users-guide/)** - Configuration via web interface
-- **[MQTT Configuration](/docs/pool-controller/mqtt-configuration/)** - Broker setup and topics
-- **[OTA Updates](/docs/pool-controller/ota-updates/)** - Firmware updates over the air
+- **[Software Guide](/docs/components/pool-controller/software-guide/)** - Building and flashing the firmware
+- **[User's Guide](/docs/components/pool-controller/users-guide/)** - Configuration via web interface
+- **[MQTT Configuration](/docs/components/pool-controller/mqtt-configuration/)** - Broker setup and topics
+- **[OTA Updates](/docs/components/pool-controller/ota-updates/)** - Firmware updates over the air
 
 ### Advanced
 
-- **[Safety Model](/docs/pool-controller/safety-model/)** - Safety architecture
-- **[Temperature-Based Circulation](/docs/pool-controller/temperature-based-circulation/)** - Adaptive filter runtime
-- **[Troubleshooting Matrix](/docs/pool-controller/troubleshooting-matrix/)** - Common issues and solutions
+- **[Safety Model](/docs/components/pool-controller/safety-model/)** - Safety architecture
+- **[Temperature-Based Circulation](/docs/components/pool-controller/temperature-based-circulation/)** - Adaptive filter runtime
+- **[Troubleshooting Matrix](/docs/components/pool-controller/troubleshooting-matrix/)** - Common issues and solutions
 
 ## 🔧 Hardware Requirements
 
@@ -72,7 +74,7 @@ The Pool Controller handles:
 | 2× DS18B20 Sensors | Temperature measurement | 6-10 € |
 | 4.7kΩ Resistors (2x) | Pull-up resistors | < 1 € |
 | Breadboard + Wires | Prototyping | 3-8 € |
-| **Total** | | **~30 €** |
+| **Total** | | **~35–55 €** (see [BOM](/docs/bom/)) |
 
 ### Production Setup
 
@@ -105,11 +107,11 @@ builds use their own pin maps, see `src/Config.hpp` and the board pages linked a
 
 1. **[Start Here](/docs/start-here/)** - Choose your path based on your goals
 2. **[Quick Start](/docs/quickstart/)** - Fastest way to get running (60 minutes)
-3. **[Getting Started](/docs/getting-started/)** - Comprehensive build guide
-4. **[Home Assistant Integration](/docs/home-assistant-integration/)** - Smart home integration
+3. **[Build Guide](/docs/getting-started/)** - Comprehensive build guide
+4. **[Home Assistant Integration](/docs/integrations/home-assistant/)** - Smart home integration
 
 ## 💬 Need Help?
 
-- Check the **[FAQ & Troubleshooting](/docs/troubleshooting/)** page
+- Check the **[Troubleshooting](/docs/troubleshooting/)** page
 - Visit the **[Pool Controller Repository](https://github.com/smart-swimmingpool/pool-controller)**
 - Open an **[Issue](https://github.com/smart-swimmingpool/pool-controller/issues)** for bugs or feature requests

@@ -1,6 +1,6 @@
 ---
-title: Erste Schritte
-weight: 10
+title: "Bauanleitung"
+weight: 13
 tags: ["docs", "getting-started", "tutorial"]
 ---
 
@@ -31,9 +31,9 @@ In einer typischen Anlage erwärmt ein thermisches Solarsystem das Wasser und un
 | Breadboard + Jumper-Kabel | 3–8 € | Für Prototyp; für Dauerbetrieb Lochrasterplatine |
 | USB-Netzteil (5V / 1A+) | 5–10 € | Für ESP32 + Relaismodul |
 | Gehäuse (IP54+) | 5–10 € | Optional, aber empfohlen für Außeneinsatz |
-| **Gesamt** | **~45–75 €** | **Ohne Pumpen / Wärmetauscher-Infrastruktur** |
+| **Gesamt** | **~35–65 €** | **Ohne Pumpen / Wärmetauscher-Infrastruktur** |
 
-> **⚠️ Relais-Modul Hinweis:** Die Firmware steuert die Relais **Aktiv-Low** (GPIO **LOW** = Relais EIN, GPIO **HIGH** = Relais AUS). Dies entspricht der überwiegenden Mehrheit günstiger 2-Kanal-5V-Relais-Module. Während des ESP32-Starts sind die GPIOs kurz im hochohmigen Zustand — die Firmware setzt sie sofort nach dem Start auf HIGH (Relais AUS). Falls Ihr Modul andersherum arbeitet (Aktiv-High), finden Sie Konfigurationsmöglichkeiten im [FAQ](/docs/troubleshooting/).
+> **⚠️ Relais-Modul Hinweis:** Die Firmware steuert die Relais **Aktiv-Low** (GPIO **LOW** = Relais EIN, GPIO **HIGH** = Relais AUS). Dies entspricht der überwiegenden Mehrheit günstiger 2-Kanal-5V-Relais-Module. Während des ESP32-Starts sind die GPIOs kurz im hochohmigen Zustand — die Firmware setzt sie sofort nach dem Start auf HIGH (Relais AUS). Falls Ihr Modul andersherum arbeitet (Aktiv-High), finden Sie Konfigurationsmöglichkeiten im [Fehlerbehebung](/docs/troubleshooting/).
 
 ## Hardware-Aufbau
 
@@ -157,7 +157,7 @@ Wenn Sie Home Assistant mit MQTT verwenden:
 4. Der Pool Controller sollte automatisch als neues Gerät erscheinen.
 5. Alle Sensoren, Steuerungen und Konfigurationsparameter erscheinen als Entities — keine manuelle Einrichtung nötig.
 
-> ▶️ **Ausführliche Anleitung**: Siehe [Home Assistant Integrations-Guide](/docs/home-assistant-integration/) für die vollständige Entity-Referenz, Dashboard-Einrichtung, Automatisierungsbeispiele und Fehlerbehebung.
+> ▶️ **Ausführliche Anleitung**: Siehe [Home Assistant Integrations-Guide](/docs/integrations/home-assistant/) für die vollständige Entity-Referenz, Dashboard-Einrichtung, Automatisierungsbeispiele und Fehlerbehebung.
 
 ### Schritt 5: Pumpen anschließen
 
@@ -170,65 +170,12 @@ Erst jetzt — nach erfolgreichem Test — die Pumpen anschließen:
 
 {{< safety-notice type="230v" >}}
 
-## Modulare Systemübersicht
-
-Die Erste-Schritte-Anleitung konzentriert sich auf den **Pool Controller** als zentrales Modul. Das System hat zusätzliche optionale Module:
-
-| Modul | Zweck | Wann hinzufügen |
-|-------|-------|-----------------|
-| **Pool Controller** (diese Anleitung) | Hauptsteuerung: Pumpen, Heizung, Zirkulation | Erforderlich — hier starten |
-| **Home Assistant** | Nativer MQTT Discovery | Automatisch — keine Einrichtung nötig |
-| **Pool Monitor** | Solarbetriebene Temperaturanzeige | Nachdem der Controller läuft |
-| **Grafana Dashboard** | Datenvisualisierung und -verlauf | Wenn Sie historische Diagramme möchten |
-| **openHAB Konfiguration** | Integration mit openHAB | Wenn Sie openHAB statt Home Assistant nutzen |
-| **Smart Analyzer** *(geplant)* | Wasserqualitätsüberwachung | Noch nicht verfügbar |
-
 ## Wie geht es weiter?
 
 Sobald Ihr Pool Controller läuft:
-- Entdecken Sie den **[Home Assistant Integrations-Guide](/docs/home-assistant-integration/)** für die vollständige Entity-Referenz, Dashboard-Einrichtung und Automatisierungsbeispiele
-- Richten Sie das **[Grafana Dashboard](/docs/grafana-dashboard/)** für Temperaturverläufe ein
-- Fügen Sie den **[Pool Monitor](/docs/pool-monitor/)** für ein eigenes Display hinzu
-- Besuchen Sie das **[FAQ](/docs/troubleshooting/)** bei Problemen
-- Folgen Sie der **[openHAB Integrations-Anleitung](/docs/openhab-integration/)**, um openHAB Schritt für Schritt einzurichten
-- Nutzen Sie die **[openHAB Konfiguration](/docs/openhab-configuration/)** als Referenz für die vollständigen Konfigurationsdateien
-
-## Vorbereitungen
-
-Sofern ein Heizkreislauf mit Wärmetauscher vorbereitet ist, kann mit der Umsetzung der smarten Steuerung des Pools begonnen werden.
-
-Herz des Systems ist der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller). Dieser übernimmt:
-
-- Steuerung der Zirkulationszeit für die Sandfilterreinigung
-- Zuschalten des Heizkreislaufs zur Erwärmung des Poolwassers
-- Melden von Status und Temperaturen für die Integration in Smart-Home-Server
-
-Der [Pool Controller](https://github.com/smart-swimmingpool/pool-controller) nutzt [Home Assistant MQTT Discovery](https://www.home-assistant.io/integrations/mqtt/#mqtt-discovery) für nahtlose Smarthome-Integration. Mit der hier vorgestellten Konfiguration kann der Pool-Controller schnell eingerichtet und von jeder Home Assistant-kompatiblen App gesteuert werden.
-
-### Home Assistant Dashboard
-
-Der Pool Controller registriert via MQTT Discovery automatisch alle Sensoren und Steuerelemente in Home Assistant. Nachfolgend ein Beispiel des Dashboards und der zugehörigen Konfigurationseinträge:
-
-![Home Assistant Dashboard](/img/ha-pool-dashboard.jpg)
-
-*Pool-Controller-Entitäten im Home Assistant Dashboard*
-
-![Home Assistant Device Eintrag](/img/ha-pool-device.jpg)
-
-*MQTT Discovery-Geräteeintrag mit allen Sensoren und Steuerungen*
-
-![Home Assistant Konfiguration](/img/ha-pool-config.jpg)
-
-*Konfigurationseinträge für den Pool Controller in Home Assistant*
-
-## Historie
-
-🏊 Smart Swimming Pool basiert auf einem [früheren Projekt](https://github.com/stritti/smart-swimming-pool), das noch nicht modular aufgebaut war und die gesamte Steuerlogik als openHAB-Regeln implementierte.
-
-Die erste Version war im **Sommer 2018** im Einsatz und zeigte einige Schwächen:
-
-- Die Steuerung der Pumpen über 433-MHz-Steckdosenschalter war unzuverlässig — ohne Rückmeldung war der tatsächliche Status unbekannt
-- Die Schaltlogik lebte in openHAB-Regeln, was bei unzuverlässigem WLAN zu Problemen führte
-- MQTT-Nachrichten verwendeten ein proprietäres Format
-
-Aus diesen Erfahrungen entstand die überarbeitete Version des 🏊 Smart Swimming Pools: modular, widerstandsfähig und auf Standards basierend.
+- Entdecken Sie den **[Home Assistant Integrations-Guide](/docs/integrations/home-assistant/)** für die vollständige Entity-Referenz, Dashboard-Einrichtung und Automatisierungsbeispiele
+- Richten Sie das **[Grafana Dashboard](/docs/components/grafana-dashboard/)** für Temperaturverläufe ein
+- Fügen Sie den **[Pool Monitor](/docs/components/pool-monitor/)** für ein eigenes Display hinzu
+- Besuchen Sie das **[Fehlerbehebung](/docs/troubleshooting/)** bei Problemen
+- Folgen Sie der **[openHAB Integrations-Anleitung](/docs/integrations/openhab/)**, um openHAB Schritt für Schritt einzurichten
+- Nutzen Sie die **[openHAB Konfiguration](/docs/integrations/openhab-configuration/)** als Referenz für die vollständigen Konfigurationsdateien

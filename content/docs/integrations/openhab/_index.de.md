@@ -1,6 +1,8 @@
 ---
 title: openHAB Integration
-weight: 15
+weight: 2
+aliases:
+  - /docs/openhab-integration/
 tags: ["docs", "openHAB", "tutorial"]
 ---
 
@@ -9,7 +11,7 @@ tags: ["docs", "openHAB", "tutorial"]
 Im Gegensatz zu [Home Assistant](/docs/getting-started/#step-4-home-assistant-integration), das den Pool Controller automatisch per MQTT Discovery erkennt, erfordert openHAB eine **manuelle Konfiguration**. Diese Anleitung führt Sie Schritt für Schritt durch den Prozess.
 
 > 💡 **Sie nutzen bereits openHAB?**  
-> Die [openHAB Konfiguration](/docs/openhab-configuration/) enthält die vollständigen Referenzdateien (Things, Items, Sitemap). Diese Anleitung erklärt, *wie* Sie diese einrichten und an Ihr System anpassen.
+> Die [openHAB Konfiguration](/docs/integrations/openhab-configuration/) enthält die vollständigen Referenzdateien (Things, Items, Sitemap). Diese Anleitung erklärt, *wie* Sie diese einrichten und an Ihr System anpassen.
 
 ---
 
@@ -17,7 +19,7 @@ Im Gegensatz zu [Home Assistant](/docs/getting-started/#step-4-home-assistant-in
 
 Bevor Sie beginnen, stellen Sie sicher, dass Folgendes vorhanden ist:
 
-1. **Der Pool Controller** ist geflasht und läuft in Ihrem Netzwerk (siehe [Erste Schritte](/docs/getting-started/))
+1. **Der Pool Controller** ist geflasht und läuft in Ihrem Netzwerk (siehe [Bauanleitung](/docs/getting-started/))
 2. **Ein MQTT-Broker** (z. B. [Mosquitto](https://mosquitto.org/)) — installieren Sie ihn auf dem gleichen Rechner wie openHAB oder in Ihrem Netzwerk
 3. **openHAB** (Version 3 oder 4) läuft und ist über die Weboberfläche erreichbar
 
@@ -103,7 +105,7 @@ mosquitto_sub -h <broker-ip> -t "homeassistant/#" -v
 mosquitto_sub -h <broker-ip> -t "homeassistant/+/pool-controller/#" -v
 ```
 
-> ⚠️ **Hinweis**: Die Geräte-ID Ihres Controllers kann von `pool-controller` abweichen, wenn Sie die **MQTT-Geräte-ID** in der Weboberfläche des Pool Controllers geändert haben. Passen Sie das Topic-Präfix entsprechend an.
+> ℹ️ **Hinweis**: Der Topic-Abschnitt `pool-controller` ist in der Firmware fest vorgegeben. Nur die Home-Assistant-Geräte-ID (`pool_controller_<letzte 3 MAC-Bytes>`) leitet sich aus der MAC-Adresse ab; sie kommt in den hier verwendeten Topics nicht vor.
 
 ---
 
@@ -171,7 +173,7 @@ Bridge mqtt:broker:mosquitto "Mosquitto" [ host="127.0.0.1", port=1883, secure=f
 }
 ```
 
-> **Ersetzen Sie `pool-controller`** in den Topic-Pfaden durch Ihre tatsächliche Geräte-ID, falls Sie diese geändert haben.
+> Der Abschnitt `pool-controller` in den Topic-Pfaden ist fest vorgegeben; es muss nichts ersetzt werden.
 
 ---
 
@@ -318,7 +320,7 @@ Die vollständige Referenzkonfiguration liegt im **[openhab-config Repository](h
 | [`items/2-pool.items`](https://github.com/smart-swimmingpool/openhab-config/blob/master/items/2-pool.items) | Item-Definitionen verknüpft mit Channels |
 | [`sitemaps/pool.sitemap`](https://github.com/smart-swimmingpool/openhab-config/blob/master/sitemaps/pool.sitemap) | BasicUI- und App-Layout |
 
-> **Hinweis**: Das openhab-config Repository verwendet derzeit **Homie 3.0** MQTT-Topics (für Controller v2.x). Wenn Sie Controller v3.x betreiben, passen Sie die Topics an das in dieser Anleitung gezeigte `homeassistant/`-Format an. Siehe dazu die [Firmware-Migration](/docs/firmware-migration/).
+> **Hinweis**: Das openhab-config Repository verwendet derzeit **Homie 3.0** MQTT-Topics (für Controller v2.x). Wenn Sie Controller v3.x betreiben, passen Sie die Topics an das in dieser Anleitung gezeigte `homeassistant/`-Format an. Siehe dazu die [Firmware-Migration](/docs/migration/v2-to-v3/).
 
 ---
 
@@ -342,6 +344,6 @@ Die vollständige Referenzkonfiguration liegt im **[openhab-config Repository](h
 - Prüfen Sie, ob der Controller mit dem MQTT-Broker verbunden ist (grüne LED oder Weboberfläche prüfen)
 - Testen Sie manuell: `mosquitto_pub -h <broker-ip> -t "homeassistant/switch/pool-controller/pool_pump/set" -m "ON"`
 
-### Falsche MQTT-Geräte-ID
+### Falsche Topic-Pfade
 
-Die Standard-Geräte-ID ist `pool-controller`. Wenn Sie sie in der Weboberfläche des Controllers geändert haben (**Konfiguration → MQTT → Geräte-ID**), aktualisieren Sie alle Topic-Pfade in Ihrer `.things`-Datei entsprechend.
+Alle Topics der v3.x-Firmware haben die Form `homeassistant/<Komponente>/pool-controller/<Objekt-ID>/…`. Enthält Ihre `.things`-Datei noch Homie-Topics (`homie/<mac>/…`) aus v2.x, ersetzen Sie diese — siehe die [Migrationsanleitung v2.x → v3.x](/docs/migration/v2-to-v3/).

@@ -1,6 +1,6 @@
 ---
 title: Upgrade & Migration
-weight: 25
+weight: 53
 tags: ["docs", "migration", "upgrade", "releases"]
 ---
 
@@ -37,13 +37,7 @@ Dieses Update ist ein **komplettes Rewrite** der Firmware. Das gesamte MQTT-Prot
 
 ### Migrationsschritte
 
-1. **Einstellungen sichern** — Screenshots der v2.x-Konfiguration machen (MQTT-Broker, Temperaturgrenzen, Timer)
-2. **Neue Firmware flashen** via USB (PlatformIO, Umgebung `esp32dev`)
-3. **Dateisystem-Image hochladen** (`pio run -e esp32dev -t uploadfs`)
-4. **Alles neu konfigurieren** via Weboberfläche (WLAN, MQTT, Temperaturgrenzen)
-5. **Home Assistant neu konfigurieren:** Neuer Controller erscheint als neues Gerät. Entities zum Dashboard hinzufügen. Altes v2.x-Gerät in HA löschen
-6. **Automationen anpassen:** MQTT-Topics haben sich geändert — alle Homie-basierten Automatisierungen aktualisieren
-7. **Überprüfen:** Alle Sensoren melden korrekte Werte, Pumpen reagieren
+Die Schritt-für-Schritt-Anleitung — Flashen, Neukonfiguration, Topic-Mapping für Home Assistant und openHAB sowie Rollback — steht auf einer eigenen Seite: **[Migrationsanleitung v2.x → v3.x](/docs/migration/v2-to-v3/)**.
 
 ### Was sich verbessert hat
 

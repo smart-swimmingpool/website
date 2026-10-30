@@ -1,13 +1,15 @@
 ---
 title: Water Quality Monitor
-weight: 1
+weight: 4
+aliases:
+  - /docs/water-quality-monitor/
 tags: ["docs", "water-quality", "pH", "chlorine", "esp8266"]
 ---
 
 # 🧪 Water Quality Monitor
 
-Der **Water Quality Monitor** ist ein geplantes Modul, das die chemische Wasserqualität deines
-Pools misst — **pH-Wert**, **Chlor** und **Wassertemperatur** — und die Werte per MQTT an dein
+Der **Water Quality Monitor** ist ein geplantes Modul, das die chemische Wasserqualität Ihres
+Pools misst — **pH-Wert**, **Chlor** und **Wassertemperatur** — und die Werte per MQTT an Ihr
 Smarthome-System sendet.
 
 > [!WARNING]
@@ -24,13 +26,13 @@ Smarthome-System sendet.
 
 ## 🧩 Einbindung ins Smart-Swimming-Pool-System
 
-- Veröffentlicht Messwerte per **MQTT**, wie der [Pool Controller](/docs/pool-controller/)
-- Werte lassen sich speichern und visualisieren, z. B. mit dem [Grafana Dashboard](/docs/grafana-dashboard/)
-- Nutzbar in [Home Assistant](/docs/home-assistant-integration/) und [openHAB](/docs/openhab-integration/)
+- Veröffentlicht Messwerte per **MQTT**, wie der [Pool Controller](/docs/components/pool-controller/)
+- Werte lassen sich speichern und visualisieren, z. B. mit dem [Grafana Dashboard](/docs/components/grafana-dashboard/)
+- Nutzbar in [Home Assistant](/docs/integrations/home-assistant/) und [openHAB](/docs/integrations/openhab/)
 
 ## 🧭 Dokumentation
 
-- **[Hardware-Anleitung](/docs/water-quality-monitor/hardware-guide/)** - Sensoroptionen, Schaltungsideen und Stückliste (englisch)
+- **[Hardware-Anleitung](/docs/components/water-quality-monitor/hardware-guide/)** - Sensoroptionen, Schaltungsideen und Stückliste (englisch)
 - **[Repository](https://github.com/smart-swimmingpool/water-quality-monitor)** - Quellcode und aktueller Stand
 
 ## 🤝 Mitmachen
@@ -41,4 +43,4 @@ Smarthome-System sendet.
 - Praxistests durchführen und mit Teststreifen/Testkits vergleichen
 
 Öffne ein **[Issue](https://github.com/smart-swimmingpool/water-quality-monitor/issues)**, um Ideen
-zu diskutieren oder deinen Beitrag abzustimmen.
+zu diskutieren oder Ihren Beitrag abzustimmen.

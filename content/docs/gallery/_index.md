@@ -1,6 +1,6 @@
 ---
 title: Gallery
-weight: 99
+weight: 63
 cascade:
   showToc: false
 ---

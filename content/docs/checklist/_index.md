@@ -1,6 +1,6 @@
 ---
 title: Commissioning Checklist
-weight: 11
+weight: 23
 tags: ["docs", "checklist", "safety", "commissioning"]
 ---
 

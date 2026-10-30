@@ -1,6 +1,6 @@
 ---
 title: Publications
-weight: 80
+weight: 62
 tags: ["docs", "publication"]
 ---
 

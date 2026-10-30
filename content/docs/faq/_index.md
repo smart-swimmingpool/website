@@ -1,6 +1,6 @@
 ---
-title: Frequently Asked Questions
-weight: 28
+title: "FAQ"
+weight: 51
 tags: ["docs", "faq"]
 ---
 
@@ -91,17 +91,27 @@ The **ESP32 and relay module are NOT weatherproof** out of the box. For outdoor 
 
 **No.** This is a hobbyist DIY project. It has not been tested or certified by any regulatory body. You build and operate it at your own risk. Always use an **RCD / FI circuit breaker** when connecting to mains power.
 
+### The system cost more than 100€ — is that normal?
+
+The **~35–55€** estimate covers the **controller electronics only** (ESP32, sensors, relay, breadboard, power supply); with enclosure and mechanics plan **~60–100€**. It does **not** include:
+- Pool pump and filter system
+- Heating circuit pump
+- Heat exchanger installation
+- Wiring materials (cables, connectors, circuit breakers)
+
+If you need to add these, the total project cost can be significantly higher.
+
 ---
 
 ## Smart Home Integration
 
 ### Does it work with Home Assistant?
 
-**Yes, seamlessly.** The controller uses **Home Assistant MQTT Discovery** — it automatically registers all sensors, controls, and configuration parameters as entities. No YAML configuration is needed. See the [Home Assistant Integration](/docs/home-assistant-integration/) guide.
+**Yes, seamlessly.** The controller uses **Home Assistant MQTT Discovery** — it automatically registers all sensors, controls, and configuration parameters as entities. No YAML configuration is needed. See the [Home Assistant Integration](/docs/integrations/home-assistant/) guide.
 
 ### Does it work with openHAB?
 
-**Yes.** The controller publishes all data via MQTT using the Homie convention (v2.x) or HA Discovery format (v3.x). openHAB can subscribe to these topics via its MQTT binding. See the [openHAB Configuration](/docs/openhab-configuration/) page.
+**Yes.** The controller publishes all data via MQTT using the Homie convention (v2.x) or HA Discovery format (v3.x). openHAB can subscribe to these topics via its MQTT binding. See the [openHAB Configuration](/docs/integrations/openhab-configuration/) page.
 
 ### Does it work with Alexa, Google Home, or Apple HomeKit?
 
@@ -109,7 +119,7 @@ The **ESP32 and relay module are NOT weatherproof** out of the box. For outdoor 
 
 ### Can I use Grafana with this?
 
-**Yes.** The pool controller publishes all data to MQTT. You can use [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) to ingest MQTT data into [InfluxDB](https://www.influxdata.com/) and visualize it with [Grafana](/docs/grafana-dashboard/).
+**Yes.** The pool controller publishes all data to MQTT. You can use [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) to ingest MQTT data into [InfluxDB](https://www.influxdata.com/) and visualize it with [Grafana](/docs/components/grafana-dashboard/).
 
 ---
 
