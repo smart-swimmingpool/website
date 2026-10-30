@@ -34,18 +34,18 @@ The core is the **Pool Controller**, an ESP32-based device that:
 
 ---
 
-## 📦 Modules at a Glance
+## 🗂️ Repositories
 
-| Module | Purpose | Difficulty | Cost |
-|--------|---------|------------|------|
-| **[Pool Controller](/docs/components/pool-controller/)** | Main control logic (required) | ⭐⭐ | ~35–55 € |
-| **[Home Assistant Integration](/docs/integrations/home-assistant/)** | Smart home dashboard | ⭐ | Free |
-| **[openHAB Integration](/docs/integrations/openhab/)** | Alternative smart home | ⭐⭐ | Free |
-| **[Pool Monitor](/docs/components/pool-monitor/)** | Wireless temperature display | ⭐⭐ | ~20–40 € |
-| **[Grafana Dashboard](/docs/components/grafana-dashboard/)** | Data visualization | ⭐ | Free |
-| **[Water Quality Monitor](/docs/components/water-quality-monitor/)** | pH, chlorine and temperature (in development) | ⭐⭐⭐ | tbd |
+Module details (purpose, difficulty, cost) are in [Components](/docs/components/) and [Smart Home Integration](/docs/integrations/). The controller cost covers the electronics only; the [Bill of Materials](/docs/bom/) lists enclosure, mains wiring and tools as well.
 
-Costs for the controller are for the electronics only; the [Bill of Materials](/docs/bom/) lists enclosure, mains wiring and tools as well.
+| Repository | Purpose | Language |
+|-----------|---------|----------|
+| [pool-controller](https://github.com/smart-swimmingpool/pool-controller) | ESP32 firmware, web UI, hardware docs | C++ (PlatformIO) |
+| [monitor](https://github.com/smart-swimmingpool/monitor) | Solar-powered temperature display | C++ |
+| [grafana-dashboard](https://github.com/smart-swimmingpool/grafana-dashboard) | Grafana dashboard JSON | JSON |
+| [water-quality-monitor](https://github.com/smart-swimmingpool/water-quality-monitor) | pH and chlorine monitor (in development) | — |
+| [openhab-config](https://github.com/smart-swimmingpool/openhab-config) | openHAB configuration (legacy) | openHAB DSL |
+| [website](https://github.com/smart-swimmingpool/website) | Project website (Hugo) | Markdown, Hugo |
 
 ---
 

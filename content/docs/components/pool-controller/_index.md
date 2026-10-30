@@ -21,21 +21,20 @@ The Pool Controller handles:
 - **MQTT Integration**: Publishes all data using Home Assistant MQTT Discovery format
 - **Web Interface**: Built-in configuration UI for easy setup
 - **Autonomous Operation**: Works independently without a smart home server
-
-## ✨ Key Features
-
-- ✅ **ESP32-based**: Powerful microcontroller with WiFi connectivity
-- ✅ **MQTT Discovery**: Automatic integration with Home Assistant
-- ✅ **Web UI**: Easy configuration via browser
-- ✅ **Active-Low Relays**: Safe default state (relays OFF during boot)
-- ✅ **Separate GPIO per Sensor**: Independent fault detection
-- ✅ **Offline Operation**: Continues working without WiFi
-- ✅ **Open Source**: MIT License, free to use and modify
+- **ESP32-based**: Powerful microcontroller with WiFi connectivity
+- **Active-Low Relays**: Safe default state (relays OFF during boot)
+- **Separate GPIO per Sensor**: Independent fault detection
+- **Offline Operation**: Continues working without WiFi
+- **Open Source**: MIT License, free to use and modify
 
 ## 🧭 Quick Links
 
 ### Getting Started
 
+- **[Start Here](/docs/start-here/)** - Choose your path based on your goals
+- **[Quick Start](/docs/quickstart/)** - Fastest way to get running (60 minutes)
+- **[Build Guide](/docs/getting-started/)** - Comprehensive build guide
+- **[Home Assistant Integration](/docs/integrations/home-assistant/)** - Smart home integration
 - **[Build from Zero](/docs/components/pool-controller/build-from-zero/)** - Complete build guide
 - **[Electrical Safety](/docs/components/pool-controller/electrical-safety/)** - Important safety information
 - **[Production Checklist](/docs/components/pool-controller/production-checklist/)** - Pre-deployment verification
@@ -102,13 +101,6 @@ builds use their own pin maps, see `src/Config.hpp` and the board pages linked a
 | Sensor GND | GND | Ground for sensors |
 
 > ⚠️ **Important**: Each DS18B20 data line requires a **4.7kΩ pull-up resistor** to 3.3V.
-
-## 🚀 Next Steps
-
-1. **[Start Here](/docs/start-here/)** - Choose your path based on your goals
-2. **[Quick Start](/docs/quickstart/)** - Fastest way to get running (60 minutes)
-3. **[Build Guide](/docs/getting-started/)** - Comprehensive build guide
-4. **[Home Assistant Integration](/docs/integrations/home-assistant/)** - Smart home integration
 
 ## 💬 Need Help?
 

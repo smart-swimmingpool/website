@@ -22,3 +22,15 @@ Auch verfügbar als [Blog-Beiträge]({{< relref path="/blog" lang="de" >}}) auf 
   Englischer Blogpost über Version 1 des Smart Swimming Pool.
 
   📄 [Hier auf der Seite lesen]({{< relref path="/blog/smart-swimming-pool-project" lang="en" >}})
+
+## Projektgeschichte
+
+🏊 Smart Swimming Pool basiert auf einem [früheren Projekt](https://github.com/stritti/smart-swimming-pool), das noch nicht modular aufgebaut war und die gesamte Steuerlogik als openHAB-Regeln implementierte.
+
+Die erste Version war im **Sommer 2018** im Einsatz und zeigte einige Schwächen:
+
+- Die Steuerung der Pumpen über 433-MHz-Steckdosenschalter war unzuverlässig — ohne Rückmeldung war der tatsächliche Status unbekannt
+- Die Schaltlogik lebte in openHAB-Regeln, was bei unzuverlässigem WLAN zu Problemen führte
+- MQTT-Nachrichten verwendeten ein proprietäres Format
+
+Aus diesen Erfahrungen entstand die überarbeitete Version des 🏊 Smart Swimming Pools: modular, widerstandsfähig und auf Standards basierend.

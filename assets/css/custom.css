@@ -497,51 +497,41 @@ a, button, .hextra-feature-card, nav * {
   position: relative;
 }
 
-/* ===== Call to action section ===== */
-
-.cta-section {
-  text-align: center;
-  padding: 3rem 1rem;
-}
-
-.cta-section h2 {
-  margin-top: 0 !important;
-  margin-bottom: 1rem !important;
-}
-
-.cta-section h2::after {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.cta-section .not-prose a {
-  margin-top: 0.5rem;
-}
-
 /* ===== Layout fixes =====
  * Classes used only in custom layouts/shortcodes are not always emitted by the
  * theme's Tailwind build, so the essentials are defined here as plain CSS. */
 
 /* Headings inside raw HTML blocks do not get the theme's heading styles */
-.water-texture-bg h2,
-.cta-section h2 {
+.home-title {
   font-size: 1.875rem;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.015em;
-  margin: 0 0 1rem;
+  margin: 3rem 0 1.5rem;
+  padding: 0 1.5rem;
 }
 
-.cta-section {
-  text-align: center;
-  padding: 3rem 1.5rem;
+.home-start {
+  padding: 0 1.5rem 3rem;
+  font-size: 1.125rem;
 }
 
-.cta-section .mt-4 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
+.home-start ol {
+  list-style: decimal;
+  margin-left: 1.5rem;
+}
+
+.home-start li + li {
+  margin-top: 0.5rem;
+}
+
+.home-start a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.home-start p {
+  margin-top: 1.5rem;
 }
 
 /* 230 V warning box */
