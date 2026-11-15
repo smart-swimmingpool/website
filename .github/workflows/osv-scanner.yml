@@ -1,0 +1,42 @@
+name: OSV-Scanner
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "requirements.txt"
+      - ".github/workflows/osv-scanner.yml"
+  push:
+    branches: [main]
+    paths:
+      - "requirements.txt"
+      - ".github/workflows/osv-scanner.yml"
+  schedule:
+    # Weekly scan every Monday at 07:00 UTC to catch newly disclosed vulnerabilities
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+  # Required to upload SARIF results to the Security > Code Scanning tab
+  security-events: write
+
+concurrency:
+  group: osv-scanner-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  # Compares the PR against the base branch and reports only newly introduced vulnerabilities
+  scan-pr:
+    if: github.event_name == 'pull_request'
+    uses: "google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.7.1"
+
+  # Full scan of the repository (detects requirements.txt automatically); fails on known vulnerabilities
+  scan:
+    if: github.event_name != 'pull_request'
+    uses: "google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.7.1"
+    with:
+      scan-args: |-
+        --recursive
+        ./
